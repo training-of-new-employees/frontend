@@ -40,7 +40,7 @@ export function Button({
 			);
 		default:
 			return (
-				<button {...props} type={type} className={clsx('button', ...style)}>
+				<button {...props} type="button" className={clsx('button', ...style)}>
 					{label}
 				</button>
 			);
