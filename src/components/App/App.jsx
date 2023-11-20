@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import paths from '../../utils/constants';
+import { paths } from '../../utils/constants';
 
 import appStyles from './App.module.scss';
 
