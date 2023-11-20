@@ -1,7 +1,7 @@
 class MainApi {
-    constructor() {
+    constructor(url) {
         // урл бэка на который кидаем запросы
-        this._baseUrl = "";
+        this._baseUrl = url;
     }
 
     //при ошибке выводит в консоль посвеченную надпись об ошибке
