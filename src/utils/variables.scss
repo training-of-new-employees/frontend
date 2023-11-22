@@ -1,0 +1,48 @@
+//*background color
+$bgc-main: #61B26A;
+$bgc-white: #FFF;
+//в профиле
+$bgc-gray: #F6F8F5;
+
+//*color
+//цвет заголовков, основной цвет текста, текст попапа с картинками
+$color-black: #2C2E2C;
+//цвет ссылок
+$color-blue: #6195B2;
+//цвет инпутов до заполнения, цвет заглавия таблички в профайл(фио, должность и т д)
+$color-gray: #7D7E7C;
+//error обводка инпута с ошибкой
+$color-red: #BC3A3A;
+
+//*mixin
+//стили для заголовков форм, подтверждение email
+mixin title {
+  color: $color-black;
+  font-family: Rubik;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 44.8px; /* 140% */
+}
+
+//основной текст, текст ссылки, футера (без цвета)
+mixin text-size-16 {
+  font-family: Rubik;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+// стили текста для активного и не активного инпута (без цвета)
+mixin text-size-14 {
+  font-family: Rubik;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+//основные стили всех кнопок
+mixin button {
+  @include text-size-16;
+  border-radius: 12px;
+  padding: 12px 20px;
+}
