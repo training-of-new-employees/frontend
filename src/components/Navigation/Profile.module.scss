@@ -1,0 +1,27 @@
+.block{
+  display: flex;
+  flex-direction: row;
+}
+
+.image{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+
+.textContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.name{
+  padding: 0;
+  margin: 0;
+}
+
+.job{
+  padding: 0;
+  margin: 0;
+}

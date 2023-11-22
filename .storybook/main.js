@@ -6,6 +6,7 @@ const config = {
 		'@storybook/addon-essentials',
 		'@storybook/preset-create-react-app',
 		'@storybook/addon-interactions',
+		'storybook-css-modules',
 	],
 	framework: {
 		name: '@storybook/react-webpack5',
