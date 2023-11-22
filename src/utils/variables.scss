@@ -18,7 +18,7 @@ $color-red: #BC3A3A;
 
 //*mixin
 //стили для заголовков форм, подтверждение email
-mixin title {
+@mixin title {
   color: $color-black;
   font-family: Rubik;
   font-size: 32px;
@@ -27,7 +27,7 @@ mixin title {
 }
 
 //основной текст, текст ссылки, футера (без цвета)
-mixin text-size-16 {
+@mixin text-size-16 {
   font-family: Rubik;
   font-size: 16px;
   font-weight: 400;
@@ -35,7 +35,7 @@ mixin text-size-16 {
 }
 
 // стили текста для активного и не активного инпута (без цвета)
-mixin text-size-14 {
+@mixin text-size-14 {
   font-family: Rubik;
   font-size: 14px;
   font-weight: 400;
@@ -43,8 +43,9 @@ mixin text-size-14 {
 }
 
 //основные стили всех кнопок
-mixin button {
+@mixin button {
   @include text-size-16;
   border-radius: 12px;
+  border: 1px solid #61B26A;
   padding: 12px 20px;
 }
