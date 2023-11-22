@@ -1,25 +1,23 @@
-.navigation{
-  display: flex;
-  flex-direction: column;
+.navigation {
+	display: flex;
+	flex-direction: column;
 }
 
-.item{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin: 0;
+.item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0;
+	margin: 0;
 }
 
-.item_active{
-  background-color: rgba(236, 255, 238, 1);
-  border-left: 5px solid rgba(113, 200, 122, 1);
+.item_active {
+	background-color: rgba(236, 255, 238, 1);
+	border-left: 5px solid rgba(113, 200, 122, 1);
 }
 
-.span{
-
+.span {
 }
 
-.spanImage{
-
+.spanImage {
 }
