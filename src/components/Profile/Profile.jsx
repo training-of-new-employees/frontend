@@ -1,9 +1,8 @@
-/* eslint-disable arrow-body-style */
 import { useState } from 'react';
 
-import AdminIcon from '../../images/ui/Admin.svg';
+import adminIcon from '../../images/ui/Admin.svg';
 import uploadPhoto from '../../images/ui/Photo.svg';
-import ExamplePhoto from '../../images/example/UserPhotoExample.png';
+import examplePhoto from '../../images/example/UserPhotoExample.png';
 
 import profileInfoStyles from './ProfileInfo.module.scss';
 
@@ -12,7 +11,7 @@ const ProfileInfo = () => {
 		name: 'Алла Андреева',
 		position: 'Администратор',
 		email: 'admin@yandex.ru',
-		photo: ExamplePhoto,
+		photo: examplePhoto,
 	});
 
 	return (
@@ -22,7 +21,7 @@ const ProfileInfo = () => {
 				<div className={profileInfoStyles.userRoleContainer}>
 					<p>Роль:</p>
 					<div className={profileInfoStyles.roleContainer}>
-						<img alt="Администратор" src={AdminIcon} />
+						<img alt="Администратор" src={adminIcon} />
 					</div>
 				</div>
 			</div>
