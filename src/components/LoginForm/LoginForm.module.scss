@@ -62,6 +62,15 @@
 	cursor: pointer;
 }
 
+.input_label {
+	color: #2c2e2c;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.25;
+	cursor: pointer;
+}
+
 .buttons_container {
 	display: flex;
 	flex-direction: column;
@@ -92,7 +101,7 @@
 
 .button {
 	background-color: #fff;
-	border: 1px solid #61B26A;
+	border: 1px solid #61b26a;
 	border-radius: 12px;
 	padding: 12px 20px;
 	cursor: pointer;

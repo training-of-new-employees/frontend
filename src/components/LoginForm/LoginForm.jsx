@@ -1,57 +1,62 @@
-import LoginFormStyles from './LoginForm.module.scss';
+import loginFormStyles from './LoginForm.module.scss';
 
 // @TODO добавить минимальное и максимальное значение символов в инпутах
 // @TODO настроить в будущем кнопку "зарегистрироваться"
 // @TODO настроить в будущем кнопку "забыли пароль"
 // @TODO настроить в будущем кнопку "запомнить меня"
 // @TODO сформировать внешний вид чекбоса по макету
-// @TODO разобраться почему еслинт ругается на label
 // @TODO сделать сабмит
 
 export default function LoginForm() {
 	return (
-		<div className={LoginFormStyles.form_container}>
-			<h1 className={LoginFormStyles.form_title}>Добро пожаловать!</h1>
-			<form className={LoginFormStyles.form}>
-				<p className={LoginFormStyles.input_inscription}>E-mail</p>
+		<div className={loginFormStyles.form_container}>
+			<h1 className={loginFormStyles.form_title}>Добро пожаловать!</h1>
+			<form className={loginFormStyles.form}>
+				<p className={loginFormStyles.input_inscription}>E-mail</p>
 				<input
 					id="login-email"
 					required
-					className={LoginFormStyles.input}
+					className={loginFormStyles.input}
 					type="email"
 					placeholder="Введите e-mail"
 					defaultValue=""
 					name="email"
 				/>
-				<p className={LoginFormStyles.input_inscription}>Пароль</p>
+				<p className={loginFormStyles.input_inscription}>Пароль</p>
 				<input
 					id="login-password"
 					required
-					className={LoginFormStyles.input}
+					className={loginFormStyles.input}
 					type="password"
 					placeholder="Введите пароль"
 					defaultValue=""
 					name="password"
 				/>
-				<div className={LoginFormStyles.info_container}>
-					<div className={LoginFormStyles.checkbox_container}>
+				<div className={loginFormStyles.info_container}>
+					<div className={loginFormStyles.checkbox_container}>
 						<input
-							className={LoginFormStyles.checkbox}
+							className={loginFormStyles.checkbox}
+							id="login-checkbox"
 							type="checkbox"
 							name="checkbox"
 						/>
-						<p className={LoginFormStyles.input_inscription}>Запомнить меня</p>
+						<label
+							className={loginFormStyles.input_label}
+							htmlFor="login-checkbox"
+						>
+							Запомнить меня
+						</label>
 					</div>
-					<a className={LoginFormStyles.forgot_password} to="/forgot">
+					<a className={loginFormStyles.forgot_password} to="/forgot">
 						Забыли пароль?
 					</a>
 				</div>
-				<div className={LoginFormStyles.buttons_container}>
-					<button className={LoginFormStyles.submit} type="submit">
+				<div className={loginFormStyles.buttons_container}>
+					<button className={loginFormStyles.submit} type="submit">
 						Войти
 					</button>
 					<button
-						className={LoginFormStyles.button}
+						className={loginFormStyles.button}
 						type="button"
 						to="/register"
 					>
