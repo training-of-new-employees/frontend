@@ -14,12 +14,12 @@
     column-gap: 8px;
 }
 
-.list__item {
+.listItem {
     padding-right: 8px;
     border-right: solid 2px;
 }
 
-.list__item:last-child {
+.listItem:last-child {
     padding: 0;
     border: none;
 }

@@ -11,10 +11,10 @@ export default function Footer() {
 		<footer className={footerStyles.footer}>
 			<nav>
 				<ul className={footerStyles.list}>
-					<li className={footerStyles.list__item}>
+					<li className={footerStyles.listItem}>
 						<Link to="/">Контакты</Link>
 					</li>
-					<li className={footerStyles.list__item}>
+					<li className={footerStyles.listItem}>
 						<Link to="/">Условия и ограничения</Link>
 					</li>
 				</ul>

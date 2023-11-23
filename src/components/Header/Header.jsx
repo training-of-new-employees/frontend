@@ -13,7 +13,7 @@ export default function Header() {
 			<Link to="/">
 				<img className={headerStyles.headerImage} src={logo} alt="Логотип" />
 			</Link>
-			<div className={headerStyles.header__userContainer}>
+			<div className={headerStyles.headerUserContainer}>
 				<img src="#" alt="фото профиля" />
 				<button
 					className={headerStyles.button}
