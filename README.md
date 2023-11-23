@@ -4,7 +4,7 @@
 Фронтенд часть платформы для обучения новых сотрудников QuickON.
 
 - [Ссылка на макет](https://www.figma.com/file/xJlE2tj2ErCpKZJGtuEwZv/Платформа-для-обучения-новых-сотрудников?type=design&node-id=8-3&mode=design&t=9E8zslkZG1KDeZTx-0).
--
+- [Ссылка на storybook](https://training-of-new-employees.github.io/storybook/).
 
 ## Используемые скрипты
 
