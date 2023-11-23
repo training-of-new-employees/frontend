@@ -1,0 +1,10 @@
+@use '../../utils/variables.scss' as *;
+
+html {
+  background-color: $color-white;
+}
+
+.app {
+  width: 100%;
+  max-width: 1400px;
+}

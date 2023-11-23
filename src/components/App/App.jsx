@@ -22,7 +22,7 @@ const App = () => (
 			<Route path="*" element={<Register />} />
 			<Route path="*" element={<ForgotPassword />} />
 			<Route path="*" element={<ResetPassword />} />
-			<Route path="*" element={<Profile />} />
+			<Route path="/profile" element={<Profile />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 		<Footer />

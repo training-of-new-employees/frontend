@@ -50,6 +50,22 @@
         }
       ],
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-      "import/prefer-default-export": "warn"
+      "import/prefer-default-export": "warn",
+      "jsx-a11y/label-has-associated-control": [
+        "error",
+        {
+          "required": {
+            "some": ["nesing", "id"]
+          }
+        }
+      ],
+      "jsx-a11y/label-has-for": [
+        "error",
+        {
+          "required": {
+            "some": ["nesting", "id"]
+          }
+        }
+      ]
     }
 }
