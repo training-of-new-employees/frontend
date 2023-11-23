@@ -27,4 +27,5 @@ class localStorageApi {
 	};
 }
 
+
 export const apiLocalStore = new localStorageApi();

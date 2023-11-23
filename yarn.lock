@@ -11457,6 +11457,11 @@ storybook-addon-react-router-v6@^2.0.10:
     compare-versions "^6.0.0"
     react-inspector "6.0.2"
 
+storybook-css-modules@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/storybook-css-modules/-/storybook-css-modules-1.0.8.tgz"
+  integrity sha512-anITwllH6nLw0quPElVBLRrE8QDbcRv0Dgl8sKLOc4uiqw+g1GE2l21Stjx3Wyv2O6ZKJScbyOpOuuz3SmeaOQ==
+
 storybook@7.0.7:
   version "7.0.7"
   resolved "https://registry.npmjs.org/storybook/-/storybook-7.0.7.tgz"
