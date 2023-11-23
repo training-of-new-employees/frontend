@@ -1,3 +1,14 @@
+@use '../../utils/variables.scss' as *;
+
+html {
+	background-color: $color-white;
+}
+
+.app {
+	width: 100%;
+	max-width: 1400px;
+}
+
 .page {
   font-family: "Rubik", Arial, sans-serif;
   -moz-osx-font-smoothing: grayscale;
