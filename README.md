@@ -3,7 +3,7 @@
 Приложение создано с помощью [Create React App](https://github.com/facebook/create-react-app).\
 Фронтенд часть платформы для обучения новых сотрудников QuickON.
 
-- [Ссылка на макет](https://www.figma.com/file/xJlE2tj2ErCpKZJGtuEwZv/Платформа-для-обучения-новых-сотрудников?type=design&node-id=8-3&mode=design&t=9E8zslkZG1KDeZTx-0).
+- [Ссылка на макет](https://www.figma.com/file/rDToLVv5F5Zjshy5nYdVbY/%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BD%D0%BE%D0%B2%D1%8B%D1%85-%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2?type=design&node-id=8-3&mode=design&t=XQ6j3tSXZZg2wm1a-0).
 - [Ссылка на storybook](https://training-of-new-employees.github.io/storybook/).
 
 ## Используемые скрипты
