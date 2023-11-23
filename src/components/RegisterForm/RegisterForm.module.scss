@@ -1,4 +1,4 @@
-.form_container {
+.formContainer {
 	box-sizing: border-box;
 	background-color: #fff;
 	border-radius: 8px;
@@ -8,7 +8,7 @@
 	padding: 40px;
 }
 
-.form_title {
+.formTitle {
 	color: #2c2e2c;
 	margin: 0 0 20px 0;
 	font-size: 32px;
@@ -19,7 +19,7 @@
 .form {
 }
 
-.input_inscription {
+.inputInscription {
 	color: #2c2e2c;
 	margin: 0;
 	font-size: 16px;
@@ -45,7 +45,7 @@
 	margin-bottom: 0;
 }
 
-.checkbox_container {
+.checkboxContainer {
 	display: flex;
 	margin: 20px 0;
 	padding: 10px 0 10px 0;
@@ -56,7 +56,7 @@
 	cursor: pointer;
 }
 
-.input_label {
+.inputLabel {
 	color: #2c2e2c;
 	margin: 0;
 	font-size: 16px;
@@ -65,7 +65,7 @@
 	cursor: pointer;
 }
 
-.buttons_container {
+.buttonsContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

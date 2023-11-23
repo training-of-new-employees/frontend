@@ -8,10 +8,10 @@ import registerFormStyles from './RegisterForm.module.scss';
 
 export default function RegisterForm() {
 	return (
-		<div className={registerFormStyles.form_container}>
-			<h1 className={registerFormStyles.form_title}>Регистрация на QuickOn</h1>
+		<div className={registerFormStyles.formContainer}>
+			<h1 className={registerFormStyles.formTitle}>Регистрация на QuickOn</h1>
 			<form className={registerFormStyles.form}>
-				<p className={registerFormStyles.input_inscription}>E-mail</p>
+				<p className={registerFormStyles.inputInscription}>E-mail</p>
 				<input
 					id="register-email"
 					required
@@ -21,7 +21,7 @@ export default function RegisterForm() {
 					defaultValue=""
 					name="email"
 				/>
-				<p className={registerFormStyles.input_inscription}>Пароль</p>
+				<p className={registerFormStyles.inputInscription}>Пароль</p>
 				<input
 					id="register-password"
 					required
@@ -31,7 +31,7 @@ export default function RegisterForm() {
 					defaultValue=""
 					name="password"
 				/>
-				<p className={registerFormStyles.input_inscription}>Компания</p>
+				<p className={registerFormStyles.inputInscription}>Компания</p>
 				<input
 					id="register-company"
 					required
@@ -41,7 +41,7 @@ export default function RegisterForm() {
 					defaultValue=""
 					name="company"
 				/>
-				<div className={registerFormStyles.checkbox_container}>
+				<div className={registerFormStyles.checkboxContainer}>
 					<input
 						className={registerFormStyles.checkbox}
 						id="register-checkbox"
@@ -49,13 +49,13 @@ export default function RegisterForm() {
 						name="checkbox"
 					/>
 					<label
-						className={registerFormStyles.input_label}
+						className={registerFormStyles.inputLabel}
 						htmlFor="register-checkbox"
 					>
 						Запомнить меня
 					</label>
 				</div>
-				<div className={registerFormStyles.buttons_container}>
+				<div className={registerFormStyles.buttonsContainer}>
 					<a className={registerFormStyles.back} to="/login">
 						Назад
 					</a>
