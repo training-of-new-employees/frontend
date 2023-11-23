@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import adminIcon from '../../images/ui/Admin.svg';
 import uploadPhoto from '../../images/ui/Photo.svg';
-import examplePhoto from '../../images/example/UserPhotoExample.png';
+import examplePhoto from '../../images/stubs/Avatar.png';
 
 import profileInfoStyles from './ProfileInfo.module.scss';
 
 const ProfileInfo = () => {
-	const [userState, setUserState] = useState({
+	const [userState] = useState({
 		name: 'Алла Андреева',
 		position: 'Администратор',
 		email: 'admin@yandex.ru',

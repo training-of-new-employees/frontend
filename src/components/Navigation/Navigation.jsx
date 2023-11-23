@@ -5,7 +5,7 @@ import Team from '../../images/ui/Team.svg';
 import Bag from '../../images/ui/Bag.svg';
 import Stats from '../../images/ui/Stats.svg';
 import Settings from '../../images/ui/Settings.svg';
-import Avatar from '../../images/stubs/avatar.png';
+import Avatar from '../../images/stubs/Avatar.png';
 
 // @TODO добавить логику отображения имени пользователя и его должности
 // @TODO заменить теги <a> на <Link>
