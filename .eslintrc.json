@@ -55,7 +55,7 @@
         "error",
         {
           "required": {
-            "some": ["nesing", "id"]
+            "some": ["nesting", "id"]
           }
         }
       ],

@@ -8,7 +8,7 @@ import Settings from '../../images/ui/Settings.svg';
 import Avatar from '../../images/stubs/avatar.png';
 
 // @TODO добавить логику отображения имени пользователя и его должности
-// @TODO заменить <a> на <Link>
+// @TODO заменить теги <a> на <Link>
 
 export default function Navigation() {
 	return (
