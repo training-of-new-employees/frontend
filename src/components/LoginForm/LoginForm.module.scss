@@ -1,4 +1,4 @@
-.form_container {
+.formContainer {
 	box-sizing: border-box;
 	background-color: #fff;
 	border-radius: 8px;
@@ -8,7 +8,7 @@
 	padding: 40px;
 }
 
-.form_title {
+.formTitle {
 	color: #2c2e2c;
 	margin: 0 0 20px 0;
 	text-align: center;
@@ -20,7 +20,7 @@
 .form {
 }
 
-.input_inscription {
+.inputInscription {
 	color: #2c2e2c;
 	margin: 0;
 	font-size: 16px;
@@ -46,14 +46,14 @@
 	margin-bottom: 0;
 }
 
-.info_container {
+.infoContainer {
 	margin: 20px 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.checkbox_container {
+.checkboxContainer {
 	display: flex;
 	padding: 10px 0 10px 0;
 }
@@ -63,7 +63,7 @@
 	cursor: pointer;
 }
 
-.input_label {
+.inputLabel {
 	color: #2c2e2c;
 	margin: 0;
 	font-size: 16px;
@@ -72,13 +72,13 @@
 	cursor: pointer;
 }
 
-.buttons_container {
+.buttonsContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.forgot_password {
+.forgotPassword {
 	color: #6195b2;
 	font-size: 16px;
 	font-weight: 400;
