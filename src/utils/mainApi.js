@@ -47,7 +47,6 @@ class MainApi {
 	//         если ошибка то выводим понятный для нас текст в консоль и потом саму ошибку
 	//         api.getInfoError("Авторизация не удалась", err);
 	//     });
-
 }
 
 export const api = new MainApi();
