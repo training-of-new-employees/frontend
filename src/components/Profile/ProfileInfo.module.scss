@@ -1,0 +1,50 @@
+@use '../../utils/variables.scss' as *;
+
+.profileForm {
+	width: 900px;
+	box-sizing: border-box;
+	padding: 72px 60px 0 180px;
+}
+
+.headerContainer {
+	display: flex;
+	justify-content: space-between;
+	height: 40px;
+	align-items: center;
+}
+
+.header {
+	margin: 0;
+	padding: 0;
+}
+
+.userRoleContainer {
+	height: 100px;
+}
+
+.roleContainer {
+}
+
+.infoContainer {
+}
+
+.pictureContainer {
+}
+
+.profilePicture {
+}
+
+.uploadPhoto {
+}
+
+.mainInfoContainer {
+}
+
+.label {
+}
+
+.inputText {
+}
+
+.inputList {
+}

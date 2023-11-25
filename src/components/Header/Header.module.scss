@@ -1,0 +1,29 @@
+.header {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 12px 20px;
+
+	background-color: #61b26a;
+
+	&UserContainer {
+		display: flex;
+	}
+}
+
+.button {
+	display: block;
+	cursor: pointer;
+	box-sizing: border-box;
+	border: none;
+	padding: 10px;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background-color: #ffffff33;
+}
+
+.headerImage {
+}

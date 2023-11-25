@@ -1,72 +1,86 @@
-# Getting Started with Create React App
+# QuickOn Frontend
 
-hiii
+Приложение создано с помощью [Create React App](https://github.com/facebook/create-react-app).\
+Фронтенд часть платформы для обучения новых сотрудников QuickON.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Ссылка на макет](https://www.figma.com/file/rDToLVv5F5Zjshy5nYdVbY/%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BD%D0%BE%D0%B2%D1%8B%D1%85-%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2?type=design&node-id=8-3&mode=design&t=XQ6j3tSXZZg2wm1a-0).
+- [Ссылка на storybook](https://training-of-new-employees.github.io/storybook/).
 
-## Available Scripts
+## Используемые скрипты
 
-In the project directory, you can run:
+Скрипты проекта:
 
-### `yarn start`
+### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Запускает лайв-сервер по локальному адресу [http://localhost:3000](http://localhost:3000).
+При изменении кода страница обновляется.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `npm test`
 
-### `yarn test`
+Запускает тест в режиме отслеживания.
+Подробнее тут - [running tests](https://facebook.github.io/create-react-app/docs/running-tests).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm build`
 
-### `yarn build`
+Создает готовый проект в папке `build`, который можно деплоить на сервер.\
+Подробнее про деплой - [deployment](https://facebook.github.io/create-react-app/docs/deployment).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `storybook`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Запускает лайв-сервер сторибука по адресу [http://localhost:6006](http://localhost:6006).\
+При изменении кода страница обновляется.\
+При удалении и добавлении новых компонентов могут возникнуть ошибки.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `build-storybook`
 
-### `yarn eject`
+Создает готовый отдельный проект сторибука в папке `storybook-static`, который можно деплоить на сервер.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Другие возможности
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Husky
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Запускает ESLint, Prettier и Commitizen перед отправкой коммита.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Commitizen
 
-## Learn More
+Генерирует шаблоны коммитов в проекте.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### ESLint
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Анализ кода.
 
-### Code Splitting
+#### Prettier
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Форматирование кода.
 
-### Analyzing the Bundle Size
+## Структура проекта
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `components\`
+  Базовые компоненты
+- `pages\`
+  Компоненты роутов
+- `utils\`
+  Переменные и константы
+- `vendor\`
+  Внешние подключаемые ресурсы
+- `images\`
+  Все файлы изображений
+- - `images\stubs`
+    Заглушки любых изображений приходящих с сервера
+- - `images\ui`
+    Картинки элементы интерфейса пользователя
 
-### Making a Progressive Web App
+## Работа с ветками
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Работа с проектом ведется из ветки `develop`.
 
-### Advanced Configuration
+В зависимости от задачи от неё создается ответвление:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `feat/` - фича, новый функционал
+- `fix/` - исправление ошибок, правки
+- `refactor/` - переписывание кода, рефактор
 
-### Deployment
+По окончании работы над веткой требуется создать `Pull request` из рабочей ветки в ветку `Develop`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Пример названия ответвления для нового компонента `Profile` -
+`feat/ProfileComponent`.
