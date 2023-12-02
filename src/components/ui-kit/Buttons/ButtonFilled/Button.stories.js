@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './ButtonFilled';
 
 export default {
 	title: 'ui-kit/Button',

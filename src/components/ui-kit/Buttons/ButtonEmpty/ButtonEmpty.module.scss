@@ -1,0 +1,48 @@
+.button {
+    max-width: 260px;
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: #fff;
+
+    color: var(--Main, #53772F);
+    text-align: center;
+
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: var(--button-hovered, #668447);
+}
+
+.button:active {
+    color: var(--button-pressed, #374629);
+}
+
+.button:disabled {
+    color: var(--text-additional, #7D7E7C);
+}
+
+.icon {
+    margin-right: 8px;
+    color: var(--Main, #53772F);
+}
+
+.icon:hover {
+    color: var(--button-hovered, #668447);
+}
+
+.icon:active {
+    color: var(--button-pressed, #374629);
+}
+
+.icon:disabled {
+    color: var(--text-additional, #7D7E7C);
+}

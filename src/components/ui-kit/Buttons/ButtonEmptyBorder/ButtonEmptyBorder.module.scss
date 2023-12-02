@@ -1,0 +1,42 @@
+.button {
+    max-width: 260px;
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 2px solid var(--Main, #53772F);
+    background-color: #fff;
+
+    color: var(--Main, #53772F);
+    text-align: center;
+
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    cursor: pointer;
+}
+
+.button:hover {
+    border: 2px solid var(--button-hovered, #668447);
+    color: var(--button-hovered, #668447);
+}
+
+.button:active {
+    border: 2px solid var(--button-pressed, #374629);
+    color: var(--button-pressed, #374629);
+}
+
+.icon {
+    margin-right: 8px;
+    color: var(--Main, #53772F);
+}
+
+.icon:hover {
+    color: var(--button-hovered, #668447);
+}
+
+.icon:active {
+    color: var(--button-pressed, #374629);
+}
