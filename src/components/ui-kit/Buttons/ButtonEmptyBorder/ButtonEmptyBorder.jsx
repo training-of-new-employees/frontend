@@ -1,17 +1,17 @@
 import { string } from 'prop-types';
 import ButtonEmptyBorderStyles from './ButtonEmptyBorder.module.scss';
+import { ReactComponent } from '../../../../images/ui/Icon-green.svg';
 
-export default function ButtonEmptyBorder({ buttonText, icon }) {
-	// return <button type="button">{buttonText}</button>;
+export default function ButtonEmptyBorder({ buttonText }) {
 	return (
 		<button className={ButtonEmptyBorderStyles.button} type="button">
-			<img className={ButtonEmptyBorderStyles.icon} src={icon} alt='icon'/>
-		{buttonText}
+			<ReactComponent className={ButtonEmptyBorderStyles.icon} />
+			text
+			{buttonText}
 		</button>
 	)
 }
 
 ButtonEmptyBorder.propTypes = {
 	buttonText: string.isRequired,
-	icon: URL.isRequired
 };
