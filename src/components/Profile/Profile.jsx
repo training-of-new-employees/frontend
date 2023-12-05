@@ -70,16 +70,24 @@ const ProfileInfo = () => {
             type="email"
             placeholder="Введите email"
             value={userState.email}
+            autoComplete="username"
           />
-          {/* <input className={profileInfoStyles.inputText} id="email" /> */}
           <label className={profileInfoStyles.label} htmlFor="password">
             Пароль
           </label>
-          <input
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Введите пароль"
+            value={userState.password || ""}
+            autoComplete="current-password"
+          />
+          {/* <input
             className={profileInfoStyles.inputText}
             id="password"
             value="******"
-          />
+          /> */}
         </div>
       </div>
     </form>
