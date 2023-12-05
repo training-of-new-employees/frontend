@@ -1,0 +1,45 @@
+// @use '../../utils/variables.scss' as *;
+
+.inputContaner {
+    display: flex;
+}
+
+.inputText {
+    width: 435px;
+    max-height: 60px;
+    padding: 10px 18px 8px 18px;
+    align-items: center;
+    border-radius: 12px;
+    border: 2px solid var(--stroke-button, #D1D3CE);
+    background: var(--BG-white, #FFF);
+    color: #53772F;
+}
+.inputText:active {
+    border: 2px solid var(--button-pressed, #374629)
+}
+
+.inputText:disabled {
+    border: 2px solid var(--stroke-button, #D1D3CE);
+    background: var(--stroke-button, #D1D3CE);
+}
+
+.inputTextError {
+    border: 2px solid var(--service-warning, #C63535);
+    width: 435px;
+    max-height: 60px;
+    padding: 10px 18px 8px 18px;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--BG-white, #FFF);
+}
+
+.inputError {
+    color: var(--service-warning, #C63535);
+    font-family: Rubik;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14.4px;
+    min-height: 14px;
+    margin-top: 4px;
+}

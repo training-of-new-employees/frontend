@@ -39,6 +39,8 @@
 }
 
 .mainInfoContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
