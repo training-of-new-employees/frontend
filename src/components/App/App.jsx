@@ -13,12 +13,9 @@ import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
 
-import DropdownMenu from '../ui-kit/DropdownMenu/DropdownMenu';
-
 const App = () => (
   <div className={appStyles.app}>
-    {/* <Header /> */}
-    <DropdownMenu />
+    <Header />
     <Routes>
       <Route path={paths.main} element={<Main />} />
       <Route path="*" element={<Login />} />
@@ -28,7 +25,7 @@ const App = () => (
       <Route path="/profile" element={<Profile />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-    {/* <Footer /> */}
+    <Footer />
   </div>
 );
 
