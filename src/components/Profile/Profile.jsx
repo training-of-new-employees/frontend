@@ -5,6 +5,7 @@ import uploadPhoto from '../../images/ui/Photo.svg';
 import examplePhoto from '../../images/stubs/Avatar.png';
 
 import profileInfoStyles from './ProfileInfo.module.scss';
+import Input from '../ui-kit/Input/Input';
 
 const ProfileInfo = () => {
   const [userState] = useState({
@@ -44,11 +45,18 @@ const ProfileInfo = () => {
           <label className={profileInfoStyles.label} htmlFor="name">
             ФИО
           </label>
-          <input
+          <Input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Введите имя"
+            value={userState.name || " "}
+          />
+          {/* <input
             className={profileInfoStyles.inputText}
             id="name"
             value={userState.name}
-          />
+          /> */}
           <label className={profileInfoStyles.label} htmlFor="position">
             Должность
           </label>
@@ -56,15 +64,30 @@ const ProfileInfo = () => {
           <label className={profileInfoStyles.label} htmlFor="email">
             E-mail
           </label>
-          <input className={profileInfoStyles.inputText} id="email" />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Введите email"
+            value={userState.email}
+            autoComplete="username"
+          />
           <label className={profileInfoStyles.label} htmlFor="password">
             Пароль
           </label>
-          <input
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Введите пароль"
+            value={userState.password || ""}
+            autoComplete="current-password"
+          />
+          {/* <input
             className={profileInfoStyles.inputText}
             id="password"
             value="******"
-          />
+          /> */}
         </div>
       </div>
     </form>
