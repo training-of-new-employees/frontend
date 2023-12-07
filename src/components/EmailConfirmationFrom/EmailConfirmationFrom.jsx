@@ -3,7 +3,7 @@ import emailConfirmationFormStyles from './EmailConfirmationFrom.module.scss';
 import backIcon from '../../images/ui/Back-Icon.svg';
 import Input from '../ui-kit/ConfirmationInput/ConfirmationInput';
 
-export default function Register() {
+export default function EmailConfirmationFrom() {
     return (
         <section className={emailConfirmationFormStyles.section}>
             <form className={emailConfirmationFormStyles.form}>

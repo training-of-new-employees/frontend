@@ -1,7 +1,7 @@
 import { string } from 'prop-types';
 import buttonRegisterPageStyles from './ButtonRegisterPage.module.scss';
 
-export default function Button({ buttonText }) {
+export default function ButtonRegisterPage({ buttonText }) {
   return (
     <button
       className={buttonRegisterPageStyles.submit}
@@ -13,6 +13,6 @@ export default function Button({ buttonText }) {
   );
 }
 
-Button.propTypes = {
+ButtonRegisterPage.propTypes = {
   buttonText: string.isRequired,
 };

@@ -3,7 +3,7 @@ import registerFormStyles from '../Register/Register.module.scss';
 import RegisterScreen from '../../components/RegisterScreen/RegisterScreen';
 import EmailConfirmationForm from '../../components/EmailConfirmationFrom/EmailConfirmationFrom';
 
-export default function Register() {
+export default function EmailConfirmation() {
   return (
     <section className={registerFormStyles.container}>
       <RegisterScreen />
