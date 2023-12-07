@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types';
 import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 
-export default function RegisterForm() {
+export default function RegisterForm({ isDisabled }) {
+  
   return (
-    <div className={registerFormStyles.formContainer}>
+    <div className = {registerFormStyles.formContainer} >
       <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
       <p className={registerFormStyles.formText}>Введите E-mail и пароль, чтобы авторизоваться</p>
       <form className={registerFormStyles.form}>
@@ -46,7 +48,11 @@ export default function RegisterForm() {
           </button>
         </section>
         <div className={registerFormStyles.buttonsContainer}>
-          <button className={registerFormStyles.submit} type="submit">
+          <button 
+            className={registerFormStyles.submit} 
+            type="submit" 
+            // disabled={isDisabled ? true : false}
+          >
             Зарегистрироваться
           </button>
           <div className={registerFormStyles.spanContainer}>
@@ -54,9 +60,14 @@ export default function RegisterForm() {
             <p className={registerFormStyles.spanText}>или</p>
             <span className={registerFormStyles.span} />
           </div>
-          <button className={registerFormStyles.auth} type='button'>Авторизоваться</button>
+          <button className={registerFormStyles.auth} type='submit'>Авторизоваться</button>
         </div>
       </form>
     </div>
   );
+}
+
+
+RegisterForm.propTypes = {
+  isDisabled: PropTypes.bool.isRequired
 }

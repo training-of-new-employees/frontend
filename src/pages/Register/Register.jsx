@@ -7,7 +7,9 @@ export default function Register() {
     <section className={registerFormStyles.container}>
       <RegisterScreen />
       <section className={registerFormStyles.form}>
-        <RegisterForm />
+        <RegisterForm 
+          isDisabled={false}
+        />
         <footer className={registerFormStyles.footer}>&#169; 2023 QuickOn team</footer>
       </section>
     </section>

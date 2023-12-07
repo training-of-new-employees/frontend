@@ -153,6 +153,11 @@
   cursor: pointer;
 }
 
+.submit:disabled {
+  background: var(--stroke-button, #D1D3CE);
+  color: var(--text-additional, #7D7E7C);
+}
+
 .spanContainer {
   display: flex;
   align-items: center;
