@@ -1,0 +1,26 @@
+.submit {
+    color: var(--BG-white, #FFF);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    display: flex;
+    height: 52px;
+    width: 435px;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 12px;
+    background: var(--Main, #53772F);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .submit:disabled {
+    background: var(--stroke-button, #D1D3CE);
+    color: var(--text-additional, #7D7E7C);
+  }
