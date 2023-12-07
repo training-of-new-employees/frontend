@@ -12,6 +12,7 @@ import ForgotPassword from '../../pages/ForgotPassword/ForgotPassword';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
+import EmailConfirmation from '../../pages/EmailConfirmation/EmailConfirmation';
 
 const App = () => (
   <div className={appStyles.app}>

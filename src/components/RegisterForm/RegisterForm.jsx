@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
+import Button from '../ui-kit/ButtonRegisterPage/ButtonRegisterPage'; 
 
 export default function RegisterForm({ isDisabled }) {
   
@@ -48,13 +49,16 @@ export default function RegisterForm({ isDisabled }) {
           </button>
         </section>
         <div className={registerFormStyles.buttonsContainer}>
-          <button 
+          <Button 
+            buttonText='Зарегистрироваться'
+          />
+          {/* <button 
             className={registerFormStyles.submit} 
             type="submit" 
             // disabled={isDisabled ? true : false}
           >
             Зарегистрироваться
-          </button>
+          </button> */}
           <div className={registerFormStyles.spanContainer}>
             <span className={registerFormStyles.span} />
             <p className={registerFormStyles.spanText}>или</p>

@@ -6,6 +6,7 @@
     max-width: 1440px;
     width: 100%;
     background: var(--BG-gray, #E9E9E9);
+    height: 900px;
 }
 
 .form {
@@ -15,12 +16,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 900px;
-    padding: 80px 60px 40px 60px;
+    height: 900px;
+    // min-height: 900px;
+    padding: 80px 60px 0px 60px;
 }
 
 .footer {
-    margin: 66px 219px 0px 257px;
+    margin: 0px 219px 40px 257px;
     color: var(--text-main, #2F302E);
     font-family: Rubik;
     font-size: 16px;
