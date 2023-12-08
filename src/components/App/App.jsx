@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import { paths } from '../../utils/constants';
 
 import appStyles from './App.module.scss';
@@ -12,22 +14,26 @@ import ForgotPassword from '../../pages/ForgotPassword/ForgotPassword';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
-import EmailConfirmation from '../../pages/EmailConfirmation/EmailConfirmation';
 
-const App = () => (
-  <div className={appStyles.app}>
-    <Header />
-    <Routes>
-      <Route path={paths.main} element={<Main />} />
-      <Route path="*" element={<Login />} />
-      <Route path="*" element={<Register />} />
-      <Route path="*" element={<ForgotPassword />} />
-      <Route path="*" element={<ResetPassword />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    <Footer />
-  </div>
-);
+function App() {
+
+ return (<div className={appStyles.app}>
+  {/* <Header /> */}
+  <Routes>
+    <Route path={paths.main} element={<Main />} />
+    <Route path="*" element={<Login />} />
+    <Route 
+      path="/registration"
+      element={<Register />}
+    />
+    <Route path="*" element={<ForgotPassword />} />
+    <Route path="*" element={<ResetPassword />} />
+    <Route path="/profile" element={<Profile />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+  {/* <Footer /> */}
+</div>
+)
+ };
 
 export default App;
