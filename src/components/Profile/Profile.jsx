@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import adminIcon from '../../images/ui/Admin.svg';
 import uploadPhoto from '../../images/ui/Photo.svg';
@@ -6,92 +6,62 @@ import examplePhoto from '../../images/stubs/Avatar.png';
 
 import profileInfoStyles from './ProfileInfo.module.scss';
 import Input from '../ui-kit/Input/Input';
+import useValidation from '../hooks/useValidation';
 
 const ProfileInfo = () => {
-  const [userState] = useState({
-    name: 'Алла Андреева',
-    position: 'Администратор',
-    email: 'admin@yandex.ru',
-    photo: examplePhoto,
-  });
+  const { values, handleChange } = useValidation();
 
   return (
-    <form className={profileInfoStyles.profileForm}>
-      <div className={profileInfoStyles.headerContainer}>
-        <h2 className={profileInfoStyles.header}>Профиль</h2>
-        <div className={profileInfoStyles.userRoleContainer}>
-          <p>Роль:</p>
-          <div className={profileInfoStyles.roleContainer}>
-            <img alt="Администратор" src={adminIcon} />
+    <div className={profileInfoStyles.profileContainer}>
+      <div className={profileInfoStyles.profileContant}>
+        <div className={profileInfoStyles.headerContainer}>
+          <h2 className={profileInfoStyles.header}>Профиль</h2>
+          <div className={profileInfoStyles.userRoleContainer}>
+            <p>Роль:</p>
+            <div className={profileInfoStyles.roleContainer}>
+              <div className={profileInfoStyles.imageHeader} />
+              <p className={profileInfoStyles.positionProfile}>{values.position}</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={profileInfoStyles.infoContainer}>
-        <div className={profileInfoStyles.pictureContainer}>
-          <img
-            alt="Фото сотрудника"
-            src={userState.photo}
-            className={profileInfoStyles.profilePicture}
-          />
-          <button type="button" className={profileInfoStyles.uploadPhoto}>
-            <img alt="Загрузить фото" src={uploadPhoto} />
-            Загрузить фото
-          </button>
-          <button type="button" className={profileInfoStyles.uploadPhoto}>
-            Сохранить изменения
-          </button>
-        </div>
-        <div className={profileInfoStyles.mainInfoContainer}>
-          <label className={profileInfoStyles.label} htmlFor="name">
-            ФИО
-          </label>
-          <Input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Введите имя"
-            value={userState.name || " "}
-          />
-          {/* <input
-            className={profileInfoStyles.inputText}
-            id="name"
-            value={userState.name}
-          /> */}
-          <label className={profileInfoStyles.label} htmlFor="position">
-            Должность
-          </label>
-          <input className={profileInfoStyles.inputList} id="position" />
-          <label className={profileInfoStyles.label} htmlFor="email">
-            E-mail
-          </label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Введите email"
-            value={userState.email}
-            autoComplete="username"
-          />
-          <label className={profileInfoStyles.label} htmlFor="password">
-            Пароль
-          </label>
-          <Input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Введите пароль"
-            value={userState.password || ""}
-            autoComplete="current-password"
-          />
-          {/* <input
-            className={profileInfoStyles.inputText}
-            id="password"
-            value="******"
-          /> */}
+        <div className={profileInfoStyles.infoContainer}>
+          <div className={profileInfoStyles.infoContant}>
+            <div className={profileInfoStyles.mainInfoContainer}>
+              <h3 className={profileInfoStyles.infoTitle}>Основная информация</h3>
+              <button className={profileInfoStyles.infoEdit} type='button' aria-label="Редактировать профиль" />
+              <h3>ФИО:</h3>
+              <p>{values.name}</p>
+              <h3>E-mail:</h3>
+              <p>{values.email}</p>
+              <h3>Компания:</h3>
+              <p>{values.company}</p>
+            </div>
+            <button type="button" className={profileInfoStyles.uploadPhoto}>
+              <img alt="Загрузить фото" src={uploadPhoto} />
+              Загрузить фото
+            </button>
+          </div>
+
+          {/* <div className={profileInfoStyles.pictureContainer}>
+            
+          </div> */}
+          <form >
+            <label className={profileInfoStyles.label} htmlFor="password">
+              Пароль
+            </label>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Введите пароль"
+              value={values.password || ""}
+              onChange={handleChange}
+              autoComplete="current-password"
+            />
+          </form>
         </div>
       </div>
-    </form>
-  );
+    </div>);
 };
 
 export default ProfileInfo;

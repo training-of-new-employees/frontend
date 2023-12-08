@@ -1,8 +1,9 @@
-// @use '../../utils/variables.scss' as *;
+@use '../../../utils/variables' as *;
 
 .inputBox {
     display: flex;
     position: relative;
+    width: 435px;
 }
 
 .inputText {
@@ -24,6 +25,7 @@
     max-height: 60px;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .inputText:focus::placeholder {
@@ -63,7 +65,7 @@
     display: inline-block;
     position: absolute;
     top: 5px;
-    right: 80px;
+    right: 20px;
     border-radius: 12px;
 }
 
@@ -73,7 +75,7 @@
 
 
 .inputError {
-    color: var(--service-warning, #C63535);
+    color: $colorRed;
     font-family: Rubik;
     font-size: 12px;
     font-style: normal;

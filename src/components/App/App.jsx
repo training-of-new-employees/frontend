@@ -17,8 +17,8 @@ import DropdownMenu from '../ui-kit/DropdownMenu/DropdownMenu';
 
 const App = () => (
   <div className={appStyles.app}>
-    {/* <Header /> */}
-    <DropdownMenu />
+    <Header />
+    {/* <DropdownMenu /> */}
     <Routes>
       <Route path={paths.main} element={<Main />} />
       <Route path="*" element={<Login />} />

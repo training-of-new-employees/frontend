@@ -1,7 +1,7 @@
-@use '../../utils/variables.scss' as *;
+@use '../../utils/variables' as *;
 
 html {
-  background-color: $color-white;
+  background-color: $backGroundColor;
 }
 
 .app {
@@ -20,9 +20,9 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $color-white;
+  background: $colorWhite;
   min-height: 100vh;
-  color: $color-black;
+  color: $colorBlack;
   &__content {
     margin: 0 auto;
     max-width: 1280px;
