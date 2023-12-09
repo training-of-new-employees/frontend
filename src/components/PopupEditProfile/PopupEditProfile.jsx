@@ -53,7 +53,7 @@ export default function PopupEditProfile() {
                         values={values.lastName} />
                 </li>
             </ul>
-            <ul>
+            <ul className={popupEditstyle.popupEditText}>
                 <li>
                     <label htmlFor='компания'>Компания</label>
                     <Input
@@ -61,6 +61,15 @@ export default function PopupEditProfile() {
                     type='text'
                     name='компания'
                     placeholder='Введите название компании'
+                    />
+                </li>
+                <li>
+                    <label htmlFor='email'>E-mail</label>
+                    <Input
+                    id='email'
+                    type='text'
+                    name='email'
+                    placeholder='Введите E-mail'
                     />
                 </li>
             </ul>

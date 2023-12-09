@@ -6,3 +6,12 @@
     gap: 8px;
     justify-content: center;
 }
+
+.popupEditText {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    gap: 12px;
+
+}
