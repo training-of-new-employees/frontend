@@ -28,6 +28,20 @@
     position: relative;
 }
 
+.inputName {
+    width: 244px;
+    height: 60px;
+    border-radius: 12px;
+    border-bottom: 1px solid var(--stroke-button, #D1D3CE);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inputName:disabled {
+    border: 2px solid var(--stroke-button, #D1D3CE);
+    background: var(--stroke-button, #D1D3CE);
+}
+
 .inputText:focus::placeholder {
     transform: translateY(-10px);
     font-size: 12px;

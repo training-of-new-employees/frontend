@@ -9,6 +9,11 @@ export default function Input({ name, placeholder, onChange}) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase() === 'password';
   const isEmail = name.toLowerCase() === 'email';
+  const isName =
+    name.toLowerCase() === 'имя' ||
+    name.toLowerCase() === 'фамилия' ||
+    name.toLowerCase() === 'отчество';
+
   // eslint-disable-next-line no-redeclare
   const { handleChange } = useValidation();
 
@@ -27,7 +32,7 @@ export default function Input({ name, placeholder, onChange}) {
     <>
       <div className={inputStyles.inputBox}>
         <input
-          className={inputStyles.inputText}
+          className={`${inputStyles.inputText} ${isName ? inputStyles.inputName : ''} `}
           name={name}
           // eslint-disable-next-line no-nested-ternary
           type={isPassword ? (showPassword ? 'text' : 'password') : 'text'}
@@ -53,5 +58,5 @@ export default function Input({ name, placeholder, onChange}) {
 Input.propTypes = {
   name: string.isRequired,
   placeholder: string.isRequired,
-  onChange: func.isRequired,
+  onChange: func.isRequired
 };

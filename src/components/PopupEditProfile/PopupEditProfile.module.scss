@@ -1,0 +1,8 @@
+.popupEditContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 244px);
+    list-style: none;
+    gap: 8px;
+    justify-content: center;
+}
