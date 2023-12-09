@@ -73,6 +73,9 @@
     background-image: url(./../../../images/ui/Password.svg);
 }
 
+.passwordButton:disabled {
+    background: var(--stroke-button, #D1D3CE);
+}
 
 .inputError {
     color: $colorRed;

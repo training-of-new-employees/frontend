@@ -75,27 +75,87 @@
 }
 
 .infoContant {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 680px 120px;
+  grid-template-areas:
+    "info photo";
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.mainInfoTitle {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.infoLists {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  width: 680px;
+  height: 60px;
+}
+
+.infoList {
+  display: flex;
+  gap: 12px;
+  width: 100%;
 }
 
 .pictureContainer {
   border-radius: 50%;
 }
 
-.profilePicture {}
+.profilePicture {
+  border-radius: 50%;
+  width: 140px;
+  height: 145px;
+  object-fit: cover;
+}
 
-.uploadPhoto {}
+.uploadPhoto {
+  // border-radius: 50px;
+  grid-area: photo;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 .mainInfoContainer {
-  display: grid;
-  grid-template-areas: 
-  "title edit"
-  ;
+  // grid-area: info;
+  // display: grid;
+  // grid-template-areas: 
+  // "title  edit"
+  // "list list"
 }
 
 .infoTitle {
-  grid-area: "title";
+  grid-area: title;
+}
+
+.infoSubtitle {
+  // width: 41px;
+  color: var(--text-additional, #7D7E7C);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 24px */
+}
+
+.infoText {
+  color: var(--text-main, #2F302E);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 24px */
+
 }
 
 .infoEdit {
@@ -111,8 +171,24 @@
   grid-area: "edit";
 }
 
-.label {}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-.inputText {}
+}
 
-.inputList {}
+.formHeader {
+  color: var(--text-main, #2F302E);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 31.2px */
+
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
