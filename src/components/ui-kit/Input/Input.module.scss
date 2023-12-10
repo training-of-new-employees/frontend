@@ -3,7 +3,7 @@
 .inputBox {
     display: flex;
     position: relative;
-    width: 435px;
+    // width: 435px;
 }
 
 .inputText {
@@ -35,6 +35,10 @@
     border-bottom: 1px solid var(--stroke-button, #D1D3CE);
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.inputProfile {
+    width: 748px;
 }
 
 .inputName:disabled {

@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 // хук управления формой и валидации формы
 export default function useValidation() {
   const [values, setValues] = useState({ 
-    name: 'Алла Андреева', 
+    firstName: 'Алла', 
     lastName: 'Андреева',
     middleName: '',
     email: 'Admin@yandex.ru', 

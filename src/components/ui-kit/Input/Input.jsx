@@ -5,14 +5,17 @@ import inputStyles from './Input.module.scss'
 import useValidation from '../../hooks/useValidation';
 
 
-export default function Input({ name, placeholder, onChange}) {
+export default function Input({ name, placeholder, onChange }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase() === 'password';
   const isEmail = name.toLowerCase() === 'email';
   const isName =
-    name.toLowerCase() === 'имя' ||
-    name.toLowerCase() === 'фамилия' ||
-    name.toLowerCase() === 'отчество';
+    name.toLowerCase() === 'firstname' ||
+    name.toLowerCase() === 'lastname' ||
+    name.toLowerCase() === 'middlename';
+  const isProfile =
+    name.toLowerCase() === 'companyprofile' ||
+    name.toLowerCase() === 'emailprofile';
 
   // eslint-disable-next-line no-redeclare
   const { handleChange } = useValidation();
@@ -22,7 +25,7 @@ export default function Input({ name, placeholder, onChange}) {
   };
 
   function handleChangeValues(e) {
-    handleChange(e); 
+    handleChange(e);
     if (onChange) {
       onChange(e)
     }
@@ -32,7 +35,10 @@ export default function Input({ name, placeholder, onChange}) {
     <>
       <div className={inputStyles.inputBox}>
         <input
-          className={`${inputStyles.inputText} ${isName ? inputStyles.inputName : ''} `}
+          className={`
+          ${inputStyles.inputText} 
+          ${isName ? inputStyles.inputName : ''} 
+          ${isProfile ? inputStyles.inputProfile : ''} `}
           name={name}
           // eslint-disable-next-line no-nested-ternary
           type={isPassword ? (showPassword ? 'text' : 'password') : 'text'}

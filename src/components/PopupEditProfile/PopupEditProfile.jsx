@@ -1,15 +1,12 @@
-import React from 'react';
 import Input from '../ui-kit/Input/Input';
 import Popup from '../ui-kit/Popup/Popup';
 import popupEditstyle from './PopupEditProfile.module.scss';
 import useValidation from '../hooks/useValidation';
+import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
 
-export default function PopupEditProfile() {
+export default function PopupEditProfile({ isOpen, onClose }) {
     const { values, handleChange } = useValidation();
-    const handleClose = () => {
-        // Реализуйте логику закрытия попапа
-    };
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         // Реализуйте логику отправки формы
@@ -19,60 +16,68 @@ export default function PopupEditProfile() {
         <Popup
             name='editProfile'
             title='Редактирование основной информации'
-            onClose={handleClose}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            isOpen={isOpen}
+            onClose={onClose}
+        >
             <ul className={popupEditstyle.popupEditContainer}>
-                <li>
-                    <label htmlFor='фамилия'>Фамилия</label>
+                <li className={popupEditstyle.popupEditInput}>
+                    <label className={popupEditstyle.popupEditLabel} htmlFor='lastName'>Фамилия</label>
                     <Input
-                        id='фамилия'
-                        name='фамилия'
-                        type="text"
+                        id='lastName'
+                        name='lastname'
+                        type='text'
                         placeholder='Введите Фамилию'
                         onChange={handleChange}
                         values={values.lastName} />
                 </li>
-                <li>
-                    <label htmlFor='фамилия'>Имя</label>
+                <li className={popupEditstyle.popupEditInput}>
+                    <label className={popupEditstyle.popupEditLabel} htmlFor='firstName'>Имя</label>
                     <Input
-                        id='имя'
-                        name='имя'
-                        type="text"
+                        id='firstName'
+                        name='firstname'
+                        type='text'
                         placeholder='Введите Имя'
                         onChange={handleChange}
-                        values={values.lastName} />
+                        values={values.firstNameName} />
                 </li>
-                <li>
-                    <label htmlFor='фамилия'>Отчество</label>
+                <li className={popupEditstyle.popupEditInput}>
+                    <label className={popupEditstyle.popupEditLabel} htmlFor='middleName'>Отчество</label>
                     <Input
-                        id='отчество'
-                        name='отчество'
-                        type="text"
+                        id='middleName'
+                        name='middlename'
+                        type='text'
                         placeholder='Введите Отчество'
                         onChange={handleChange}
-                        values={values.lastName} />
+                        values={values.middleNameName} />
                 </li>
             </ul>
             <ul className={popupEditstyle.popupEditText}>
-                <li>
-                    <label htmlFor='компания'>Компания</label>
+                <li className={popupEditstyle.popupEditInput}>
+                    <label className={popupEditstyle.popupEditLabel} htmlFor='companyprofile'>Компания</label>
                     <Input
-                    id='компания'
-                    type='text'
-                    name='компания'
-                    placeholder='Введите название компании'
+                        id='companyprofile'
+                        type='text'
+                        name='companyprofile'
+                        placeholder='Введите название компании'
+                        onChange={handleChange}
                     />
                 </li>
-                <li>
-                    <label htmlFor='email'>E-mail</label>
+                <li className={popupEditstyle.popupEditInput}>
+                    <label className={popupEditstyle.popupEditLabel} htmlFor='email'>E-mail</label>
                     <Input
-                    id='email'
-                    type='text'
-                    name='email'
-                    placeholder='Введите E-mail'
+                        id='email'
+                        type='email'
+                        name='emailprofile'
+                        placeholder='Введите E-mail'
+                        onChange={handleChange}
                     />
                 </li>
             </ul>
+            <div className={popupEditstyle.popupEditButton}>
+                <ButtonFilled type='button'>&Отменить</ButtonFilled>
+                <ButtonFilled type='button'>&Сохранить&nbsp;изменения</ButtonFilled>
+            </div>
         </Popup>
     );
 }

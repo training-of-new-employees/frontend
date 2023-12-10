@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
-
-import adminIcon from '../../images/ui/Admin.svg';
+import { useState } from 'react';
 import uploadPhoto from '../../images/ui/Photo.svg';
-import examplePhoto from '../../images/stubs/Avatar.png';
-
 import profileInfoStyles from './ProfileInfo.module.scss';
 import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
+import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ onEditProfileClick }) => {
   const { values, handleChange } = useValidation();
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+
+  const handleEditProfileClick = () => {
+    setIsEditProfileOpen(true);
+    if (onEditProfileClick) {
+      onEditProfileClick();
+    }
+  };
+
+  const handleCloseEditProfile = () => {
+    setIsEditProfileOpen(false);
+  };
 
   return (
     <div className={profileInfoStyles.profileContainer}>
@@ -28,9 +37,9 @@ const ProfileInfo = () => {
           <div className={profileInfoStyles.infoContant}>
             <div className={profileInfoStyles.mainInfoContainer}>
               <h3 className={profileInfoStyles.infoTitle}>Основная информация</h3>
-              <button className={profileInfoStyles.infoEdit} type='button' aria-label="Редактировать профиль" />
+              <button className={profileInfoStyles.infoEditButton} type='button' aria-label="Редактировать профиль" onClick={handleEditProfileClick} />
               <h3>ФИО:</h3>
-              <p>{values.name}</p>
+              <p>{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
               <h3>E-mail:</h3>
               <p>{values.email}</p>
               <h3>Компания:</h3>
@@ -41,11 +50,7 @@ const ProfileInfo = () => {
               Загрузить фото
             </button>
           </div>
-
-          {/* <div className={profileInfoStyles.pictureContainer}>
-            
-          </div> */}
-          <form >
+          <form>
             <label className={profileInfoStyles.label} htmlFor="password">
               Пароль
             </label>
@@ -61,6 +66,9 @@ const ProfileInfo = () => {
           </form>
         </div>
       </div>
+      {isEditProfileOpen && (
+        <PopupEditProfile onClose={handleCloseEditProfile} />
+      )}
     </div>);
 };
 
