@@ -1,4 +1,6 @@
-@use '../../utils/variables.scss' as *;
+@use '../../utils/_variables.scss' as *;
+
+//TODO зачем селектор __content если мы его не используем ?
 
 html {
   background-color: $color-white;
@@ -7,6 +9,7 @@ html {
 .app {
   width: 100%;
   max-width: 1440px;
+  margin: 0 auto;
 }
 
 .page {
