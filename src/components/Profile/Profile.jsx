@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
-
-import adminIcon from '../../images/ui/Admin.svg';
+import { useState } from 'react';
 import uploadPhoto from '../../images/ui/Photo.svg';
-import examplePhoto from '../../images/stubs/Avatar.png';
-
 import profileInfoStyles from './ProfileInfo.module.scss';
 import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
+import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
 import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
 
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ onEditProfileClick }) => {
   const { values, handleChange } = useValidation();
-  const [edit, setEdit] = useState(false);
+fix/Input
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+
+  const handleEditProfileClick = () => {
+    setIsEditProfileOpen(true);
+    if (onEditProfileClick) {
+      onEditProfileClick();
+    }
+  };
+
+  const handleCloseEditProfile = () => {
+    setIsEditProfileOpen(false);
+  };
 
   return (
     <div className={profileInfoStyles.profileContainer}>
@@ -40,7 +49,7 @@ const ProfileInfo = () => {
               <ul className={profileInfoStyles.infoLists}>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>ФИО:</h3>
-                  <p className={profileInfoStyles.infoText}>{values.name}</p>
+                  <p>{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
                 </li>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>Компания:</h3>
@@ -96,6 +105,9 @@ const ProfileInfo = () => {
           </form>
         </div>
       </div>
+      {isEditProfileOpen && (
+        <PopupEditProfile onClose={handleCloseEditProfile} />
+      )}
     </div>);
 };
 

@@ -3,7 +3,6 @@
 .inputBox {
     display: flex;
     position: relative;
- fix/Profile
     width: 435px;
 }
 
@@ -27,6 +26,24 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+.inputName {
+    width: 244px;
+    height: 60px;
+    border-radius: 12px;
+    border-bottom: 1px solid var(--stroke-button, #D1D3CE);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inputProfile {
+    width: 748px;
+}
+
+.inputName:disabled {
+    border: 2px solid var(--stroke-button, #D1D3CE);
+    background: var(--stroke-button, #D1D3CE);
 }
 
 .inputText:focus::placeholder {
