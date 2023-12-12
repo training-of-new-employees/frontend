@@ -17,23 +17,22 @@ import NotFound from '../../pages/NotFound/NotFound';
 
 function App() {
 
- return (<div className={appStyles.app}>
-  {/* <Header /> */}
-  <Routes>
-    <Route path={paths.main} element={<Main />} />
-    <Route path="*" element={<Login />} />
-    <Route 
-      path="/registration"
-      element={<Register />}
-    />
-    <Route path="*" element={<ForgotPassword />} />
-    <Route path="*" element={<ResetPassword />} />
-    <Route path="/profile" element={<Profile />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
-  {/* <Footer /> */}
-</div>
-)
- };
+fix/Profile
+const App = () => (
+  <div className={appStyles.app}>
+    <Header />
+    {/* <DropdownMenu /> */}
+    <Routes>
+      <Route path={paths.main} element={<Main />} />
+      <Route path="*" element={<Login />} />
+      <Route path="*" element={<Register />} />
+      <Route path="*" element={<ForgotPassword />} />
+      <Route path="*" element={<ResetPassword />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    {/* <Footer /> */}
+  </div>
+);
 
 export default App;
