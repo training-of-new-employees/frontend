@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://training-of-new-employees.github.io/frontend",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -12,6 +13,7 @@
     "prop-types": "15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
     "sass": "^1.62.1",
@@ -56,8 +58,7 @@
       "import/prefer-default-export": "off",
       "react/function-component-definition": "off",
       "react/jsx-props-no-spreading": "off",
-      "react/no-unescaped-entities": "off",
-      "react/button-has-type": "off"
+      "react/no-unescaped-entities": "off"
     },
     "overrides": [
       {
@@ -98,6 +99,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.10.0",
+    "eslint-import-resolver-webpack": "^0.13.8",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",

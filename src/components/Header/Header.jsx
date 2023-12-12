@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
 import logo from '../../images/ui/Logo.svg';
-
 import headerStyles from './Header.module.scss';
 
 /**
@@ -21,12 +19,12 @@ export default function Header({ isAdmin }) {
         <button
           className={headerStyles.button}
           type="button"
-          aria-label="выйти из профиля"
+          aria-label="Выйти из профиля"
         />
       ) : (
         <button
           type="button"
-          aria-label="выйти из профиля"
+          aria-label="Выйти из профиля"
           className={headerStyles.button_fioUser}
         >
           <span>Фамилия Имя</span>
@@ -46,15 +44,12 @@ export default function Header({ isAdmin }) {
   );
 }
 
-// описание пропсов
+// props description
 Header.propTypes = {
-  /**
-   *отвечает на вопрос админ это или нет boole
-   */
   isAdmin: PropTypes.bool,
 };
 
-// пропсы по умолчанию
+// default props
 Header.defaultProps = {
   isAdmin: false,
 };

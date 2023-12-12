@@ -16,17 +16,13 @@ export default function DropdownMenu() {
         <ReactComponent className={DropdownMenuStyles.icon} />
         button
       </button>
-      <nav className={isOpen ? DropdownMenuStyles.active : DropdownMenuStyles.menu}>
+      <nav
+        className={isOpen ? DropdownMenuStyles.active : DropdownMenuStyles.menu}
+      >
         <ul className={DropdownMenuStyles.list}>
-          <DropdownMenuButton
-            text='text'
-          />
-          <DropdownMenuButton
-            text='text'
-          />
-          <DropdownMenuButton
-            text='text'
-          />
+          <DropdownMenuButton text="text" />
+          <DropdownMenuButton text="text" />
+          <DropdownMenuButton text="text" />
         </ul>
       </nav>
     </section>

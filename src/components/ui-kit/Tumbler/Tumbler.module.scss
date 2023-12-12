@@ -1,6 +1,7 @@
 .toggle input[type="checkbox"] {
   display: none;
 }
+
 .toggle input[type="checkbox"] + label {
   box-sizing: border-box;
   display: block;
@@ -15,6 +16,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
 .toggle input[type="checkbox"] + label:before {
   box-sizing: border-box;
   content: "";
@@ -30,15 +32,19 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+
 .toggle input[type="checkbox"]:checked + label {
   background: #53772F;
 }
+
 .toggle input[type="checkbox"]:checked + label:before {
   left: 22px
 }
+
 .toggle input[type="checkbox"]:not(:disabled):not(:checked):hover + label:before {
   background: #53772F;
 }
+
 .toggle input[type="checkbox"]:disabled + label:before {
   border-color: #D1D3CE;
 }

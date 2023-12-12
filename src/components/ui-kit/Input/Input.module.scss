@@ -1,30 +1,30 @@
 @use '../../../utils/variables' as *;
 
 .inputBox {
-    display: flex;
-    position: relative;
-    width: 435px;
+  display: flex;
+  position: relative;
+  width: 435px;
 }
 
 .inputText {
-    padding: 10px 18px 8px 18px;
-    align-items: center;
-    color: #53772F;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    border: none;
-    box-shadow: none;
-    border-style: none;
-    // outline: none;
-    border: 2px solid var(--stroke-button, #D1D3CE);
-    border-radius: 12px;
-    background: var(--BG-white, #FFF);
-    width: 435px;
-    max-height: 60px;
-    justify-content: space-between;
-    align-items: center;
+  padding: 10px 18px 8px 18px;
+  align-items: center;
+  color: #53772F;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  border: none;
+  box-shadow: none;
+  border-style: none;
+  // outline: none;
+  border: 2px solid var(--stroke-button, #D1D3CE);
+  border-radius: 12px;
+  background: var(--BG-white, #FFF);
+  width: 435px;
+  max-height: 60px;
+  justify-content: space-between;
+  align-items: center;
     position: relative;
 }
 
@@ -47,48 +47,48 @@
 }
 
 .inputText:focus::placeholder {
-    transform: translateY(-10px);
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    /* 14.4px */
+  transform: translateY(-10px);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 14.4px */
 }
 
 .inputText:disabled {
-    border: 2px solid var(--stroke-button, #D1D3CE);
-    background: var(--stroke-button, #D1D3CE);
+  border: 2px solid var(--stroke-button, #D1D3CE);
+  background: var(--stroke-button, #D1D3CE);
 }
 
 .inputTextError {
-    border: 2px solid var(--service-warning, #C63535);
-    width: 435px;
-    max-height: 60px;
-    padding: 10px 18px 8px 18px;
-    align-items: center;
-    border-radius: 12px;
-    background: var(--BG-white, #FFF);
+  border: 2px solid var(--service-warning, #C63535);
+  width: 435px;
+  max-height: 60px;
+  padding: 10px 18px 8px 18px;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--BG-white, #FFF);
 }
 
 .passwordButton {
-    background-image: url(./../../../images/ui/PasswordVisible.svg);
-    width: 40px;
-    height: 35px;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    border-style: none;
-    background-size: auto;
-    background-color: var(--BG-white, #FFF);
-    display: inline-block;
-    position: absolute;
-    top: 5px;
-    right: 20px;
-    border-radius: 12px;
+  background-image: url(./../../../images/ui/PasswordVisible.svg);
+  width: 40px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border-style: none;
+  background-size: auto;
+  background-color: var(--BG-white, #FFF);
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  border-radius: 12px;
 }
 
 .passwordButtonShow {
-    background-image: url(./../../../images/ui/Password.svg);
+  background-image: url(./../../../images/ui/Password.svg);
 }
 
 .passwordButton:disabled {
@@ -96,12 +96,12 @@
 }
 
 .inputError {
-    color: $colorRed;
-    font-family: Rubik;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14.4px;
-    min-height: 14px;
-    margin-top: 4px;
+  color: $colorRed;
+  font-family: Rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14.4px;
+  min-height: 14px;
+  margin-top: 4px;
 }
