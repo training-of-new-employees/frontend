@@ -3,7 +3,7 @@
 .inputBox {
     display: flex;
     position: relative;
-    // width: 435px;
+    width: 435px;
 }
 
 .inputText {
@@ -91,6 +91,9 @@
     background-image: url(./../../../images/ui/Password.svg);
 }
 
+.passwordButton:disabled {
+    background: var(--stroke-button, #D1D3CE);
+}
 
 .inputError {
     color: $colorRed;

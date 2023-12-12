@@ -1,9 +1,8 @@
-import { func, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss'
 import useValidation from '../../hooks/useValidation';
-
 
 export default function Input({ name, placeholder, onChange }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +15,7 @@ export default function Input({ name, placeholder, onChange }) {
   const isProfile =
     name.toLowerCase() === 'companyprofile' ||
     name.toLowerCase() === 'emailprofile';
-
+  
   // eslint-disable-next-line no-redeclare
   const { handleChange } = useValidation();
 
@@ -45,6 +44,7 @@ export default function Input({ name, placeholder, onChange }) {
           pattern={isEmail ? EMAIL_REGEX : ''}
           placeholder={placeholder}
           onChange={handleChangeValues}
+          disabled={disabled}
         />
         {isPassword && (
           // eslint-disable-next-line jsx-a11y/control-has-associated-label
@@ -52,6 +52,7 @@ export default function Input({ name, placeholder, onChange }) {
             type="button"
             onClick={togglePasswordVisibility}
             className={`${inputStyles.passwordButton} ${showPassword ? inputStyles.passwordButtonShow : ''}`}
+            disabled={!edit}
           />
         )}
       </div>

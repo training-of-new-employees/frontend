@@ -1,3 +1,4 @@
+fix/Profile
 @use '../../utils/variables' as *;
 
 html {
@@ -6,7 +7,8 @@ html {
 
 .app {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .page {
@@ -25,8 +27,8 @@ html {
   color: $colorBlack;
   &__content {
     margin: 0 auto;
-    max-width: 1280px;
-    min-width: 320px;
+    // max-width: 1280px;
+    // min-width: 320px;
     width: 100%;
     min-height: 100vh;
   }

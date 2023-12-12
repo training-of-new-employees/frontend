@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import { paths } from '../../utils/constants';
 
 import appStyles from './App.module.scss';
@@ -13,8 +15,9 @@ import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
 
-import DropdownMenu from '../ui-kit/DropdownMenu/DropdownMenu';
+function App() {
 
+fix/Profile
 const App = () => (
   <div className={appStyles.app}>
     <Header />
