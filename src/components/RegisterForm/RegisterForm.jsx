@@ -1,69 +1,139 @@
+import { useState } from 'react';
 import registerFormStyles from './RegisterForm.module.scss';
+import Input from '../ui-kit/Input/Input';
+import backIcon from '../../images/ui/Back-Icon.svg';
+import InputConf from '../ui-kit/ConfirmationInput/ConfirmationInput';
 
-// @TODO добавить минимальное и максимальное значение символов в инпутах
-// @TODO настроить в будущем ссылку "назад"
-// @TODO настроить в будущем кнопку "запомнить меня"
-// @TODO сформировать внешний вид чекбоса по макету
-// @TODO сделать сабмит
 
 export default function RegisterForm() {
+
+  const [isOpenReg, setOpenReg] = useState(true);
+
+  const isDisabled = false;
+
+  function onClickReg() {
+    setOpenReg(false)
+  }
+
+  function onClickBack() {
+    setOpenReg(true)
+  }
+
   return (
-    <div className={registerFormStyles.formContainer}>
-      <h1 className={registerFormStyles.formTitle}>Регистрация на QuickOn</h1>
-      <form className={registerFormStyles.form}>
-        <p className={registerFormStyles.inputInscription}>E-mail</p>
-        <input
-          id="register-email"
-          required
-          className={registerFormStyles.input}
-          type="email"
-          placeholder="Введите e-mail"
-          defaultValue=""
-          name="email"
-        />
-        <p className={registerFormStyles.inputInscription}>Пароль</p>
-        <input
-          id="register-password"
-          required
-          className={registerFormStyles.input}
-          type="password"
-          placeholder="Введите пароль"
-          defaultValue=""
-          name="password"
-        />
-        <p className={registerFormStyles.inputInscription}>Компания</p>
-        <input
-          id="register-company"
-          required
-          className={registerFormStyles.input}
-          type="text"
-          placeholder="Введите компанию"
-          defaultValue=""
-          name="company"
-        />
-        <div className={registerFormStyles.checkboxContainer}>
-          <input
-            className={registerFormStyles.checkbox}
-            id="register-checkbox"
-            type="checkbox"
-            name="checkbox"
-          />
-          <label
-            className={registerFormStyles.inputLabel}
-            htmlFor="register-checkbox"
-          >
-            Запомнить меня
-          </label>
+    <div>
+      {isOpenReg ?
+        <div
+          className={registerFormStyles.formContainerOpened}
+        >
+          <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
+          <p className={registerFormStyles.formText}>Введите E-mail и пароль, чтобы авторизоваться</p>
+          <form className={registerFormStyles.form}>
+            <Input
+              name='company'
+              placeholder='Компания'
+            />
+            <Input
+              name='email'
+              placeholder='E-mail'
+            />
+            <Input
+              name='password'
+              placeholder='Пароль'
+            />
+            <Input
+              name='repeat password'
+              placeholder='Повторите пароль'
+            />
+            <section className={registerFormStyles.container}>
+              <div className={registerFormStyles.checkboxContainer}>
+                <input
+                  className={registerFormStyles.checkbox}
+                  id="register-checkbox"
+                  type="checkbox"
+                  name="checkbox"
+                />
+                <label
+                  className={registerFormStyles.inputLabel}
+                  htmlFor="register-checkbox"
+                >
+                  Запомнить меня
+                </label>
+              </div>
+              <button
+                className={registerFormStyles.forgetButton}
+                type='button'
+              >
+                Забыли пароль?
+              </button>
+            </section>
+            <div className={registerFormStyles.buttonsContainer}>
+              <button
+                className={registerFormStyles.submit}
+                type="submit"
+                onSubmit={onClickReg}
+                // type='button'
+                // onClick={onClickReg}
+                disabled={isDisabled}
+              >
+                Зарегистрироваться
+              </button>
+              <div className={registerFormStyles.spanContainer}>
+                <span className={registerFormStyles.span} />
+                <p className={registerFormStyles.spanText}>или</p>
+                <span className={registerFormStyles.span} />
+              </div>
+              <button
+                className={registerFormStyles.auth}
+                type='button'
+              >
+                Авторизоваться
+              </button>
+            </div>
+          </form>
         </div>
-        <div className={registerFormStyles.buttonsContainer}>
-          <a className={registerFormStyles.back} to="/login">
-            Назад
-          </a>
-          <button className={registerFormStyles.submit} type="submit">
-            Зарегистрироваться
-          </button>
-        </div>
-      </form>
+        :
+        <section className={registerFormStyles.section}>
+          <form className={registerFormStyles.form}>
+            <h1 className={registerFormStyles.title}>Подверждение e-mail</h1>
+            <p className={registerFormStyles.text}>Мы отправили вам на e-mail 4х значный код</p>
+            <p className={registerFormStyles.text}>Введите код для подверждения e-mail</p>
+            <section className={registerFormStyles.inputSection}>
+              <InputConf />
+              <InputConf />
+              <InputConf />
+              <InputConf />
+            </section>
+            <button
+              className={registerFormStyles.submitEmail}
+              type="button"
+              disabled={isDisabled}
+            >
+              Подтвердить
+            </button>
+            <div className={registerFormStyles.containerButton}>
+              <button
+                type='button'
+                className={registerFormStyles.buttonBack}
+                onClick={onClickBack}
+              >
+                <img
+                  src={backIcon}
+                  alt='Назад'
+                  className={registerFormStyles.imageBack}
+                />
+                Назад
+              </button>
+              <button
+                type='button'
+                className={registerFormStyles.buttonAgain}
+              >
+                Отправить код повторно
+              </button>
+            </div>
+          </form>
+        </section>
+      }
     </div>
   );
 }
+

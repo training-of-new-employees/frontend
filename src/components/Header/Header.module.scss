@@ -1,29 +1,52 @@
-.header {
+@use '../../utils/_variables' as variables;
+
+@mixin flex {
   box-sizing: border-box;
   display: flex;
+}
+
+.header {
+  box-sizing: border-box;
+  @include flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 12px 20px;
+  padding: variables.rem(12) variables.rem(20) variables.rem(8);
+  border-bottom: variables.rem(4) solid #53772F;
 
-  background-color: #61b26a;
-
-  &UserContainer {
-    display: flex;
-  }
+  background-color: #2F302E;
 }
 
 .button {
-  display: block;
-  cursor: pointer;
-  box-sizing: border-box;
-  border: none;
-  padding: 10px;
-  width: 48px;
-  height: 48px;
+  @mixin button {
+    display: block;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+  }
+
+  @include button;
+  padding: variables.rem(10);
+  width: variables.rem(48);
+  height: variables.rem(48);
   border-radius: 50%;
   background-color: #ffffff33;
+
+  &_fioUser {
+    @include button;
+    @include flex;
+    column-gap: variables.rem(12);
+    align-items: center;
+    padding: variables.rem(8) variables.rem(8) variables.rem(8) 0;
+    color: #fff;
+    background-color: transparent;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 
 .headerImage {
+  display: block;
 }
