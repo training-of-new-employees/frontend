@@ -2,7 +2,7 @@
   "name": "storybook-example",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://training-of-new-employees.github.io/frontend",
+  "homepage": "https://training-of-new-employees.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.14.1",
