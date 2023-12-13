@@ -6,17 +6,7 @@ export const addEmployeeSlice = createSlice({
     isAddEmployeeLoading: false,
     isAddEmployeeError: false,
     addEmployeeError: {},
-    user: {
-      id: null,
-      company_id: null,
-      position_id: null,
-      email: '',
-      active: null,
-      admin: null,
-      name: '',
-      patronymic: '',
-      surname: '',
-    },
+    user: {},
   },
   reducers: {
     postAddEmployeeLoading: (state) => ({

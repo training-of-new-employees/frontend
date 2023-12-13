@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
 import useValidation from '../../hooks/useValidation';
+
 export default function Input({ name, placeholder, onChange }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase() === 'password';
@@ -25,7 +26,7 @@ export default function Input({ name, placeholder, onChange }) {
   function handleChangeValues(e) {
     handleChange(e);
     if (onChange) {
-      onChange(e)
+      onChange(e);
     }
   }
 
@@ -43,7 +44,7 @@ export default function Input({ name, placeholder, onChange }) {
           pattern={isEmail ? EMAIL_REGEX : ''}
           placeholder={placeholder}
           onChange={handleChangeValues}
-          disabled={disabled}
+          disabled={false} // поставила временная заглушку, иначе всплывает ошибка, что переменная undefined
         />
         {isPassword && (
           // eslint-disable-next-line jsx-a11y/control-has-associated-label
@@ -53,8 +54,8 @@ export default function Input({ name, placeholder, onChange }) {
             className={`${inputStyles.passwordButton} ${
               showPassword ? inputStyles.passwordButtonShow : ''
             }`}
-          disabled={!edit}
-            />
+            disabled={false} // поставила временная заглушку, иначе всплывает ошибка, что переменная undefined
+          />
         )}
       </div>
       <span className={inputStyles.inputError} />
@@ -65,5 +66,5 @@ export default function Input({ name, placeholder, onChange }) {
 Input.propTypes = {
   name: string.isRequired,
   placeholder: string.isRequired,
-  onChange: func.isRequired
+  onChange: func.isRequired,
 };
