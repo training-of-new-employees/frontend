@@ -3,10 +3,10 @@
   height: 40px;
   padding: 12px 20px;
   border-radius: 12px;
-  background: var(--Main, #53772F);
-  border: 1px solid var(--Main, #53772F);
+  background: var(--Main, #53772f);
+  border: 1px solid var(--Main, #53772f);
 
-  color: var(--BG-white, #FFF);
+  color: var(--BG-white, #fff);
   text-align: center;
   padding-bottom: 10px;
   font-family: Rubik;
@@ -32,17 +32,17 @@
 }
 
 .button:disabled {
-  background: var(--stroke-button, #D1D3CE);
-  color: var(--text-additional, #7D7E7C);
-  border: 1px solid var(--stroke-button, #D1D3CE);
+  background: var(--stroke-button, #d1d3ce);
+  color: var(--text-additional, #7d7e7c);
+  border: 1px solid var(--stroke-button, #d1d3ce);
 }
 
 .icon {
   width: 40px;
   height: 40px;
-  fill: #FFF;
+  fill: #fff;
 }
 
 .icon:disabled {
-  fill: var(--text-additional, #7D7E7C);
+  fill: var(--text-additional, #7d7e7c);
 }
