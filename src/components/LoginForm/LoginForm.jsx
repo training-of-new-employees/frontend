@@ -55,11 +55,7 @@ export default function LoginForm() {
           <button className={loginFormStyles.submit} type="submit">
             Войти
           </button>
-          <button
-            className={loginFormStyles.button}
-            type="button"
-            to="/register"
-          >
+          <button className={loginFormStyles.button} type="button">
             Зарегистрироваться
           </button>
         </div>

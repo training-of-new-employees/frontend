@@ -1,47 +1,47 @@
 .button {
-    width: 40px;
-    height: 40px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    border: 2px solid var(--Main, #53772F);
-    background-color: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 2px solid var(--Main, #53772F);
+  background-color: #fff;
 
-    color: var(--Main, #53772F);
-    text-align: center;
+  color: var(--Main, #53772F);
+  text-align: center;
 
-    font-family: Rubik;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    cursor: pointer;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {
-    border: 2px solid var(--button-hovered, #668447);
-    color: var(--button-hovered, #668447);
+  border: 2px solid var(--button-hovered, #668447);
+  color: var(--button-hovered, #668447);
 }
 
 .button:active {
-    border: 2px solid var(--button-pressed, #374629);
-    color: var(--button-pressed, #374629);
+  border: 2px solid var(--button-pressed, #374629);
+  color: var(--button-pressed, #374629);
 }
 
 .icon {
-    margin-right: 8px;
-    fill: var(--Main, #53772F);
-    height: 14px;
-    width: 13px;
+  margin-right: 8px;
+  fill: var(--Main, #53772F);
+  height: 14px;
+  width: 13px;
 }
 
 .icon:hover {
-    fill: var(--button-hovered, #668447);
+  fill: var(--button-hovered, #668447);
 }
 
 .icon:active {
-    fill: var(--button-pressed, #374629);
+  fill: var(--button-pressed, #374629);
 }

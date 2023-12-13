@@ -1,48 +1,48 @@
 .button {
-    width: 40px;
-    height: 40px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    background: var(--Main, #53772F);
-    border: 1px solid var(--Main, #53772F);
+  width: 40px;
+  height: 40px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--Main, #53772F);
+  border: 1px solid var(--Main, #53772F);
 
-    color: var(--BG-white, #FFF);
-    text-align: center;
-    padding-bottom: 10px;
-    font-family: Rubik;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    cursor: pointer;
+  color: var(--BG-white, #FFF);
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {
-    background: var(--button-hovered, #668447);
-    border: 1px solid var(--button-hovered, #668447);
+  background: var(--button-hovered, #668447);
+  border: 1px solid var(--button-hovered, #668447);
 }
 
 .button:active {
-    background: var(--button-pressed, #374629);
-    border: 1px solid var(--button-pressed, #374629);
+  background: var(--button-pressed, #374629);
+  border: 1px solid var(--button-pressed, #374629);
 }
 
 .button:disabled {
-    background: var(--stroke-button, #D1D3CE);
-    color: var(--text-additional, #7D7E7C);
-    border: 1px solid var(--stroke-button, #D1D3CE);
+  background: var(--stroke-button, #D1D3CE);
+  color: var(--text-additional, #7D7E7C);
+  border: 1px solid var(--stroke-button, #D1D3CE);
 }
 
 .icon {
-    width: 40px;
-    height: 40px;
-    fill: #FFF;
+  width: 40px;
+  height: 40px;
+  fill: #FFF;
 }
 
 .icon:disabled {
-    fill: var(--text-additional, #7D7E7C);
+  fill: var(--text-additional, #7D7E7C);
 }

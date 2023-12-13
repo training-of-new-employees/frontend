@@ -4,6 +4,7 @@
 /* eslint-disable no-empty-function */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-useless-constructor */
+
 class localStorageApi {
   constructor() {}
 
@@ -12,7 +13,6 @@ class localStorageApi {
 
   //* сохранения данных
   setItem = (name, value) => {
-    // todo не знаю что будем сохранять оставлю пока так
     localStorage.setItem(`${name}`, value);
   };
 
