@@ -1,15 +1,15 @@
-.toggle input[type="checkbox"] {
+.toggle input[type='checkbox'] {
   display: none;
 }
 
-.toggle input[type="checkbox"] + label {
+.toggle input[type='checkbox'] + label {
   box-sizing: border-box;
   display: block;
   position: relative;
   width: 52px;
   height: 32px;
-  background: #FFFFFF;
-  border: 2px solid #2F302E;
+  background: #ffffff;
+  border: 2px solid #2f302e;
   border-radius: 35px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -17,13 +17,13 @@
   -ms-user-select: none;
 }
 
-.toggle input[type="checkbox"] + label:before {
+.toggle input[type='checkbox'] + label:before {
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: block;
   width: 24px;
   height: 24px;
-  border: 2px solid #2F302E;
+  border: 2px solid #2f302e;
   border-radius: 24px;
   background: #ffffff;
   position: absolute;
@@ -33,24 +33,26 @@
   transition: all 0.2s ease-in-out;
 }
 
-.toggle input[type="checkbox"]:checked + label {
-  background: #53772F;
+.toggle input[type='checkbox']:checked + label {
+  background: #53772f;
 }
 
-.toggle input[type="checkbox"]:checked + label:before {
-  left: 22px
+.toggle input[type='checkbox']:checked + label:before {
+  left: 22px;
 }
 
-.toggle input[type="checkbox"]:not(:disabled):not(:checked):hover + label:before {
-  background: #53772F;
+.toggle
+  input[type='checkbox']:not(:disabled):not(:checked):hover
+  + label:before {
+  background: #53772f;
 }
 
-.toggle input[type="checkbox"]:disabled + label:before {
-  border-color: #D1D3CE;
+.toggle input[type='checkbox']:disabled + label:before {
+  border-color: #d1d3ce;
 }
 
-.toggle input[type="checkbox"]:disabled + label {
-  border-color: #D1D3CE;
+.toggle input[type='checkbox']:disabled + label {
+  border-color: #d1d3ce;
 }
 
 .toggle {

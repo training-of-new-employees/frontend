@@ -9,7 +9,7 @@
 .inputText {
   padding: 10px 18px 8px 18px;
   align-items: center;
-  color: #53772F;
+  color: #53772f;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -18,32 +18,32 @@
   box-shadow: none;
   border-style: none;
   // outline: none;
-  border: 2px solid var(--stroke-button, #D1D3CE);
+  border: 2px solid var(--stroke-button, #d1d3ce);
   border-radius: 12px;
-  background: var(--BG-white, #FFF);
+  background: var(--BG-white, #fff);
   width: 435px;
   max-height: 60px;
   justify-content: space-between;
   align-items: center;
-    position: relative;
+  position: relative;
 }
 
 .inputName {
-    width: 244px;
-    height: 60px;
-    border-radius: 12px;
-    border-bottom: 1px solid var(--stroke-button, #D1D3CE);
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 244px;
+  height: 60px;
+  border-radius: 12px;
+  border-bottom: 1px solid var(--stroke-button, #d1d3ce);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .inputProfile {
-    width: 748px;
+  width: 748px;
 }
 
 .inputName:disabled {
-    border: 2px solid var(--stroke-button, #D1D3CE);
-    background: var(--stroke-button, #D1D3CE);
+  border: 2px solid var(--stroke-button, #d1d3ce);
+  background: var(--stroke-button, #d1d3ce);
 }
 
 .inputText:focus::placeholder {
@@ -56,18 +56,18 @@
 }
 
 .inputText:disabled {
-  border: 2px solid var(--stroke-button, #D1D3CE);
-  background: var(--stroke-button, #D1D3CE);
+  border: 2px solid var(--stroke-button, #d1d3ce);
+  background: var(--stroke-button, #d1d3ce);
 }
 
 .inputTextError {
-  border: 2px solid var(--service-warning, #C63535);
+  border: 2px solid var(--service-warning, #c63535);
   width: 435px;
   max-height: 60px;
   padding: 10px 18px 8px 18px;
   align-items: center;
   border-radius: 12px;
-  background: var(--BG-white, #FFF);
+  background: var(--BG-white, #fff);
 }
 
 .passwordButton {
@@ -79,7 +79,7 @@
   cursor: pointer;
   border-style: none;
   background-size: auto;
-  background-color: var(--BG-white, #FFF);
+  background-color: var(--BG-white, #fff);
   display: inline-block;
   position: absolute;
   top: 5px;
@@ -92,7 +92,7 @@
 }
 
 .passwordButton:disabled {
-    background: var(--stroke-button, #D1D3CE);
+  background: var(--stroke-button, #d1d3ce);
 }
 
 .inputError {

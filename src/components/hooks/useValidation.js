@@ -10,15 +10,16 @@ import { useCallback, useState } from 'react';
  */
 
 export default function useValidation() {
-  const [values, setValues] = useState({ 
-    firstName: 'Алла', 
+  const [values, setValues] = useState({
+    firstName: 'Алла',
     lastName: 'Андреева',
     middleName: '',
-    email: 'Admin@yandex.ru', 
-    password: '', 
-    position: 'Администратор', 
-    photo: '', 
-    company: 'Glass&Gmetry' });
+    email: 'Admin@yandex.ru',
+    password: '',
+    position: 'Администратор',
+    photo: '',
+    company: 'Glass&Gmetry',
+  });
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
 

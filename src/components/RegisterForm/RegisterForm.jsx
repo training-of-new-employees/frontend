@@ -79,7 +79,7 @@ export default function RegisterForm() {
               Мы отправили вам на e-mail 4х значный код
             </p>
             <p className={registerFormStyles.text}>
-              Введите код для подверждения e-mail
+              Введите код для подтверждения e-mail
             </p>
             <section className={registerFormStyles.inputSection}>
               <InputConf />
