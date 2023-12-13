@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import uploadPhoto from '../../images/ui/Photo.svg';
 import profileInfoStyles from './ProfileInfo.module.scss';
@@ -6,10 +7,8 @@ import useValidation from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
 import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
 
-
 const ProfileInfo = ({ onEditProfileClick }) => {
   const { values, handleChange } = useValidation();
-fix/Input
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
 
   const handleEditProfileClick = () => {
@@ -32,7 +31,9 @@ fix/Input
             <p>Роль:</p>
             <div className={profileInfoStyles.roleContainer}>
               <div className={profileInfoStyles.imageHeader} />
-              <p className={profileInfoStyles.positionProfile}>{values.position}</p>
+              <p className={profileInfoStyles.positionProfile}>
+                {values.position}
+              </p>
             </div>
           </div>
         </div>
@@ -40,11 +41,15 @@ fix/Input
           <div className={profileInfoStyles.infoContant}>
             <article className={profileInfoStyles.mainInfoContainer}>
               <div className={profileInfoStyles.mainInfoTitle}>
-                <h3 className={profileInfoStyles.infoTitle}>Основная информация</h3>
-                <button className={profileInfoStyles.infoEdit} 
-                type='button' 
-                aria-label="Редактировать профиль"
-                onClick={() => setEdit(!edit)} />
+                <h3 className={profileInfoStyles.infoTitle}>
+                  Основная информация
+                </h3>
+                <button
+                  className={profileInfoStyles.infoEdit}
+                  type="button"
+                  aria-label="Редактировать профиль"
+                  onClick={() => setIsEditProfileOpen(!isEditProfileOpen)}
+                />
               </div>
               <ul className={profileInfoStyles.infoLists}>
                 <li className={profileInfoStyles.infoList}>
@@ -62,53 +67,62 @@ fix/Input
               </ul>
             </article>
             <button type="button" className={profileInfoStyles.uploadPhoto}>
-              <img className={profileInfoStyles.profilePicture} alt="Загрузить фото" src={examplePhoto} />
+              <img
+                className={profileInfoStyles.profilePicture}
+                alt="Загрузить фото"
+                src={uploadPhoto}
+              />
             </button>
           </div>
           <form className={profileInfoStyles.form}>
             <h2 className={profileInfoStyles.formHeader}>Изменить пароль</h2>
             <div className={profileInfoStyles.inputContainer}>
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Старый пароль"
-              value={values.password || ""}
-              onChange={handleChange}
-              disabled={!edit}
-              // autoComplete="current-password"
-            />
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Новый пароль"
-              value={values.password || ""}
-              onChange={handleChange}
-              disabled={!edit}
-              // autoComplete="current-password"
-            />
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Повторите новый пароль"
-              value={values.password || ""}
-              onChange={handleChange}
-              disabled={!edit}
-              // autoComplete="current-password"
-            />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Старый пароль"
+                value={values.password || ''}
+                onChange={handleChange}
+                disabled={!isEditProfileOpen}
+                // autoComplete="current-password"
+              />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Новый пароль"
+                value={values.password || ''}
+                onChange={handleChange}
+                disabled={!isEditProfileOpen}
+                // autoComplete="current-password"
+              />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Повторите новый пароль"
+                value={values.password || ''}
+                onChange={handleChange}
+                disabled={!isEditProfileOpen}
+                // autoComplete="current-password"
+              />
             </div>
-            <ButtonFilled type="button"
-            disabled={!edit}
-            >Изменить пароль</ButtonFilled>
+            <ButtonFilled type="button" disabled={!isEditProfileOpen}>
+              Изменить пароль
+            </ButtonFilled>
           </form>
         </div>
       </div>
       {isEditProfileOpen && (
         <PopupEditProfile onClose={handleCloseEditProfile} />
       )}
-    </div>);
+    </div>
+  );
 };
 
 export default ProfileInfo;
+
+ProfileInfo.propTypes = {
+  onEditProfileClick: PropTypes.func.isRequired,
+};

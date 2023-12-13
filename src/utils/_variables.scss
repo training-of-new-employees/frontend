@@ -20,7 +20,7 @@ $colorBlack: #2f302e;
 //Цвет для дополнительного шрифта, иконок
 $colorGray: #7d7e7c;
 
-//обыодка инпута
+//обводка инпута
 $colorGrayLite: #d1d3ce;
 
 //цвет ошибки
@@ -73,4 +73,12 @@ $backGroubdTableName: #dddddd;
 	display: flex;
 	padding: 20px;
 	align-items: center;
+}
+
+// Функция перевода px в rem
+
+$browser-context: 16; // Значение rem по умолчанию
+
+@function rem($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}rem;
 }
