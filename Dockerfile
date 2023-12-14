@@ -6,7 +6,7 @@ COPY ./package.json /app/package.json
 COPY ./package-lock.json /app/package-lock.json
 RUN npm install
 COPY . .
-RUN REACT_APP_BASE_URL=http://localhost:8081 npm build
+RUN npm run build
 
 FROM nginx:1.25
 ENV BACKEND=backend:8080
