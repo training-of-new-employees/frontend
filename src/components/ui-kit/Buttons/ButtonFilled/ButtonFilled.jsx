@@ -6,7 +6,6 @@ export default function ButtonFilled({ buttonText }) {
   return (
     <button className={buttonFilledStyles.button} type="button">
       <ReactComponent className={buttonFilledStyles.icon} />
-      text
       {buttonText}
     </button>
   );

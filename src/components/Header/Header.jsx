@@ -46,6 +46,9 @@ export default function Header({ isAdmin }) {
 
 // props description
 Header.propTypes = {
+  /**
+   * пропс хранит в себе ответ админ это или нет
+   */
   isAdmin: PropTypes.bool,
 };
 
