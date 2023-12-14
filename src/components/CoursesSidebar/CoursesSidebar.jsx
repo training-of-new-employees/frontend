@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import navigationStyles from '../Navigation/Navigation.module.scss';
 import UsersIcon from '../../images/ui/NavigationUsers.svg';
 import ProfessionsIcon from '../../images/ui/NavigationProfessions.svg';
+import ButtonEmptyBorder from '../ui-kit/Buttons/ButtonEmptyBorder/ButtonEmptyBorder';
 
 export default function CoursesSidebar({ isAdmin }) {
   return (
@@ -15,7 +16,7 @@ export default function CoursesSidebar({ isAdmin }) {
           return linkClasses.join(' ');
         }}
       >
-        <button type="button">К курсам</button>
+        <ButtonEmptyBorder type="button" buttonText="К курсам" />
       </NavLink>
       {isAdmin ? (
         <>
