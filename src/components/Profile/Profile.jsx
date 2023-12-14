@@ -24,7 +24,7 @@ const ProfileInfo = ({ onEditProfileClick }) => {
 
   return (
     <div className={profileInfoStyles.profileContainer}>
-      <div className={profileInfoStyles.profileContant}>
+      <div className={profileInfoStyles.profileContent}>
         <div className={profileInfoStyles.headerContainer}>
           <h2 className={profileInfoStyles.header}>Профиль</h2>
           <div className={profileInfoStyles.userRoleContainer}>
