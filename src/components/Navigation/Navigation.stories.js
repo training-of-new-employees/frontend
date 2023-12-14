@@ -7,5 +7,8 @@ export default {
 };
 
 export const Primary = {
-  args: {},
+  args: {
+    isAdmin: false,
+    areCoursesOpened: false,
+  },
 };
