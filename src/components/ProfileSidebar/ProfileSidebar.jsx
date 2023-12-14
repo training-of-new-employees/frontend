@@ -30,7 +30,7 @@ export default function ProfileSidebar({ isAdmin }) {
         </div>
       </NavLink>
       <NavLink
-        to="/profile"
+        to="/courses"
         className={({ isActive }) => {
           const linkClasses = [navigationStyles.item];
           if (isActive) linkClasses.push(navigationStyles.item_active);
