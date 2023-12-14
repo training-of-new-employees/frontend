@@ -1,15 +1,19 @@
-import { string } from 'prop-types';
+import PropTypes, { string, func } from 'prop-types';
 import ButtonEmptyBorderStyles from './ButtonEmptyBorder.module.scss';
 import { ReactComponent as PlusIcon } from '../../../../images/ui/Icon-green.svg';
 import { ReactComponent as BackIcon } from '../../../../images/ui/Back-Icon.svg';
-import Header from '../../../Header/Header';
 
-export default function ButtonEmptyBorder({ buttonText, iconType }) {
+export default function ButtonEmptyBorder({ buttonText, iconType, onClick }) {
   return (
-    <button className={ButtonEmptyBorderStyles.button} type="button">
-      {iconType === 'plus' ? (
+    <button
+      className={ButtonEmptyBorderStyles.button}
+      type="button"
+      onClick={onClick}
+    >
+      {iconType === 'plus' && (
         <PlusIcon className={ButtonEmptyBorderStyles.icon} />
-      ) : (
+      )}
+      {iconType === 'back' && (
         <BackIcon className={ButtonEmptyBorderStyles.icon} />
       )}
       {buttonText}
@@ -19,9 +23,11 @@ export default function ButtonEmptyBorder({ buttonText, iconType }) {
 
 ButtonEmptyBorder.propTypes = {
   buttonText: string.isRequired,
-  iconType: string,
+  iconType: PropTypes.oneOf([string, null, undefined]),
+  onClick: func,
 };
 
 ButtonEmptyBorder.defaultProps = {
-  iconType: 'plus',
+  iconType: null,
+  onClick: () => null,
 };

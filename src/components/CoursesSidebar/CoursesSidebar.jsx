@@ -1,23 +1,28 @@
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 import navigationStyles from '../Navigation/Navigation.module.scss';
-import UsersIcon from '../../images/ui/NavigationUsers.svg';
-import ProfessionsIcon from '../../images/ui/NavigationProfessions.svg';
+import FilesIcon from '../../images/ui/Files.svg';
+import FolderIcon from '../../images/ui/Folder.svg';
 import ButtonEmptyBorder from '../ui-kit/Buttons/ButtonEmptyBorder/ButtonEmptyBorder';
 
 export default function CoursesSidebar({ isAdmin }) {
+  const testData = ['Lesson 1', 'Lesson 2', 'Lesson 3'];
+  const navigate = useNavigate();
+  const handleBackButtonClick = useCallback(() => {
+    navigate('/courses');
+  }, [navigate]);
+
   return (
     <nav className={navigationStyles.navigation}>
-      <NavLink
-        to="/profile"
-        className={({ isActive }) => {
-          const linkClasses = [navigationStyles.profileItem];
-          if (isActive) linkClasses.push(navigationStyles.profileItem_active);
-          return linkClasses.join(' ');
-        }}
-      >
-        <ButtonEmptyBorder type="button" buttonText="К курсам" />
-      </NavLink>
+      <div className={navigationStyles.navButton}>
+        <ButtonEmptyBorder
+          type="button"
+          buttonText="К курсам"
+          iconType="back"
+          onClick={handleBackButtonClick}
+        />
+      </div>
       {isAdmin ? (
         <>
           <NavLink
@@ -32,9 +37,9 @@ export default function CoursesSidebar({ isAdmin }) {
               <img
                 className={navigationStyles.itemImage}
                 alt="иконка"
-                src={UsersIcon}
+                src={FilesIcon}
               />
-              <p>Пользователи</p>
+              <p>Основная информация</p>
             </div>
           </NavLink>
           <NavLink
@@ -49,14 +54,30 @@ export default function CoursesSidebar({ isAdmin }) {
               <img
                 className={navigationStyles.itemImage}
                 alt="иконка"
-                src={ProfessionsIcon}
+                src={FolderIcon}
               />
-              <p>Должности</p>
+              <p>Материалы</p>
             </div>
           </NavLink>
         </>
       ) : (
-        <div>Сайдбар</div>
+        <>
+          {/* after connection to API change 'to' props with lesson-id & add lesson-id in key props */}
+          {testData.map((item) => (
+            <NavLink
+              to="/lesson"
+              className={({ isActive }) => {
+                const linkClasses = [navigationStyles.item];
+                if (isActive) linkClasses.push(navigationStyles.item_active);
+                return linkClasses.join(' ');
+              }}
+            >
+              <div className={navigationStyles.itemContainer}>
+                <p>{item}</p>
+              </div>
+            </NavLink>
+          ))}
+        </>
       )}
     </nav>
   );
