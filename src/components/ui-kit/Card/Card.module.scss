@@ -1,0 +1,112 @@
+@use '../../../utils/variables' as variables;
+
+.cardContainer {
+    width: variables.rem(365);
+    border-radius: variables.rem(8);
+    background: var(--BG-white, #FFF);
+    display: flex;
+    flex-direction: column;
+    padding: variables.rem(20) 20px 24px 20px;
+    gap: 12px;
+    position: relative;
+}
+
+.cardBox {
+    display: flex;
+    // flex-direction: column;
+    gap: 10px;
+
+}
+
+.title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31.2px;
+    color: var(--text-main, #2F302E);
+}
+
+.subtitle {
+    color: var(--text-additional, #7D7E7C);
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18.2px;
+}
+
+.progressBar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progressBarTitle {
+    color: var(--text-main, #2F302E);
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.progressBarImage {
+    background-image: url(../../../images/ui/ProgressBar1.svg);
+    background-repeat: no-repeat;
+    border-style: none;
+    height: 8px;
+}
+
+// .cardCheckbox {
+//     position: absolute;
+//     top: 28px;
+//     right: 18px;
+//     width: 18px;
+//     height: 18px;
+// }
+
+// .cardCheckbox:checked {
+//     background-color: #53772F;
+//     border-color: #53772F;
+// }
+
+.cardCheckbox {
+    position: absolute;
+    top: 28px;
+    right: 18px;
+    width: 18px;
+    height: 18px;
+    appearance: none; /* Убираем стандартные стили чекбокса в браузере */
+    background-color: transparent;
+    border: 2px solid #53772F;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+
+    &:checked {
+        background-color: #53772F;
+        border-color: #53772F;
+    }
+
+    &:hover {
+        border-color: #668447; /* Изменение цвета при наведении */
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 2px rgba(83, 119, 47, 0.5); /* Изменение тени при фокусе */
+    }
+
+    &::before {
+        content: '\2713'; /* Значок "галочка" Unicode */
+        font-size: 12px;
+        color: #FFF;
+        display: block;
+        text-align: center;
+        line-height: 16px;
+        visibility: hidden;
+    }
+
+    &:checked::before {
+        visibility: visible;
+    }
+}

@@ -5,6 +5,7 @@ import PopupEditProfile from '../../components/PopupEditProfile/PopupEditProfile
 import ProfileInfo from '../../components/Profile/Profile';
 
 import profileStyles from './Profile.module.scss';
+import Card from '../../components/ui-kit/Card/Card';
 
 const Profile = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
