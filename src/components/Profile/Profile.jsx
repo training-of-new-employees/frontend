@@ -5,7 +5,8 @@ import profileInfoStyles from './ProfileInfo.module.scss';
 import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
-import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+// import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+import Button from '../ui-kit/Button/Button';
 
 const ProfileInfo = ({ onEditProfileClick }) => {
   const { values, handleChange } = useValidation();
@@ -108,9 +109,14 @@ const ProfileInfo = ({ onEditProfileClick }) => {
                 // autoComplete="current-password"
               />
             </div>
-            <ButtonFilled type="button" disabled={!isEditProfileOpen}>
+            <Button 
+              disabled={!isEditProfileOpen}
+              buttonText='Изменить пароль'
+              type='primary'
+            />
+            {/* <ButtonFilled type="button" disabled={!isEditProfileOpen}>
               Изменить пароль
-            </ButtonFilled>
+            </ButtonFilled> */}
           </form>
         </div>
       </div>
