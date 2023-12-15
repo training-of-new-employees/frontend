@@ -1,8 +1,11 @@
 import { string } from 'prop-types';
 import loginFormStyles from './LoginForm.module.scss';
 import Input from '../ui-kit/Input/Input';
+import useValidation from '../hooks/useValidation';
 
 export default function LoginForm({ type }) {
+  const { values, handleChange } = useValidation();
+
   return (
     <div>
       {type === 'user' ? (
@@ -12,9 +15,25 @@ export default function LoginForm({ type }) {
             Придумайте новый пароль, чтобы авторизоваться
           </p>
           <form className={loginFormStyles.form}>
-            <Input name="email" placeholder="E-mail" />
-            <Input name="password" placeholder="Придумайте пароль" />
-            <Input name="repeat password" placeholder="Повторите пароль" />
+            <Input 
+            name="email"
+            type="email" 
+            placeholder="E-mail" 
+            onChange={handleChange}
+            values={values.email || ''} />
+            <Input 
+            name="password" 
+            type="password"
+            placeholder="Придумайте пароль"
+            onChange={handleChange}
+            values={values.password || ''} 
+             />
+            <Input 
+            name="password" 
+            type="password"
+            placeholder="Повторите пароль" 
+            onChange={handleChange}
+            values={values.password || ''} />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
                 <input
@@ -43,8 +62,19 @@ export default function LoginForm({ type }) {
             Введите e-mail и пароль, чтобы авторизоваться
           </p>
           <form className={loginFormStyles.form}>
-            <Input name="email" placeholder="E-mail" />
-            <Input name="password" placeholder="Пароль" />
+          <Input 
+            name="email"
+            type="email" 
+            placeholder="E-mail" 
+            onChange={handleChange}
+            values={values.email || ''} />
+            <Input 
+            name="password" 
+            type="password"
+            placeholder="Придумайте пароль"
+            onChange={handleChange}
+            values={values.password || ''} 
+             />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
                 <input

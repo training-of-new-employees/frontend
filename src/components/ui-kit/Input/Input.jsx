@@ -40,7 +40,7 @@ export default function Input({ name, placeholder, onChange }) {
           ${isProfile ? inputStyles.inputProfile : ''} `}
           name={name}
           // eslint-disable-next-line no-nested-ternary
-          type={isPassword ? (showPassword ? 'text' : 'password') : 'text'}
+          type={isPassword ? (showPassword ? 'text' : 'password') : ''}
           pattern={isEmail ? EMAIL_REGEX : ''}
           placeholder={placeholder}
           onChange={handleChangeValues}

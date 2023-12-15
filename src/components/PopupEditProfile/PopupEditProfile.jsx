@@ -33,7 +33,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             type="text"
             placeholder="Введите Фамилию"
             onChange={handleChange}
-            values={values.lastName}
+            values={values.lastName || ''}
           />
         </li>
         <li className={popupEditstyle.popupEditInput}>
@@ -46,7 +46,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             type="text"
             placeholder="Введите Имя"
             onChange={handleChange}
-            values={values.firstName}
+            values={values.firstName || ''}
           />
         </li>
         <li className={popupEditstyle.popupEditInput}>
@@ -59,7 +59,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             type="text"
             placeholder="Введите Отчество"
             onChange={handleChange}
-            values={values.middleName}
+            values={values.middleName || ''}
           />
         </li>
       </ul>
@@ -77,6 +77,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             name="companyprofile"
             placeholder="Введите название компании"
             onChange={handleChange}
+            values={values.company || ''}
           />
         </li>
         <li className={popupEditstyle.popupEditInput}>
@@ -89,6 +90,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             name="emailprofile"
             placeholder="Введите E-mail"
             onChange={handleChange}
+            values={values.email || ''}
           />
         </li>
       </ul>
@@ -103,8 +105,6 @@ export default function PopupEditProfile({ isOpen, onClose }) {
           type="primary"
           // icon='white'
         />
-        {/* <ButtonFilled type="button">&Отменить</ButtonFilled>
-        <ButtonFilled type="button">&Сохранить&nbsp;изменения</ButtonFilled> */}
       </div>
     </Popup>
   );
