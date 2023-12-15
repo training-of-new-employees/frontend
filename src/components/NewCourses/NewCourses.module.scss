@@ -1,0 +1,49 @@
+@use '../../utils/_variables' as variables;
+
+@mixin margin($size) {
+    margin: 0;
+    margin-bottom: variables.rem($size)
+}
+
+.sectionNewCourses {
+    padding: 0 variables.rem(120);
+    background-color: variables.$backGroundColor;
+
+    &__container {
+        padding: variables.rem(40) variables.rem(40) variables.rem(60);
+        background-color: variables.$colorWhite;
+        border-radius: 0px 0px variables.rem(24) variables.rem(24);
+    }
+
+    &__title {
+        @include margin(28)
+    }
+
+    &__descriptions {
+        @include margin(16);
+    }
+}
+
+.NewCoursesForm {
+    display: flex;
+    flex-direction: column;
+    row-gap: variables.rem(12);
+
+    &__label {
+        display: block;
+    }
+
+    &__titleInput {
+        display: inline-block;
+        @include margin(8);
+    }
+
+    &__divInput {
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    &__input {
+        flex-grow: 1;
+    }
+}

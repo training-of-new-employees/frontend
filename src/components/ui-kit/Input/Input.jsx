@@ -4,7 +4,14 @@ import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
 import useValidation from '../../hooks/useValidation';
 
-export default function Input({ name, placeholder, onChange }) {
+// написал classNameInput, classNameDiv чтобы пробросить стили
+export default function Input({
+  name,
+  placeholder,
+  onChange,
+  classNameInput,
+  classNameDiv,
+}) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase() === 'password';
   const isEmail = name.toLowerCase() === 'email';
@@ -32,12 +39,14 @@ export default function Input({ name, placeholder, onChange }) {
 
   return (
     <>
-      <div className={inputStyles.inputBox}>
+      <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
         <input
           className={`
           ${inputStyles.inputText} 
           ${isName ? inputStyles.inputName : ''} 
-          ${isProfile ? inputStyles.inputProfile : ''} `}
+          ${isProfile ? inputStyles.inputProfile : ''} 
+          ${classNameInput}
+          `}
           name={name}
           // eslint-disable-next-line no-nested-ternary
           type={isPassword ? (showPassword ? 'text' : 'password') : 'text'}
@@ -67,4 +76,11 @@ Input.propTypes = {
   name: string.isRequired,
   placeholder: string.isRequired,
   onChange: func.isRequired,
+  classNameInput: string,
+  classNameDiv: string,
+};
+
+Input.defaultProps = {
+  classNameInput: '',
+  classNameDiv: '',
 };
