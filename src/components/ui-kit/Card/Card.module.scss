@@ -6,9 +6,24 @@
     background: var(--BG-white, #FFF);
     display: flex;
     flex-direction: column;
-    padding: variables.rem(20) 20px 24px 20px;
+    padding: variables.rem(20) variables.rem(20) variables.rem(24) variables.rem(20);
+    border-radius: variables.rem(16);
     gap: 12px;
     position: relative;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background: #F4FFE9; // Изменение цвета при наведении 
+    }
+
+    &:active {
+        background: #BACDA8; // Изменние цвета при нажатии
+    }
+
+    &.archived {
+        background-color: #F3F5F0; // Цвет фона для архивированных карточек
+    }
+
 }
 
 .cardBox {
@@ -57,26 +72,13 @@
     height: 8px;
 }
 
-// .cardCheckbox {
-//     position: absolute;
-//     top: 28px;
-//     right: 18px;
-//     width: 18px;
-//     height: 18px;
-// }
-
-// .cardCheckbox:checked {
-//     background-color: #53772F;
-//     border-color: #53772F;
-// }
-
 .cardCheckbox {
     position: absolute;
     top: 28px;
     right: 18px;
     width: 18px;
     height: 18px;
-    appearance: none; /* Убираем стандартные стили чекбокса в браузере */
+    appearance: none;
     background-color: transparent;
     border: 2px solid #53772F;
     border-radius: 4px;
@@ -89,15 +91,18 @@
     }
 
     &:hover {
-        border-color: #668447; /* Изменение цвета при наведении */
+        border-color: #668447;
+        /* Изменение цвета при наведении */
     }
 
     &:focus {
-        box-shadow: 0 0 0 2px rgba(83, 119, 47, 0.5); /* Изменение тени при фокусе */
+        box-shadow: 0 0 0 2px rgba(83, 119, 47, 0.5);
+        /* Изменение тени при фокусе */
     }
 
     &::before {
-        content: '\2713'; /* Значок "галочка" Unicode */
+        content: '\2713';
+        /* Значок "галочка" Unicode */
         font-size: 12px;
         color: #FFF;
         display: block;
@@ -109,4 +114,33 @@
     &:checked::before {
         visibility: visible;
     }
+}
+
+.cardDropDownMenu {
+    position: absolute;
+    top: 18px;
+    right: 8px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--BG-white, #FFF);
+}
+
+.buttonArchived {
+    position: absolute;
+    position: absolute;
+    top: 18px;
+    right: 8px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-image: url(../../../images/ui/Unarchive.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F3F5F0;
+    cursor: pointer;
 }
