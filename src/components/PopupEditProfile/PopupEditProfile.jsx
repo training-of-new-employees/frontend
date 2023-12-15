@@ -3,7 +3,8 @@ import Input from '../ui-kit/Input/Input';
 import Popup from '../ui-kit/Popup/Popup';
 import popupEditstyle from './PopupEditProfile.module.scss';
 import useValidation from '../hooks/useValidation';
-import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+// import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+import Button from '../ui-kit/Button/Button';
 
 export default function PopupEditProfile({ isOpen, onClose }) {
   const { values, handleChange } = useValidation();
@@ -92,8 +93,18 @@ export default function PopupEditProfile({ isOpen, onClose }) {
         </li>
       </ul>
       <div className={popupEditstyle.popupEditButton}>
-        <ButtonFilled type="button">&Отменить</ButtonFilled>
-        <ButtonFilled type="button">&Сохранить&nbsp;изменения</ButtonFilled>
+        <Button 
+          buttonText='&Отменить'
+          type='primary'
+          // icon='white'
+        />
+        <Button 
+          buttonText='&Сохранить&nbsp;изменения'
+          type='primary'
+          // icon='white'
+        />
+        {/* <ButtonFilled type="button">&Отменить</ButtonFilled>
+        <ButtonFilled type="button">&Сохранить&nbsp;изменения</ButtonFilled> */}
       </div>
     </Popup>
   );
