@@ -20,6 +20,7 @@ const Profile = () => {
 
   return (
     <section className={profileStyles.section}>
+      <Card text="bla" />
       <Navigation isAdmin areCoursesOpened={false} />
       <ProfileInfo onEditProfileClick={openPopup} />
       <PopupEditProfile isOpen={isPopupOpen} onClose={closePopup} />

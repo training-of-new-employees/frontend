@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { string } from 'prop-types';
 import DropdownMenuStyles from './DropdownMenu.module.scss';
 import { ReactComponent } from '../../../images/ui/Menu-Icon.svg';
 import DropdownMenuButton from '../DropdownMenuButton/DropdownMenuButton';
 
-export default function DropdownMenu({className}) {
+export default function DropdownMenu({ className }) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -12,6 +13,7 @@ export default function DropdownMenu({className}) {
         className={className}
         type="button"
         onClick={() => setOpen(!isOpen)}
+        aria-label="Развернуть"
       >
         <ReactComponent className={DropdownMenuStyles.icon} />
       </button>
@@ -27,3 +29,11 @@ export default function DropdownMenu({className}) {
     </section>
   );
 }
+
+DropdownMenu.propTypes = {
+  className: string,
+};
+
+DropdownMenu.defaultProps = {
+  className: '',
+};
