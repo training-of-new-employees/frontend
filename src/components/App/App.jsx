@@ -18,7 +18,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 export default function App() {
   return (
     <div className={appStyles.app}>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path={paths.main} element={<Main />} />
         <Route path="*" element={<Login />} />
