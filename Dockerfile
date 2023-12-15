@@ -9,7 +9,8 @@ COPY . .
 RUN npm run build
 
 FROM nginx:1.25
-ENV BACKEND=backend:8080
+ENV BACKEND=http://backend:8080
+ENV SERVER_NAME=localhost
 ENV NGINX_PORT=8080
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/default.conf.template /etc/nginx/templates/
 COPY --from=builder /app/build /usr/share/nginx/html
