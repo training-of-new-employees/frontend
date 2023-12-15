@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 import backIcon from '../../images/ui/Back-Icon.svg';
@@ -8,15 +9,43 @@ import useValidation from '../hooks/useValidation';
 export default function RegisterForm() {
   const { values, handleChange } = useValidation();
   const [isOpenReg, setOpenReg] = useState(true);
-
+  const [verifyNums, setVerifyNums] = useState([]);
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isDisabled = false;
-
-  function onClickReg() {
-    setOpenReg(false);
-  }
 
   function onClickBack() {
     setOpenReg(true);
+  }
+
+  function onVerifyNumbersChange(e, index) {
+    const element = e.target;
+    const nextSibling = element?.parentElement?.nextElementSibling?.firstChild;
+    if (nextSibling) nextSibling.focus();
+    else element.blur();
+    setVerifyNums((prevState) => {
+      const newState = [...prevState];
+      [newState[index]] = element.value;
+      return newState;
+    });
+  }
+
+  function onLoginClick() {
+    navigate('/login');
+  }
+
+  function onSubmit(event) {
+    event.preventDefault();
+    // dispatch(adminRegister(values.email, values.password, values.company))
+    //   .then(() => setOpenReg(false));
+    setOpenReg(false);
+  }
+
+  function verifyEmail() {
+    const code = verifyNums.join('');
+    // dispatch(adminVerifyEmail(code))
+    //   .then(() => navigate('/login'));
+    Promise.resolve().then(() => navigate('/login'));
   }
 
   return (
@@ -27,28 +56,36 @@ export default function RegisterForm() {
           <p className={registerFormStyles.formText}>
             Введите E-mail и пароль, чтобы авторизоваться
           </p>
-          <form className={registerFormStyles.form} >
-            <Input 
-            name="company" 
-            placeholder="Компания"
-            onChange={handleChange}
-            values={values.company || ''}
-             />
-            <Input 
-            name="email" 
-            placeholder="E-mail" 
-            type="email"
-            onChange={handleChange}
-            values={values.email || ''}
+          <form
+            className={registerFormStyles.form}
+            onSubmit={onSubmit}
+            noValidate
+          >
+            <Input
+              name="company"
+              placeholder="Компания"
+              onChange={handleChange}
+              values={values.company || ''}
             />
-            <Input 
-            name="password" 
-            placeholder="Пароль"
-            type="password"
-            onChange={handleChange}
-            values={values.password || ''} 
+            <Input
+              name="email"
+              placeholder="E-mail"
+              type="email"
+              onChange={handleChange}
+              values={values.email || ''}
             />
-            <Input name="repeat password" placeholder="Повторите пароль" />
+            <Input
+              name="password"
+              placeholder="Пароль"
+              type="password"
+              onChange={handleChange}
+              values={values.password || ''}
+            />
+            <Input
+              name="repeat password"
+              placeholder="Повторите пароль"
+              onChange={() => null}
+            />
             <section className={registerFormStyles.container}>
               <div className={registerFormStyles.checkboxContainer}>
                 <input
@@ -72,9 +109,6 @@ export default function RegisterForm() {
               <button
                 className={registerFormStyles.submit}
                 type="submit"
-                onSubmit={onClickReg}
-                // type='button'
-                // onClick={onClickReg}
                 disabled={isDisabled}
               >
                 Зарегистрироваться
@@ -84,7 +118,11 @@ export default function RegisterForm() {
                 <p className={registerFormStyles.spanText}>или</p>
                 <span className={registerFormStyles.span} />
               </div>
-              <button className={registerFormStyles.auth} type="button">
+              <button
+                className={registerFormStyles.auth}
+                type="button"
+                onClick={onLoginClick}
+              >
                 Авторизоваться
               </button>
             </div>
@@ -93,7 +131,7 @@ export default function RegisterForm() {
       ) : (
         <section className={registerFormStyles.section}>
           <form className={registerFormStyles.form}>
-            <h1 className={registerFormStyles.title}>Подверждение e-mail</h1>
+            <h1 className={registerFormStyles.title}>Подтверждение e-mail</h1>
             <p className={registerFormStyles.text}>
               Мы отправили вам на e-mail 4х значный код
             </p>
@@ -101,15 +139,28 @@ export default function RegisterForm() {
               Введите код для подтверждения e-mail
             </p>
             <section className={registerFormStyles.inputSection}>
-              <InputConf />
-              <InputConf />
-              <InputConf />
-              <InputConf />
+              <InputConf
+                value={verifyNums[0]}
+                onChange={(e) => onVerifyNumbersChange(e, 0)}
+              />
+              <InputConf
+                value={verifyNums[1]}
+                onChange={(e) => onVerifyNumbersChange(e, 1)}
+              />
+              <InputConf
+                value={verifyNums[2]}
+                onChange={(e) => onVerifyNumbersChange(e, 2)}
+              />
+              <InputConf
+                value={verifyNums[3]}
+                onChange={(e) => onVerifyNumbersChange(e, 3)}
+              />
             </section>
             <button
               className={registerFormStyles.submitEmail}
               type="button"
               disabled={isDisabled}
+              onClick={verifyEmail}
             >
               Подтвердить
             </button>
@@ -126,7 +177,11 @@ export default function RegisterForm() {
                 />
                 Назад
               </button>
-              <button type="button" className={registerFormStyles.buttonAgain}>
+              <button
+                type="button"
+                className={registerFormStyles.buttonAgain}
+                onClick={verifyEmail}
+              >
                 Отправить код повторно
               </button>
             </div>

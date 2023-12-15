@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { string } from 'prop-types';
 import loginFormStyles from './LoginForm.module.scss';
 import Input from '../ui-kit/Input/Input';
@@ -5,6 +6,15 @@ import useValidation from '../hooks/useValidation';
 
 export default function LoginForm({ type }) {
   const { values, handleChange } = useValidation();
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+
+  function onSubmit(event) {
+    event.preventDefault();
+    // dispatch(login(values.email, values.password))
+    //   .then(() => navigate('/profile'));
+    Promise.resolve().then(() => navigate('/profile'));
+  }
 
   return (
     <div>
@@ -14,26 +24,28 @@ export default function LoginForm({ type }) {
           <p className={loginFormStyles.formText}>
             Придумайте новый пароль, чтобы авторизоваться
           </p>
-          <form className={loginFormStyles.form}>
-            <Input 
-            name="email"
-            type="email" 
-            placeholder="E-mail" 
-            onChange={handleChange}
-            values={values.email || ''} />
-            <Input 
-            name="password" 
-            type="password"
-            placeholder="Придумайте пароль"
-            onChange={handleChange}
-            values={values.password || ''} 
-             />
-            <Input 
-            name="password" 
-            type="password"
-            placeholder="Повторите пароль" 
-            onChange={handleChange}
-            values={values.password || ''} />
+          <form className={loginFormStyles.form} onSubmit={onSubmit}>
+            <Input
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              onChange={handleChange}
+              values={values.email || ''}
+            />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Придумайте пароль"
+              onChange={handleChange}
+              values={values.password || ''}
+            />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Повторите пароль"
+              onChange={handleChange}
+              values={values.password || ''}
+            />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
                 <input
@@ -62,19 +74,20 @@ export default function LoginForm({ type }) {
             Введите e-mail и пароль, чтобы авторизоваться
           </p>
           <form className={loginFormStyles.form}>
-          <Input 
-            name="email"
-            type="email" 
-            placeholder="E-mail" 
-            onChange={handleChange}
-            values={values.email || ''} />
-            <Input 
-            name="password" 
-            type="password"
-            placeholder="Придумайте пароль"
-            onChange={handleChange}
-            values={values.password || ''} 
-             />
+            <Input
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              onChange={handleChange}
+              values={values.email || ''}
+            />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Придумайте пароль"
+              onChange={handleChange}
+              values={values.password || ''}
+            />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
                 <input
