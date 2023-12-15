@@ -1,9 +1,11 @@
 import { withRouter } from 'storybook-addon-react-router-v6';
-import Profile from './Profile';
+import NoCourses from './NoCourses';
 
 export default {
-  title: 'Workflow/Profile',
-  component: Profile,
+  title: 'Workflow/NoCourses',
+  component: NoCourses,
   decorators: [withRouter],
   tags: ['autodocs'],
 };
+
+export const Primary = {};
