@@ -139,5 +139,5 @@ ProfileInfo.propTypes = {
 
 ProfileInfo.defaultProps = {
   isUser: true
-}
+};
 

@@ -15,7 +15,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path={paths.main} element={<Main />} />
-        <Route path="*" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Register />} />
         <Route path="*" element={<ForgotPassword />} />
         <Route path="*" element={<ResetPassword />} />
