@@ -46,7 +46,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             type="text"
             placeholder="Введите Имя"
             onChange={handleChange}
-            values={values.firstNameName}
+            values={values.firstName}
           />
         </li>
         <li className={popupEditstyle.popupEditInput}>
@@ -59,7 +59,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
             type="text"
             placeholder="Введите Отчество"
             onChange={handleChange}
-            values={values.middleNameName}
+            values={values.middleName}
           />
         </li>
       </ul>

@@ -1,9 +1,9 @@
 import { withRouter } from 'storybook-addon-react-router-v6';
-import Navigation from './Navigation';
+import CoursesSidebar from './CoursesSidebar';
 
 export default {
-  title: 'Workflow/Navigation',
-  component: Navigation,
+  title: 'Workflow/CoursesSidebar',
+  component: CoursesSidebar,
   decorators: [withRouter],
   tags: ['autodocs'],
 };
@@ -11,6 +11,5 @@ export default {
 export const Primary = {
   args: {
     isAdmin: false,
-    areCoursesOpened: false,
   },
 };

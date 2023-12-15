@@ -5,7 +5,7 @@ import headerStyles from './Header.module.scss';
 
 /**
  *компонент шапки, отображение зависит от роли пользователя
- *@param {boolean} isAdmin - хранит всебе ответ админ это или нет
+ *@param {boolean} isAdmin - хранит в себе ответ админ это или нет
  */
 export default function Header({ isAdmin }) {
   // @TODO ко всем картинкам подключить общий стиль чтобы они были блочными
@@ -46,6 +46,9 @@ export default function Header({ isAdmin }) {
 
 // props description
 Header.propTypes = {
+  /**
+   * пропс хранит в себе ответ админ это или нет
+   */
   isAdmin: PropTypes.bool,
 };
 
