@@ -1,12 +1,6 @@
-import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 import { paths } from '../../utils/constants';
-
 import appStyles from './App.module.scss';
-
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Register/Register';
@@ -18,7 +12,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 export default function App() {
   return (
     <div className={appStyles.app}>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path={paths.main} element={<Main />} />
         <Route path="/login" element={<Login />} />
