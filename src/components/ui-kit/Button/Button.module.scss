@@ -1,108 +1,108 @@
 .button {
-    display: flex;
-    width: 260px;
-    height: 52px;
-    padding: 12px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-    border-radius: 12px;
-    text-align: center;
-    font-family: Rubik;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    cursor: pointer;
+  display: flex;
+  width: 260px;
+  height: 52px;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  text-align: center;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
 }
 
 .primary {
-    background: var(--Main, #53772F);
-    border: 1px solid var(--Main, #53772F);
-    color: var(--BG-white, #FFF);
+  background: var(--Main, #53772f);
+  border: 1px solid var(--Main, #53772f);
+  color: var(--BG-white, #fff);
 }
 
 .primary:hover {
-    background: var(--button-hovered, #668447);
-    border-color: var(--button-hovered, #668447);
+  background: var(--button-hovered, #668447);
+  border-color: var(--button-hovered, #668447);
 }
 
 .primary:active {
-    background: var(--button-pressed, #374629);
-    border-color: var(--button-pressed, #374629);
+  background: var(--button-pressed, #374629);
+  border-color: var(--button-pressed, #374629);
 }
 
 .primary:disabled {
-    background: var(--stroke-button, #d1d3ce);
-    color: var(--text-additional, #7d7e7c);
-    border-color: var(--stroke-button, #d1d3ce);
+  background: var(--stroke-button, #d1d3ce);
+  color: var(--text-additional, #7d7e7c);
+  border-color: var(--stroke-button, #d1d3ce);
 }
 
 .emptyBorder {
-    border-radius: 12px;
-    border: 2px solid var(--Main, #53772F);
-    background: var(--BG-white, #FFF);
-    color: var(--Main, #53772F);
+  border-radius: 12px;
+  border: 2px solid var(--Main, #53772f);
+  background: var(--BG-white, #fff);
+  color: var(--Main, #53772f);
 }
 
 .emptyBorder:hover {
-    border-color: var(--button-hovered, #668447);
-    color: var(--button-hovered, #668447);
+  border-color: var(--button-hovered, #668447);
+  color: var(--button-hovered, #668447);
 }
 
 .emptyBorder:active {
-    color: var(--Button-Pressed, #374629);
-    border-color: var(--button-pressed, #374629);
+  color: var(--Button-Pressed, #374629);
+  border-color: var(--button-pressed, #374629);
 }
 
 .emptyBorder:disabled {
-    color: var(--text-additional, #7d7e7c);
-    border-color: var(--stroke-button, #d1d3ce);
+  color: var(--text-additional, #7d7e7c);
+  border-color: var(--stroke-button, #d1d3ce);
 }
 
 .empty {
-    border: none;
-    color: var(--Main, #53772F);
+  border: none;
+  color: var(--Main, #53772f);
 }
 
 .empty:hover {
-    // border-color: var(--button-hovered, #668447);
-    color: var(--button-hovered, #668447);
+  // border-color: var(--button-hovered, #668447);
+  color: var(--button-hovered, #668447);
 }
 
 .empty:active {
-    color: var(--Button-Pressed, #374629);
-    // border-color: var(--button-pressed, #374629);
+  color: var(--Button-Pressed, #374629);
+  // border-color: var(--button-pressed, #374629);
 }
 
 .empty:disabled {
-    color: var(--text-additional, #7d7e7c);
-    // border-color: var(--stroke-button, #d1d3ce);
+  color: var(--text-additional, #7d7e7c);
+  // border-color: var(--stroke-button, #d1d3ce);
 }
 
 .white {
-    background-image: url('../../../images/ui/Icon.svg');
-    background-size: cover;
-    width: 13px;
-    height: 13px;
+  background-image: url('../../../images/ui/Icon.svg');
+  background-size: cover;
+  width: 13px;
+  height: 13px;
 }
 
 .green {
-    background-image: url('../../../images/ui/Icon-green.svg');
-    width: 13px;
-    height: 13px;
-    opacity: 0.8;
+  background-image: url('../../../images/ui/Icon-green.svg');
+  width: 13px;
+  height: 13px;
+  opacity: 0.8;
 }
 
 .green:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .green:active {
-    opacity: 1;
+  opacity: 1;
 }
 
 // .green:disabled {
-    
+
 // }

@@ -46,17 +46,21 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
                 </h3>
                 {!isUser ? (
                   <button
-                  className={profileInfoStyles.infoEditButton}
-                  type="button"
-                  aria-label="Редактировать профиль"
-                  onClick={() => setIsEditProfileOpen(!isEditProfileOpen)}
-                />
-                ) : '' }
+                    className={profileInfoStyles.infoEditButton}
+                    type="button"
+                    aria-label="Редактировать профиль"
+                    onClick={() => setIsEditProfileOpen(!isEditProfileOpen)}
+                  />
+                ) : (
+                  ''
+                )}
               </div>
               <ul className={profileInfoStyles.infoLists}>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>ФИО:</h3>
-                  <p className={profileInfoStyles.infoText}>{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
+                  <p
+                    className={profileInfoStyles.infoText}
+                  >{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
                 </li>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>Компания:</h3>
@@ -68,21 +72,29 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
                 </li>
                 {isUser ? (
                   <li className={profileInfoStyles.infoList}>
-                  <h3 className={profileInfoStyles.infoSubtitle}>Должность:</h3>
-                  <p className={profileInfoStyles.infoText}>{values.position}</p>
-                </li>
-                ) : ''}
+                    <h3 className={profileInfoStyles.infoSubtitle}>
+                      Должность:
+                    </h3>
+                    <p className={profileInfoStyles.infoText}>
+                      {values.position}
+                    </p>
+                  </li>
+                ) : (
+                  ''
+                )}
               </ul>
             </article>
             {!isUser ? (
               <button type="button" className={profileInfoStyles.uploadPhoto}>
-              <img
-                className={profileInfoStyles.profilePicture}
-                alt="Загрузить фото"
-                src={uploadPhoto}
-              />
-            </button>
-            ) : ''}
+                <img
+                  className={profileInfoStyles.profilePicture}
+                  alt="Загрузить фото"
+                  src={uploadPhoto}
+                />
+              </button>
+            ) : (
+              ''
+            )}
           </div>
           {/* <form className={profileInfoStyles.form}>
             <h2 className={profileInfoStyles.formHeader}>Изменить пароль</h2>
@@ -135,9 +147,9 @@ export default ProfileInfo;
 
 ProfileInfo.propTypes = {
   onEditProfileClick: PropTypes.func.isRequired,
+  isUser: PropTypes.bool,
 };
 
 ProfileInfo.defaultProps = {
-  isUser: true
+  isUser: true,
 };
-

@@ -1,5 +1,5 @@
 import loginStyles from './Login.module.scss';
-import RegisterScreen from '../../components/RegisterScreen/RegisterScreen'
+import RegisterScreen from '../../components/RegisterScreen/RegisterScreen';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
 export default function Login() {
@@ -7,12 +7,8 @@ export default function Login() {
     <section className={loginStyles.container}>
       <RegisterScreen />
       <section className={loginStyles.form}>
-        <LoginForm
-          type='user'
-        />
-        <footer className={loginStyles.footer}>
-          &#169; 2023 QuickOn team
-        </footer>
+        <LoginForm type="user" />
+        <footer className={loginStyles.footer}>&#169; 2023 QuickOn team</footer>
       </section>
     </section>
   );
