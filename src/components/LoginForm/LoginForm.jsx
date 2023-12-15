@@ -1,19 +1,21 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { string } from 'prop-types';
 import loginFormStyles from './LoginForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
+import { login } from '../../services/api/login';
 
 export default function LoginForm({ type }) {
   const { values, handleChange } = useValidation();
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   function onSubmit(event) {
     event.preventDefault();
-    // dispatch(login(values.email, values.password))
-    //   .then(() => navigate('/profile'));
-    Promise.resolve().then(() => navigate('/profile'));
+    dispatch(login(values.email, values.password)).then(() =>
+      navigate('/profile')
+    );
   }
 
   return (

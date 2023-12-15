@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 import backIcon from '../../images/ui/Back-Icon.svg';
 import InputConf from '../ui-kit/ConfirmationInput/ConfirmationInput';
 import useValidation from '../hooks/useValidation';
+import {
+  adminRegister,
+  adminVerifyEmail,
+} from '../../services/api/admin-register';
 
 export default function RegisterForm() {
   const { values, handleChange } = useValidation();
   const [isOpenReg, setOpenReg] = useState(true);
   const [verifyNums, setVerifyNums] = useState([]);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const isDisabled = false;
 
@@ -36,16 +41,14 @@ export default function RegisterForm() {
 
   function onSubmit(event) {
     event.preventDefault();
-    // dispatch(adminRegister(values.email, values.password, values.company))
-    //   .then(() => setOpenReg(false));
-    setOpenReg(false);
+    dispatch(adminRegister(values.email, values.password, values.company)).then(
+      () => setOpenReg(false)
+    );
   }
 
   function verifyEmail() {
     const code = verifyNums.join('');
-    // dispatch(adminVerifyEmail(code))
-    //   .then(() => navigate('/login'));
-    Promise.resolve().then(() => navigate('/login'));
+    dispatch(adminVerifyEmail(code)).then(() => navigate('/login'));
   }
 
   return (
