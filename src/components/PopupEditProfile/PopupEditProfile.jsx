@@ -93,14 +93,14 @@ export default function PopupEditProfile({ isOpen, onClose }) {
         </li>
       </ul>
       <div className={popupEditstyle.popupEditButton}>
-        <Button 
-          buttonText='&Отменить'
-          type='primary'
+        <Button
+          buttonText="&Отменить"
+          type="primary"
           // icon='white'
         />
-        <Button 
-          buttonText='&Сохранить&nbsp;изменения'
-          type='primary'
+        <Button
+          buttonText="&Сохранить&nbsp;изменения"
+          type="primary"
           // icon='white'
         />
         {/* <ButtonFilled type="button">&Отменить</ButtonFilled>
