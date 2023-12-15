@@ -3,6 +3,7 @@ import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 import backIcon from '../../images/ui/Back-Icon.svg';
 import InputConf from '../ui-kit/ConfirmationInput/ConfirmationInput';
+import RadioButton from '../ui-kit/RadioButton/RadioButton';
 
 export default function RegisterForm() {
   const [isOpenReg, setOpenReg] = useState(true);
