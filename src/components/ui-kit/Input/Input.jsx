@@ -49,7 +49,7 @@ export default function Input({
           `}
           name={name}
           // eslint-disable-next-line no-nested-ternary
-          type={isPassword ? (showPassword ? 'text' : 'password') : 'text'}
+          type={isPassword ? (showPassword ? 'text' : 'password') : ''}
           pattern={isEmail ? EMAIL_REGEX : ''}
           placeholder={placeholder}
           onChange={handleChangeValues}

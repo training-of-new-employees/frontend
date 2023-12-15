@@ -3,9 +3,10 @@ import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 import backIcon from '../../images/ui/Back-Icon.svg';
 import InputConf from '../ui-kit/ConfirmationInput/ConfirmationInput';
-import RadioButton from '../ui-kit/RadioButton/RadioButton';
+import useValidation from '../hooks/useValidation';
 
 export default function RegisterForm() {
+  const { values, handleChange } = useValidation();
   const [isOpenReg, setOpenReg] = useState(true);
 
   const isDisabled = false;
@@ -26,10 +27,27 @@ export default function RegisterForm() {
           <p className={registerFormStyles.formText}>
             Введите E-mail и пароль, чтобы авторизоваться
           </p>
-          <form className={registerFormStyles.form}>
-            <Input name="company" placeholder="Компания" />
-            <Input name="email" placeholder="E-mail" />
-            <Input name="password" placeholder="Пароль" />
+          <form className={registerFormStyles.form} >
+            <Input 
+            name="company" 
+            placeholder="Компания"
+            onChange={handleChange}
+            values={values.company || ''}
+             />
+            <Input 
+            name="email" 
+            placeholder="E-mail" 
+            type="email"
+            onChange={handleChange}
+            values={values.email || ''}
+            />
+            <Input 
+            name="password" 
+            placeholder="Пароль"
+            type="password"
+            onChange={handleChange}
+            values={values.password || ''} 
+            />
             <Input name="repeat password" placeholder="Повторите пароль" />
             <section className={registerFormStyles.container}>
               <div className={registerFormStyles.checkboxContainer}>
