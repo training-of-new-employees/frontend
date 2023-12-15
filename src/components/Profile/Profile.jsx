@@ -49,7 +49,7 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
                     className={profileInfoStyles.infoEditButton}
                     type="button"
                     aria-label="Редактировать профиль"
-                    onClick={() => setIsEditProfileOpen(!isEditProfileOpen)}
+                    onClick={handleEditProfileClick}
                   />
                 ) : (
                   ''
@@ -151,5 +151,5 @@ ProfileInfo.propTypes = {
 };
 
 ProfileInfo.defaultProps = {
-  isUser: true,
+  isUser: false,
 };
