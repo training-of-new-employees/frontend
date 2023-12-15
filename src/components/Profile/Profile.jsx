@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import uploadPhoto from '../../images/ui/Photo.svg';
 import profileInfoStyles from './ProfileInfo.module.scss';
-import Input from '../ui-kit/Input/Input';
+// import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
-import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+// import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
 
-const ProfileInfo = ({ onEditProfileClick }) => {
+const ProfileInfo = ({ onEditProfileClick, isUser }) => {
   const { values, handleChange } = useValidation();
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
 
@@ -44,17 +44,19 @@ const ProfileInfo = ({ onEditProfileClick }) => {
                 <h3 className={profileInfoStyles.infoTitle}>
                   Основная информация
                 </h3>
-                <button
-                  className={profileInfoStyles.infoEdit}
+                {!isUser ? (
+                  <button
+                  className={profileInfoStyles.infoEditButton}
                   type="button"
                   aria-label="Редактировать профиль"
                   onClick={() => setIsEditProfileOpen(!isEditProfileOpen)}
                 />
+                ) : '' }
               </div>
               <ul className={profileInfoStyles.infoLists}>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>ФИО:</h3>
-                  <p>{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
+                  <p className={profileInfoStyles.infoText}>{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
                 </li>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>Компания:</h3>
@@ -64,17 +66,25 @@ const ProfileInfo = ({ onEditProfileClick }) => {
                   <h3 className={profileInfoStyles.infoSubtitle}>E-mail:</h3>
                   <p className={profileInfoStyles.infoText}>{values.email}</p>
                 </li>
+                {isUser ? (
+                  <li className={profileInfoStyles.infoList}>
+                  <h3 className={profileInfoStyles.infoSubtitle}>Должность:</h3>
+                  <p className={profileInfoStyles.infoText}>{values.position}</p>
+                </li>
+                ) : ''}
               </ul>
             </article>
-            <button type="button" className={profileInfoStyles.uploadPhoto}>
+            {!isUser ? (
+              <button type="button" className={profileInfoStyles.uploadPhoto}>
               <img
                 className={profileInfoStyles.profilePicture}
                 alt="Загрузить фото"
                 src={uploadPhoto}
               />
             </button>
+            ) : ''}
           </div>
-          <form className={profileInfoStyles.form}>
+          {/* <form className={profileInfoStyles.form}>
             <h2 className={profileInfoStyles.formHeader}>Изменить пароль</h2>
             <div className={profileInfoStyles.inputContainer}>
               <Input
@@ -111,7 +121,7 @@ const ProfileInfo = ({ onEditProfileClick }) => {
             <ButtonFilled type="button" disabled={!isEditProfileOpen}>
               Изменить пароль
             </ButtonFilled>
-          </form>
+          </form> */}
         </div>
       </div>
       {isEditProfileOpen && (
@@ -126,3 +136,7 @@ export default ProfileInfo;
 ProfileInfo.propTypes = {
   onEditProfileClick: PropTypes.func.isRequired,
 };
+
+ProfileInfo.defaultProps = {
+  isUser: true
+}

@@ -5,6 +5,8 @@
   width: 900px;
   box-sizing: border-box;
   background-color: $colorWhite;
+  display: flex;
+  justify-content: center;
 }
 
 .profileContent {
@@ -112,6 +114,7 @@
   width: 140px;
   height: 145px;
   object-fit: cover;
+  background-image: url(../../images/ui/ImageAdmin.svg);
 }
 
 .uploadPhoto {
@@ -122,16 +125,14 @@
   cursor: pointer;
 }
 
-.mainInfoContainer {
-  // grid-area: info;
-  // display: grid;
-  // grid-template-areas:
-  // "title  edit"
-  // "list list"
-}
 
 .infoTitle {
   grid-area: title;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 31.2px */
 }
 
 .infoSubtitle {
