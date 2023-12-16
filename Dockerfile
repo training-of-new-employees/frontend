@@ -10,6 +10,7 @@ RUN npm run build
 
 FROM nginx:1.25
 ENV BACKEND=backend:8080
-ENV NGINX_PORT=8080
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+ENV SERVER_NAME=localhost
+ENV LISTEN_PORT=8080
+COPY ./nginx/default.conf.template /etc/nginx/templates/
 COPY --from=builder /app/build /usr/share/nginx/html
