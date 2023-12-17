@@ -14,5 +14,4 @@ ENV LISTEN_PORT=8080
 ENV BACKEND=localhost:${LISTEN_PORT}
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
-COPY ./nginx/default.conf.template /etc/nginx/templates/
 COPY --from=builder /app/build /usr/share/nginx/html
