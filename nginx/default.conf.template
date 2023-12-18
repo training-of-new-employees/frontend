@@ -22,6 +22,10 @@ server {
     gzip_types text/plain application/javascript text/css text/xml application/xml application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype;
  
     root   /usr/share/nginx/html;
+
+    location ~ ^/$ {
+        return 301 /registration;
+    }
  
     location / {
         index  index.html index.htm;
