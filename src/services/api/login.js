@@ -20,10 +20,10 @@ export const login = (email, password) =>
       .then((res) => {
         dispatch(
           loginActions.postLoginSuccess({
-            token: res['access token'],
+            token: res.token,
           })
         );
-        setCookie('accessToken', res['access token']);
+        setCookie('accessToken', res.token);
       })
       .catch((error) => {
         console.log(error);

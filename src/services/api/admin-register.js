@@ -50,7 +50,7 @@ export const adminVerifyEmail = (code) =>
         dispatch(
           adminAuthActions.postVerifySuccess({
             admin: {
-              email: res['email created'],
+              email: res['admin created'],
             },
           })
         );
