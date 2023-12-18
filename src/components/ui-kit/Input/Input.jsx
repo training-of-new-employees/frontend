@@ -13,7 +13,7 @@ export default function Input({
   classNameDiv,
 }) {
   const [showPassword, setShowPassword] = useState(false);
-  const isPassword = name.toLowerCase() === 'password';
+  const isPassword = name.toLowerCase().includes('password');
   const isEmail = name.toLowerCase() === 'email';
   const isName =
     name.toLowerCase() === 'firstname' ||
