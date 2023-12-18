@@ -26,7 +26,7 @@ export default function LoginForm({ type }) {
           <p className={loginFormStyles.formText}>
             Придумайте новый пароль, чтобы авторизоваться
           </p>
-          <form className={loginFormStyles.form} onSubmit={onSubmit}>
+          <form className={loginFormStyles.form} onSubmit={onSubmit} noValidate>
             <Input
               name="email"
               type="email"
