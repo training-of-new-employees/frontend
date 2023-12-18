@@ -60,5 +60,5 @@ Header.propTypes = {
 
 // default props
 Header.defaultProps = {
-  isAdmin: false,
+  isAdmin: true,
 };
