@@ -75,7 +75,7 @@ export default function LoginForm({ type }) {
           <p className={loginFormStyles.formText}>
             Введите e-mail и пароль, чтобы авторизоваться
           </p>
-          <form className={loginFormStyles.form}>
+          <form className={loginFormStyles.form} noValidate>
             <Input
               name="email"
               type="email"
