@@ -9,15 +9,19 @@ import headerStyles from './Header.module.scss';
  */
 export default function Header({ isAdmin }) {
   // @TODO ко всем картинкам подключить общий стиль чтобы они были блочными
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {pathname !== '/login' && pathname !== '/registration'  ?
-        (<header className={headerStyles.header}>
+      {pathname !== '/login' && pathname !== '/registration' ? (
+        <header className={headerStyles.header}>
           <Link to="/">
-            <img className={headerStyles.headerImage} src={logo} alt="Логотип" />
+            <img
+              className={headerStyles.headerImage}
+              src={logo}
+              alt="Логотип"
+            />
           </Link>
           {isAdmin ? (
             <button
@@ -44,8 +48,10 @@ export default function Header({ isAdmin }) {
               </span>
             </button>
           )}
-        </header>)
-        : ''}
+        </header>
+      ) : (
+        ''
+      )}
     </>
   );
 }

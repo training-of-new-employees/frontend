@@ -18,6 +18,10 @@ export default function LoginForm({ type }) {
     );
   }
 
+  function onRegisterClick() {
+    navigate('/registration');
+  }
+
   return (
     <div>
       {type === 'user' ? (
@@ -75,7 +79,7 @@ export default function LoginForm({ type }) {
           <p className={loginFormStyles.formText}>
             Введите e-mail и пароль, чтобы авторизоваться
           </p>
-          <form className={loginFormStyles.form} noValidate>
+          <form className={loginFormStyles.form} onSubmit={onSubmit} noValidate>
             <Input
               name="email"
               type="email"
@@ -118,7 +122,11 @@ export default function LoginForm({ type }) {
                 <p className={loginFormStyles.spanText}>или</p>
                 <span className={loginFormStyles.span} />
               </div>
-              <button className={loginFormStyles.auth} type="button">
+              <button
+                className={loginFormStyles.auth}
+                type="button"
+                onClick={onRegisterClick}
+              >
                 Зарегистрироваться
               </button>
             </div>

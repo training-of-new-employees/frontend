@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -49,18 +49,17 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     steps:
-    - name: Rerun server
-      uses: appleboy/ssh-action@v1.0.0
-      env:
-        DOMAIN: ${{ secrets.HOST }}
-        FRONT_TAG: ${{ github.ref_name }}
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        envs: DOMAIN,FRONT_TAG
-        script: |
-          echo "FRONT:${FRONT_TAG} BACK:${BACK_TAG}"
-          docker compose --file docker-compose/deploy/docker-compose.yml up --pull always -d --remove-orphans frontend
-
+      - name: Rerun server
+        uses: appleboy/ssh-action@v1.0.0
+        env:
+          DOMAIN: ${{ secrets.HOST }}
+          FRONT_TAG: ${{ github.ref_name }}
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          envs: DOMAIN,FRONT_TAG
+          script: |
+            echo "FRONT:${FRONT_TAG} BACK:${BACK_TAG}"
+            docker compose --file docker-compose/deploy/docker-compose.yml up --pull always -d --remove-orphans frontend
