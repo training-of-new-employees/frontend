@@ -1,15 +1,52 @@
-name: CD
+name: CI/CD
 
 on:
-  workflow_run:
-    workflows: [Publish Docker]
-    branches: [ "deploy", "develop", "main" ]
-    types:
-      - completed
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+      - 'develop'
+      - 'deploy'
+    tags:
+      - 'v*'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
-    name: Redeploy
+  docker:
+    name: Docker
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: REACT_APP_BASE_URL=${{ vars.APP_BASE_URL }}
+  deploy:
+    name: Deploy
+    needs: docker
     runs-on: ubuntu-latest
     steps:
     - name: Rerun server
@@ -17,8 +54,8 @@ jobs:
       env:
         DOMAIN: ${{ secrets.HOST }}
         SENDER_API_KEY: ${{ secrets.SENDER_API_KEY }}
-        FRONT_TAG: ${{ github.ref_name }}
-        BACK_TAG: ${{ vars.BACK_TAG }}
+        FRONT_TAG: ${{ vars.FRONT_TAG }}
+        BACK_TAG: ${{ github.ref_name }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -28,3 +65,4 @@ jobs:
         script: |
           echo "FRONT:${FRONT_TAG} BACK:${BACK_TAG}"
           docker compose --file docker-compose/deploy/docker-compose.yml up --pull always -d --remove-orphans
+
