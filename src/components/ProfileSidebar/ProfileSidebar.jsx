@@ -11,11 +11,11 @@ export default function ProfileSidebar({ isAdmin }) {
     <nav className={navigationStyles.navigation}>
       <NavLink
         to="/profile"
-        className={({ isActive }) => {
-          const linkClasses = [navigationStyles.profileItem];
-          if (isActive) linkClasses.push(navigationStyles.profileItem_active);
-          return linkClasses.join(' ');
-        }}
+        className={({ isActive }) =>
+          `${navigationStyles.profileItem} ${
+            isActive ? navigationStyles.profileItem_active : ''
+          }`
+        }
       >
         <div className={navigationStyles.profileContainer}>
           <img
@@ -31,11 +31,11 @@ export default function ProfileSidebar({ isAdmin }) {
       </NavLink>
       <NavLink
         to="/courses"
-        className={({ isActive }) => {
-          const linkClasses = [navigationStyles.item];
-          if (isActive) linkClasses.push(navigationStyles.item_active);
-          return linkClasses.join(' ');
-        }}
+        className={({ isActive }) =>
+          `${navigationStyles.item} ${
+            isActive ? navigationStyles.item_active : ''
+          }`
+        }
       >
         <div className={navigationStyles.itemContainer}>
           <img
@@ -50,11 +50,11 @@ export default function ProfileSidebar({ isAdmin }) {
         <>
           <NavLink
             to="/courses"
-            className={({ isActive }) => {
-              const linkClasses = [navigationStyles.item];
-              if (isActive) linkClasses.push(navigationStyles.item_active);
-              return linkClasses.join(' ');
-            }}
+            className={({ isActive }) =>
+              `${navigationStyles.item} ${
+                isActive ? navigationStyles.item_active : ''
+              }`
+            }
           >
             <div className={navigationStyles.itemContainer}>
               <img
@@ -67,11 +67,11 @@ export default function ProfileSidebar({ isAdmin }) {
           </NavLink>
           <NavLink
             to="/courses"
-            className={({ isActive }) => {
-              const linkClasses = [navigationStyles.item];
-              if (isActive) linkClasses.push(navigationStyles.item_active);
-              return linkClasses.join(' ');
-            }}
+            className={({ isActive }) =>
+              `${navigationStyles.item} ${
+                isActive ? navigationStyles.item_active : ''
+              }`
+            }
           >
             <div className={navigationStyles.itemContainer}>
               <img
