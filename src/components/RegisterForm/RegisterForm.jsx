@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import registerFormStyles from './RegisterForm.module.scss';
 import Input from '../ui-kit/Input/Input';
+import Checkbox from '../ui-kit/Checkbox/Checkbox';
 import backIcon from '../../images/ui/Back-Icon.svg';
 import InputConf from '../ui-kit/ConfirmationInput/ConfirmationInput';
 import useValidation from '../hooks/useValidation';
@@ -91,18 +92,9 @@ export default function RegisterForm() {
             />
             <section className={registerFormStyles.container}>
               <div className={registerFormStyles.checkboxContainer}>
-                <input
-                  className={registerFormStyles.checkbox}
-                  id="register-checkbox"
-                  type="checkbox"
-                  name="checkbox"
+                <Checkbox
+                  text='Запомнить меня'
                 />
-                <label
-                  className={registerFormStyles.inputLabel}
-                  htmlFor="register-checkbox"
-                >
-                  Запомнить меня
-                </label>
               </div>
               <button className={registerFormStyles.forgetButton} type="button">
                 Забыли пароль?

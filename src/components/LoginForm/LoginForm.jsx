@@ -5,6 +5,7 @@ import loginFormStyles from './LoginForm.module.scss';
 import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
 import { login } from '../../services/api/login';
+import Checkbox from '../ui-kit/Checkbox/Checkbox';
 
 export default function LoginForm({ type }) {
   const { values, handleChange } = useValidation();
@@ -54,18 +55,9 @@ export default function LoginForm({ type }) {
             />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
-                <input
-                  className={loginFormStyles.checkbox}
-                  id="register-checkbox"
-                  type="checkbox"
-                  name="checkbox"
+                <Checkbox
+                  text='Запомнить меня'
                 />
-                <label
-                  className={loginFormStyles.inputLabel}
-                  htmlFor="register-checkbox"
-                >
-                  Запомнить меня
-                </label>
               </div>
             </section>
             <button className={loginFormStyles.submitUser} type="submit">
@@ -96,18 +88,9 @@ export default function LoginForm({ type }) {
             />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
-                <input
-                  className={loginFormStyles.checkbox}
-                  id="register-checkbox"
-                  type="checkbox"
-                  name="checkbox"
+                <Checkbox
+                  text='Запомнить меня'
                 />
-                <label
-                  className={loginFormStyles.inputLabel}
-                  htmlFor="register-checkbox"
-                >
-                  Запомнить меня
-                </label>
               </div>
               <button className={loginFormStyles.forgetButton} type="button">
                 Забыли пароль?
