@@ -4,7 +4,7 @@ ARG REACT_APP_BASE_URL=http://localhost:8080
 WORKDIR /app
 COPY ./package.json /app/package.json
 COPY ./package-lock.json /app/package-lock.json
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
 

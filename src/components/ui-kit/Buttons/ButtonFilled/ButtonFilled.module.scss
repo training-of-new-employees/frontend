@@ -1,45 +1,45 @@
 .button {
-    max-width: 260px;
-    width: 100%;
-    min-height: 52px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    background: var(--Main, #53772f);
-    border: none;
+  max-width: 260px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--Main, #53772f);
+  border: none;
 
-    color: var(--BG-white, #fff);
-    text-align: center;
-    padding-bottom: 10px;
+  color: var(--BG-white, #fff);
+  text-align: center;
+  padding-bottom: 10px;
 
-    font-family: Rubik;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    cursor: pointer;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {
-    background: var(--button-hovered, #668447);
+  background: var(--button-hovered, #668447);
 }
 
 .button:active {
-    background: var(--button-pressed, #374629);
+  background: var(--button-pressed, #374629);
 }
 
 .button:disabled {
-    background: var(--stroke-button, #d1d3ce);
-    color: var(--text-additional, #7d7e7c);
+  background: var(--stroke-button, #d1d3ce);
+  color: var(--text-additional, #7d7e7c);
 }
 
 .icon {
-    margin-right: 3px;
+  margin-right: 3px;
 }
 
 .icon:disabled {
-    fill: var(--text-additional, #7d7e7c);
+  fill: var(--text-additional, #7d7e7c);
 }
