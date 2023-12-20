@@ -4,11 +4,10 @@ import logo from '../../images/ui/Logo.svg';
 import headerStyles from './Header.module.scss';
 
 /**
- *компонент шапки, отображение зависит от роли пользователя
+ * the header component, the display depends on the user's role
  *@param {boolean} isAdmin - хранит в себе ответ админ это или нет
  */
 export default function Header({ isAdmin }) {
-  // @TODO ко всем картинкам подключить общий стиль чтобы они были блочными
   const { pathname } = useLocation();
 
   return (
@@ -59,7 +58,7 @@ export default function Header({ isAdmin }) {
 // props description
 Header.propTypes = {
   /**
-   * пропс хранит в себе ответ админ это или нет
+   * the prop stores the answer whether it is an admin or not
    */
   isAdmin: PropTypes.bool,
 };

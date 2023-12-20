@@ -1,20 +1,15 @@
 @use '../../utils/_variables' as variables;
 
-@mixin flex {
-  box-sizing: border-box;
-  display: flex;
-}
-
 .header {
   box-sizing: border-box;
-  @include flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 
   padding: variables.rem(12) variables.rem(20) variables.rem(8);
-  border-bottom: variables.rem(4) solid #53772f;
+  border-bottom: variables.rem(4) solid variables.$colorButtonDefault;
 
-  background-color: #2f302e;
+  background-color: variables.$colorBlack
 }
 
 .button {
@@ -34,11 +29,12 @@
 
   &_fioUser {
     @include button;
-    @include flex;
+    display: flex;
+    box-sizing: border-box;
     column-gap: variables.rem(12);
     align-items: center;
     padding: variables.rem(8) variables.rem(8) variables.rem(8) 0;
-    color: #fff;
+    color: variables.$colorWhite;
     background-color: transparent;
 
     &:hover {
