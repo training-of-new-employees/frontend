@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react';
 
 /**
- * Form validation hook.
- * Returns an object with the following fields:
- * - values {name: string, email: string, password: string} with form values set by user
- * - isValid {boolean} when true, the form is valid
- * - handleChange {(e: ChangeEvent) => void} change handler. You must add it to the form being validated
- * - resetForm {() => void} reset handler
+ *Form validation hook.
+ *Returns an object with the following fields:
+ *- values {name: string, email: string, password: string} with form values set by user
+ *- isValid {boolean} when true, the form is valid
+ *- handleChange {(e: ChangeEvent) => void} change handler. You must add it to the form being validated
+ *- resetForm {() => void} reset handler
  */
 
 export default function useValidation() {
@@ -16,6 +16,7 @@ export default function useValidation() {
     middleName: '',
     email: 'Admin@yandex.ru',
     password: '',
+    confirmPassword: '',
     position: 'Администратор',
     photo: '',
     company: 'Glass&Gmetry',
@@ -24,19 +25,17 @@ export default function useValidation() {
   const [isValid, setIsValid] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name } = target;
-    const { value } = target;
-    if (name === 'name' && target.validity.patternMismatch) {
-      target.setCustomValidity('Имя не должно содержать специальных символов');
+    const { name, value } = e.target;
+    if (name === 'name' && e.target.validity.patternMismatch) {
+      e.target.setCustomValidity('Имя не должно содержать специальных символов');
       setIsValid(false);
       setErrors(false);
     } else {
-      target.setCustomValidity('');
+      e.target.setCustomValidity('');
     }
     setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest('form').checkValidity());
+    setErrors({ ...errors, [name]: e.target.validationMessage });
+    setIsValid(e.target.closest('form').checkValidity());
   };
 
   const resetForm = useCallback(
@@ -48,14 +47,30 @@ export default function useValidation() {
     [setValues, setErrors, setIsValid]
   );
 
+  const validate = () => {
+    const newErrors = {};
+    if (!values.email || !values.email.includes('@')) {
+      newErrors.email = 'Введите корректный email';
+    }
+
+    if (!values.password || values.password.length < 6) {
+      newErrors.password = 'Пароль должен содержать не менее 6 символов';
+    }
+
+    if (values.password !== values.confirmPassword) {
+      errors.confirmPassword = 'Пароли не совпадают';
+    }
+
+    setErrors(newErrors);
+    setIsValid(Object.keys(newErrors).length === 0);
+  };
+
   return {
     values,
-    setValues,
     handleChange,
     errors,
-    setErrors,
     isValid,
-    setIsValid,
     resetForm,
+    validate
   };
 }

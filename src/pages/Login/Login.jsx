@@ -7,7 +7,7 @@ export default function Login() {
     <section className={loginStyles.container}>
       <RegisterScreen />
       <section className={loginStyles.form}>
-        <LoginForm type="not user" />
+        <LoginForm />
         <footer className={loginStyles.footer}>&#169; 2023 QuickOn team</footer>
       </section>
     </section>
