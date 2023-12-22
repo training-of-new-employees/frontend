@@ -1,29 +1,29 @@
 .footer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 
-	display: flex;
-	column-gap: 8px;
+  display: flex;
+  column-gap: 8px;
 }
 
 .listItem {
-	padding-right: 8px;
-	border-right: solid 2px;
+  padding-right: 8px;
+  border-right: solid 2px;
 }
 
 .listItem:last-child {
-	padding: 0;
-	border: none;
+  padding: 0;
+  border: none;
 }
 
 .copypast {
-	margin: 0;
+  margin: 0;
 }

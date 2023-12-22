@@ -1,0 +1,37 @@
+.popupEditContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 244px);
+  list-style: none;
+  gap: 8px;
+  justify-content: center;
+}
+
+.popupEditText {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+}
+
+.popupEditInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.popupEditLabel {
+  margin-bottom: 8px;
+  color: var(--text-main, #2f302e);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.popupEditButton {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}

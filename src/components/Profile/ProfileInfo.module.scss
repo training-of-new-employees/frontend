@@ -1,50 +1,191 @@
 @use '../../utils/variables.scss' as *;
 
-.profileForm {
-	width: 900px;
-	box-sizing: border-box;
-	padding: 72px 60px 0 180px;
+.profileContainer {
+  width: 900px;
+  height: 290px;
+  box-sizing: border-box;
+  background-color: $colorWhite;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0 24px 24px;
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 820px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 .headerContainer {
-	display: flex;
-	justify-content: space-between;
-	height: 40px;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
 }
 
 .header {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
+  width: 635px;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 41.6px */
+}
+
+.positionProfile {
+  color: var(--text-main, #2f302e);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 .userRoleContainer {
-	height: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 24px */
+  color: var(--text-additional, #7d7e7c);
 }
 
 .roleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.imageHeader {
+  background-image: url(../../images/ui/Admin.svg);
+  background-repeat: no-repeat;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  object-fit: cover;
 }
 
 .infoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoContant {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 680px 120px;
+  grid-template-areas: 'info photo';
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.mainInfoTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.infoLists {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  width: 680px;
+  height: 60px;
+}
+
+.infoList {
+  display: flex;
+  gap: 12px;
+  width: 100%;
 }
 
 .pictureContainer {
+  border-radius: 50%;
 }
 
 .profilePicture {
+  border-radius: 50%;
+  width: 140px;
+  height: 145px;
+  object-fit: cover;
+  background-image: url(../../images/ui/ImageAdmin.svg);
 }
 
 .uploadPhoto {
+  // border-radius: 50px;
+  grid-area: photo;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.mainInfoContainer {
+.infoTitle {
+  grid-area: title;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 31.2px */
 }
 
-.label {
+.infoSubtitle {
+  // width: 41px;
+  color: var(--text-additional, #7d7e7c);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 24px */
 }
 
-.inputText {
+.infoText {
+  color: var(--text-main, #2f302e);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 24px */
 }
 
-.inputList {
+.infoEditButton {
+  background-image: url(../../images/ui/IconEdit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  background-size: 17px;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  background-color: $colorWhite;
+  grid-area: 'edit';
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formHeader {
+  color: var(--text-main, #2f302e);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 31.2px */
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
 }

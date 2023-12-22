@@ -1,0 +1,145 @@
+@use '../../../utils/variables' as variables;
+
+.cardContainer {
+  width: variables.rem(365);
+  border-radius: variables.rem(8);
+  background: var(--BG-white, #fff);
+  display: flex;
+  flex-direction: column;
+  padding: variables.rem(20) variables.rem(20) variables.rem(24)
+    variables.rem(20);
+  border-radius: variables.rem(16);
+  gap: 12px;
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: #f4ffe9; // Изменение цвета при наведении
+  }
+
+  &:active {
+    background: #bacda8; // Изменние цвета при нажатии
+  }
+
+  &.archived {
+    background-color: #f3f5f0; // Цвет фона для архивированных карточек
+  }
+}
+
+.cardBox {
+  display: flex;
+  // flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 31.2px;
+  color: var(--text-main, #2f302e);
+}
+
+.subtitle {
+  color: var(--text-additional, #7d7e7c);
+  font-family: Rubik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18.2px;
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressBarTitle {
+  color: var(--text-main, #2f302e);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.progressBarImage {
+  background-image: url(../../../images/ui/ProgressBar1.svg);
+  background-repeat: no-repeat;
+  border-style: none;
+  height: 8px;
+}
+
+.cardCheckbox {
+  position: absolute;
+  top: 28px;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #53772f;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+
+  &:checked {
+    background-color: #53772f;
+    border-color: #53772f;
+  }
+
+  &:hover {
+    border-color: #668447;
+    /* Изменение цвета при наведении */
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(83, 119, 47, 0.5);
+    /* Изменение тени при фокусе */
+  }
+
+  &::before {
+    content: '\2713';
+    /* Значок "галочка" Unicode */
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 16px;
+    visibility: hidden;
+  }
+
+  &:checked::before {
+    visibility: visible;
+  }
+}
+
+.cardDropDownMenu {
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--BG-white, #fff);
+}
+
+.buttonArchived {
+  position: absolute;
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../../images/ui/Unarchive.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f3f5f0;
+  cursor: pointer;
+}

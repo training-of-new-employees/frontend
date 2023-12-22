@@ -1,0 +1,106 @@
+@use '../../../utils/variables' as *;
+
+.inputBox {
+  display: flex;
+  position: relative;
+}
+
+.inputText {
+  padding: 10px 18px 8px 18px;
+  align-items: center;
+  color: #53772f;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  border: none;
+  box-shadow: none;
+  border-style: none;
+  // outline: none;
+  border: 2px solid var(--stroke-button, #d1d3ce);
+  border-radius: 12px;
+  background: var(--BG-white, #fff);
+  width: 435px;
+  max-height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.inputName {
+  width: 244px;
+  height: 60px;
+  border-radius: 12px;
+  border-bottom: 1px solid var(--stroke-button, #d1d3ce);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inputProfile {
+  width: 748px;
+}
+
+.inputName:disabled {
+  border: 2px solid var(--stroke-button, #d1d3ce);
+  background: var(--stroke-button, #d1d3ce);
+}
+
+.inputText:focus::placeholder {
+  transform: translateY(-10px);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 14.4px */
+}
+
+.inputText:disabled {
+  border: 2px solid var(--stroke-button, #d1d3ce);
+  background: var(--stroke-button, #d1d3ce);
+}
+
+.inputTextError {
+  border: 2px solid var(--service-warning, #c63535);
+  width: 435px;
+  max-height: 60px;
+  padding: 10px 18px 8px 18px;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--BG-white, #fff);
+}
+
+.passwordButton {
+  background-image: url(./../../../images/ui/PasswordVisible.svg);
+  width: 40px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border-style: none;
+  background-size: auto;
+  background-color: var(--BG-white, #fff);
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  border-radius: 12px;
+}
+
+.passwordButtonShow {
+  background-image: url(./../../../images/ui/Password.svg);
+}
+
+.passwordButton:disabled {
+  background: var(--stroke-button, #d1d3ce);
+}
+
+.inputError {
+  color: $colorRed;
+  font-family: Rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14.4px;
+  min-height: 14px;
+  margin-top: 4px;
+}

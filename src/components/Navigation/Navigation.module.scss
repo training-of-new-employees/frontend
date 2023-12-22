@@ -1,23 +1,116 @@
+@use '../../utils/variables.scss' as *;
+
 .navigation {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: $colorWhite;
+  height: calc(100vh - 72px);
+  font-family: Rubik, Arial;
+  border: 1px solid $colorGrayLite;
+}
+
+.profileItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+  height: 88px;
+  text-decoration: none;
+  border-bottom: 1px solid $colorGrayLite;
+  color: $colorBlack;
+
+  &:hover {
+    background-color: $colorButtonSidebarHover;
+  }
+
+  &:active {
+    background-color: $colorButtonSidebarPress;
+  }
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+.profileImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
 }
 
 .item {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 0;
-	margin: 0;
+  text-decoration: none;
+  color: $colorBlack;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-left: 8px solid transparent;
+  margin-left: 2px;
+
+  &:hover {
+    background-color: $colorButtonSidebarHover;
+  }
+
+  &:active {
+    background-color: $colorButtonSidebarPress;
+  }
+}
+
+.profileNameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1px;
+}
+
+.profileName {
+  color: $colorBlack;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.profilePosition {
+  color: $colorBlack;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profileItem_active {
+  background-color: $colorButtonSidebarEnable;
+  text-decoration: none;
 }
 
 .item_active {
-	background-color: rgba(236, 255, 238, 1);
-	border-left: 5px solid rgba(113, 200, 122, 1);
+  background-color: $colorButtonSidebarEnable;
+  border-left: 8px solid #53772f;
+  text-decoration: none;
+  border-radius: 4px 0 0 4px;
 }
 
-.span {
+.itemContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 10px;
 }
 
-.spanImage {
+.itemImage {
+  height: 24px;
+  width: 24px;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92px;
+  padding: 20px 0;
 }

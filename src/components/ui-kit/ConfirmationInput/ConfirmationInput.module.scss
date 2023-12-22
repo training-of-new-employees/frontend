@@ -1,0 +1,20 @@
+.inputContainer {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 2px solid var(--stroke-button, #d1d3ce);
+  background: var(--BG-white, #fff);
+}
+
+.input {
+  width: 9px;
+  height: 20px;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}

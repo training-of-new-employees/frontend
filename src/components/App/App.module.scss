@@ -1,39 +1,40 @@
-@use '../../utils/variables.scss' as *;
+@use '../../utils/variables' as *;
 
 html {
-	background-color: $color-white;
+  background-color: $backGroundColor;
 }
 
 .app {
-	width: 100%;
-	max-width: 1400px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .page {
-	font-family: 'Rubik', Arial, sans-serif;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	text-rendering: optimizeLegibility;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: $color-white;
-	min-height: 100vh;
-	color: $color-black;
-	&__content {
-		margin: 0 auto;
-		max-width: 1280px;
-		min-width: 320px;
-		width: 100%;
-		min-height: 100vh;
-	}
+  font-family: 'Rubik', Arial, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $colorWhite;
+  min-height: 100vh;
+  color: $colorBlack;
+  &__content {
+    margin: 0 auto;
+    // max-width: 1280px;
+    // min-width: 320px;
+    width: 100%;
+    min-height: 100vh;
+  }
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
