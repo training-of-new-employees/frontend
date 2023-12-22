@@ -18,8 +18,8 @@
 }
 
 .primary {
-  background: var(--Main, #53772f);
-  border: 1px solid var(--Main, #53772f);
+  background: var(--main, #53772f);
+  border: 1px solid var(--main, #53772f);
   color: var(--BG-white, #fff);
 }
 
@@ -41,9 +41,9 @@
 
 .emptyBorder {
   border-radius: 12px;
-  border: 2px solid var(--Main, #53772f);
+  border: 2px solid var(--main, #53772f);
   background: var(--BG-white, #fff);
-  color: var(--Main, #53772f);
+  color: var(--main, #53772f);
 }
 
 .emptyBorder:hover {
@@ -63,7 +63,7 @@
 
 .empty {
   border: none;
-  color: var(--Main, #53772f);
+  color: var(--main, #53772f);
 }
 
 .empty:hover {
