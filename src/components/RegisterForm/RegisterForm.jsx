@@ -92,9 +92,7 @@ export default function RegisterForm() {
             />
             <section className={registerFormStyles.container}>
               <div className={registerFormStyles.checkboxContainer}>
-                <Checkbox
-                  text='Запомнить меня'
-                />
+                <Checkbox text="Запомнить меня" />
               </div>
               <button className={registerFormStyles.forgetButton} type="button">
                 Забыли пароль?
