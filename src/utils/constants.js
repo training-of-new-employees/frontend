@@ -1,5 +1,12 @@
 const paths = {
   main: '/',
+  profile: '/profile',
+  courses: '/courses',
+  users: '/users',
+  positions: '/positions',
+  login: '/login',
+  registration: '/registration',
+  admin: '/admin',
 };
 
 const urlByEnvVar = {

@@ -17,13 +17,13 @@ export default function App() {
       <Header />
       <Routes>
         <Route path={paths.main} element={<Main />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Register />} />
+        <Route path={paths.login} element={<Login />} />
+        <Route path={paths.registration} element={<Register />} />
         <Route path="*" element={<ForgotPassword />} />
         <Route path="*" element={<ResetPassword />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path={paths.profile} element={<Profile />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/courses" element={<CoursesPage />} />
+        <Route path={paths.courses} element={<CoursesPage />} />
       </Routes>
       {/* <Footer /> */}
     </div>
