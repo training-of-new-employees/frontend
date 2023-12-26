@@ -1,4 +1,4 @@
-import { func, string } from 'prop-types';
+import { func, number, string } from 'prop-types';
 import { useState } from 'react';
 import inputStyles from './Input.module.scss';
 import useValidation from '../../hooks/useValidation';
@@ -80,14 +80,14 @@ Input.propTypes = {
   classNameInput: string,
   classNameDiv: string,
   type: string,
-  minLength: string,
-  maxLength: string
+  minLength: number,
+  maxLength: number
 };
 
 Input.defaultProps = {
   classNameInput: '',
   classNameDiv: '',
   type: 'text',
-  minLength: '',
-  maxLength: ''
+  minLength: 0,
+  maxLength: 0
 };
