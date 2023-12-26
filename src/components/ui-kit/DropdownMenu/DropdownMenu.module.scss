@@ -85,11 +85,8 @@
 }
 
 .icon {
-  margin: 12px 20px 12px 20px;
+  // margin: 12px 20px 12px 20px;
+  margin-top: 12px;
   fill: var(--text-main, #2f302e);
 }
 
-.section {
-  position: absolute;
-  left: 280px;
-}

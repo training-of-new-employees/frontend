@@ -20,18 +20,20 @@
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  gap: 10px;
   border-radius: 16px;
 }
 
 .cardText {
+  width: 284px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
 }
 .cardTitle {
+  word-wrap: break-word;
+  width: 284px;
   font-size: 24px;
   font-weight: 500;
   line-height: 31px;
