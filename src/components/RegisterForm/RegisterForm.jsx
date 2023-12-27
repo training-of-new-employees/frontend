@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import registerFormStyles from './RegisterForm.module.scss';
@@ -13,12 +13,17 @@ import {
 } from '../../services/api/admin-register';
 
 export default function RegisterForm() {
-  const { values, handleChange } = useValidation();
+  const { values, handleChange, errors, isValid, validate } = useValidation();
   const [isOpenReg, setOpenReg] = useState(true);
-  const [verifyNums, setVerifyNums] = useState([]);
+  const [verifyNums, setVerifyNums] = useState(['', '', '', '']);
+  const [verificationError, setVerificationError] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isDisabled = false;
+  
+  useEffect(() => {
+    setIsButtonDisabled(false);
+  }, []);
 
   function onClickBack() {
     setOpenReg(true);
@@ -42,19 +47,28 @@ export default function RegisterForm() {
 
   function onSubmit(event) {
     event.preventDefault();
-    dispatch(adminRegister(values.email, values.password, values.company)).then(
-      () => setOpenReg(false)
-    );
+    validate();
+    if (isValid) {
+      dispatch(adminRegister(values.email, values.password, values.company)).then(
+        () => setOpenReg(false)
+      );
+    }
+    
   }
 
   function verifyEmail() {
     const code = verifyNums.join('');
-    dispatch(adminVerifyEmail(code)).then(() => navigate('/login'));
+    dispatch(adminVerifyEmail(code))
+    .then(() => navigate('/login'))
+    .catch((error) => {
+      setVerificationError('Код введен неверно')
+      console.error('Email verification error:', error)
+    });
   }
 
   return (
     <div>
-      {isOpenReg ? (
+      {!isOpenReg ? (
         <div className={registerFormStyles.formContainerOpened}>
           <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
           <p className={registerFormStyles.formText}>
@@ -69,27 +83,46 @@ export default function RegisterForm() {
               name="company"
               placeholder="Компания"
               onChange={handleChange}
-              values={values.company || ''}
+              value={values.company || ''}
+              minLength={1}
+              maxLength={256}
             />
+            <span className={registerFormStyles.spanError}>{errors.company} </span>
             <Input
               name="email"
               placeholder="E-mail"
               type="email"
               onChange={handleChange}
-              values={values.email || ''}
+              value={values.email || ''}
+              minLength={5}
+              maxLength={50}
             />
-            <Input
+            <span className={registerFormStyles.spanError}>{errors.email}</span>
+            <Input classNameInput={errors.password ? registerFormStyles.inputError : ''}
               name="password"
               placeholder="Пароль"
               type="password"
               onChange={handleChange}
-              values={values.password || ''}
+              value={values.password || ''}
+              minLength={6}
+              maxLength={30}
             />
-            <Input
-              name="repeat password"
+            <span className={registerFormStyles.spanError}>{errors.password}</span>
+            <Input classNameInput={errors.confirmPassword ? registerFormStyles.inputError : ''}
+              name="confirmPassword"
+              type="password"
               placeholder="Повторите пароль"
-              onChange={() => null}
+              onChange={handleChange}
+              value={values.confirmPassword || ''}
+              minLength={6}
+              maxLength={30}
             />
+            <span className={registerFormStyles.spanError}>
+              {errors.confirmPassword &&
+                (values.confirmPassword !== values.password
+                    ? 'Пароли не совпадают'
+                    : '')}
+            </span>
             <section className={registerFormStyles.container}>
               <div className={registerFormStyles.checkboxContainer}>
                 <Checkbox text="Запомнить меня" />
@@ -102,7 +135,7 @@ export default function RegisterForm() {
               <button
                 className={registerFormStyles.submit}
                 type="submit"
-                disabled={isDisabled}
+                disabled={!isValid}
               >
                 Зарегистрироваться
               </button>
@@ -123,7 +156,7 @@ export default function RegisterForm() {
         </div>
       ) : (
         <section className={registerFormStyles.section}>
-          <form className={registerFormStyles.form}>
+          <form className={registerFormStyles.form} onSubmit={onSubmit} noValidate>
             <h1 className={registerFormStyles.title}>Подтверждение e-mail</h1>
             <p className={registerFormStyles.text}>
               Мы отправили вам на e-mail 4х значный код
@@ -135,24 +168,29 @@ export default function RegisterForm() {
               <InputConf
                 value={verifyNums[0]}
                 onChange={(e) => onVerifyNumbersChange(e, 0)}
+                maxLength={1}
               />
               <InputConf
                 value={verifyNums[1]}
                 onChange={(e) => onVerifyNumbersChange(e, 1)}
+                maxLength={1}
               />
               <InputConf
                 value={verifyNums[2]}
                 onChange={(e) => onVerifyNumbersChange(e, 2)}
+                maxLength={1}
               />
               <InputConf
                 value={verifyNums[3]}
                 onChange={(e) => onVerifyNumbersChange(e, 3)}
+                maxLength={1}
               />
             </section>
+              <span className={registerFormStyles.spanErrorVerify}>{verificationError}</span>
             <button
               className={registerFormStyles.submitEmail}
               type="button"
-              disabled={isDisabled}
+              disabled={isButtonDisabled}
               onClick={verifyEmail}
             >
               Подтвердить
