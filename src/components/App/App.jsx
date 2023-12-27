@@ -12,9 +12,11 @@ import Header from '../Header/Header';
 import CoursesPage from '../../pages/Courses/Courses';
 import PositionPage from '../../pages/PositionsPage/PositionsPage';
 import SettingAccess from '../../pages/PositionsPage/SettingAccess/SettingAccess';
+import ToastProvider from "../ui-kit/Snackbar/ToastProvider/ToastProvider";
 
 export default function App() {
   return (
+    <ToastProvider>
     <div className={appStyles.app}>
       <Header />
       <Routes>
@@ -34,5 +36,6 @@ export default function App() {
       </Routes>
       {/* <Footer /> */}
     </div>
+    </ToastProvider>
   );
 }
