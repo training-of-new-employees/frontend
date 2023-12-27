@@ -1,4 +1,4 @@
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
 import classNames from 'classnames';
 import ButtonStyles from './Button.module.scss';
 
@@ -21,5 +21,9 @@ export default function Button({
 Button.propTypes = {
   buttonText: string.isRequired,
   type: string.isRequired,
-  icon: string.isRequired,
+  icon: string,
+};
+
+Button.defaultProps = {
+  icon: '',
 };

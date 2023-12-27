@@ -1,0 +1,78 @@
+.section {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Rubik';
+}
+
+.content {
+  padding: 20px 20px;
+}
+
+.listCards {
+  padding-top: 20px;
+}
+
+.coursesCard {
+  position: relative;
+  width: 356px;
+  height: 134px;
+  padding: 20px 20px 24px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-radius: 16px;
+}
+
+.cardText {
+  width: 284px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cardTitle {
+  word-wrap: break-word;
+  width: 284px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 31px;
+  color: #2f302e;
+}
+.coursesCount {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #7d7e7c;
+}
+
+.iconMenu {
+  border: none;
+  background: none;
+}
+
+.popupContent {
+  margin: 0 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.popupText {
+  width: 540px;
+  text-align: center;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
