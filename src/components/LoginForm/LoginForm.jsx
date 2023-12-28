@@ -21,8 +21,9 @@ export default function LoginForm({ isAdmin }) {
   
     if (isValid) {
       dispatch(loginActions.postLoginLoading());
-      login(values.email, values.password)
-        .then((response) => {
+      const log = login(values.email, values.password)
+      
+        log.then((response) => {
           dispatch(loginActions.postLoginSuccess(response.data));
           navigate('/profile');
         })

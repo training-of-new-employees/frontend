@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './SettingAccess.module.scss';
-import ButtonEmptyBorder from '../../../components/ui-kit/Buttons/ButtonEmptyBorder/ButtonEmptyBorder';
 import Card from '../../../components/ui-kit/Card/Card';
 import Button from '../../../components/ui-kit/Button/Button';
 
@@ -34,8 +33,8 @@ export default function SettingAccess() {
     <section className={styles.section}>
       <nav className={styles.navigation}>
         <div className={styles.navButton}>
-          <ButtonEmptyBorder
-            type="button"
+          <Button
+            type="emptyBorder"
             buttonText="К курсам"
             iconType="back"
             onClick={() => {
