@@ -1,4 +1,6 @@
+
 import { func, oneOfType, string } from 'prop-types';
+
 import classNames from 'classnames';
 import ButtonStyles from './Button.module.scss';
 
@@ -30,6 +32,7 @@ export default function Button({
 Button.propTypes = {
   buttonText: string.isRequired,
   type: string.isRequired,
+
   icon: oneOfType([string, null]),
   HTMLType: string,
   onClick: func,
@@ -41,4 +44,5 @@ Button.defaultProps = {
   HTMLType: 'button',
   onClick: () => null,
   extraClass: null,
+
 };
