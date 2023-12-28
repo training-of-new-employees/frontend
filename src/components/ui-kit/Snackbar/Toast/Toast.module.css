@@ -1,0 +1,33 @@
+.toast {
+    font-family: 'Rubik', Arial, sans-serif;
+    font-weight: 400;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 12px;
+    color: white;
+    color-scheme: light;
+    background: rgba(47, 48, 46, 1);
+    max-width: 100%;
+    width: 350px;
+}
+
+.content {
+    flex: 1;
+    padding: 18px 20px;
+}
+
+.cancelButton {
+    background-color: transparent;
+    border-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0 20px 0 0;
+    color: rgba(231, 255, 207, 1);
+    text-decoration: underline;
+    cursor: pointer;
+}

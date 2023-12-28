@@ -64,6 +64,7 @@
 .empty {
   border: none;
   color: var(--main, #53772f);
+  background-color: transparent;
 }
 
 .empty:hover {
@@ -93,6 +94,17 @@
   width: 13px;
   height: 13px;
   opacity: 0.8;
+  margin-right: 8px;
+  background-position: center;
+}
+
+.back {
+  background-image: url('../../../images/ui/Back-Icon.svg');
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .green:hover {

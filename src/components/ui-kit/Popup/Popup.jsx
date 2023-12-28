@@ -19,7 +19,10 @@ export default function Popup({
           type="button"
           className={popupStyle.popupClose}
           aria-label="Закрытие окна"
-          onClick={onClose}
+          onClick={(event) => {
+            event.stopPropagation();
+            onClose();
+          }}
         />
         <form
           className={popupStyle.popupForm}

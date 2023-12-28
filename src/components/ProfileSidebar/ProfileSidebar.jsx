@@ -5,12 +5,13 @@ import CoursesIcon from '../../images/ui/NavigationCourses.svg';
 import UsersIcon from '../../images/ui/NavigationUsers.svg';
 import ProfessionsIcon from '../../images/ui/NavigationProfessions.svg';
 import Avatar from '../../images/stubs/Avatar.png';
+import { paths } from '../../utils/constants';
 
 export default function ProfileSidebar({ isAdmin }) {
   return (
     <nav className={navigationStyles.navigation}>
       <NavLink
-        to="/profile"
+        to={paths.profile}
         className={({ isActive }) =>
           `${navigationStyles.profileItem} ${
             isActive ? navigationStyles.profileItem_active : ''
@@ -30,7 +31,7 @@ export default function ProfileSidebar({ isAdmin }) {
         </div>
       </NavLink>
       <NavLink
-        to="/courses"
+        to={paths.courses}
         className={({ isActive }) =>
           `${navigationStyles.item} ${
             isActive ? navigationStyles.item_active : ''
@@ -49,7 +50,7 @@ export default function ProfileSidebar({ isAdmin }) {
       {isAdmin && (
         <>
           <NavLink
-            to="/courses"
+            to={paths.users}
             className={({ isActive }) =>
               `${navigationStyles.item} ${
                 isActive ? navigationStyles.item_active : ''
@@ -66,7 +67,7 @@ export default function ProfileSidebar({ isAdmin }) {
             </div>
           </NavLink>
           <NavLink
-            to="/courses"
+            to={paths.positions}
             className={({ isActive }) =>
               `${navigationStyles.item} ${
                 isActive ? navigationStyles.item_active : ''

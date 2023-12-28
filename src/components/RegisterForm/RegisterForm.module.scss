@@ -1,3 +1,5 @@
+@use '../../utils/variables' as *;
+
 .formContainerOpened {
   display: flex;
   align-items: center;
@@ -240,9 +242,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 4px;
-  width: 172px;
-  height: 40px;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 .containerButton {
@@ -273,9 +273,6 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
-}
-
-.imageBack {
 }
 
 .buttonAgain {
@@ -316,4 +313,37 @@
 .submitEmail:disabled {
   background: var(--stroke-button, #d1d3ce);
   color: var(--text-additional, #7d7e7c);
+}
+
+.spanError {
+  color: $colorRed;
+  font-family: Rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14.4px;
+  min-height: 14px;
+  margin-top: 4px;
+  display: flex;
+  width: 399px;
+  margin-bottom: 12px;
+  margin-left: 8px;
+}
+.spanErrorVerify {
+  color: $colorRed;
+  font-family: Rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14.4px;
+  min-height: 14px;
+  margin-top: 4px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  align-self: flex-start;
+}
+
+.inputError {
+  outline: 2px solid var(--service-warning, #C63535);
 }

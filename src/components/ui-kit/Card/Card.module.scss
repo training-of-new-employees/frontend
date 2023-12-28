@@ -143,3 +143,7 @@
   background-color: #f3f5f0;
   cursor: pointer;
 }
+
+.border {
+  border: 2px solid var(--stroke-button, #D1D3CE);
+}
