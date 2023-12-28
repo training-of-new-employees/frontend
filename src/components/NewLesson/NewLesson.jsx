@@ -1,47 +1,49 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import PropTypes from 'prop-types';
-
-import style from './NewCourses.module.scss';
+import style from '../NewCourses/NewCourses.module.scss';
 import Input from '../ui-kit/Input/Input';
 import Button from '../ui-kit/Button/Button';
 
-export default function NewCourses() {
+export default function NewLessons() {
   return (
     <section className={style.sectionNewCourses}>
       <div className={style.sectionNewCourses__container}>
-        <h1 className={style.sectionNewCourses__title}>Новый курс</h1>
-        <h2 className={style.sectionNewCourses__descriptions}>
-          Основная информация
-        </h2>
+        <h1 className={style.sectionNewCourses__title}>Новый урок</h1>
         <form name="newCourse" className={style.NewCoursesForm}>
           <label className={style.NewCoursesForm__label}>
             <span className={style.NewCoursesForm__titleInput}>Название</span>
             <Input
               name="text"
-              placeholder="Напишите название"
+              placeholder="Название урока"
               onChange=""
               classNameInput={style.NewCoursesForm__input}
               classNameDiv={style.NewCoursesForm__divInput}
             />
           </label>
           <label className={style.NewCoursesForm__label}>
-            <span className={style.NewCoursesForm__titleInput}>Описание</span>
+            <span className={style.NewCoursesForm__titleInput}>Текст</span>
             <Input
               name="text"
-              placeholder="Напишите описание"
+              placeholder="Содержание урока"
               onChange=""
               classNameInput={style.NewCoursesForm__input}
               classNameDiv={style.NewCoursesForm__divInput}
             />
           </label>
-          <Button buttonText="Добавить курс" HTMLType="submit" type="primary" />
+          <Button
+            buttonText="Загрузить изображение"
+            type="empty"
+            HTMLType="button"
+            icon="green"
+            extraClass={style.addButton}
+          />
+          <Button buttonText="Добавить урок" type="primary" HTMLType="submit" />
         </form>
       </div>
     </section>
   );
 }
 
-NewCourses.propTypes = {};
+NewLessons.propTypes = {};
 
-NewCourses.defaultProps = {};
+NewLessons.defaultProps = {};
