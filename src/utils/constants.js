@@ -3,6 +3,7 @@ const paths = {
   profile: '/profile',
   courses: '/courses',
   users: '/users',
+  newuser: '/users/new',
   positions: '/position',
   login: '/login',
   registration: '/registration',
