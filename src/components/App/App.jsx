@@ -9,6 +9,7 @@ import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
 import Header from '../Header/Header';
+import User from '../../pages/User/User';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="*" element={<ResetPassword />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/user" element={<User />} />
       </Routes>
       {/* <Footer /> */}
     </div>
