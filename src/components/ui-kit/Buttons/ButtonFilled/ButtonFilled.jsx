@@ -1,15 +1,16 @@
-import { string } from 'prop-types';
-import { ReactComponent } from '../../../../images/ui/Icon.svg';
+import PropTypes from 'prop-types';
+import buttonFilledStyles from './ButtonFilled.module.scss';
+import { ReactComponent as Icon } from '../../../../images/ui/Icon.svg';
 
 export default function ButtonFilled({ buttonText }) {
   return (
-    <button  type="button">
-      <ReactComponent />
+    <button className={buttonFilledStyles.buttonFilled} type="button">
+      <Icon />
       {buttonText}
     </button>
   );
 }
 
 ButtonFilled.propTypes = {
-  buttonText: string.isRequired,
+  buttonText: PropTypes.string.isRequired,
 };
