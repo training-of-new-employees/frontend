@@ -9,10 +9,6 @@ import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
 import Header from '../Header/Header';
-import CoursesPage from '../../pages/Courses/Courses';
-import PositionPage from '../../pages/PositionsPage/PositionsPage';
-import SettingAccess from '../../pages/PositionsPage/SettingAccess/SettingAccess';
-import ToastProvider from "../ui-kit/Snackbar/ToastProvider/ToastProvider";
 
 export default function App() {
   return (
@@ -32,7 +28,6 @@ export default function App() {
           element={<SettingAccess />}
         />
         <Route path="*" element={<NotFound />} />
-        <Route path={paths.courses} element={<CoursesPage />} />
       </Routes>
       {/* <Footer /> */}
     </div>
