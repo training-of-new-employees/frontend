@@ -1,0 +1,42 @@
+.table {
+    // border-bottom: 1px solid var(--stroke-button, #D1D3CE);
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid var(--stroke-button, #D1D3CE);
+}
+
+.title {
+    background: var(--table-card-table-header, #DDD);
+    color: var(--Text-Additional, #7D7E7C);
+    font-family: 'Rubik';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+
+    th:first-child {
+        border-top-left-radius: 12px;
+    }
+
+    th:last-child {
+        border-top-right-radius: 12px; 
+        border-right: none;
+    }
+}
+
+.tableContant {
+    color: var(--Text-Main, #2F302E);
+    font-family: 'Rubik';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    background: var(--BG-white, #FFF);
+}
