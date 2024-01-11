@@ -68,7 +68,7 @@ export default function RegisterForm() {
 
   return (
     <div>
-      {!isOpenReg ? (
+      {isOpenReg ? (
         <div className={registerFormStyles.formContainerOpened}>
           <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
           <p className={registerFormStyles.formText}>
