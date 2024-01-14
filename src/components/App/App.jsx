@@ -14,6 +14,7 @@ import PositionPage from '../../pages/PositionsPage/PositionsPage';
 import SettingAccess from '../../pages/PositionsPage/SettingAccess/SettingAccess';
 import User from '../../pages/User/User';
 import NewUser from '../NewUser/NewUser';
+import CoursesPage from '../../pages/Courses/Courses';
 
 export default function App() {
   return (
@@ -34,6 +35,8 @@ export default function App() {
           path={`${paths.positions}/setting-access`}
           element={<SettingAccess />}
         />
+        {/* Роутинг Курсов */}
+        <Route path={paths.courses} element={<CoursesPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Footer /> */}

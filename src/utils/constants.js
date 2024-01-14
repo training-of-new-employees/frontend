@@ -4,7 +4,7 @@ const paths = {
   courses: '/courses',
   users: '/users',
   newuser: '/users/new',
-  positions: '/position',
+  positions: 'v',
   login: '/login',
   registration: '/registration',
   admin: '/admin',
