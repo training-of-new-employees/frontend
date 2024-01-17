@@ -6,6 +6,7 @@ import style from './NewCourses.module.scss';
 import Input from '../ui-kit/Input/Input';
 import Button from '../ui-kit/Button/Button';
 
+
 export default function NewCourses() {
   return (
     <section className={style.sectionNewCourses}>
@@ -14,7 +15,7 @@ export default function NewCourses() {
         <h2 className={style.sectionNewCourses__descriptions}>
           Основная информация
         </h2>
-        <form name="newCourse" className={style.NewCoursesForm}>
+        <form name="newCourse" className={style.NewCoursesForm} >
           <label className={style.NewCoursesForm__label}>
             <span className={style.NewCoursesForm__titleInput}>Название</span>
             <Input
