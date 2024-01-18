@@ -40,7 +40,7 @@ export default function useValidation() {
       confirmPassword: '',
       position: profile.position_name,
       photo: '',
-      company: 'Glass&Gmetry',
+      company: profile.company_name,
     });
   }, [status]);
   const [errors, setErrors] = useState({});
