@@ -55,9 +55,7 @@ export default function LoginForm({ type }) {
             />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
-                <Checkbox
-                  text='Запомнить меня'
-                />
+                <Checkbox text="Запомнить меня" />
               </div>
             </section>
             <button className={loginFormStyles.submitUser} type="submit">
@@ -88,9 +86,7 @@ export default function LoginForm({ type }) {
             />
             <section className={loginFormStyles.container}>
               <div className={loginFormStyles.checkboxContainer}>
-                <Checkbox
-                  text='Запомнить меня'
-                />
+                <Checkbox text="Запомнить меня" />
               </div>
               <button className={loginFormStyles.forgetButton} type="button">
                 Забыли пароль?
