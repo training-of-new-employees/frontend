@@ -1,15 +1,20 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import uploadPhoto from '../../images/ui/Photo.svg';
 import profileInfoStyles from './ProfileInfo.module.scss';
-// import Input from '../ui-kit/Input/Input';
 import useValidation from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
-// import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+import { fetchProfile } from '../../services/profile/profileSlice';
 
 const ProfileInfo = ({ onEditProfileClick, isUser }) => {
-  const { values, handleChange } = useValidation();
+  const { values } = useValidation();
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfile());
+  }, [dispatch]);
 
   const handleEditProfileClick = () => {
     setIsEditProfileOpen(true);
@@ -96,44 +101,6 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
               ''
             )}
           </div>
-          {/* <form className={profileInfoStyles.form}>
-            <h2 className={profileInfoStyles.formHeader}>Изменить пароль</h2>
-            <div className={profileInfoStyles.inputContainer}>
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Старый пароль"
-                value={values.password || ''}
-                onChange={handleChange}
-                disabled={!isEditProfileOpen}
-                // autoComplete="current-password"
-              />
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Новый пароль"
-                value={values.password || ''}
-                onChange={handleChange}
-                disabled={!isEditProfileOpen}
-                // autoComplete="current-password"
-              />
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Повторите новый пароль"
-                value={values.password || ''}
-                onChange={handleChange}
-                disabled={!isEditProfileOpen}
-                // autoComplete="current-password"
-              />
-            </div>
-            <ButtonFilled type="button" disabled={!isEditProfileOpen}>
-              Изменить пароль
-            </ButtonFilled>
-          </form> */}
         </div>
       </div>
       {isEditProfileOpen && (

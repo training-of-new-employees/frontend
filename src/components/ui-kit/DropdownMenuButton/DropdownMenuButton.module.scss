@@ -15,9 +15,21 @@
   gap: 4px;
   border-radius: 12px;
   background: var(--BG-white, #fff);
+  transition: all ease 0.3s;
+
+  &:hover {
+    opacity: 0.9;
+    background: var(--Additional, #e7ffcf);
+  }
 }
 
 .icon {
-  margin: 12px 20px 12px 20px;
+  margin: 10px 10px;
   fill: var(--text-main, #2f302e);
+}
+
+.text {
+  text-align: start;
+  margin: 0;
+  padding: 0;
 }

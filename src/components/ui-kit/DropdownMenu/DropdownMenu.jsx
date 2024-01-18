@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { string } from 'prop-types';
+import { string, bool, node } from 'prop-types';
 import DropdownMenuStyles from './DropdownMenu.module.scss';
 import { ReactComponent } from '../../../images/ui/Menu-Icon.svg';
 import DropdownMenuButton from '../DropdownMenuButton/DropdownMenuButton';
 
-export default function DropdownMenu({ className }) {
+export default function DropdownMenu({ className, isChild, children }) {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <section>
+    <section className={DropdownMenuStyles.section}>
       <button
         className={className}
         type="button"
@@ -21,9 +21,7 @@ export default function DropdownMenu({ className }) {
         className={isOpen ? DropdownMenuStyles.active : DropdownMenuStyles.menu}
       >
         <ul className={DropdownMenuStyles.list}>
-          <DropdownMenuButton text="text" />
-          <DropdownMenuButton text="text" />
-          <DropdownMenuButton text="text" />
+            {children}
         </ul>
       </nav>
     </section>
@@ -32,8 +30,12 @@ export default function DropdownMenu({ className }) {
 
 DropdownMenu.propTypes = {
   className: string,
+  isChild: bool,
+  children: node,
 };
 
 DropdownMenu.defaultProps = {
   className: '',
+  isChild: true,
+  children: node,
 };

@@ -25,13 +25,17 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+
+}
+
+.erorr {
+  outline: 1px solid var(--service-warning, #C63535);
 }
 
 .inputName {
   width: 244px;
   height: 60px;
   border-radius: 12px;
-  border-bottom: 1px solid var(--stroke-button, #d1d3ce);
   overflow: hidden;
   text-overflow: ellipsis;
 }

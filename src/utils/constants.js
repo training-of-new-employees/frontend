@@ -1,9 +1,17 @@
 const paths = {
   main: '/',
+  profile: '/profile',
+  courses: '/courses',
+  users: '/users',
+  newuser: '/users/new',
+  positions: '/position',
+  login: '/login',
+  registration: '/registration',
+  admin: '/admin',
 };
 
 const urlByEnvVar = {
-  development: 'http://localhost:8080', // generates by using command npm run start
+  development: 'http://localhost:8081', // generates by using command npm run start
   production: process.env.REACT_APP_BASE_URL, // generates by using command npm run build
 };
 

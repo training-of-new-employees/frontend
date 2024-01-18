@@ -1,0 +1,60 @@
+.wrapper {
+    padding: 64px 32px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.controlsWrapper {
+    outline-offset: 8px;
+    outline: #5d8e2c dashed 2px;
+    border-radius: 16px;
+    background: white;
+    color: black;
+    padding: 16px;
+    margin-top: 32px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    min-height: 3rem;
+}
+
+.row:not(:last-of-type) {
+    padding-bottom: 16px;
+    border-bottom: 1px dotted rgba(102, 132, 71, 1);
+    margin-bottom: 16px;
+}
+
+.titleMessageWrapper {
+    padding-bottom: 16px;
+    border-bottom: 1px dotted rgba(102, 132, 71, 1);
+    margin-bottom: 16px;
+}
+.titleMessageRow {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.titleMessageRow:not(:last-of-type) {
+    margin-bottom: 16px;
+}
+
+.label {
+    flex-basis: 160px;
+    text-align: right;
+    font-weight: 700;
+}
+
+.inputWrapper {
+    flex: 1;
+}
+
+.messageInput {
+    display: block;
+    width: 100%;
+    height: 4rem;
+}

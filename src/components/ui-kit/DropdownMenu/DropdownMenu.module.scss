@@ -29,7 +29,7 @@
   display: none;
   max-width: 236px;
   width: 100%;
-  height: 160px;
+  // height: 160px;
   padding: 8px;
   flex-direction: column;
   align-items: flex-start;
@@ -41,11 +41,12 @@
 }
 
 .active {
+  z-index: 999;
   display: flex;
   position: relative;
   max-width: 236px;
   width: 100%;
-  height: 160px;
+  // height: 160px;
   padding: 8px;
   flex-direction: column;
   align-items: flex-start;
@@ -81,9 +82,12 @@
   gap: 4px;
   border-radius: 12px;
   background: var(--BG-white, #fff);
+  transition: all ease 0.3s;
 }
 
 .icon {
-  margin: 12px 20px 12px 20px;
+  // margin: 12px 20px 12px 20px;
+  margin-top: 12px;
   fill: var(--text-main, #2f302e);
 }
+

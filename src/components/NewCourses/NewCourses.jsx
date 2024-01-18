@@ -3,9 +3,9 @@
 import PropTypes from 'prop-types';
 
 import style from './NewCourses.module.scss';
-
 import Input from '../ui-kit/Input/Input';
-import Button from '../ui-kit/Buttons/ButtonEmptyBorder/ButtonEmptyBorder';
+import Button from '../ui-kit/Button/Button';
+
 
 export default function NewCourses() {
   return (
@@ -15,7 +15,7 @@ export default function NewCourses() {
         <h2 className={style.sectionNewCourses__descriptions}>
           Основная информация
         </h2>
-        <form name="newCourse" className={style.NewCoursesForm}>
+        <form name="newCourse" className={style.NewCoursesForm} >
           <label className={style.NewCoursesForm__label}>
             <span className={style.NewCoursesForm__titleInput}>Название</span>
             <Input
@@ -36,8 +36,7 @@ export default function NewCourses() {
               classNameDiv={style.NewCoursesForm__divInput}
             />
           </label>
-          {/* кнопку нужно дургую на сабмит  */}
-          <Button buttonText="Добавить курс" />
+          <Button buttonText="Добавить курс" HTMLType="submit" type="primary" />
         </form>
       </div>
     </section>

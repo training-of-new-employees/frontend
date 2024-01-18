@@ -11,7 +11,7 @@ export default function Card({ text, isArchived, isEmployee, isAdmin }) {
     <div
       className={`${cardStyle.cardContainer} ${
         isArchived ? cardStyle.archived : ''
-      } `}
+      } ${pathname.includes('position') && cardStyle.border} `}
     >
       <h2 className={cardStyle.title}>{text}</h2>
       <div className={cardStyle.cardBox}>
