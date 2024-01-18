@@ -12,10 +12,9 @@ import { request } from "../../utils/api";
 };
 
 
-export function getProfile ()  {
+export function getProfileMe ()  {
   const token = localStorage.getItem('token');
   return request('http://localhost:8080/api/v1/users/info', {
-    method: 'POST',
     headers: {
       Authorization: `Bearer ${  token}`,
       Accept: 'application/json',

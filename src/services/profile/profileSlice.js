@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getToken, getProfile } from './ProfileApi';
+import { getToken, getProfileMe } from './ProfileApi';
 
 export const fetchToken = createAsyncThunk(
   'profile/fetchToken',
@@ -18,7 +18,7 @@ export const fetchProfile = createAsyncThunk(
   'profile/fetchProfile',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await getProfile();
+      const response = await getProfileMe();
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
