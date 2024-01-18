@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { setPosition, fetchPositions, editPosition, fetchPositionForCourses } from './PositionsApi';
+import { setPosition, fetchPositions, editPosition, fetchPositionForCourses, fetchPosition, renamePosition } from './PositionsApi';
 
 export const getPositions = createAsyncThunk(
   'positions/getPositions',
@@ -49,10 +49,35 @@ export const getPositionInCourses = createAsyncThunk(
   }
 );
 
+export const getPosition = createAsyncThunk(
+  'positions/getPosition',
+  async (id, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const response = await fetchPosition(id);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editPositionAction = createAsyncThunk(
+  'positions/getPositionInCourses',
+  async (data, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const response = await renamePosition(data);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const positionSlice = createSlice({
   name: 'positions',
   initialState: {
     positions: [],
+    positionEdit: {},
     positionInCourses: [],
     total: 0,
     page: 1,
@@ -85,6 +110,18 @@ const positionSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(getPositionInCourses.rejected, (state) => {
+        state.status = 'error';
+        state.error = 'error';
+      })
+      .addCase(getPosition.fulfilled, (state, action) => {
+        state.status = 'success';
+
+        state.positionEdit = action.payload;
+      })
+      .addCase(getPosition.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(getPosition.rejected, (state) => {
         state.status = 'error';
         state.error = 'error';
       });

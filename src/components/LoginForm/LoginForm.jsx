@@ -91,7 +91,7 @@ export default function LoginForm({ isAdmin }) {
               classNameInput={errors.password ? loginFormStyles.inputError : ''}
               name="password"
               type="password"
-              placeholder="Придумайте пароль"
+              placeholder="Введите пароль"
               onChange={handleChange}
               value={values.password || ''}
               minLength={6}
@@ -152,7 +152,7 @@ export default function LoginForm({ isAdmin }) {
               classNameInput={errors.password ? loginFormStyles.inputError : ''}
               name="password"
               type="password"
-              placeholder="Придумайте пароль"
+              placeholder="Введите пароль"
               onChange={handleChange}
               value={values.password || ''}
               minLength={6}

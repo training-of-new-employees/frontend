@@ -13,11 +13,11 @@ export default function Input({
   classNameDiv,
   type,
   minLength,
-  maxLength
+  maxLength,
+  value,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');
-
   const isName =
     name.toLowerCase() === 'firstname' ||
     name.toLowerCase() === 'lastname' ||
@@ -50,6 +50,7 @@ export default function Input({
           ${classNameInput}
           ${errors[name] ? inputStyles.error : ''}
           `}
+          value={value}
           name={name}
           required
           minLength={minLength}
@@ -81,10 +82,12 @@ Input.propTypes = {
   classNameDiv: string,
   type: string,
   minLength: number,
-  maxLength: number
+  maxLength: number,
+  value: string,
 };
 
 Input.defaultProps = {
+  value: '',
   classNameInput: '',
   classNameDiv: '',
   type: 'text',

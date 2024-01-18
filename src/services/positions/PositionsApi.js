@@ -13,6 +13,16 @@ export const fetchPositions = () => {
   });
 };
 
+export const fetchPosition = (id) => {
+  const token = localStorage.getItem('token');
+  return request(`${pathPosition}/${id}`, {
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const setPosition = (data) => {
   const token = localStorage.getItem('token');
   return request(pathPosition, {
@@ -28,6 +38,8 @@ export const setPosition = (data) => {
     }),
   });
 };
+
+// TODO: Подумать, как из этих 2 экшенов сделать один
 
 export const editPosition = (data) => {
   const token = localStorage.getItem('token');
@@ -45,6 +57,21 @@ export const editPosition = (data) => {
   });
 };
 
+export const renamePosition = (data) => {
+  const token = localStorage.getItem('token');
+  return request(`${pathPosition}/update/${data.id}`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      company_id: data.company_id,
+      name: data.name,
+    }),
+  });
+};
+
 export const fetchPositionForCourses = (data) => {
   const token = localStorage.getItem('token');
   return request(`${pathPosition}/${data.id}/courses`, {
@@ -54,4 +81,3 @@ export const fetchPositionForCourses = (data) => {
     },
   });
 };
-

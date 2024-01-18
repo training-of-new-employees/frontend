@@ -29,9 +29,9 @@ export const fetchProfile = createAsyncThunk(
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
-    profile: null,
+    profile: {},
     token: null,
-    status: null,
+    status: 'init',
     error: null,
   },
   reducers: {},

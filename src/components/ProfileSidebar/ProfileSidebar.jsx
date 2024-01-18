@@ -6,8 +6,10 @@ import UsersIcon from '../../images/ui/NavigationUsers.svg';
 import ProfessionsIcon from '../../images/ui/NavigationProfessions.svg';
 import Avatar from '../../images/stubs/Avatar.png';
 import { paths } from '../../utils/constants';
+import useValidation from '../hooks/useValidation';
 
 export default function ProfileSidebar({ isAdmin }) {
+  const {values} = useValidation()
   return (
     <nav className={navigationStyles.navigation}>
       <NavLink
@@ -25,8 +27,8 @@ export default function ProfileSidebar({ isAdmin }) {
             src={Avatar}
           />
           <div className={navigationStyles.profileNameContainer}>
-            <p className={navigationStyles.profileName}>Алла Андреева</p>
-            <p className={navigationStyles.profilePosition}>Администратор</p>
+            <p className={navigationStyles.profileName}>{values.firstName} {values.lastName}</p>
+            <p className={navigationStyles.profilePosition}>{values.position_name}</p>
           </div>
         </div>
       </NavLink>
