@@ -7,17 +7,14 @@ import Button from '../../../components/ui-kit/Button/Button';
 
 export default function SettingAccess() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { positionInCourses } = useSelector((state) => state.positionState);
+  // const dispatch = useDispatch();
+  // const { positionInCourses } = useSelector((state) => state.positionState);
 
-  console.log(positionInCourses);
 
   const { id } = useParams();
-  console.log(id);
 
   function serializeForm(formNode) {
     const { elements } = formNode;
-
     const data = Array.from(elements)
       .map((element) => {
         const { name, type } = element;
@@ -32,9 +29,9 @@ export default function SettingAccess() {
 
   function handleSubmit(event) {
     const applicantForm = document.getElementById('test');
-
     event.preventDefault();
     serializeForm(applicantForm);
+    console.log(applicantForm)
   }
 
   return (
@@ -62,9 +59,9 @@ export default function SettingAccess() {
             onSubmit={(event) => handleSubmit(event)}
             className={styles.form}
           >
-            {positionInCourses.length === 0 && 'Пусто'}
+  
 
-            {positionInCourses.length !== 0 && (
+           
               <div className={styles.cardList}>
                 <Card isAdmin text="Система электронного документооборота" />
                 <Card isAdmin text="Система электронного документооборота" />
@@ -73,9 +70,9 @@ export default function SettingAccess() {
                 <Card isAdmin text="Система электронного документооборота" />
                 <Card isAdmin text="Система электронного документооборота" />
               </div>
-            )}
+          
 
-            <Button buttonText="Открыть доступ" type="primary" icon="white" />
+            <Button HTMLType='submit' buttonText="Открыть доступ" type="primary" icon="white" />
           </form>
         </div>
       </div>

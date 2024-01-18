@@ -11,7 +11,7 @@ import archive from '../../../images/ui/Unarchive.svg';
 import plus from '../../../images/ui/plus.svg';
 import Popup from '../../../components/ui-kit/Popup/Popup';
 
-import { archivedPosition, getPositionInCourses } from '../../../services/positions/positionsSlice';
+import { archivedPosition, getPositionInCourses, getPosition } from '../../../services/positions/positionsSlice';
 
 export default function PositionContent() {
   const {positions, status, error} = useSelector((state) => state.positionState);
@@ -63,6 +63,7 @@ export default function PositionContent() {
                   <div
                     role="none"
                     onClick={() => {
+                      dispatch(getPosition(item.id))
                       navigate(`/position/${item.id}`);
                       console.log('click для логики редактирования');
                     }}

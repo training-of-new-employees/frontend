@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './EditPosition.module.scss';
 import Input from '../../../components/ui-kit/Input/Input';
 import Button from '../../../components/ui-kit/Button/Button';
 import Navigation from '../../../components/Navigation/Navigation';
 import sectionStyles from '../PositionPage.module.scss';
+import {
+  getPosition,
+  editPositionAction,
+} from '../../../services/positions/positionsSlice';
 
 export default function EditPosition() {
-  const [position, setPosition] = React.useState();
+  const { positionEdit, status } = useSelector((state) => state.positionState);
+  const [position, setPosition] = React.useState({
+    id: positionEdit.id,
+    name: positionEdit.name,
+    company_id: positionEdit.company_id,
+  });
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosition(id));
+  }, [dispatch, id]);
 
   function handlePosition(event) {
-    setPosition(event.currentTarget.value);
+    setPosition({...position,
+      name: event.currentTarget.value,
+    });
   }
 
   function submitForm(e) {
     e.preventDefault();
+    dispatch(editPositionAction(position));
     console.log('form', position);
   }
+
 
   return (
     <section className={sectionStyles.section}>
@@ -23,7 +44,9 @@ export default function EditPosition() {
 
       <section className={style.sectionNewPositions}>
         <div className={style.sectionNewPositions__container}>
-          <h1 className={style.sectionNewPositions__title}>название должности</h1>
+          <h1 className={style.sectionNewPositions__title}>
+            Название должности
+          </h1>
           <form
             name="editPosition"
             className={style.NewPositionForm}
@@ -37,7 +60,7 @@ export default function EditPosition() {
                 Название должности
               </span>
               <Input
-                value={position || ''}
+                value={status === 'loading' ? 'loading...': position.name}
                 name="text"
                 placeholder="Напишите название"
                 onChange={(event) => handlePosition(event)}
@@ -49,7 +72,7 @@ export default function EditPosition() {
             </label>
 
             <Button
-              buttonText="Добавить курс"
+              buttonText="Переименовать должность"
               HTMLType="submit"
               type="primary"
             />
