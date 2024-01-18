@@ -38,7 +38,7 @@ const initialState = {
   error: undefined,
 };
 
-const resumeSlice = createSlice({
+const positionSlice = createSlice({
   name: 'positions',
   initialState,
   reducers: {},
@@ -59,4 +59,4 @@ const resumeSlice = createSlice({
   },
 });
 
-export const { reducer: resumeReducer, actions: resumections } = resumeSlice;
+export default positionSlice.reducer;

@@ -6,7 +6,7 @@ const pathPosition = `${baseUrl}/positions`;
 
 
 export const fetchPositions = () => {
-  const token = localStorage.getItem('accessToken');
+  const token = localStorage.getItem('token');
   return request(pathPosition, {
     headers: {
       Authorization: `Bearer ${  token}`,
@@ -15,14 +15,15 @@ export const fetchPositions = () => {
 };
 
 export const setPosition = (data) => {
-  const token = localStorage.getItem('accessToken');
+  const token = localStorage.getItem('token');
   return request(pathPosition, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${  token}`,
+      'Content-Type': 'application/json',
     },
     body: {
-        archived: true,
+        archived: false,
         company_id: data.company_id,
         name: data.name
       
@@ -31,14 +32,15 @@ export const setPosition = (data) => {
 };
 
 export const archivedPosition = (data) => {
-  const token = localStorage.getItem('accessToken');
+  const token = localStorage.getItem('token');
   return request(pathPosition, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${  token}`,
+      'Content-Type': 'application/json',
     },
     body: {
-        archived: false,
+        archived: true,
         company_id: data.company_id,
         name: data.name
       

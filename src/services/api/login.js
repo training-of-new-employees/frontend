@@ -1,7 +1,7 @@
 import { baseUrl } from '../../utils/constants';
 
 export function login(email, password) {
-    return fetch(`${baseUrl}/login`, {
+    const request =  fetch(`${baseUrl}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -11,6 +11,8 @@ export function login(email, password) {
         password,
       }),
     })
+    localStorage.setItem('accessToken', request.token);
+    return request;
   };
 
 export default login;

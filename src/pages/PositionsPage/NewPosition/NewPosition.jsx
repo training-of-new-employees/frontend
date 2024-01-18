@@ -1,12 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './NewPosition.module.scss';
 import Input from '../../../components/ui-kit/Input/Input';
 import Button from '../../../components/ui-kit/Button/Button';
 import Navigation from '../../../components/Navigation/Navigation';
 import sectionStyles from '../PositionPage.module.scss';
+import { createPosition } from '../../../services/positions/positionsSlice';
 
 export default function NewPosition() {
   const [position, setPosition] = React.useState();
+  const dispatch = useDispatch();
 
   function handlePosition(event) {
     setPosition(event.currentTarget.value);
@@ -14,6 +17,7 @@ export default function NewPosition() {
 
   function submitForm(e) {
     e.preventDefault();
+    dispatch(createPosition(position))
     console.log('form', position);
   }
 

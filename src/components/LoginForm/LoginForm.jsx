@@ -8,6 +8,7 @@ import { login } from '../../services/api/login';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
 import { loginActions } from '../../services/slices/login';
 import { setCookie, checkResponse } from '../../utils/helpers';
+import { fetchToken } from '../../services/profile/profileSlice';
 
 export default function LoginForm({ isAdmin }) {
   const { values, handleChange, errors, validate, isValid, resetForm } =
@@ -22,35 +23,42 @@ export default function LoginForm({ isAdmin }) {
 
     if (isValid) {
       dispatch(loginActions.postLoginLoading());
-      login(values.email, values.password)
-        .then((res) => checkResponse(res))
-        .then((res) => {
-          dispatch(
-            loginActions.postLoginSuccess({
-              token: res.token,
-            })
-          );
-          // setCookie('accessToken', res.token);
-          localStorage.setItem('accessToken', res.token);
-          navigate('/profile');
-        })
+      dispatch(fetchToken(values))
+      navigate('/profile');
 
-        .catch((error) => {
-          if (error.response && error.response.status === 401) {
-            dispatch(
-              loginActions.postLoginError({
-                message: 'Неверно введен e-mail или пароль',
-              })
-            );
-          } else {
-            dispatch(
-              loginActions.postLoginError({
-                message: 'Произошла ошибка при попытке входа',
-              })
-            );
-          }
-        });
+      // TODO: Разобраться в промисе и почему токен не попадает в локалСторадж.
+
+    //  const request = login(values.email, values.password)
+    //     .then((res) => checkResponse(res))
+    //     .then((res) => {
+    //       dispatch(
+    //         loginActions.postLoginSuccess({
+    //           token: res.token,
+    //         })
+    //       );
+    //       // setCookie('accessToken', res.token);
+    // debugger;
+    //       localStorage.setItem('accessToken', res.token);
+    //       navigate('/profile');
+    //     })
+
+    //     .catch((error) => {
+    //       if (error.response && error.response.status === 401) {
+    //         dispatch(
+    //           loginActions.postLoginError({
+    //             message: 'Неверно введен e-mail или пароль',
+    //           })
+    //         );
+    //       } else {
+    //         dispatch(
+    //           loginActions.postLoginError({
+    //             message: 'Произошла ошибка при попытке входа',
+    //           })
+    //         );
+    //       }
+    //     });
     }
+ 
     resetForm({}, true);
   }
 
@@ -169,6 +177,7 @@ export default function LoginForm({ isAdmin }) {
                 className={loginFormStyles.submit}
                 type="submit"
                 disabled={!isValid}
+                // onClick={() =>   dispatch(fetchToken(values.email, values.password))}
               >
                 Войти
               </button>
