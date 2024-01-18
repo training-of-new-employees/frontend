@@ -8,7 +8,7 @@ import { login } from '../../services/api/login';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
 import { loginActions } from '../../services/slices/login';
 import { setCookie, checkResponse } from '../../utils/helpers';
-import { fetchToken } from '../../services/profile/profileSlice';
+import { fetchToken, fetchProfile } from '../../services/profile/profileSlice';
 
 export default function LoginForm({ isAdmin }) {
   const { values, handleChange, errors, validate, isValid, resetForm } =
@@ -23,7 +23,8 @@ export default function LoginForm({ isAdmin }) {
 
     if (isValid) {
       dispatch(loginActions.postLoginLoading());
-      dispatch(fetchToken(values))
+      dispatch(fetchToken(values));
+      dispatch(fetchProfile());
       navigate('/profile');
 
       // TODO: Разобраться в промисе и почему токен не попадает в локалСторадж.

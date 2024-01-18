@@ -1,15 +1,14 @@
-import { request } from "../../utils/api";
-import { baseUrl } from "../../utils/constants";
+import { request } from '../../utils/api';
+import { baseUrl } from '../../utils/constants';
 
 const pathPosition = `${baseUrl}/positions`;
-
-
 
 export const fetchPositions = () => {
   const token = localStorage.getItem('token');
   return request(pathPosition, {
     headers: {
-      Authorization: `Bearer ${  token}`,
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
     },
   });
 };
@@ -19,33 +18,40 @@ export const setPosition = (data) => {
   return request(pathPosition, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${  token}`,
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: {
-        archived: false,
-        company_id: data.company_id,
-        name: data.name
-      
-    }
+    body: JSON.stringify({
+      archived: true,
+      company_id: data.company_id,
+      name: data.name,
+    }),
   });
 };
 
-export const archivedPosition = (data) => {
+export const editPosition = (data) => {
   const token = localStorage.getItem('token');
-  return request(pathPosition, {
-    method: 'POST',
+  return request(`${pathPosition}/update/${data.id}`, {
+    method: 'PATCH',
     headers: {
-      Authorization: `Bearer ${  token}`,
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: {
-        archived: true,
-        company_id: data.company_id,
-        name: data.name
-      
-    }
+    body: JSON.stringify({
+      archived: true,
+      company_id: data.company_id,
+      name: data.name,
+    }),
   });
 };
 
+export const fetchPositionForCourses = (data) => {
+  const token = localStorage.getItem('token');
+  return request(`${pathPosition}/${data.id}/courses`, {
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 

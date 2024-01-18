@@ -1,11 +1,19 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './SettingAccess.module.scss';
 import Card from '../../../components/ui-kit/Card/Card';
 import Button from '../../../components/ui-kit/Button/Button';
 
 export default function SettingAccess() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { positionInCourses } = useSelector((state) => state.positionState);
+
+  console.log(positionInCourses);
+
+  const { id } = useParams();
+  console.log(id);
 
   function serializeForm(formNode) {
     const { elements } = formNode;
@@ -54,14 +62,18 @@ export default function SettingAccess() {
             onSubmit={(event) => handleSubmit(event)}
             className={styles.form}
           >
-            <div className={styles.cardList}>
-              <Card isAdmin text="Система электронного документооборота" />
-              <Card isAdmin text="Система электронного документооборота" />
-              <Card isAdmin text="Система электронного документооборота" />
-              <Card isAdmin text="Система электронного документооборота" />
-              <Card isAdmin text="Система электронного документооборота" />
-              <Card isAdmin text="Система электронного документооборота" />
-            </div>
+            {positionInCourses.length === 0 && 'Пусто'}
+
+            {positionInCourses.length !== 0 && (
+              <div className={styles.cardList}>
+                <Card isAdmin text="Система электронного документооборота" />
+                <Card isAdmin text="Система электронного документооборота" />
+                <Card isAdmin text="Система электронного документооборота" />
+                <Card isAdmin text="Система электронного документооборота" />
+                <Card isAdmin text="Система электронного документооборота" />
+                <Card isAdmin text="Система электронного документооборота" />
+              </div>
+            )}
 
             <Button buttonText="Открыть доступ" type="primary" icon="white" />
           </form>

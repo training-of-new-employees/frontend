@@ -5,11 +5,21 @@ import Input from '../../../components/ui-kit/Input/Input';
 import Button from '../../../components/ui-kit/Button/Button';
 import Navigation from '../../../components/Navigation/Navigation';
 import sectionStyles from '../PositionPage.module.scss';
-import { createPosition } from '../../../services/positions/positionsSlice';
+import {
+  createPosition,
+  getPositions,
+} from '../../../services/positions/positionsSlice';
+import { fetchProfile } from '../../../services/profile/profileSlice';
 
 export default function NewPosition() {
   const [position, setPosition] = React.useState();
   const dispatch = useDispatch();
+  const { profile } = useSelector((state) => state.profileState);
+
+  console.log(profile);
+  React.useEffect(() => {
+    dispatch(fetchProfile());
+  }, [dispatch]);
 
   function handlePosition(event) {
     setPosition(event.currentTarget.value);
@@ -17,8 +27,15 @@ export default function NewPosition() {
 
   function submitForm(e) {
     e.preventDefault();
-    dispatch(createPosition(position))
+    dispatch(
+      createPosition({
+        name: position,
+        company_id: 1,
+      })
+    );
+    setPosition('');
     console.log('form', position);
+    dispatch(getPositions());
   }
 
   return (

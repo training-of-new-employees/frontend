@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import getToken from './ProfileApi';
+import { getToken, getProfile } from './ProfileApi';
 
 export const fetchToken = createAsyncThunk(
   'profile/fetchToken',
@@ -14,10 +14,23 @@ export const fetchToken = createAsyncThunk(
   },
 );
 
+export const fetchProfile = createAsyncThunk(
+  'profile/fetchProfile',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getProfile();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
     profile: null,
+    token: null,
     status: null,
     error: null,
   },
@@ -29,11 +42,24 @@ const profileSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchToken.fulfilled, (state, action) => {
-        state.profile = action.payload;
+        state.token = action.payload;
         state.status = 'resolved';
         state.error = null;
       })
       .addCase(fetchToken.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = action.payload;
+      })
+      .addCase(fetchProfile.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(fetchProfile.fulfilled, (state, action) => {
+        state.profile = action.payload;
+        state.status = 'resolved';
+        state.error = null;
+      })
+      .addCase(fetchProfile.rejected, (state, action) => {
         state.status = 'rejected';
         state.error = action.payload;
       });

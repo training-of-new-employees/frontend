@@ -37,7 +37,7 @@ export default function App() {
         <Route path={paths.newuser} element={<NewUser />} />
         <Route path={paths.courses} element={<CoursesPage />} />
         <Route
-          path={`${paths.positions}/setting-access`}
+          path={`${paths.positions}/setting-access/:id`}
           element={<SettingAccess />}
         />
         <Route element={<NewPosition />}   path={`${paths.positions}/new-positions`} />

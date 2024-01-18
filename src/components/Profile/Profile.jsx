@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import uploadPhoto from '../../images/ui/Photo.svg';
 import profileInfoStyles from './ProfileInfo.module.scss';
 import useValidation from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
+import { fetchProfile } from '../../services/profile/profileSlice';
 
 const ProfileInfo = ({ onEditProfileClick, isUser }) => {
   const { values } = useValidation();
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfile());
+  }, [dispatch]);
 
   const handleEditProfileClick = () => {
     setIsEditProfileOpen(true);
