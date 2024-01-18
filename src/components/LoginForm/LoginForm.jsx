@@ -25,39 +25,38 @@ export default function LoginForm({ isAdmin }) {
       dispatch(loginActions.postLoginLoading());
       dispatch(fetchToken(values));
       dispatch(fetchProfile());
-      navigate('/profile');
 
       // TODO: Разобраться в промисе и почему токен не попадает в локалСторадж.
 
-    //  const request = login(values.email, values.password)
-    //     .then((res) => checkResponse(res))
-    //     .then((res) => {
-    //       dispatch(
-    //         loginActions.postLoginSuccess({
-    //           token: res.token,
-    //         })
-    //       );
-    //       // setCookie('accessToken', res.token);
-    // debugger;
-    //       localStorage.setItem('accessToken', res.token);
-    //       navigate('/profile');
-    //     })
+     const request = login(values.email, values.password)
+        .then((res) => checkResponse(res))
+        .then((res) => {
+          dispatch(
+            loginActions.postLoginSuccess({
+              token: res.token,
+            })
+          );
+          // setCookie('accessToken', res.token);
+   
+          localStorage.setItem('accessToken', res.token);
+          navigate('/profile');
+        })
 
-    //     .catch((error) => {
-    //       if (error.response && error.response.status === 401) {
-    //         dispatch(
-    //           loginActions.postLoginError({
-    //             message: 'Неверно введен e-mail или пароль',
-    //           })
-    //         );
-    //       } else {
-    //         dispatch(
-    //           loginActions.postLoginError({
-    //             message: 'Произошла ошибка при попытке входа',
-    //           })
-    //         );
-    //       }
-    //     });
+        .catch((error) => {
+          if (error.response && error.response.status === 401) {
+            dispatch(
+              loginActions.postLoginError({
+                message: 'Неверно введен e-mail или пароль',
+              })
+            );
+          } else {
+            dispatch(
+              loginActions.postLoginError({
+                message: 'Произошла ошибка при попытке входа',
+              })
+            );
+          }
+        });
     }
  
     resetForm({}, true);
