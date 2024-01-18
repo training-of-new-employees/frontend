@@ -21,15 +21,7 @@ export default function DropdownMenu({ className, isChild, children }) {
         className={isOpen ? DropdownMenuStyles.active : DropdownMenuStyles.menu}
       >
         <ul className={DropdownMenuStyles.list}>
-          {isChild ? (
-            children
-          ) : (
-            <>
-              <DropdownMenuButton text="text" />
-              <DropdownMenuButton text="text" />
-              <DropdownMenuButton text="text" />
-            </>
-          )}
+            {children}
         </ul>
       </nav>
     </section>
@@ -44,6 +36,6 @@ DropdownMenu.propTypes = {
 
 DropdownMenu.defaultProps = {
   className: '',
-  isChild: false,
+  isChild: true,
   children: node,
 };

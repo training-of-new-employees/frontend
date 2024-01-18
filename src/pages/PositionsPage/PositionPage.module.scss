@@ -10,6 +10,9 @@
 
   .listCards {
     padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
   .coursesCard {
@@ -50,6 +53,31 @@
   .iconMenu {
     border: none;
     background: none;
+  }
+
+  .popupContent {
+    margin: 0 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+  
+  .popupText {
+    width: 540px;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
   }
   
   

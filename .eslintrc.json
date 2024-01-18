@@ -37,6 +37,7 @@
       "@typescript-eslint/lines-between-class-members": "off",
       "@typescript-eslint/no-inferrable-types": "off",
       "no-console": "warn",
+      "no-param-reassign": 0,
       "@typescript-eslint/naming-convention": ["error",
       {
         "format": ["camelCase", "strictCamelCase", "PascalCase", "StrictPascalCase", "snake_case", "UPPER_CASE"],

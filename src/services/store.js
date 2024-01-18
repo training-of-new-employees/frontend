@@ -4,6 +4,8 @@ import { adminAuthSlice } from './slices/admin-register';
 import { addEmployeeSlice } from './slices/add-employee';
 import { resetPasswordSlice } from './slices/reset-password';
 import { userSetPasswordSlice } from './slices/user-set-password';
+import profileSlice from './profile/profileSlice';
+import positionSlice from './positions/positionsSlice';
 
 export const rootReducer = combineReducers({
   loginState: loginSlice.reducer,
@@ -11,6 +13,8 @@ export const rootReducer = combineReducers({
   addEmployeeState: addEmployeeSlice.reducer,
   resetPasswordState: resetPasswordSlice.reducer,
   userSetPasswordState: userSetPasswordSlice.reducer,
+  profileState: profileSlice,
+  positionState: positionSlice,
 });
 
 export const store = configureStore({
