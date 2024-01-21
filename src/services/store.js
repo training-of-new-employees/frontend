@@ -6,6 +6,7 @@ import { resetPasswordSlice } from './slices/reset-password';
 import { userSetPasswordSlice } from './slices/user-set-password';
 import profileSlice from './profile/profileSlice';
 import positionSlice from './positions/positionsSlice';
+import usersSlice from './users/usersSlice';
 
 export const rootReducer = combineReducers({
   loginState: loginSlice.reducer,
@@ -15,6 +16,7 @@ export const rootReducer = combineReducers({
   userSetPasswordState: userSetPasswordSlice.reducer,
   profileState: profileSlice,
   positionState: positionSlice,
+  usersState: usersSlice,
 });
 
 export const store = configureStore({

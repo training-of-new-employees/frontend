@@ -1,7 +1,8 @@
-import { request } from "../../utils/api";
+import { request } from '../../utils/api';
+import { baseUrl } from '../../utils/constants';
 
- export function getToken (email, password)  {
-  return request('http://localhost:8080/api/v1/login', {
+export function getToken(email, password) {
+  return request(`${baseUrl}/login`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -9,18 +10,55 @@ import { request } from "../../utils/api";
     },
     body: JSON.stringify({ email, password }),
   });
-};
+}
 
-
-export function getProfileMe ()  {
+export function getProfileMe() {
   const token = localStorage.getItem('token');
-  return request('http://localhost:8080/api/v1/users/info', {
+  return request(`${baseUrl}/users/info`, {
     headers: {
-      Authorization: `Bearer ${  token}`,
+      Authorization: `Bearer ${token}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-
   });
-};
+}
 
+export function renameProfile(data) {
+  const token = localStorage.getItem('token');
+  return request(`${baseUrl}/admin/info`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: data.id,
+      name: data.name,
+      surname: data.surname,
+      patronymic: data.patronymic,
+      email: data.email,
+      position_name: data.position_name,
+      company_name: data.company_name,
+    }),
+  });
+}
+
+export function createUser(data) {
+  const token = localStorage.getItem('token');
+  return request(`${baseUrl}/admin/employee`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      company_id: data.company_id,
+      name: data.name,
+      surname: data.surname,
+      patronymic: data.patronymic,
+      email: data.email,
+      position_name: data.position_name,
+      position_id: data.position_id,
+    }),
+  });
+}

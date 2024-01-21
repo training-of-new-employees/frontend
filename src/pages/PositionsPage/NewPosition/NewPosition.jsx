@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import style from './NewPosition.module.scss';
 import Input from '../../../components/ui-kit/Input/Input';
 import Button from '../../../components/ui-kit/Button/Button';
@@ -16,7 +17,8 @@ export default function NewPosition() {
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
 
-  console.log(profile);
+const navigate = useNavigate();
+
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -36,6 +38,7 @@ export default function NewPosition() {
     setPosition('');
     console.log('form', position);
     dispatch(getPositions());
+    navigate(-1);
   }
 
   return (
