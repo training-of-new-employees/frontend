@@ -1,8 +1,8 @@
-import { func, number, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import { useState } from 'react';
+import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
 import useValidation from '../../hooks/useValidation';
-
 
 // написал classNameInput, classNameDiv чтобы пробросить стили
 export default function Input({
@@ -11,13 +11,10 @@ export default function Input({
   onChange,
   classNameInput,
   classNameDiv,
-  type,
-  minLength,
-  maxLength,
-  value,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');
+  const isEmail = name.toLowerCase() === 'email';
   const isName =
     name.toLowerCase() === 'firstname' ||
     name.toLowerCase() === 'lastname' ||
@@ -27,7 +24,7 @@ export default function Input({
     name.toLowerCase() === 'emailprofile';
 
   // eslint-disable-next-line no-redeclare
-  const { handleChange, errors } = useValidation();
+  const { handleChange } = useValidation();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -41,24 +38,22 @@ export default function Input({
   }
 
   return (
-    <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
+    <>
+      <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
         <input
           className={`
           ${inputStyles.inputText} 
           ${isName ? inputStyles.inputName : ''} 
           ${isProfile ? inputStyles.inputProfile : ''} 
           ${classNameInput}
-          ${errors[name] ? inputStyles.error : ''}
           `}
-          value={value}
           name={name}
-          required
-          minLength={minLength}
-          maxLength={maxLength}
           // eslint-disable-next-line no-nested-ternary
-          type={isPassword ? (showPassword ? 'text' : 'password') : type}
+          type={isPassword ? (showPassword ? 'text' : 'password') : ''}
+          pattern={isEmail ? EMAIL_REGEX : ''}
           placeholder={placeholder}
           onChange={handleChangeValues}
+          disabled={false} // поставила временная заглушку, иначе всплывает ошибка, что переменная undefined
         />
         {isPassword && (
           // eslint-disable-next-line jsx-a11y/control-has-associated-label
@@ -68,9 +63,12 @@ export default function Input({
             className={`${inputStyles.passwordButton} ${
               showPassword ? inputStyles.passwordButtonShow : ''
             }`}
+            disabled={false} // поставила временная заглушку, иначе всплывает ошибка, что переменная undefined
           />
         )}
       </div>
+      <span className={inputStyles.inputError} />
+    </>
   );
 }
 
@@ -80,17 +78,9 @@ Input.propTypes = {
   onChange: func.isRequired,
   classNameInput: string,
   classNameDiv: string,
-  type: string,
-  minLength: number,
-  maxLength: number,
-  value: string,
 };
 
 Input.defaultProps = {
-  value: '',
   classNameInput: '',
   classNameDiv: '',
-  type: 'text',
-  minLength: 0,
-  maxLength: 0
 };

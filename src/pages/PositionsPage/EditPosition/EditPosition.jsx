@@ -26,9 +26,7 @@ export default function EditPosition() {
   }, [dispatch, id]);
 
   function handlePosition(event) {
-    setPosition({...position,
-      name: event.currentTarget.value,
-    });
+    setPosition({ ...position, name: event.currentTarget.value });
   }
 
   function submitForm(e) {
@@ -36,7 +34,6 @@ export default function EditPosition() {
     dispatch(editPositionAction(position));
     console.log('form', position);
   }
-
 
   return (
     <section className={sectionStyles.section}>
@@ -60,7 +57,7 @@ export default function EditPosition() {
                 Название должности
               </span>
               <Input
-                value={status === 'loading' ? 'loading...': position.name}
+                value={status === 'loading' ? 'loading...' : position.name}
                 name="text"
                 placeholder="Напишите название"
                 onChange={(event) => handlePosition(event)}

@@ -1,7 +1,7 @@
 import useValidation from '../hooks/useValidation';
 import Button from '../ui-kit/Button/Button';
-import Input from '../ui-kit/Input/Input'
-import newUserStyle from './NewUser.module.scss'
+import Input from '../ui-kit/Input/Input';
+import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
 
 export default function NewUser() {
@@ -100,12 +100,15 @@ export default function NewUser() {
               name="companyprofile"
               placeholder=""
               onChange={handleChange}
-              value=''
+              value=""
             />
           </li>
         </ul>
         <div className={newUserStyle.newUserButton}>
-          <p className={newUserStyle.newUserButtonTitle}>При создании пользователя на указанный e-mail придет пригласительная ссылка на платформу</p>
+          <p className={newUserStyle.newUserButtonTitle}>
+            При создании пользователя на указанный e-mail придет пригласительная
+            ссылка на платформу
+          </p>
           <Button
             buttonText="Добавить пользователя"
             type="primary"
@@ -114,6 +117,5 @@ export default function NewUser() {
         </div>
       </div>
     </section>
-
-  )
+  );
 }

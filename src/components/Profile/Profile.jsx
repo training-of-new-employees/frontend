@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uploadPhoto from '../../images/ui/Photo.svg';
 import profileInfoStyles from './ProfileInfo.module.scss';
-import useValidation from '../hooks/useValidation';
+import useValidations from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
 import { fetchProfile } from '../../services/profile/profileSlice';
 
 const ProfileInfo = ({ onEditProfileClick, isUser }) => {
-  const { values } = useValidation();
+  const { values } = useValidations();
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -111,12 +111,3 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
 };
 
 export default ProfileInfo;
-
-ProfileInfo.propTypes = {
-  onEditProfileClick: PropTypes.func.isRequired,
-  isUser: PropTypes.bool,
-};
-
-ProfileInfo.defaultProps = {
-  isUser: false,
-};
