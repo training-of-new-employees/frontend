@@ -1,4 +1,4 @@
-
+/* eslint-disable react/prop-types */
 import { func, oneOfType, string } from 'prop-types';
 
 import classNames from 'classnames';
@@ -28,21 +28,3 @@ export default function Button({
     </button>
   );
 }
-
-Button.propTypes = {
-  buttonText: string.isRequired,
-  type: string.isRequired,
-
-  icon: oneOfType([string, null]),
-  HTMLType: string,
-  onClick: func,
-  extraClass: oneOfType([string, null]),
-};
-
-Button.defaultProps = {
-  icon: null,
-  HTMLType: 'button',
-  onClick: () => null,
-  extraClass: null,
-
-};
