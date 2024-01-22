@@ -23,7 +23,8 @@ export default function LoginForm() {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    login(email.value, password.value).then((res) => console.log(res));
+    login(email.value, password.value).then((res) => {console.log(res)
+    navigate('/profile')});
   };
   return (
     <div className={loginFormStyles.formContainer}>
