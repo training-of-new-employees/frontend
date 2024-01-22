@@ -73,7 +73,7 @@ const navigate = useNavigate();
             </label>
 
             <Button
-              buttonText="Добавить курс"
+              buttonText="Добавить должность"
               HTMLType="submit"
               type="primary"
             />
