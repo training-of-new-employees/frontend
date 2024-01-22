@@ -1,4 +1,4 @@
-import { func, number, string } from 'prop-types';
+import { func, number, string, bool } from 'prop-types';
 import { useState } from 'react';
 import inputStyles from './Input.module.scss';
 import useValidation from '../../hooks/useValidation';
@@ -15,6 +15,7 @@ export default function Input({
   minLength,
   maxLength,
   value,
+  disabled
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');
@@ -43,6 +44,7 @@ export default function Input({
   return (
     <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
         <input
+        disabled={disabled}
           className={`
           ${inputStyles.inputText} 
           ${isName ? inputStyles.inputName : ''} 
@@ -84,9 +86,11 @@ Input.propTypes = {
   minLength: number,
   maxLength: number,
   value: string,
+  disabled: bool
 };
 
 Input.defaultProps = {
+  disabled: false,
   value: '',
   classNameInput: '',
   classNameDiv: '',
