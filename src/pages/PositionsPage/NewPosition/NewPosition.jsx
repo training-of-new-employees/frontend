@@ -73,7 +73,7 @@ export default function NewPosition() {
             </label>
 
             <Button
-              buttonText="Добавить курс"
+              buttonText="Добавить должность"
               HTMLType="submit"
               type="primary"
             />

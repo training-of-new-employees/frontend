@@ -6,10 +6,7 @@ import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
 import useValidations from '../hooks/useValidation';
-import {
-  fetchProfile,
-  createUserAction,
-} from '../../services/profile/profileSlice';
+import { fetchProfile, createUserAction } from '../../services/profile/profileSlice';
 
 export default function NewUser() {
   const { handleChange } = useValidations();
