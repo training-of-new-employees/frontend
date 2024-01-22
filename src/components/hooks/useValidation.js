@@ -2,6 +2,7 @@
 /* eslint-disable default-case */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
+
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProfile } from '../../services/profile/profileSlice';
@@ -146,6 +147,7 @@ export default function useValidations() {
     validate,
   };
 }
+
 export function useValidation(value, validations) {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
   const emailRegex = /^\S+@\S+\.\S+$/;
