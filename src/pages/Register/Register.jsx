@@ -1,6 +1,7 @@
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import registerFormStyles from './Register.module.scss';
 import RegisterScreen from '../../components/RegisterScreen/RegisterScreen';
+import year from '../../components/Footer/logicDate';
 
 export default function Register() {
   return (
@@ -9,7 +10,7 @@ export default function Register() {
       <section className={registerFormStyles.form}>
         <RegisterForm />
         <footer className={registerFormStyles.footer}>
-          &#169; 2023 QuickOn team
+          &#169;{` ${year} QuickOn team`}
         </footer>
       </section>
     </section>

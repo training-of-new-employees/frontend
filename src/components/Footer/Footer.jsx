@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import footerStyles from './Footer.module.scss';
+import year from './logicDate';
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <li className={footerStyles.listItem}>Условия и ограничения</li>
         </ul>
       </nav>
-      <p className={footerStyles.copypast}>© 2023 QuickOn team</p>
+      <p className={footerStyles.copypast}> &#169;{` ${year} QuickOn team`}</p>
     </footer>
   );
 }

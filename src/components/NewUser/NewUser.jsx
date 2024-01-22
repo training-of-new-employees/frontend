@@ -156,7 +156,6 @@ export default function NewUser() {
               placeholder=""
               onChange={handleChange}
               value=""
-              disabled
             />
           </li>
         </ul>
