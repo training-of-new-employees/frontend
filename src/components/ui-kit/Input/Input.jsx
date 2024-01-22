@@ -1,4 +1,5 @@
-import { bool, func, string } from 'prop-types';
+
+import { func, number, string, bool } from 'prop-types';
 import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
@@ -41,6 +42,7 @@ export default function Input({
     <>
       <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
         <input
+        disabled={disabled}
           className={`
           ${inputStyles.inputText} 
           ${isName ? inputStyles.inputName : ''} 
@@ -71,16 +73,3 @@ export default function Input({
     </>
   );
 }
-
-Input.propTypes = {
-  name: string.isRequired,
-  placeholder: string.isRequired,
-  onChange: func.isRequired,
-  classNameInput: string,
-  classNameDiv: string,
-};
-
-Input.defaultProps = {
-  classNameInput: '',
-  classNameDiv: '',
-};

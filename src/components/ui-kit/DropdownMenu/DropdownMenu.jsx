@@ -4,7 +4,7 @@ import DropdownMenuStyles from './DropdownMenu.module.scss';
 import { ReactComponent } from '../../../images/ui/Menu-Icon.svg';
 import DropdownMenuButton from '../DropdownMenuButton/DropdownMenuButton';
 
-export default function DropdownMenu({ className, isChild, children }) {
+export default function DropdownMenu({ className, isChild, children, stylesButton }) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -18,7 +18,8 @@ export default function DropdownMenu({ className, isChild, children }) {
         <ReactComponent className={DropdownMenuStyles.icon} />
       </button>
       <nav
-        className={isOpen ? DropdownMenuStyles.active : DropdownMenuStyles.menu}
+        className={`${isOpen ? DropdownMenuStyles.active : DropdownMenuStyles.menu}  
+        ${stylesButton ? DropdownMenuStyles.tableDropdownMenuButton : ''}`}
       >
         <ul className={DropdownMenuStyles.list}>
             {children}
@@ -32,9 +33,11 @@ DropdownMenu.propTypes = {
   className: string,
   isChild: bool,
   children: node,
+  stylesButton: bool,
 };
 
 DropdownMenu.defaultProps = {
+  stylesButton: false,
   className: '',
   isChild: true,
   children: node,
