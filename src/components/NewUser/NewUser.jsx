@@ -5,11 +5,11 @@ import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
-import useValidation from '../hooks/useValidation';
+import useValidations from '../hooks/useValidation';
 import { fetchProfile, createUserAction } from '../../services/profile/profileSlice';
 
 export default function NewUser() {
-  const { handleChange } = useValidation();
+  const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
   console.log(profile);
@@ -156,6 +156,7 @@ export default function NewUser() {
               placeholder=""
               onChange={handleChange}
               value=""
+              disabled
             />
           </li>
         </ul>
