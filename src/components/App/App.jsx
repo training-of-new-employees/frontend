@@ -21,31 +21,33 @@ import EditPosition from '../../pages/PositionsPage/EditPosition/EditPosition';
 export default function App() {
   return (
     <ToastProvider>
-    <div className={appStyles.app}>
-      <Header />
-      <Routes>
-        <Route path={paths.main} element={<Main />} />
-        <Route path={paths.login} element={<Login />} />
-        <Route path={paths.registration} element={<Register />} />
-        <Route path="*" element={<ForgotPassword />} />
-        <Route path="*" element={<ResetPassword />} />
-        <Route path={paths.profile} element={<Profile />} />
-        <Route path={paths.positions} element={<PositionPage />}  />
+      <div className={appStyles.app}>
+        <Header />
+        <Routes>
+          <Route path={paths.main} element={<Main />} />
+          <Route path={paths.login} element={<Login />} />
+          <Route path={paths.registration} element={<Register />} />
+          <Route path="*" element={<ForgotPassword />} />
+          <Route path="*" element={<ResetPassword />} />
+          <Route path={paths.profile} element={<Profile />} />
+          <Route path={paths.positions} element={<PositionPage />} />
 
-   
-        <Route path={paths.users} element={<User />} />
-        <Route path={paths.newuser} element={<NewUser />} />
-        <Route path={paths.courses} element={<CoursesPage />} />
-        <Route
-          path={`${paths.positions}/setting-access/:id`}
-          element={<SettingAccess />}
-        />
-        <Route element={<NewPosition />}   path={`${paths.positions}/new-positions`} />
-        <Route element={<EditPosition />} path={`${paths.positions}/:id`} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      {/* <Footer /> */}
-    </div>
+          <Route path={paths.users} element={<User />} />
+          <Route path={paths.newuser} element={<NewUser />} />
+          <Route path={paths.courses} element={<CoursesPage />} />
+          <Route
+            path={`${paths.positions}/setting-access/:id`}
+            element={<SettingAccess />}
+          />
+          <Route
+            element={<NewPosition />}
+            path={`${paths.positions}/new-positions`}
+          />
+          <Route element={<EditPosition />} path={`${paths.positions}/:id`} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {/* <Footer /> */}
+      </div>
     </ToastProvider>
   );
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { bool, func, string } from 'prop-types';
+=======
+import { func, number, string, bool } from 'prop-types';
+>>>>>>> 411a2ed7c44665388d4a2742419133f4b6fee17c
 import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
@@ -11,6 +15,14 @@ export default function Input({
   onChange,
   classNameInput,
   classNameDiv,
+<<<<<<< HEAD
+=======
+  type,
+  minLength,
+  maxLength,
+  value,
+  disabled
+>>>>>>> 411a2ed7c44665388d4a2742419133f4b6fee17c
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');
@@ -41,6 +53,7 @@ export default function Input({
     <>
       <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
         <input
+        disabled={disabled}
           className={`
           ${inputStyles.inputText} 
           ${isName ? inputStyles.inputName : ''} 
@@ -78,9 +91,22 @@ Input.propTypes = {
   onChange: func.isRequired,
   classNameInput: string,
   classNameDiv: string,
+<<<<<<< HEAD
 };
 
 Input.defaultProps = {
+=======
+  type: string,
+  minLength: number,
+  maxLength: number,
+  value: string,
+  disabled: bool
+};
+
+Input.defaultProps = {
+  disabled: false,
+  value: '',
+>>>>>>> 411a2ed7c44665388d4a2742419133f4b6fee17c
   classNameInput: '',
   classNameDiv: '',
 };

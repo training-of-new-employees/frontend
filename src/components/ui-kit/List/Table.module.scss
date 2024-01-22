@@ -40,3 +40,18 @@ td {
     line-height: 24px;
     background: var(--BG-white, #FFF);
 }
+
+.tableCell {
+    display: flex;
+    position: absolute;
+}
+
+.tableDropdownMenuButton {
+    right: 100px;
+    bottom: -20px;
+}
+
+.iconCell {
+    border: none;
+    background: none;
+  }
