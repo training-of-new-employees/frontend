@@ -6,7 +6,7 @@ import profileInfoStyles from './ProfileInfo.module.scss';
 import useValidations from '../hooks/useValidation';
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile';
 import { fetchProfile } from '../../services/profile/profileSlice';
-
+ 
 const ProfileInfo = ({ onEditProfileClick, isUser }) => {
   const { values } = useValidations();
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
