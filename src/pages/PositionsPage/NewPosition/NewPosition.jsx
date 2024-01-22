@@ -32,7 +32,7 @@ const navigate = useNavigate();
     dispatch(
       createPosition({
         name: position,
-        company_id: 1,
+        company_id: profile.company_id,
       })
     );
     setPosition('');
