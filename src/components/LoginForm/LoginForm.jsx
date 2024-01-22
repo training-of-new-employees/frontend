@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import loginFormStyles from './LoginForm.module.scss';
 import { login } from '../../services/api/login';
@@ -8,8 +9,10 @@ import Checkbox from '../ui-kit/Checkbox/Checkbox';
 // import { setCookie, checkResponse } from '../../utils/helpers';
 // import { fetchToken, fetchProfile } from '../../services/profile/profileSlice';
 import useInput from '../ui-kit/Input/useInput';
+import { fetchToken } from '../../services/profile/profileSlice';
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const email = useInput('', { isEmpty: true, minLength: 5, type: 'email' });
   const password = useInput('', {
@@ -23,8 +26,13 @@ export default function LoginForm() {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    login(email.value, password.value).then((res) => {console.log(res)
-    navigate('/profile')});
+    const values = {
+      email: email.value,
+      password: password.value
+    }
+    dispatch(fetchToken(values))
+    // login(email.value, password.value).then((res) => {console.log(res)});
+    navigate('/profile')
   };
   return (
     <div className={loginFormStyles.formContainer}>
