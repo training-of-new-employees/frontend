@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import { bool, func, string } from 'prop-types';
-=======
 import { func, number, string, bool } from 'prop-types';
->>>>>>> 411a2ed7c44665388d4a2742419133f4b6fee17c
 import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
-import useValidation from '../../hooks/useValidation';
+import useValidations from '../../hooks/useValidation';
 
 // написал classNameInput, classNameDiv чтобы пробросить стили
 export default function Input({
@@ -15,14 +11,11 @@ export default function Input({
   onChange,
   classNameInput,
   classNameDiv,
-<<<<<<< HEAD
-=======
   type,
   minLength,
   maxLength,
   value,
-  disabled
->>>>>>> 411a2ed7c44665388d4a2742419133f4b6fee17c
+  disabled,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');
@@ -36,7 +29,7 @@ export default function Input({
     name.toLowerCase() === 'emailprofile';
 
   // eslint-disable-next-line no-redeclare
-  const { handleChange } = useValidation();
+  const { handleChange } = useValidations();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -53,7 +46,7 @@ export default function Input({
     <>
       <div className={`${inputStyles.inputBox} ${classNameDiv}`}>
         <input
-        disabled={disabled}
+          disabled={disabled}
           className={`
           ${inputStyles.inputText} 
           ${isName ? inputStyles.inputName : ''} 
@@ -66,7 +59,6 @@ export default function Input({
           pattern={isEmail ? EMAIL_REGEX : ''}
           placeholder={placeholder}
           onChange={handleChangeValues}
-          disabled={false} // поставила временная заглушку, иначе всплывает ошибка, что переменная undefined
         />
         {isPassword && (
           // eslint-disable-next-line jsx-a11y/control-has-associated-label
@@ -91,22 +83,19 @@ Input.propTypes = {
   onChange: func.isRequired,
   classNameInput: string,
   classNameDiv: string,
-<<<<<<< HEAD
-};
-
-Input.defaultProps = {
-=======
   type: string,
   minLength: number,
   maxLength: number,
   value: string,
-  disabled: bool
+  disabled: bool,
 };
 
 Input.defaultProps = {
   disabled: false,
   value: '',
->>>>>>> 411a2ed7c44665388d4a2742419133f4b6fee17c
   classNameInput: '',
   classNameDiv: '',
+  minLength: number,
+  maxLength: number,
+  type: string,
 };

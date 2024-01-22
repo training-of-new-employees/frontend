@@ -5,11 +5,14 @@ import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
-import useValidation from '../hooks/useValidation';
-import { fetchProfile, createUserAction } from '../../services/profile/profileSlice';
+import useValidations from '../hooks/useValidation';
+import {
+  fetchProfile,
+  createUserAction,
+} from '../../services/profile/profileSlice';
 
 export default function NewUser() {
-  const { handleChange } = useValidation();
+  const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
   console.log(profile);
@@ -20,7 +23,7 @@ export default function NewUser() {
     patronymic: '',
     email: '',
     position_name: '',
-    position_id: ''
+    position_id: '',
   });
 
   React.useEffect(() => {
@@ -28,7 +31,11 @@ export default function NewUser() {
   }, [dispatch]);
 
   React.useEffect(() => {
-    setNewUser({ ...newUser, company_id: profile.company_id, position_id: profile.position_id });
+    setNewUser({
+      ...newUser,
+      company_id: profile.company_id,
+      position_id: profile.position_id,
+    });
   }, [profile]);
 
   function handleName(event) {
