@@ -1,3 +1,4 @@
+
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import PropTypes from 'prop-types';
@@ -9,7 +10,6 @@ import Input from '../ui-kit/Input/Input';
 import Button from '../ui-kit/Button/Button';
 import { fetchProfile } from '../../services/profile/profileSlice';
 import { createCoursesAction } from '../../services/courses/coursesSlice';
-
 
 export default function NewCourses() {
   const navigate = useNavigate()
@@ -87,6 +87,7 @@ export default function NewCourses() {
   );
 }
 
-NewCourses.propTypes = {};
+// NewCourses.propTypes = {};
 
-NewCourses.defaultProps = {};
+
+// NewCourses.defaultProps = {};

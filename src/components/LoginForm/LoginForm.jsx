@@ -1,210 +1,136 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { bool } from 'prop-types';
+import { useState } from 'react';
 import loginFormStyles from './LoginForm.module.scss';
-import Input from '../ui-kit/Input/Input';
-import useValidation from '../hooks/useValidation';
 import { login } from '../../services/api/login';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
-import { loginActions } from '../../services/slices/login';
-import { setCookie, checkResponse } from '../../utils/helpers';
-import { fetchToken, fetchProfile } from '../../services/profile/profileSlice';
+// import { loginActions } from '../../services/slices/login';
+// import { setCookie, checkResponse } from '../../utils/helpers';
+// import { fetchToken, fetchProfile } from '../../services/profile/profileSlice';
+import useInput from '../ui-kit/Input/useInput';
+import { fetchToken } from '../../services/profile/profileSlice';
 
-export default function LoginForm({ isAdmin }) {
-  const { values, handleChange, errors, validate, isValid, resetForm } =
-    useValidation();
-  const { isLoginError, loginError } = useSelector((state) => state.loginState);
-  const navigate = useNavigate();
+export default function LoginForm() {
   const dispatch = useDispatch();
-
-  function onSubmit(event) {
-    event.preventDefault();
-    validate();
-
-    if (isValid) {
-      dispatch(loginActions.postLoginLoading());
-      dispatch(fetchToken(values));
-      dispatch(fetchProfile());
-
-      // TODO: Разобраться в промисе и почему токен не попадает в локалСторадж.
-
-     const request = login(values.email, values.password)
-        .then((res) => checkResponse(res))
-        .then((res) => {
-          dispatch(
-            loginActions.postLoginSuccess({
-              token: res.token,
-            })
-          );
-          // setCookie('accessToken', res.token);
-   
-          localStorage.setItem('accessToken', res.token);
-          navigate('/profile');
-        })
-
-        .catch((error) => {
-          if (error.response && error.response.status === 401) {
-            dispatch(
-              loginActions.postLoginError({
-                message: 'Неверно введен e-mail или пароль',
-              })
-            );
-          } else {
-            dispatch(
-              loginActions.postLoginError({
-                message: 'Произошла ошибка при попытке входа',
-              })
-            );
-          }
-        });
+  const navigate = useNavigate();
+  const email = useInput('', { isEmpty: true, minLength: 5, type: 'email' });
+  const password = useInput('', {
+    isEmpty: true,
+    minLength: 6,
+    type: 'password',
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const values = {
+      email: email.value,
+      password: password.value
     }
- 
-    resetForm({}, true);
-  }
-
-  function onRegisterClick() {
-    navigate('/registration');
-    resetForm({}, true);
-  }
-
+    dispatch(fetchToken(values))
+    // login(email.value, password.value).then((res) => {console.log(res)});
+    navigate('/profile')
+  };
   return (
-    <div>
-      {!isAdmin ? (
-        <div className={loginFormStyles.formContainer}>
-          <h1 className={loginFormStyles.formTitle}>Авторизация</h1>
-          <p className={loginFormStyles.formText}>
-            Придумайте новый пароль, чтобы авторизоваться
-          </p>
-          <form className={loginFormStyles.form} onSubmit={onSubmit} noValidate>
-            <Input
-              classNameInput={errors.email ? loginFormStyles.inputError : ''}
-              name="email"
-              type="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-              value={values.email || ''}
-              minLength={5}
-              maxLength={30}
-            />
-            <span className={loginFormStyles.spanError}>{errors.email}</span>
-            <Input
-              classNameInput={errors.password ? loginFormStyles.inputError : ''}
-              name="password"
-              type="password"
-              placeholder="Введите пароль"
-              onChange={handleChange}
-              value={values.password || ''}
-              minLength={6}
-              maxLength={30}
-            />
-            <span className={loginFormStyles.spanError}>{errors.password}</span>
-            <Input
-              classNameInput={
-                errors.confirmPassword ? loginFormStyles.inputError : ''
-              }
-              name="confirmPassword"
-              type="password"
-              placeholder="Повторите пароль"
-              onChange={handleChange}
-              value={values.confirmPassword || ''}
-              minLength={6}
-              maxLength={30}
-            />
-            <span className={loginFormStyles.spanError}>
-              {errors.confirmPassword &&
-                (values.confirmPassword !== values.password
-                  ? 'Пароли не совпадают'
-                  : '')}
-            </span>
-            <section className={loginFormStyles.container}>
-              <div className={loginFormStyles.checkboxContainer}>
-                <Checkbox text="Запомнить меня" />
-              </div>
-            </section>
-            <button
-              className={loginFormStyles.submitUser}
-              type="submit"
-              disabled={!isValid}
-            >
-              Войти
-            </button>
-          </form>
+    <div className={loginFormStyles.formContainer}>
+      <h1 className={loginFormStyles.formTitle}>Авторизация</h1>
+      <p className={loginFormStyles.formText}>
+        Введите e-mail и пароль, чтобы войти
+      </p>
+      <form
+        className={loginFormStyles.form}
+        noValidate
+        onSubmit={(e) => onSubmit(e)}
+      >
+        <input
+          className={`${loginFormStyles.input}
+            ${
+              email.isDirty && email.emailError
+                ? loginFormStyles.inputError
+                : ''
+            }`}
+          name="email"
+          type="email"
+          placeholder="E-mail"
+          onChange={email.onChange}
+          onBlur={email.onBlur}
+          value={email.value}
+        />
+        {email.isEmpty && email.isDirty && (
+          <span className={loginFormStyles.spanError}>
+            E-mail должен содержать от 5 до 50 символов
+          </span>
+        )}
+        {email.isDirty && email.emailError && (
+          <span className={loginFormStyles.spanError}>
+            Неверно введен e-mail Пример: people@mail.ru
+          </span>
+        )}{' '}
+        <div className={loginFormStyles.passwordContainer}>
+          <input
+            className={`${loginFormStyles.input}
+           ${
+             password.isDirty && password.passwordError
+               ? loginFormStyles.inputError
+               : ''
+           }`}
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Введите пароль"
+            onChange={password.onChange}
+            onBlur={password.onBlur}
+            value={password.value}
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className={`${loginFormStyles.passwordButton} ${
+              showPassword ? loginFormStyles.passwordButtonShow : ''
+            }`}
+          />
         </div>
-      ) : (
-        <div className={loginFormStyles.formContainerOpened}>
-          <h1 className={loginFormStyles.formTitle}>Авторизация</h1>
-          <p className={loginFormStyles.formText}>
-            Введите e-mail и пароль, чтобы авторизоваться
-          </p>
-          <form className={loginFormStyles.form} onSubmit={onSubmit} noValidate>
-            <Input
-              classNameInput={errors.email ? loginFormStyles.inputError : ''}
-              name="email"
-              type="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-              value={values.email || ''}
-              minLength={5}
-              maxLength={30}
-            />
-            <span className={loginFormStyles.spanError}>{errors.email}</span>
-            <Input
-              classNameInput={errors.password ? loginFormStyles.inputError : ''}
-              name="password"
-              type="password"
-              placeholder="Введите пароль"
-              onChange={handleChange}
-              value={values.password || ''}
-              minLength={6}
-              maxLength={30}
-            />
-            <span className={loginFormStyles.spanError}>{errors.password}</span>
-            {isLoginError && (
-              <span className={loginFormStyles.error}>
-                {loginError.message}
-              </span>
-            )}
-            <section className={loginFormStyles.container}>
-              <div className={loginFormStyles.checkboxContainer}>
-                <Checkbox text="Запомнить меня" />
-              </div>
-              <button className={loginFormStyles.forgetButton} type="button">
-                Забыли пароль?
-              </button>
-            </section>
-            <div className={loginFormStyles.buttonsContainer}>
-              <button
-                className={loginFormStyles.submit}
-                type="submit"
-                disabled={!isValid}
-                // onClick={() =>   dispatch(fetchToken(values.email, values.password))}
-              >
-                Войти
-              </button>
-              <div className={loginFormStyles.orContainer}>
-                <span className={loginFormStyles.span} />
-                <p className={loginFormStyles.spanText}>или</p>
-                <span className={loginFormStyles.span} />
-              </div>
-              <button
-                className={loginFormStyles.auth}
-                type="button"
-                onClick={onRegisterClick}
-              >
-                Зарегистрироваться
-              </button>
-            </div>
-          </form>
+        {password.isEmpty && password.isDirty && (
+          <span className={loginFormStyles.spanError}>
+            Пароль должен содержать от 6 до 30 символов
+          </span>
+        )}{' '}
+        {password.isDirty && password.passwordError && (
+          <span className={loginFormStyles.spanError}>
+            Пароль должен содержать хотя бы один большой символ, один маленький
+            символ, одну цифру и один специальный символ
+          </span>
+        )}
+        <section className={loginFormStyles.container}>
+          <div className={loginFormStyles.checkboxContainer}>
+            <Checkbox text="Запомнить меня" />
+          </div>
+          <button className={loginFormStyles.forgetButton} type="button">
+            Забыли пароль?
+          </button>
+        </section>
+        <button
+          disabled={!email.isValid || !password.isValid}
+          className={loginFormStyles.submitUser}
+          type="submit"
+        >
+          Войти
+        </button>
+        <div className={loginFormStyles.orContainer}>
+          <span className={loginFormStyles.span} />
+          <p className={loginFormStyles.spanText}>или</p>
+          <span className={loginFormStyles.span} />
         </div>
-      )}
+        <button
+          onClick={() => navigate('/registration')}
+          className={loginFormStyles.auth}
+          type="button"
+        >
+          Зарегистрироваться
+        </button>
+      </form>
     </div>
   );
 }
-
-LoginForm.propTypes = {
-  isAdmin: bool,
-};
-
-LoginForm.defaultProps = {
-  isAdmin: true,
-};

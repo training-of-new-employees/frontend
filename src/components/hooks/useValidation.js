@@ -1,17 +1,14 @@
-import { useCallback, useEffect, useState } from 'react';
+/* eslint-disable no-unused-expressions */
+/* eslint-disable default-case */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+
+import { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProfile } from '../../services/profile/profileSlice';
 
-/**
- *Form validation hook.
- *Returns an object with the following fields:
- *- values {name: string, email: string, password: string} with form values set by user
- *- isValid {boolean} when true, the form is valid
- *- handleChange {(e: ChangeEvent) => void} change handler. You must add it to the form being validated
- *- resetForm {() => void} reset handler
- */
 
-export default function useValidation() {
+export default function useValidations() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProfile);
@@ -148,5 +145,45 @@ export default function useValidation() {
     isValid,
     resetForm,
     validate,
+  };
+}
+
+export function useValidation(value, validations) {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
+  const emailRegex = /^\S+@\S+\.\S+$/;
+
+  const [isEmpty, setIsEmpty] = useState(true);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    value.length < validations.minLength || value.length > 50
+      ? setIsEmpty(true)
+      : setIsEmpty(false);
+
+    if (validations.type === 'email') {
+      !emailRegex.test(value) ? setEmailError(true) : setEmailError(false);
+    }
+
+    if (validations.type === 'password') {
+      !passwordRegex.test(value)
+        ? setPasswordError(true)
+        : setPasswordError(false);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    if (isEmpty || emailError || passwordError) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+  }, [isEmpty, emailError, passwordError]);
+  return {
+    isEmpty,
+    emailError,
+    passwordError,
+    isValid,
   };
 }

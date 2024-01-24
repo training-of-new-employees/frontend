@@ -6,14 +6,14 @@ import Input from '../ui-kit/Input/Input';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
 import backIcon from '../../images/ui/Back-Icon.svg';
 import InputConf from '../ui-kit/ConfirmationInput/ConfirmationInput';
-import useValidation from '../hooks/useValidation';
+import useValidations from '../hooks/useValidation';
 import {
   adminRegister,
   adminVerifyEmail,
 } from '../../services/api/admin-register';
 
 export default function RegisterForm() {
-  const { values, handleChange, errors, isValid, validate } = useValidation();
+  const { values, handleChange, errors, isValid, validate } = useValidations();
   const [isOpenReg, setOpenReg] = useState(true);
   const [verifyNums, setVerifyNums] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
@@ -42,6 +42,7 @@ export default function RegisterForm() {
   }
 
   function onLoginClick() {
+    
     navigate('/login');
   }
 

@@ -1,7 +1,7 @@
 import { func, number, string, bool } from 'prop-types';
 import { useState } from 'react';
 import inputStyles from './Input.module.scss';
-import useValidation from '../../hooks/useValidation';
+import useValidations from '../../hooks/useValidation';
 
 
 // написал classNameInput, classNameDiv чтобы пробросить стили
@@ -28,7 +28,7 @@ export default function Input({
     name.toLowerCase() === 'emailprofile';
 
   // eslint-disable-next-line no-redeclare
-  const { handleChange, errors } = useValidation();
+  const { handleChange, errors } = useValidations();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
