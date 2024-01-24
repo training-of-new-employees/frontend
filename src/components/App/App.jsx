@@ -21,6 +21,7 @@ import UserEdit from '../../pages/User/UserEdit/UserEdit';
 import NewCours from '../../pages/Courses/NewCourses/NewCours';
 import EditCours from '../../pages/Courses/EditCours/EditCours';
 import Lessons from '../../pages/Lessons/Lessons';
+import CreateLesson from '../../pages/Lessons/NewLessons/CreateLesson';
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
         <Route path={`${paths.courses}/new-courses`} element={<NewCours />} />
         <Route path={`${paths.courses}/:id`} element={<EditCours />} />
         <Route path={`${paths.courses}/:id/lessons`} element={<Lessons />} />
+        <Route path={`${paths.courses}/:id/new-lesson`} element={<CreateLesson />} />
         
 
         <Route

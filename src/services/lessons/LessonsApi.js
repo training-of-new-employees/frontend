@@ -15,7 +15,7 @@ export const fetchLessons = (id) => {
 
 export const setLesson = (data) => {
   const token = localStorage.getItem('token');
-  return request( `${baseUrl}/lessons`, {
+  return request( `${baseUrl}/admin/lessons`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,

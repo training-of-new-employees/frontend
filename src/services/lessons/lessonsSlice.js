@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchLessons } from './LessonsApi';
+import { fetchLessons, setLesson } from './LessonsApi';
 
 export const getLessonsAction = createAsyncThunk(
   'lessons/getLessonsAction',
@@ -13,6 +13,17 @@ export const getLessonsAction = createAsyncThunk(
   }
 );
 
+export const createLessonAction = createAsyncThunk(
+  'lessons/createLessonAction',
+  async (data, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const response = await setLesson(data);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 const lessonsSlice = createSlice({
   name: 'lessons',
@@ -45,10 +56,20 @@ const lessonsSlice = createSlice({
       .addCase(getLessonsAction.rejected, (state) => {
         state.status = 'error';
         state.error = 'error';
+      })
+      .addCase(createLessonAction.fulfilled, (state, action) => {
+        state.status = 'success';
+
+        state.currentLesson = action.payload;
+      })
+      .addCase(createLessonAction.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createLessonAction.rejected, (state) => {
+        state.status = 'error';
+        state.error = 'error';
       });
-  
   },
 });
 
 export default lessonsSlice.reducer;
-
