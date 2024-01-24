@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import image from '../../images/ui/NoCurse.png';
-import Button from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+import Button from '../ui-kit/Button/Button';
 import style from './NoCourses.module.scss';
 
 // todo вставить все картинки кнопки и прочее чтобы был уневирсальный
@@ -22,7 +22,7 @@ export default function NoCourses({ emptyStates }) {
         />
         <p className={style.text}>У вас нет курсов</p>
         <div role='none' onClick={() => navigate('/courses/new-courses')}>
-        <Button buttonText="Создать курс" />
+        <Button buttonText="Создать курс" type="primary" icon='white'/>
         </div>
        
       </div>
