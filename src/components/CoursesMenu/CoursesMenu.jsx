@@ -1,13 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import navigationStyles from '../Navigation/Navigation.module.scss';
 import FilesIcon from '../../images/ui/Files.svg';
 import FolderIcon from '../../images/ui/Folder.svg';
 
 export default function CoursesMenu() {
+  const {id} = useParams()
   return (
     <>
       <NavLink
-        to="/courses-info"
+        to={`/courses/${id}`}
         className={({ isActive }) =>
           `${navigationStyles.item} ${
             isActive ? navigationStyles.item_active : ''
@@ -24,7 +25,7 @@ export default function CoursesMenu() {
         </div>
       </NavLink>
       <NavLink
-        to="/courses-materials"
+        to={`/courses/${id}/lessons`}
         className={({ isActive }) =>
           `${navigationStyles.item} ${
             isActive ? navigationStyles.item_active : ''

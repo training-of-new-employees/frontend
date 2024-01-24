@@ -1,0 +1,88 @@
+@use '../../../utils/variables.scss' as *;
+
+.navButton {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92px;
+  padding: 20px 0;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: $colorWhite;
+  height: calc(100vh - 72px);
+  font-family: Rubik, Arial;
+  border: 1px solid $colorGrayLite;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Rubik';
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.content {
+  color: var(--Text-Main, #2f302e);
+  width: 900px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  height: 300px;
+  background-color: white;
+  border-radius: 0px 0px 24px 24px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 41px;
+}
+
+.subtitle {
+  font-family: Rubik;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.subtitle_container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.infoEditButton {
+  background-image: url(../../../images/ui/IconEdit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  background-size: 17px;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  background-color: $colorWhite;
+  grid-area: 'edit';
+  cursor: pointer;
+}
+
+.wrapperText {
+  color: var(--Text-Additional, #7D7E7C);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}

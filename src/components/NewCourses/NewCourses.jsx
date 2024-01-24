@@ -34,7 +34,6 @@ export default function NewCourses() {
     e.preventDefault();
     dispatch(
       createCoursesAction({
-        archived: true,
         name: course,
         description: content,
       })
@@ -64,7 +63,7 @@ export default function NewCourses() {
               classNameInput={style.NewCoursesForm__input}
               classNameDiv={style.NewCoursesForm__divInput}
               maxLength={20}
-              minLength={1}
+              minLength={5}
               value={course || ''}
             />
           </label>
@@ -77,7 +76,7 @@ export default function NewCourses() {
               classNameInput={style.NewCoursesForm__input}
               classNameDiv={style.NewCoursesForm__divInput}
               maxLength={20}
-              minLength={1}
+              minLength={5}
               value={content || ''}
             />
           </label>

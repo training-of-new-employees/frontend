@@ -34,3 +34,25 @@ export const setCourses = (data) => {
     body: JSON.stringify(data),
   });
 };
+
+export const editCourses = (data) => {
+  const token = localStorage.getItem('token');
+  return request(`${pathPosition}/${data.id}`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+};
+
+export const getCoursById = (id) => {
+  const token = localStorage.getItem('token');
+  return request(`${pathPosition}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  });
+};

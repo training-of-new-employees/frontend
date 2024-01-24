@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../../components/ui-kit/Button/Button';
 import coursesStyles from '../Courses.module.scss';
 import DropdownMenu from '../../../components/ui-kit/DropdownMenu/DropdownMenu';
@@ -7,11 +8,19 @@ import DropdownMenuButton from '../../../components/ui-kit/DropdownMenuButton/Dr
 import help from '../../../images/ui/Bag.svg';
 import archive from '../../../images/ui/Unarchive.svg';
 import Popup from '../../../components/ui-kit/Popup/Popup';
+import {
+  editCoursesAction,
+  getCoursesByIdReducer,
+} from '../../../services/courses/coursesSlice';
+import Card from '../../../components/ui-kit/Card/Card';
 
 export default function CoursesContent() {
+  const dispatch = useDispatch();
+  const { courses } = useSelector((state) => state.coursesState);
+  const [currentCours, setCuurentCours] = React.useState();
   const navigate = useNavigate();
   const [isOpen, setOpen] = React.useState(false);
-
+  console.log('courses', courses);
   function handleOpenPopup() {
     setOpen(true);
   }
@@ -20,7 +29,13 @@ export default function CoursesContent() {
     setOpen(false);
   }
   const handleSubmit = () => {
-    console.log('onSubmit');
+    dispatch(
+      editCoursesAction({
+        id: currentCours.id,
+        archived: true,
+      })
+    );
+    handleClose();
   };
   return (
     <>
@@ -30,38 +45,67 @@ export default function CoursesContent() {
         </div>
 
         <div className={coursesStyles.listCards}>
-          {/* <Card text='Культура и ценности компании' isArchived/> */}
+          {courses.length !== 0 &&
+            Array.from(courses).map((item) => (
+              <div key={item.id}>
+                {item.archived === true ? (
+                  <div
+                    role="none"
+                    onClick={() => {
+                      dispatch(getCoursesByIdReducer(item));
+                      navigate(`/courses/${item.id}`);
+                    }}
+                  >
+                    <Card
+                      key={item.id}
+                      text={item.name}
+                      isArchived={item.archived}
+                    />
+                  </div>
+                ) : (
+                  <div
+                    key={item.id}
+                    className={coursesStyles.coursesCard}
+                    role="none"
+                    onClick={() => {
+                      dispatch(getCoursesByIdReducer(item));
+                      navigate(`/courses/${item.id}`);
+                    }}
+                  >
+                    <div className={coursesStyles.cardText}>
+                      <div className={coursesStyles.cardTitle}>{item.name}</div>
+                      <div className={coursesStyles.coursesCount}>0 уроков</div>
+                    </div>
+                    <DropdownMenu isChild className={coursesStyles.iconMenu}>
+                      <div
+                        role="none"
+                        onClick={() => {
+                          console.log('click для логики редактирования');
+                        }}
+                      >
+                        <DropdownMenuButton
+                          IconComponent={help}
+                          text="Редактировать"
+                        />
+                      </div>
 
-          <div className={coursesStyles.coursesCard}>
-            <div className={coursesStyles.cardText}>
-              <div className={coursesStyles.cardTitle}>
-                Культура и ценности компании
+                      <div
+                        role="none"
+                        onClick={() => {
+                          setCuurentCours(item);
+                          handleOpenPopup();
+                        }}
+                      >
+                        <DropdownMenuButton
+                          IconComponent={archive}
+                          text="Перенести в архив"
+                        />
+                      </div>
+                    </DropdownMenu>
+                  </div>
+                )}
               </div>
-              <div className={coursesStyles.coursesCount}>0 уроков</div>
-            </div>
-            <DropdownMenu isChild className={coursesStyles.iconMenu}>
-              <div
-                role="none"
-                onClick={() => {
-                  console.log('click для логики редактирования');
-                }}
-              >
-                <DropdownMenuButton IconComponent={help} text="Редактировать" />
-              </div>
-
-              <div
-                role="none"
-                onClick={() => {
-                  handleOpenPopup();
-                }}
-              >
-                <DropdownMenuButton
-                  IconComponent={archive}
-                  text="Перенести в архив"
-                />
-              </div>
-            </DropdownMenu>
-          </div>
+            ))}
         </div>
       </div>
 

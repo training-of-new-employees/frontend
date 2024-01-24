@@ -40,7 +40,7 @@ export default function SettingAccess() {
         <div className={styles.navButton}>
           <Button
             type="emptyBorder"
-            buttonText="К курсам"
+            buttonText="Назад"
             iconType="back"
             onClick={() => {
               navigate(-1);
@@ -59,9 +59,6 @@ export default function SettingAccess() {
             onSubmit={(event) => handleSubmit(event)}
             className={styles.form}
           >
-  
-
-           
               <div className={styles.cardList}>
                 <Card isAdmin text="Система электронного документооборота" />
                 <Card isAdmin text="Система электронного документооборота" />
