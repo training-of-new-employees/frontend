@@ -5,9 +5,10 @@ import styles from './Lessons.module.scss';
 import CoursesSidebar from '../../components/CoursesSidebar/CoursesSidebar';
 import Button from '../../components/ui-kit/Button/Button';
 import { getLessonsAction } from '../../services/lessons/lessonsSlice';
+import ListLessons from '../../components/ui-kit/List/List';
 
 export default function Lessons() {
-  const {id} = useParams()
+  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { coursesEdit } = useSelector((state) => state.coursesState);
@@ -15,8 +16,8 @@ export default function Lessons() {
   console.log(lessons);
 
   React.useEffect(() => {
-dispatch(getLessonsAction(coursesEdit.id))
-  }, [dispatch])
+    dispatch(getLessonsAction(coursesEdit.id));
+  }, [dispatch]);
 
   const columns = [
     { header: 'Название', accessor: 'name' },
@@ -33,13 +34,14 @@ dispatch(getLessonsAction(coursesEdit.id))
       <div className={styles.container}>
         <div className={styles.headerLesson}>
           <div className={styles.title}>Материалы курса</div>
-          <div role='none' onClick={() => navigate(`/courses/${id}/new-lesson`)}>
-          <Button type="primary" icon="white" buttonText="Новый урок" />
-
+          <div
+            role="none"
+            onClick={() => navigate(`/courses/${id}/new-lesson`)}
+          >
+            <Button type="primary" icon="white" buttonText="Новый урок" />
           </div>
-   
         </div>
-        
+        <ListLessons columns={columns} data={lessons} />
       </div>
     </section>
   );

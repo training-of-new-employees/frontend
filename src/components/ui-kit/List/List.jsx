@@ -19,7 +19,13 @@ export default function ListLessons({ columns, data }) {
   const rows = Array.from(data).map((item) => (
     <tr key={item.id}>
       <td>
-        {item.name} {item.surname} {item.patronymic}
+        {item.name}
+      </td>
+      <td>
+        {item.course_id} id курса
+      </td>
+      <td>
+        {item.arhcived ? 'Архивирован' : 'Не архивирован'} 
       </td>
 
       <td aria-label="Mute volume" className={tableStyles.tableCell}>
