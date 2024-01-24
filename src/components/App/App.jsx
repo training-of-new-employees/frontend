@@ -17,6 +17,8 @@ import NewUser from '../NewUser/NewUser';
 import CoursesPage from '../../pages/Courses/Courses';
 import NewPosition from '../../pages/PositionsPage/NewPosition/NewPosition';
 import EditPosition from '../../pages/PositionsPage/EditPosition/EditPosition';
+import UserEdit from '../../pages/User/UserEdit/UserEdit';
+import NewCours from '../../pages/Courses/NewCourses/NewCours';
 
 export default function App() {
   return (
@@ -31,11 +33,13 @@ export default function App() {
         <Route path="*" element={<ResetPassword />} />
         <Route path={paths.profile} element={<Profile />} />
         <Route path={paths.positions} element={<PositionPage />}  />
-
-   
         <Route path={paths.users} element={<User />} />
         <Route path={paths.newuser} element={<NewUser />} />
+        <Route element={<UserEdit />} path={`${paths.users}/:id`} />
         <Route path={paths.courses} element={<CoursesPage />} />
+        <Route path={`${paths.courses}/new-courses`} element={<NewCours />} />
+
+        
         <Route
           path={`${paths.positions}/setting-access/:id`}
           element={<SettingAccess />}

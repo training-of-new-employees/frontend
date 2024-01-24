@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui-kit/Button/Button';
 import coursesStyles from '../Courses.module.scss';
 import DropdownMenu from '../../../components/ui-kit/DropdownMenu/DropdownMenu';
@@ -8,6 +9,7 @@ import archive from '../../../images/ui/Unarchive.svg';
 import Popup from '../../../components/ui-kit/Popup/Popup';
 
 export default function CoursesContent() {
+  const navigate = useNavigate();
   const [isOpen, setOpen] = React.useState(false);
 
   function handleOpenPopup() {
@@ -23,7 +25,10 @@ export default function CoursesContent() {
   return (
     <>
       <div className={coursesStyles.content}>
-        <Button type="primary" buttonText="Новый курс" icon="white" />
+        <div role="none" onClick={() => navigate('/courses/new-courses')}>
+          <Button type="primary" buttonText="Новый курс" icon="white" />
+        </div>
+
         <div className={coursesStyles.listCards}>
           {/* <Card text='Культура и ценности компании' isArchived/> */}
 
