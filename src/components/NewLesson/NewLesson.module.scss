@@ -1,0 +1,9 @@
+.image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    transition: all ease .3s;
+}
+.image:hover {
+    opacity: 0.6;
+}

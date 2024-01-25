@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import tableStyles from './Table.module.scss';
 import styles from '../../../pages/PositionsPage/PositionPage.module.scss';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import DropdownMenuButton from '../DropdownMenuButton/DropdownMenuButton';
 import help from '../../../images/ui/Bag.svg';
+import { getUserByIdReducer } from '../../../services/users/usersSlice';
 
-export default function Table({ columns, data }) {
+export default function Table({ columns, data, openPopup }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // eslint-disable-next-line react/no-array-index-key
   const headers = columns.map((col, index) => (
     // eslint-disable-next-line react/no-array-index-key
@@ -18,12 +23,24 @@ export default function Table({ columns, data }) {
       </td>
       <td>{item.position_name}</td>
       <td>{item.email}</td>
+      <td>{item.archived ? 'В архиве' : 'Не в архиве'}</td>
       <td>{item.active ? 'Активен' : 'Не активен'}</td>
 
       <td aria-label="Mute volume" className={tableStyles.tableCell}>
         {' '}
         <DropdownMenu isChild className={styles.iconMenu} stylesButton>
-          <DropdownMenuButton IconComponent={help} text="Редактировать" />
+          <div role="none" onClick={() => navigate(`/users/${item.id}`)}>
+            <DropdownMenuButton IconComponent={help} text="Редактировать" />
+          </div>
+          <div
+            role="none"
+            onClick={() => {
+              dispatch(getUserByIdReducer(item));
+              openPopup();
+            }}
+          >
+            <DropdownMenuButton IconComponent={help} text="Архивировать" />
+          </div>
         </DropdownMenu>
       </td>
       {/* {columns.map((col, index) => (
@@ -44,6 +61,7 @@ export default function Table({ columns, data }) {
 }
 
 Table.propTypes = {
+  openPopup: func,
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       header: PropTypes.string.isRequired,
@@ -52,4 +70,8 @@ Table.propTypes = {
   ).isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+Table.defaultProps = {
+  openPopup: func,
 };

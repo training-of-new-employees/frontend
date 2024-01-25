@@ -9,6 +9,7 @@
 .section {
   background-color: variables.$backGroundColor;
   @include flex;
+  width: 1200px;
 }
 
 .container {
