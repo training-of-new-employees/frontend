@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-
+import { useNavigate } from 'react-router-dom';
 import image from '../../images/ui/NoCurse.png';
-import Button from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
+import Button from '../ui-kit/Button/Button';
 import style from './NoCourses.module.scss';
 
 // todo вставить все картинки кнопки и прочее чтобы был уневирсальный
@@ -11,6 +11,7 @@ import style from './NoCourses.module.scss';
  * @param {text} emptyStates - принимает название пустой страницы
  */
 export default function NoCourses({ emptyStates }) {
+  const navigate = useNavigate()
   return (
     <section className={style.section}>
       <div className={style.container}>
@@ -20,7 +21,10 @@ export default function NoCourses({ emptyStates }) {
           alt="Картинка планеты в космосе"
         />
         <p className={style.text}>У вас нет курсов</p>
-        <Button buttonText="Создать курс" />
+        <div role='none' onClick={() => navigate('/courses/new-courses')}>
+        <Button buttonText="Создать курс" type="primary" icon='white'/>
+        </div>
+       
       </div>
     </section>
   );
