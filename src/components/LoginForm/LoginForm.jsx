@@ -31,8 +31,7 @@ export default function LoginForm() {
       password: password.value
     }
     dispatch(fetchToken(values))
-    // login(email.value, password.value).then((res) => {console.log(res)});
-    navigate('/profile')
+      navigate('/profile')
   };
   return (
     <div className={loginFormStyles.formContainer}>
@@ -68,7 +67,7 @@ export default function LoginForm() {
           <span className={loginFormStyles.spanError}>
             Неверно введен e-mail Пример: people@mail.ru
           </span>
-        )}{' '}
+        )}
         <div className={loginFormStyles.passwordContainer}>
           <input
             className={`${loginFormStyles.input}

@@ -5,11 +5,12 @@ import CoursesIcon from '../../images/ui/NavigationCourses.svg';
 import UsersIcon from '../../images/ui/NavigationUsers.svg';
 import ProfessionsIcon from '../../images/ui/NavigationProfessions.svg';
 import { paths } from '../../utils/constants';
-import useValidations from '../hooks/useValidation';
+import useValidation from '../hooks/useValidation';
 import imgAdmin from '../../images/ui/ImageAdmin.svg';
 
+
 export default function ProfileSidebar({ isAdmin }) {
-  const { values } = useValidations();
+  const {values} = useValidation()
   return (
     <nav className={navigationStyles.navigation}>
       <NavLink
@@ -27,12 +28,8 @@ export default function ProfileSidebar({ isAdmin }) {
             src={imgAdmin}
           />
           <div className={navigationStyles.profileNameContainer}>
-            <p className={navigationStyles.profileName}>
-              {values.firstName} {values.lastName}
-            </p>
-            <p className={navigationStyles.profilePosition}>
-              {values.position_name}
-            </p>
+            <p className={navigationStyles.profileName}>{values.firstName} {values.lastName}</p>
+            <p className={navigationStyles.profilePosition}>{values.position_name}</p>
           </div>
         </div>
       </NavLink>

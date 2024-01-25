@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useValidation } from '../../hooks/useValidation';
 
 const useInput = (initialValue, validations) => {
@@ -8,7 +8,8 @@ const useInput = (initialValue, validations) => {
   const onChange = (e) => {
     setValue(e.target.value);
   };
-  const onBlur = (e) => {
+
+  const onBlur = () => {
     setIsDirty(true);
   };
   return {
