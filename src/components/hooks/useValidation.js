@@ -7,7 +7,6 @@ import { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProfile } from '../../services/profile/profileSlice';
 
-
 export default function useValidations() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -149,14 +148,14 @@ export default function useValidations() {
 }
 
 export function useValidation(value, validations) {
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
-  const emailRegex = /^\S+@\S+\.\S+$/;
-
   const [isEmpty, setIsEmpty] = useState(true);
   const [emailError, setEmailError] = useState(false);
+  const [companyError, setCompanyError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [isValid, setIsValid] = useState(false);
-
+  const [passwordConfirm, setPasswordConfirm] = useState(false);
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
+  const emailRegex = /^\S+@\S+\.\S+$/;
   useEffect(() => {
     value.length < validations.minLength || value.length > 50
       ? setIsEmpty(true)
@@ -165,25 +164,41 @@ export function useValidation(value, validations) {
     if (validations.type === 'email') {
       !emailRegex.test(value) ? setEmailError(true) : setEmailError(false);
     }
-
-    if (validations.type === 'password') {
+    if (validations.type === 'company') {
+      /[#*]/.test(value) ? setCompanyError(true) : setCompanyError(false);
+    }
+    if (
+      validations.type === 'password' ||
+      validations.type === 'confirmPassword'
+    ) {
       !passwordRegex.test(value)
         ? setPasswordError(true)
         : setPasswordError(false);
     }
-  }, [value]);
+    if (
+      validations.type === 'confirmPassword' ||
+      validations.type === 'password'
+    ) {
+      validations?.isPassword?.password !==
+      validations?.isPassword?.confirmPassword
+        ? setPasswordConfirm(true)
+        : setPasswordConfirm(false);
+    }
+  }, [value, validations]);
 
   useEffect(() => {
-    if (isEmpty || emailError || passwordError) {
+    if (isEmpty || emailError || passwordError || passwordConfirm) {
       setIsValid(false);
     } else {
       setIsValid(true);
     }
-  }, [isEmpty, emailError, passwordError]);
+  }, [isEmpty, emailError, passwordError, passwordConfirm]);
   return {
     isEmpty,
     emailError,
     passwordError,
     isValid,
+    passwordConfirm,
+    companyError,
   };
 }

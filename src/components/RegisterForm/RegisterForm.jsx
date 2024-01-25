@@ -11,20 +11,44 @@ import {
   adminRegister,
   adminVerifyEmail,
 } from '../../services/api/admin-register';
+import useInput from '../ui-kit/Input/useInput';
 
 export default function RegisterForm() {
-  const { values, handleChange, errors, isValid, validate } = useValidations();
+  // const { values, handleChange, errors, isValid, validate } = useValidations();
   const [isOpenReg, setOpenReg] = useState(true);
   const [verifyNums, setVerifyNums] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    setIsButtonDisabled(false);
-  }, []);
-
+  const [isPassword, setIsPassword] = useState({
+    password: '',
+    confirmPassword: '',
+  });
+  const email = useInput('', {
+    isEmpty: true,
+    minLength: 5,
+    type: 'email',
+    isPassword,
+  });
+  const company = useInput('', {
+    isEmpty: true,
+    minLength: 1,
+    type: 'company',
+    isPassword,
+  });
+  const password = useInput('', {
+    isEmpty: true,
+    minLength: 6,
+    type: 'password',
+    isPassword,
+  });
+  const confirmPassword = useInput('', {
+    isEmpty: true,
+    minLength: 6,
+    type: 'confirmPassword',
+    isPassword,
+  });
   function onClickBack() {
     setOpenReg(true);
   }
@@ -41,32 +65,43 @@ export default function RegisterForm() {
     });
   }
 
+  const inputChange = (event) => {
+    const { value, name } = event.target;
+    setIsPassword({
+      ...isPassword,
+      [name]: value,
+    });
+  };
+  const handleChangeConfirmPassword = (event) => {
+    inputChange(event);
+    confirmPassword.onChange(event);
+  };
+  const handleChangePassword = (event) => {
+    inputChange(event);
+    password.onChange(event);
+  };
+
   function onLoginClick() {
-    
     navigate('/login');
   }
 
   function onSubmit(event) {
     event.preventDefault();
-    validate();
-    if (isValid) {
-      dispatch(adminRegister(values.email, values.password, values.company)).then(
-        () => setOpenReg(false)
-      );
-    }
-    
+
+    dispatch(adminRegister(email.value, password.value, company.value)).then(
+      () => setOpenReg(false)
+    );
   }
 
   function verifyEmail() {
     const code = verifyNums.join('');
     dispatch(adminVerifyEmail(code))
-    .then(() => navigate('/login'))
-    .catch((error) => {
-      setVerificationError('Код введен неверно')
-      console.error('Email verification error:', error)
-    });
+      .then(() => navigate('/login'))
+      .catch((error) => {
+        setVerificationError('Код введен неверно');
+        console.error('Email verification error:', error);
+      });
   }
-
   return (
     <div>
       {isOpenReg ? (
@@ -77,53 +112,106 @@ export default function RegisterForm() {
           </p>
           <form
             className={registerFormStyles.form}
-            onSubmit={onSubmit}
             noValidate
+            onSubmit={onSubmit}
           >
             <Input
+              classNameInput={`${registerFormStyles.input}
+            ${
+              company.isDirty && company.companyError
+                ? registerFormStyles.inputError
+                : ''
+            }`}
               name="company"
               placeholder="Компания"
-              onChange={handleChange}
-              value={values.company || ''}
-              minLength={1}
-              maxLength={256}
+              onChange={company.onChange}
+              value={company.value}
+              onBlur={company.onBlur}
             />
-            <span className={registerFormStyles.spanError}>{errors.company} </span>
+            {company.isEmpty && company.isDirty && (
+              <span className={registerFormStyles.spanError}>
+                Компания должена содержать не менее 1 символов
+              </span>
+            )}
             <Input
+              classNameInput={`${registerFormStyles.input}
+                ${
+                  email.isDirty && email.emailError
+                    ? registerFormStyles.inputError
+                    : ''
+                }`}
               name="email"
               placeholder="E-mail"
               type="email"
-              onChange={handleChange}
-              value={values.email || ''}
-              minLength={5}
-              maxLength={50}
+              onChange={email.onChange}
+              value={email.value}
+              onBlur={email.onBlur}
             />
-            <span className={registerFormStyles.spanError}>{errors.email}</span>
-            <Input classNameInput={errors.password ? registerFormStyles.inputError : ''}
+            {email.isDirty && email.emailError && (
+              <span className={registerFormStyles.spanError}>
+                Неверно введен e-mail Пример: people@mail.ru
+              </span>
+            )}
+            <Input
+              classNameInput={`${registerFormStyles.input}
+                ${
+                  password.isDirty && password.passwordError
+                    ? registerFormStyles.inputError
+                    : ''
+                }`}
               name="password"
+              placeholder="Пароль "
+              type="password"
+              onChange={handleChangePassword}
+              value={password.value}
+              onBlur={password.onBlur}
+            />
+            {confirmPassword.isDirty && confirmPassword.passwordConfirm && (
+              <span className={registerFormStyles.spanError}>
+                Пароли не совпадают
+              </span>
+            )}
+            {password.isEmpty && password.isDirty && (
+              <span className={registerFormStyles.spanError}>
+                Пароль должен содержать от 6 до 30 символов
+              </span>
+            )}
+            {password.isDirty && password.passwordError && (
+              <span className={registerFormStyles.spanError}>
+                Пароль должен содержать хотя бы один большой символ, один
+                маленький символ, одну цифру и один специальный символ
+              </span>
+            )}
+            <Input
+              classNameInput={`${registerFormStyles.input}
+                ${
+                  confirmPassword.isDirty && confirmPassword.passwordError
+                    ? registerFormStyles.inputError
+                    : ''
+                }`}
+              name="confirmPassword"
               placeholder="Пароль"
               type="password"
-              onChange={handleChange}
-              value={values.password || ''}
-              minLength={6}
-              maxLength={30}
-            />
-            <span className={registerFormStyles.spanError}>{errors.password}</span>
-            <Input classNameInput={errors.confirmPassword ? registerFormStyles.inputError : ''}
-              name="confirmPassword"
-              type="password"
-              placeholder="Повторите пароль"
-              onChange={handleChange}
-              value={values.confirmPassword || ''}
-              minLength={6}
-              maxLength={30}
-            />
-            <span className={registerFormStyles.spanError}>
-              {errors.confirmPassword &&
-                (values.confirmPassword !== values.password
-                    ? 'Пароли не совпадают'
-                    : '')}
-            </span>
+              onChange={handleChangeConfirmPassword}
+              value={confirmPassword.value}
+              onBlur={confirmPassword.onBlur}
+            />{' '}
+            {confirmPassword.isEmpty && confirmPassword.isDirty && (
+              <span className={registerFormStyles.spanError}>
+                Пароль должен содержать от 6 до 30 символов
+              </span>
+            )}
+            {confirmPassword.isDirty && confirmPassword.passwordError && (
+              <span className={registerFormStyles.spanError}>
+                Пароль должен содержать хотя бы один большой символ, один
+                маленький символ, одну цифру и один специальный символ
+              </span>
+            )}{' '}
+            {confirmPassword.isDirty && confirmPassword.passwordConfirm && (
+              <span className={registerFormStyles.spanError}>
+                Пароли не совпадают
+              </span>
+            )}
             <section className={registerFormStyles.container}>
               <div className={registerFormStyles.checkboxContainer}>
                 <Checkbox text="Запомнить меня" />
@@ -136,7 +224,12 @@ export default function RegisterForm() {
               <button
                 className={registerFormStyles.submit}
                 type="submit"
-                disabled={!isValid}
+                disabled={
+                  !email.isValid ||
+                  !password.isValid ||
+                  !confirmPassword.isValid ||
+                  !company.isValid
+                }
               >
                 Зарегистрироваться
               </button>
@@ -157,7 +250,11 @@ export default function RegisterForm() {
         </div>
       ) : (
         <section className={registerFormStyles.section}>
-          <form className={registerFormStyles.form} onSubmit={onSubmit} noValidate>
+          <form
+            className={registerFormStyles.form}
+            onSubmit={onSubmit}
+            noValidate
+          >
             <h1 className={registerFormStyles.title}>Подтверждение e-mail</h1>
             <p className={registerFormStyles.text}>
               Мы отправили вам на e-mail 4х значный код
@@ -187,7 +284,9 @@ export default function RegisterForm() {
                 maxLength={1}
               />
             </section>
-              <span className={registerFormStyles.spanErrorVerify}>{verificationError}</span>
+            <span className={registerFormStyles.spanErrorVerify}>
+              {verificationError}
+            </span>
             <button
               className={registerFormStyles.submitEmail}
               type="button"
