@@ -6,16 +6,16 @@ import Button from '../../../components/ui-kit/Button/Button';
 import Input from '../../../components/ui-kit/Input/Input';
 import newUserStyle from '../../../components/NewUser/NewUser.module.scss';
 import Navigation from '../../../components/Navigation/Navigation';
-import useValidation from '../../../components/hooks/useValidation';
+import useValidations from '../../../components/hooks/useValidation';
 import {
   fetchUserById,
   fetchLinkEmail,
-  patchUserAction
+  patchUserAction,
 } from '../../../services/users/usersSlice';
 
 export default function UserEdit() {
   const { id } = useParams();
-  const { handleChange } = useValidation();
+  const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
   const { user, linkInvite } = useSelector((state) => state.usersState);
@@ -44,7 +44,8 @@ export default function UserEdit() {
     setEditUser({
       ...editUser,
       link_invite: linkInvite.link,
-      company_id: profile.company_id, position_id: profile.position_id
+      company_id: profile.company_id,
+      position_id: profile.position_id,
     });
   }, [linkInvite, profile]);
 
@@ -172,9 +173,9 @@ export default function UserEdit() {
               name="linkInvite"
               placeholder=""
               onChange={handleChange}
-             value={editUser.link_invite || ''}
-             minLength={1}
-             maxLength={30}
+              value={editUser.link_invite || ''}
+              minLength={1}
+              maxLength={30}
             />
           </li>
         </ul>
