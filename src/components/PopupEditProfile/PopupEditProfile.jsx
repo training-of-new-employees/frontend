@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Input from '../ui-kit/Input/Input';
 import Popup from '../ui-kit/Popup/Popup';
 import popupEditstyle from './PopupEditProfile.module.scss';
-import useValidation from '../hooks/useValidation';
+import useValidations from '../hooks/useValidation';
 // import ButtonFilled from '../ui-kit/Buttons/ButtonFilled/ButtonFilled';
 import Button from '../ui-kit/Button/Button';
 import { editProfile, fetchProfile } from '../../services/profile/profileSlice';
@@ -14,7 +14,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
   const { profile, status, isLoading } = useSelector(
     (state) => state.profileState
   );
-  const { values, handleChange } = useValidation();
+  const { values, handleChange } = useValidations();
   const [editUser, setEditUser] = React.useState({});
   const dispatch = useDispatch();
 
