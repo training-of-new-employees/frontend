@@ -15,7 +15,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
     (state) => state.profileState
   );
   const { values, handleChange } = useValidations();
-  const [editUser, setEditUser] = React.useState(profile);
+  const [editUser, setEditUser] = React.useState({});
   const dispatch = useDispatch();
 
   React.useEffect(() => {
