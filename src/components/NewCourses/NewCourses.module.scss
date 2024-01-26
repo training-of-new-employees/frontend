@@ -1,4 +1,4 @@
-@use '../../utils/_variables' as variables;
+@use '../../styles/variables' as variables;
 
 @mixin margin($size) {
   margin: 0;
@@ -13,7 +13,7 @@
   &__container {
     padding: variables.rem(40) variables.rem(40) variables.rem(60);
     background-color: variables.$colorWhite;
-    border-radius: 0px 0px variables.rem(24) variables.rem(24);
+    border-radius: 0 0 variables.rem(24) variables.rem(24);
   }
 
   &__title {

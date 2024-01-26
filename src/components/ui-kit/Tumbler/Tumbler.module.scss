@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as *;
+
 .toggle input[type='checkbox'] {
   display: none;
 }
@@ -8,7 +10,7 @@
   position: relative;
   width: 52px;
   height: 32px;
-  background: #ffffff;
+  background: $colorWhite;
   border: 2px solid #2f302e;
   border-radius: 35px;
   cursor: pointer;
@@ -23,9 +25,9 @@
   display: block;
   width: 24px;
   height: 24px;
-  border: 2px solid #2f302e;
+  border: 2px solid $colorBlack;
   border-radius: 24px;
-  background: #ffffff;
+  background: $colorWhite;
   position: absolute;
   left: 2px;
   top: 2px;
@@ -34,7 +36,7 @@
 }
 
 .toggle input[type='checkbox']:checked + label {
-  background: #53772f;
+  background: $colorButtonDefault;
 }
 
 .toggle input[type='checkbox']:checked + label:before {
@@ -44,15 +46,15 @@
 .toggle
   input[type='checkbox']:not(:disabled):not(:checked):hover
   + label:before {
-  background: #53772f;
+  background: $colorButtonDefault;
 }
 
 .toggle input[type='checkbox']:disabled + label:before {
-  border-color: #d1d3ce;
+  border-color: $colorGrayLite;
 }
 
 .toggle input[type='checkbox']:disabled + label {
-  border-color: #d1d3ce;
+  border-color: $colorGrayLite;
 }
 
 .toggle {

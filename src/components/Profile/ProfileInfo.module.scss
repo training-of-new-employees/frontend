@@ -1,4 +1,4 @@
-@use '../../utils/variables.scss' as *;
+@use '../../styles/variables' as *;
 
 .profileContainer {
   width: 900px;
@@ -38,22 +38,15 @@
 }
 
 .positionProfile {
-  color: var(--text-main, #2f302e);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
+  @include rubik14;
+  color: $colorBlack;
 }
 
 .userRoleContainer {
+  @include rubik16;
   display: flex;
   align-items: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 24px */
-  color: var(--text-additional, #7d7e7c);
+  color: $colorGray;
 }
 
 .roleContainer {
@@ -127,33 +120,18 @@
 }
 
 .infoTitle {
+  @include exo24;
   grid-area: title;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%;
-  /* 31.2px */
 }
 
 .infoSubtitle {
-  // width: 41px;
-  color: var(--text-additional, #7d7e7c);
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 24px */
+  @include rubik16;
+  color: $colorGray;
 }
 
 .infoText {
-  color: var(--text-main, #2f302e);
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 24px */
+  @include rubik16;
+  color: $colorBlack;
 }
 
 .infoEditButton {
@@ -177,12 +155,8 @@
 }
 
 .formHeader {
-  color: var(--text-main, #2f302e);
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%;
-  /* 31.2px */
+  @include exo24;
+  color: $colorBlack;
 }
 
 .inputContainer {

@@ -1,3 +1,12 @@
+// Шрифты
+%font-exo2 {
+  font-family: 'Exo 2', 'Arial', sans-serif;
+}
+
+%font-rubik {
+  font-family: 'Rubik', 'Arial', sans-serif;
+}
+
 //*Цвета кнопок
 $colorButtonDefault: #53772f;
 $colorButtonPress: #374629;
@@ -27,15 +36,72 @@ $colorGrayLite: #d1d3ce;
 $colorRed: #c63535;
 
 // цвет тени инпута
-$colorGreySwadow: #2c2e2c 40%;
+$colorGreyShadow: #2c2e2c 40%;
 
 $backGroundTable: #f3f5f0;
-$backGroubdTableName: #dddddd;
+$backGroundTableName: #dddddd;
 
 //*mixin
+
+@mixin exo40 {
+  @extend %font-exo2;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 52px */
+}
+
+@mixin exo32 {
+  @extend %font-exo2;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 41.6px */
+}
+
+@mixin exo24 {
+  @extend %font-exo2;
+  font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 130%; /* 31.2px */
+}
+
+@mixin rubik16bold {
+  @extend %font-rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+}
+
+@mixin rubik16 {
+  @extend %font-rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+@mixin rubik14 {
+  @extend %font-rubik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 18.2px */
+}
+
+@mixin rubik12 {
+  @extend %font-rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+
 //стили для заголовков форм, подтверждение email
 @mixin title {
-  color: $color-black;
+  color: $colorBlack;
   font-size: 32px;
   font-weight: 500;
   line-height: 44.8px; /* 140% */
@@ -53,6 +119,8 @@ $backGroubdTableName: #dddddd;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  font-style: normal;
+
 }
 
 //основные стили всех кнопок

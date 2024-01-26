@@ -1,4 +1,4 @@
-@use '../../utils/variables' as *;
+@use '../../styles/variables' as *;
 
 .formContainerOpened {
   display: flex;
@@ -11,55 +11,41 @@
   gap: 20px;
   border-radius: 4px;
   border: 1px solid #e5e8e5;
-  background: var(--BG-white, #fff);
+  background: #fff;
   padding: 40px;
 }
 
 .formTitle {
-  color: var(--text-main, #2f302e);
-  font-family: Rubik;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 130%;
+  @include exo32;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .formText {
+  @include rubik16;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-main, #2f302e);
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
+  color: $colorBlack;
 }
 
 .inputInscription {
+  @include rubik16;
   color: #2c2e2c;
   margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.25;
 }
 
 .input {
+  @include rubik14;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: $colorWhite;
   border: 1px solid #e5e8e5;
   border-radius: 12px;
   color: #2c2e2c;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42;
   margin: 8px 0 12px;
   padding: 12px;
   width: 100%;
-  margin-bottom: 12px;
 }
 
 .input:last-of-type {
@@ -81,7 +67,6 @@
   min-height: 52px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .checkbox {
@@ -90,26 +75,18 @@
 }
 
 .inputLabel {
+  @include rubik16;
   cursor: pointer;
-  color: var(--text-main, #2f302e);
+  color: $colorBlack;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 
 .forgetButton {
-  color: var(--main, #53772f);
+  @include rubik16;
+  color: $colorButtonDefault;
   text-align: center;
   cursor: pointer;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  background-color: #fff;
+  background-color: $colorWhite;
   border: none;
 }
 
@@ -132,13 +109,9 @@
 }
 
 .submit {
-  color: var(--BG-white, #fff);
+  @include rubik16;
+  color: $colorWhite;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
   display: flex;
   height: 52px;
   width: 435px;
@@ -148,14 +121,14 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 12px;
-  background: var(--main, #53772f);
+  background: $colorButtonDefault;
   border: none;
   cursor: pointer;
 }
 
 .submit:disabled {
-  background: var(--stroke-button, #d1d3ce);
-  color: var(--text-additional, #7d7e7c);
+  background: $colorGrayLite;
+  color: $colorGray;
 }
 
 .orContainer {
@@ -168,30 +141,22 @@
 
 .span {
   width: 86px;
-  height: 0px;
+  height: 0;
   stroke-width: 2px;
-  stroke: var(--text-additional, #7d7e7c);
-  border: 1px solid var(--text-additional, #7d7e7c);
+  stroke: $colorGray;
+  border: 1px solid $colorGray;
   border-radius: 2px;
 }
 
 .spanText {
-  color: var(--text-additional, #7d7e7c);
+  @include rubik16;
+  color: $colorGray;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 
 .auth {
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  color: var(--main, #53772f);
+  @include rubik16;
+  color: $colorButtonDefault;
   text-align: center;
   background: none;
   border: none;
@@ -207,7 +172,7 @@
   align-items: center;
   gap: 20px;
   border-radius: 4px;
-  background: var(--BG-white, #fff);
+  background: $colorWhite;
   margin: 40px 60px 318px 60px;
 }
 
@@ -219,22 +184,14 @@
 }
 
 .title {
-  color: var(--text-main, #2f302e);
-  font-family: Rubik;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 450;
-  line-height: 130%;
+  @include exo32;
+  color: $colorBlack;
 }
 
 .text {
-  color: var(--text-main, #2f302e);
+  @include rubik16;
+  color: $colorBlack;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 
 .inputSection {
@@ -256,13 +213,9 @@
 }
 
 .buttonBack {
-  color: var(--main, #53772f);
+  @include rubik16;
+  color: $colorButtonDefault;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
   display: flex;
   height: 52px;
   width: 79px;
@@ -270,32 +223,24 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  background-color: #fff;
+  background-color: $colorWhite;
   border: none;
   cursor: pointer;
 }
 
 .buttonAgain {
-  color: var(--main, #53772f);
+  @include rubik16;
+  color: $colorButtonDefault;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  background-color: #fff;
+  background-color: $colorWhite;
   border: none;
   cursor: pointer;
 }
 
 .submitEmail {
-  color: var(--BG-white, #fff);
+  @include rubik16;
+  color: $colorWhite;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
   display: flex;
   height: 52px;
   width: 435px;
@@ -305,23 +250,19 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 12px;
-  background: var(--main, #53772f);
+  background: $colorButtonDefault;
   border: none;
   cursor: pointer;
 }
 
 .submitEmail:disabled {
-  background: var(--stroke-button, #d1d3ce);
-  color: var(--text-additional, #7d7e7c);
+  background: $colorGrayLite;
+  color: $colorGray;
 }
 
 .spanError {
+  @include rubik12;
   color: $colorRed;
-  font-family: Rubik;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14.4px;
   min-height: 14px;
   margin-top: 4px;
   display: flex;
@@ -330,12 +271,8 @@
   margin-left: 8px;
 }
 .spanErrorVerify {
+  @include rubik16;
   color: $colorRed;
-  font-family: Rubik;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14.4px;
   min-height: 14px;
   margin-top: 4px;
   display: flex;
@@ -345,5 +282,5 @@
 }
 
 .inputError {
-  outline: 2px solid var(--service-warning, #C63535);
+  outline: 2px solid $colorRed;
 }

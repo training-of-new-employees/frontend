@@ -1,4 +1,4 @@
-@use '../../../utils/variables.scss' as *;
+@use '../../../styles/variables' as *;
 
 .navButton {
   width: 300px;
@@ -15,14 +15,12 @@
   width: 300px;
   background-color: $colorWhite;
   height: calc(100vh - 72px);
-  font-family: Rubik, Arial;
   border: 1px solid $colorGrayLite;
 }
 
 .section {
   display: flex;
   flex-direction: row;
-  font-family: 'Rubik';
 }
 
 .container {
@@ -31,7 +29,7 @@
   width: 100%;
 }
 .content {
-  color: var(--Text-Main, #2f302e);
+  color: $colorBlack;
   width: 900px;
   padding: 60px 40px;
   display: flex;
@@ -39,7 +37,7 @@
   gap: 28px;
   height: 300px;
   background-color: white;
-  border-radius: 0px 0px 24px 24px;
+  border-radius: 0 0 24px 24px;
 }
 
 .title {
@@ -49,10 +47,7 @@
 }
 
 .subtitle {
-  font-family: Rubik;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 28px;
+  @include exo24;
 }
 
 .subtitle_container {
@@ -77,7 +72,7 @@
 }
 
 .wrapperText {
-  color: var(--Text-Additional, #7D7E7C);
+  color: $colorGray;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
