@@ -44,7 +44,8 @@ export default function NewLessons() {
     setContentLesson(event.currentTarget.value);
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     // dispatch(
     //   editCoursesAction({
     //     id: currentCours.id,
@@ -149,7 +150,7 @@ export default function NewLessons() {
             <div role="none" onClick={() => handleClose()}>
               <Button type="emptyBorder" buttonText="Отменить" />
             </div>
-            <div role="none" onClick={() => handleSubmit()}>
+            <div role="none" onClick={(event) => handleSubmit(event)}>
               <Button type="primary" buttonText="В архив" />
             </div>
           </div>

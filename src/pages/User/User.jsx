@@ -56,8 +56,8 @@ export default function User() {
 
   const columns = [
     { header: 'ФИО', accessor: 'familyName' },
-    { header: 'Должность', accessor: 'position' },
-    { header: 'Почта', accessor: 'position' },
+    { header: 'Должность', accessor: 'position_name' },
+    { header: 'Почта', accessor: 'email' },
     { header: 'В архиве', accessor: 'archived' },
     { header: 'Статус', accessor: 'status' }, // Assuming you have a 'status' field in your user data
     { header: '', accessor: 'icon' },
@@ -77,7 +77,7 @@ export default function User() {
           />
           <Table
             columns={columns}
-            data={usersList}
+            data={users}
             openPopup={() => handleOpenPopup()}
           />
         </div>

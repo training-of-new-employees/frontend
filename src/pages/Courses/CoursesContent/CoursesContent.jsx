@@ -51,9 +51,10 @@ export default function CoursesContent() {
                 {item.archived === true ? (
                   <div
                     role="none"
-                    onClick={() => {
+                    onClick={(event) => {
                       dispatch(getCoursesByIdReducer(item));
                       navigate(`/courses/${item.id}`);
+                      event.stopPropagation();
                     }}
                   >
                     <Card
@@ -63,16 +64,16 @@ export default function CoursesContent() {
                     />
                   </div>
                 ) : (
-                  <div
-                    key={item.id}
-                    className={coursesStyles.coursesCard}
-                    role="none"
-                    onClick={() => {
-                      dispatch(getCoursesByIdReducer(item));
-                      navigate(`/courses/${item.id}`);
-                    }}
-                  >
-                    <div className={coursesStyles.cardText}>
+                  <div key={item.id} className={coursesStyles.coursesCard}>
+                    <div
+                      role="none"
+                      className={coursesStyles.cardText}
+                      onClick={(event) => {
+                        dispatch(getCoursesByIdReducer(item));
+                        navigate(`/courses/${item.id}`);
+                        event.stopPropagation();
+                      }}
+                    >
                       <div className={coursesStyles.cardTitle}>{item.name}</div>
                       <div className={coursesStyles.coursesCount}>0 уроков</div>
                     </div>
