@@ -1,7 +1,8 @@
+@use '../../styles/variables' as *;
+
 .section {
   display: flex;
   flex-direction: row;
-  font-family: 'Rubik';
 }
 
 .content {
@@ -20,7 +21,7 @@
   width: 356px;
   height: 134px;
   padding: 20px 20px 24px;
-  background-color: #ffffff;
+  background-color: $colorWhite;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -40,14 +41,14 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 31px;
-  color: #2f302e;
+  color: $colorBlack;
 }
 .coursesCount {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  color: #7d7e7c;
+  color: $colorGray;
 }
 
 .iconMenu {
@@ -65,13 +66,9 @@
 }
 
 .popupText {
+  @include rubik16;
   width: 540px;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
 }
 
 .buttonContainer {

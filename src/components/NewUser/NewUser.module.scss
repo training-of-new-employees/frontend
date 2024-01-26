@@ -1,15 +1,13 @@
+@use '../../styles/variables' as *;
+
 .newUser {
   display: flex;
   gap: 120px;
 }
 
 .newUserTitle {
-  color: var(--Text-Main, #2f302e);
-  font-family: 'Exo 2';
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 41.6px;
+  @include exo32;
+  color: $colorBlack;
   margin: 40px 60px 28px 60px;
 }
 
@@ -17,8 +15,8 @@
   display: flex;
   flex-direction: column;
   width: 900px;
-  border-radius: 0px 0px 24px 24px;
-  background: #fff;
+  border-radius: 0 0 24px 24px;
+  background: $colorWhite;
 }
 
 .newUserContainer {
@@ -36,13 +34,9 @@
 }
 
 .newUserLabel {
+  @include rubik16bold;
   margin-bottom: 8px;
-  color: var(--text-main, #2f302e);
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
+  color: $colorBlack;
 }
 
 .newUserText {
@@ -61,10 +55,6 @@
 }
 
 .newUserButtonTitle {
-  color: var(--Text-Main, #2f302e);
-  font-family: Rubik;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 130%; /* 18.2px */
+  @include rubik14;
+  color: $colorBlack;
 }

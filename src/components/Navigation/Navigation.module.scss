@@ -1,4 +1,4 @@
-@use '../../utils/variables.scss' as *;
+@use '../../styles/variables' as *;
 
 .navigation {
   display: flex;
@@ -6,7 +6,7 @@
   width: 300px;
   background-color: $colorWhite;
   height: calc(100vh - 72px);
-  font-family: Rubik, Arial;
+  font-family: Rubik, Arial, sans-serif;
   border: 1px solid $colorGrayLite;
 }
 
@@ -90,7 +90,7 @@
 
 .item_active {
   background-color: $colorButtonSidebarEnable;
-  border-left: 8px solid #53772f;
+  border-left: 8px solid $colorButtonDefault;
   text-decoration: none;
   border-radius: 4px 0 0 4px;
 }

@@ -1,4 +1,7 @@
+@use '../../../styles/variables' as *;
+
 .button {
+  @include rubik16;
   display: flex;
   width: 260px;
   height: 52px;
@@ -9,76 +12,71 @@
   flex-shrink: 0;
   border-radius: 12px;
   text-align: center;
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
   cursor: pointer;
 }
 
 .primary {
-  background: var(--main, #53772f);
-  border: 1px solid var(--main, #53772f);
-  color: var(--BG-white, #fff);
+  background: $colorButtonDefault;
+  border: $colorButtonDefault;
+  color: $colorWhite;
 }
 
 .primary:hover {
-  background: var(--button-hovered, #668447);
-  border-color: var(--button-hovered, #668447);
+  background: $colorButtonHover;
+  border-color: $colorButtonHover;
 }
 
 .primary:active {
-  background: var(--button-pressed, #374629);
-  border-color: var(--button-pressed, #374629);
+  background: $colorButtonPress;
+  border-color: $colorButtonPress;
 }
 
 .primary:disabled {
-  background: var(--stroke-button, #d1d3ce);
-  color: var(--text-additional, #7d7e7c);
-  border-color: var(--stroke-button, #d1d3ce);
+  background: $colorGrayLite;
+  color: $colorGray;
+  border-color: $colorGrayLite;
 }
 
 .emptyBorder {
   border-radius: 12px;
-  border: 2px solid var(--main, #53772f);
-  background: var(--BG-white, #fff);
-  color: var(--main, #53772f);
+  border: 2px solid $colorButtonDefault;
+  background: $colorWhite;
+  color: $colorButtonDefault;
 }
 
 .emptyBorder:hover {
-  border-color: var(--button-hovered, #668447);
-  color: var(--button-hovered, #668447);
+  border-color: $colorButtonHover;
+  color: $colorButtonHover;
 }
 
 .emptyBorder:active {
-  color: var(--Button-Pressed, #374629);
-  border-color: var(--button-pressed, #374629);
+  color: $colorButtonPress;
+  border-color: $colorButtonPress;
 }
 
 .emptyBorder:disabled {
-  color: var(--text-additional, #7d7e7c);
-  border-color: var(--stroke-button, #d1d3ce);
+  color: $colorGray;
+  border-color: $colorGrayLite;
 }
 
 .empty {
   border: none;
-  color: var(--main, #53772f);
+  color: $colorButtonDefault;
   background-color: transparent;
 }
 
 .empty:hover {
   // border-color: var(--button-hovered, #668447);
-  color: var(--button-hovered, #668447);
+  color: $colorButtonHover;
 }
 
 .empty:active {
-  color: var(--Button-Pressed, #374629);
+  color: $colorButtonPress;
   // border-color: var(--button-pressed, #374629);
 }
 
 .empty:disabled {
-  color: var(--text-additional, #7d7e7c);
+  color: $colorGray;
   // border-color: var(--stroke-button, #d1d3ce);
 }
 

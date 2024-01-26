@@ -1,39 +1,33 @@
+@use '../../../../styles/variables' as *;
+
 .button {
+  @include rubik16;
   max-width: 260px;
   width: 100%;
   min-height: 52px;
-  padding: 12px 20px;
+  padding: 12px 20px 10px;
   border-radius: 12px;
-  background: var(--Main, #53772f);
+  background: $colorButtonDefault;
   border: none;
-
-  color: var(--BG-white, #fff);
+  color: $colorWhite;
   text-align: center;
-  padding-bottom: 10px;
-
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
   cursor: pointer;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .button:hover {
-  background: var(--button-hovered, #668447);
+  background: $colorButtonHover;
 }
 
 .button:active {
-  background: var(--button-pressed, #374629);
+  background: $colorButtonPress;
 }
 
 .button:disabled {
-  background: var(--stroke-button, #d1d3ce);
-  color: var(--text-additional, #7d7e7c);
+  background: $colorGrayLite;
+  color: $colorGray;
 }
 
 .icon {
@@ -41,5 +35,5 @@
 }
 
 .icon:disabled {
-  fill: var(--text-additional, #7d7e7c);
+  fill: $colorGray;
 }

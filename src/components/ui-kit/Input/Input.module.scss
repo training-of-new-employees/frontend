@@ -1,4 +1,4 @@
-@use '../../../utils/variables' as *;
+@use '../../../styles/variables' as *;
 
 .inputBox {
   display: flex;
@@ -13,22 +13,17 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  border: none;
-  box-shadow: none;
-  border-style: none;
-  // outline: none;
-  border: 2px solid var(--stroke-button, #d1d3ce);
+  border: 2px solid $colorGrayLite;
   border-radius: 12px;
-  background: var(--BG-white, #fff);
+  background: $colorWhite;
   width: 435px;
   max-height: 60px;
   justify-content: space-between;
-  align-items: center;
   position: relative;
 
 }
 
-.erorr {
+.error {
   outline: 1px solid var(--service-warning, #C63535);
 }
 
@@ -45,8 +40,8 @@
 }
 
 .inputName:disabled {
-  border: 2px solid var(--stroke-button, #d1d3ce);
-  background: var(--stroke-button, #d1d3ce);
+  border: 2px solid $colorGrayLite;
+  background: $colorGrayLite;
 }
 
 .inputText:focus::placeholder {
@@ -59,18 +54,18 @@
 }
 
 .inputText:disabled {
-  border: 2px solid var(--stroke-button, #d1d3ce);
-  background: var(--stroke-button, #d1d3ce);
+  border: 2px solid $colorGrayLite;
+  background: $colorGrayLite;
 }
 
 .inputTextError {
-  border: 2px solid var(--service-warning, #c63535);
+  border: 2px solid $colorRed;
   width: 435px;
   max-height: 60px;
   padding: 10px 18px 8px 18px;
   align-items: center;
   border-radius: 12px;
-  background: var(--BG-white, #fff);
+  background: $colorWhite;
 }
 
 .passwordButton {
@@ -82,7 +77,7 @@
   cursor: pointer;
   border-style: none;
   background-size: auto;
-  background-color: var(--BG-white, #fff);
+  background-color: $colorWhite;
   display: inline-block;
   position: absolute;
   top: 5px;
@@ -99,12 +94,8 @@
 }
 
 .inputError {
+  @include rubik12;
   color: $colorRed;
-  font-family: Rubik;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14.4px;
   min-height: 14px;
   margin-top: 4px;
 }

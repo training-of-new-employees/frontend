@@ -1,11 +1,9 @@
+@use '../../../styles/variables' as *;
+
 .item {
+  @include rubik16;
   cursor: pointer;
-  color: var(--text-main, #2f302e);
-  font-family: Rubik;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
+  color: $colorBlack;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -14,18 +12,18 @@
   padding-right: 8px;
   gap: 4px;
   border-radius: 12px;
-  background: var(--BG-white, #fff);
+  background: $colorWhite;
   transition: all ease 0.3s;
 
   &:hover {
     opacity: 0.9;
-    background: var(--Additional, #e7ffcf);
+    background: $colorButtonSidebarEnable;
   }
 }
 
 .icon {
   margin: 10px 10px;
-  fill: var(--text-main, #2f302e);
+  fill: $colorBlack;
 }
 
 .text {
