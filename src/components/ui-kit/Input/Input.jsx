@@ -1,4 +1,4 @@
-import { func, number, string, bool } from 'prop-types';
+import { func, string, bool } from 'prop-types';
 import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';

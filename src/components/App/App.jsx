@@ -22,6 +22,7 @@ import NewCours from '../../pages/Courses/NewCourses/NewCours';
 import EditCours from '../../pages/Courses/EditCours/EditCours';
 import Lessons from '../../pages/Lessons/Lessons';
 import CreateLesson from '../../pages/Lessons/NewLessons/CreateLesson';
+import EmployeeReg from "../../pages/EmployeeReg/EmployeeReg";
 
 export default function App() {
   return (
@@ -44,7 +45,8 @@ export default function App() {
         <Route path={`${paths.courses}/:id`} element={<EditCours />} />
         <Route path={`${paths.courses}/:id/lessons`} element={<Lessons />} />
         <Route path={`${paths.courses}/:id/new-lesson`} element={<CreateLesson />} />
-        
+
+        <Route path={paths.employeeReg} element={<EmployeeReg />} />
 
         <Route
           path={`${paths.positions}/setting-access/:id`}
