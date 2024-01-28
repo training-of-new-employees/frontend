@@ -4,7 +4,7 @@ import cards from '../../../images/Landing/cards.png'
 
 export default function Promo() {
   return (
-    <section className="flex pl-[140px] pt-[65px] pb-[92px] bg-[#2F302E] rounded-b-[200px] gap-[80px]">
+    <section className="flex justify-center pt-[65px] pb-[92px] bg-[#2F302E] rounded-b-[200px] gap-[80px]">
       <div className="flex flex-col gap-[28px] max-w-[512px] pt-[35px] pb-[40px]">
         <h1 className="exo text-[54px] text-white leading-[120%] font-medium max-w-[512px]">Онлайн обучение новых сотрудников </h1>
         <p className="text-xl text-white leading-normal font-normal max-w-[430px]">Создайте систему онбординга и обучения для сотрудников вашей компании</p>
