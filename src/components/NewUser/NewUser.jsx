@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Select } from './Selector/Selector';
 import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
@@ -123,16 +124,7 @@ export default function NewUser() {
             >
               Должность
             </label>
-            <Input
-              id="companyprofile"
-              type="text"
-              name="companyprofile"
-              placeholder="Выберите подходящую должность"
-              onChange={(evt) => handlePositionName(evt)}
-              value={newUser.position_name || ''}
-              minLength={2}
-              maxLength={15}
-            />
+            <Select />
           </li>
           <li className={newUserStyle.newUserInput}>
             <label className={newUserStyle.newUserLabel} htmlFor="email">

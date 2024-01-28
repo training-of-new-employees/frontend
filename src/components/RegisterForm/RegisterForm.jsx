@@ -28,6 +28,7 @@ export default function RegisterForm() {
   const email = useInput('', {
     isEmpty: true,
     minLength: 5,
+    maxLength: 50,
     type: 'email',
     isPassword,
   });
@@ -130,7 +131,7 @@ export default function RegisterForm() {
             />
             {company.isEmpty && company.isDirty && (
               <span className={registerFormStyles.spanError}>
-                Компания должена содержать не менее 1 символов
+                Название компаннии должено содержать не менее 1 символа.
               </span>
             )}
             <Input
@@ -150,6 +151,11 @@ export default function RegisterForm() {
             {email.isDirty && email.emailError && (
               <span className={registerFormStyles.spanError}>
                 Неверно введен e-mail Пример: people@mail.ru
+              </span>
+            )}{' '}
+            {email.isEmpty && email.isDirty && (
+              <span className={registerFormStyles.spanError}>
+                E-mail должен содержать от 5 до 50 символов
               </span>
             )}
             <Input
@@ -195,7 +201,7 @@ export default function RegisterForm() {
               onChange={handleChangeConfirmPassword}
               value={confirmPassword.value}
               onBlur={confirmPassword.onBlur}
-            />{' '}
+            />
             {confirmPassword.isEmpty && confirmPassword.isDirty && (
               <span className={registerFormStyles.spanError}>
                 Пароль должен содержать от 6 до 30 символов

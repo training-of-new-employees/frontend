@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import loginFormStyles from './LoginForm.module.scss';
-import { login } from '../../services/api/login';
+import login from '../../services/api/login';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
 // import { loginActions } from '../../services/slices/login';
 // import { setCookie, checkResponse } from '../../utils/helpers';
@@ -14,7 +14,12 @@ import { fetchToken } from '../../services/profile/profileSlice';
 export default function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const email = useInput('', { isEmpty: true, minLength: 5, type: 'email' });
+  const email = useInput('', {
+    isEmpty: true,
+    minLength: 5,
+    maxLength: 50,
+    type: 'email',
+  });
   const password = useInput('', {
     isEmpty: true,
     minLength: 6,
@@ -28,10 +33,10 @@ export default function LoginForm() {
     e.preventDefault();
     const values = {
       email: email.value,
-      password: password.value
-    }
-    dispatch(fetchToken(values))
-      navigate('/profile')
+      password: password.value,
+    };
+    dispatch(fetchToken(values)).then((res) => console.log(res));
+    navigate('/profile');
   };
   return (
     <div className={loginFormStyles.formContainer}>

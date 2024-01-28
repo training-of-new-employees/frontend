@@ -42,7 +42,7 @@ export default function Input({
           value={value}
           onChange={onChange}
           name={name}
-          onBlur={onBlur}
+          onBlur={onBlur || null}
           // eslint-disable-next-line no-nested-ternary
           type={isPassword ? (showPassword ? 'text' : 'password') : ''}
           pattern={isEmail ? EMAIL_REGEX : ''}
@@ -54,7 +54,7 @@ export default function Input({
             aria-label="button"
             type="button"
             onClick={togglePasswordVisibility}
-            className={`${inputStyles.passwordButton} ${
+            className={`${inputStyles.passwordButtonRegistr} ${
               showPassword ? inputStyles.passwordButtonShow : ''
             }`}
             disabled={disabled} // поставила временная заглушку, иначе всплывает ошибка, что переменная undefined

@@ -1,101 +1,116 @@
 @use '../../../styles/variables' as *;
-
 .inputBox {
-  display: flex;
-  position: relative;
+    display: flex;
+    position: relative;
 }
 
 .inputText {
-  padding: 10px 18px 8px 18px;
-  align-items: center;
-  color: #53772f;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  border: 2px solid $colorGrayLite;
-  border-radius: 12px;
-  background: $colorWhite;
-  width: 435px;
-  max-height: 60px;
-  justify-content: space-between;
-  position: relative;
-
+    padding: 10px 18px 8px 18px;
+    align-items: center;
+    color: #53772f;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    border: 2px solid $colorGrayLite;
+    border-radius: 12px;
+    background: $colorWhite;
+    width: 435px;
+    max-height: 60px;
+    justify-content: space-between;
+    position: relative;
 }
 
 .error {
-  outline: 1px solid var(--service-warning, #C63535);
+    outline: 1px solid var(--service-warning, #C63535);
 }
 
 .inputName {
-  width: 244px;
-  height: 60px;
-  border-radius: 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    width: 244px;
+    height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .inputProfile {
-  width: 748px;
+    width: 748px;
 }
 
 .inputName:disabled {
-  border: 2px solid $colorGrayLite;
-  background: $colorGrayLite;
+    border: 2px solid $colorGrayLite;
+    background: $colorGrayLite;
 }
 
 .inputText:focus::placeholder {
-  transform: translateY(-10px);
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 14.4px */
+    transform: translateY(-10px);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 14.4px */
 }
 
 .inputText:disabled {
-  border: 2px solid $colorGrayLite;
-  background: $colorGrayLite;
+    border: 2px solid $colorGrayLite;
+    background: $colorGrayLite;
 }
 
 .inputTextError {
-  border: 2px solid $colorRed;
-  width: 435px;
-  max-height: 60px;
-  padding: 10px 18px 8px 18px;
-  align-items: center;
-  border-radius: 12px;
-  background: $colorWhite;
+    border: 2px solid $colorRed;
+    width: 435px;
+    max-height: 60px;
+    padding: 10px 18px 8px 18px;
+    align-items: center;
+    border-radius: 12px;
+    background: $colorWhite;
 }
 
 .passwordButton {
-  background-image: url(./../../../images/ui/PasswordVisible.svg);
-  width: 40px;
-  height: 35px;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  border-style: none;
-  background-size: auto;
-  background-color: $colorWhite;
-  display: inline-block;
-  position: absolute;
-  top: 5px;
-  right: 20px;
-  border-radius: 12px;
+    background-image: url(./../../../images/ui/PasswordVisible.svg);
+    width: 40px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    border-style: none;
+    background-size: auto;
+    background-color: $colorWhite;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    border-radius: 12px;
+}
+
+.passwordButtonRegistr {
+    background-image: url(./../../../images/ui/PasswordVisible.svg);
+    width: 40px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    border-style: none;
+    background-size: auto;
+    background-color: $colorWhite;
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    border-radius: 12px;
 }
 
 .passwordButtonShow {
-  background-image: url(./../../../images/ui/Password.svg);
+    background-image: url(./../../../images/ui/Password.svg);
 }
 
 .passwordButton:disabled {
-  background: var(--stroke-button, #d1d3ce);
+    background: var(--stroke-button, #d1d3ce);
 }
 
 .inputError {
-  @include rubik12;
-  color: $colorRed;
-  min-height: 14px;
-  margin-top: 4px;
+    @include rubik12;
+    color: $colorRed;
+    min-height: 14px;
+    margin-top: 4px;
 }
