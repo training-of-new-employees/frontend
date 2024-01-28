@@ -5,7 +5,7 @@ import rocket from '../../../images/Landing/rocket.png'
 
 export default function Advantages() {
   return (
-    <section className="py-[120px] flex flex-col items-center px-[209px] gap-[68px] relative">
+    <section id="about" className="py-[120px] flex flex-col items-center px-[209px] gap-[68px] relative">
       <img src={vector} alt="векторный рисунок" className='absolute top-[65px] left-[104px]'/>
       <img src={star1} alt="звездочка" className='absolute top-[103px] right-[113px]'/>
       <img src={star2} alt="звездочка" className='absolute top-[153px] right-[178px]'/>

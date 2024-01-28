@@ -10,7 +10,7 @@ import card2 from '../../../images/Landing/stepsCard2.png'
 
 export default function Steps() {
   return (
-    <section className="flex flex-col items-center pt-[120px] px-[140px] rounded-t-[200px] bg-[#2F302E] relative">
+    <section id='start' className="flex flex-col items-center pt-[120px] px-[140px] rounded-t-[200px] bg-[#2F302E] relative">
       <img src={planet} alt="планета" className='absolute w-[330px] top-[60px] right-[35px]'/>
       <img src={star1} alt="звезда" className='absolute top-[463px] left-[54px]'/>
       <img src={star1} alt="звезда" className='absolute top-[1800px] left-[544px]'/>

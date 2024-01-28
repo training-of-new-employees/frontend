@@ -9,9 +9,9 @@ export default function Header() {
         <img src={logo} alt="логотип" />
       </a>
       <nav className='flex gap-10'>
-        <a href="/#" className='text-base font-normal leading-normal text-white'>О нас</a>
-        <a href="/#" className='text-base font-normal leading-normal text-white'>Как начать</a>
-        <a href="/#" className='text-base font-normal leading-normal text-white'>Контакты</a>
+        <a href="/#about" className='text-base font-normal leading-normal text-white'>О нас</a>
+        <a href="/#start" className='text-base font-normal leading-normal text-white'>Как начать</a>
+        <a href="/#contacts" className='text-base font-normal leading-normal text-white'>Контакты</a>
       </nav>
       <div className='flex gap-10'>
         <a href={paths.login} className='px-[26px] py-[6px] border-2 rounded-xl border-white text-base font-normal leading-normal text-white'>Войти</a>
