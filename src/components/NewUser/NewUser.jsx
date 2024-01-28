@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Select } from './Selector/Selector';
+import Select from './Selector/Selector';
 import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
@@ -16,7 +16,7 @@ export default function NewUser() {
   const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
-  console.log(profile);
+
   const [newUser, setNewUser] = React.useState({
     company_id: '',
     name: '',
@@ -26,7 +26,7 @@ export default function NewUser() {
     position_name: '',
     position_id: '',
   });
-
+  console.log(newUser);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -40,6 +40,7 @@ export default function NewUser() {
   }, [profile]);
 
   function handleName(event) {
+    console.log(event);
     setNewUser({ ...newUser, name: event.currentTarget.value });
   }
   function handleSurname(event) {
@@ -65,6 +66,7 @@ export default function NewUser() {
     <section className={newUserStyle.newUser}>
       <Navigation />
       <form
+        noValidate
         onSubmit={(evt) => handleSubmit(evt)}
         className={newUserStyle.newUserContant}
       >
@@ -124,7 +126,7 @@ export default function NewUser() {
             >
               Должность
             </label>
-            <Select />
+            <Select setNewUser={setNewUser} newUser={newUser} />
           </li>
           <li className={newUserStyle.newUserInput}>
             <label className={newUserStyle.newUserLabel} htmlFor="email">

@@ -16,8 +16,6 @@ export default function User() {
   const { users, user } = useSelector((state) => state.usersState);
   const [isOpen, setOpen] = useState(false);
 
-  console.log(users);
-
   function handleOpenPopup() {
     setOpen(true);
   }

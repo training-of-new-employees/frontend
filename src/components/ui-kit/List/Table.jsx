@@ -16,12 +16,14 @@ export default function Table({ columns, data, openPopup }) {
     // eslint-disable-next-line react/no-array-index-key
     <th key={index}>{col.header}</th>
   ));
+
+  console.log(data);
   const rows = Array.from(data).map((item) => (
     <tr key={item.id}>
       <td>
         {item.name} {item.surname} {item.patronymic}
       </td>
-      <td>{item.position_name}</td>
+      <td>{item.company_id === 8 ? 'Сенсей' : ''}</td>
       <td>{item.email}</td>
       <td>{item.archived ? 'В архиве' : 'Не в архиве'}</td>
       <td>{item.active ? 'Активен' : 'Не активен'}</td>
