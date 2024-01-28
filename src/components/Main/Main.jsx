@@ -1,5 +1,14 @@
-import Previewer from "../ui-kit/Snackbar/Previewer/Previewer";
+import Body from "./Body/Body";
+import Header from "./Header/Header";
+
 
 export default function Main() {
   // return <Previewer />;
+
+  return (
+    <>
+      <Header />
+      <Body />
+    </>
+  )
 }
