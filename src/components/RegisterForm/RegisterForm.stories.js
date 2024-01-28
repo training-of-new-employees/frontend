@@ -1,7 +1,7 @@
 import RegisterForm from './RegisterForm';
 
 export default {
-  title: 'Workflow/RegisterForm',
+  title: 'Workflow/RegisterEmployeeForm',
   component: RegisterForm,
   tags: ['autodocs'],
 };
