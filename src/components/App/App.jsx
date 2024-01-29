@@ -23,8 +23,9 @@ import EditCours from '../../pages/Courses/EditCours/EditCours';
 import Lessons from '../../pages/Lessons/Lessons';
 import CreateLesson from '../../pages/Lessons/NewLessons/CreateLesson';
 import EmployeeReg from "../../pages/EmployeeReg/EmployeeReg";
-import {ProtectedRouteForAdmin, ProtectedRouteLoggedIn} from "../../services/protectedRoutes/ProtectedRoutes";
+import {ProtectedRouteForAdmin} from "../../services/protectedRoutes/ProtectedRoutes";
 import CurrentLesson from '../../pages/Lessons/CurrentLesson/CurrentLesson';
+import ExitPopup from "../ExitPopup/ExitPopup";
 
 export default function App() {
   return (

@@ -12,6 +12,10 @@
   background-color: variables.$colorBlack;
 }
 
+.imageAdmin {
+  object-fit: cover;
+}
+
 .button {
   @mixin button {
     display: block;
@@ -21,7 +25,6 @@
   }
 
   @include button;
-  padding: variables.rem(10);
   width: variables.rem(48);
   height: variables.rem(48);
   border-radius: 50%;

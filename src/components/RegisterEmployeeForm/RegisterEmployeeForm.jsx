@@ -50,7 +50,6 @@ export default function RegisterEmployeeForm() {
 
   function onSubmit(event) {
       event.preventDefault();
-      console.log('test')
       setPassword(searchParams.get("email"), searchParams.get("invite"), password.value)
           .then((data) => {
               if (data) {
@@ -73,7 +72,7 @@ export default function RegisterEmployeeForm() {
         <div className={registerFormStyles.formContainerOpened}>
           <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
           <p className={registerFormStyles.formText}>
-            Введите E-mail и пароль, чтобы авторизоваться
+            Придумайте новый пароль, чтобы войти
           </p>
           <form
             className={registerFormStyles.form}
