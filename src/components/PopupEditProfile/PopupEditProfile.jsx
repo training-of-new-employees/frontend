@@ -76,8 +76,8 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 name="lastname"
                 type="text"
                 placeholder="Введите Фамилию"
-                onChange={(event) => handleName(event)}
-                value={editUser.name}
+                onChange={(event) => handleSurname(event)}
+                value={editUser.surname}
                 minLength={2}
                 maxLength={15}
               />
@@ -94,8 +94,8 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 name="firstname"
                 type="text"
                 placeholder="Введите Имя"
-                onChange={(event) => handleSurname(event)}
-                value={editUser.surname || ''}
+                onChange={(event) => handleName(event)}
+                value={editUser.name || ''}
                 minLength={1}
                 maxLength={15}
               />
@@ -160,6 +160,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
       <div className={popupEditstyle.popupEditButton}>
         <div role="none" onClick={onClose}>
           <Button
+            HTMLType='button'
             buttonText="Отменить"
             type="primary"
             // icon='white'

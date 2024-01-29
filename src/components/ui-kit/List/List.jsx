@@ -28,7 +28,6 @@ export default function ListLessons({ columns, data }) {
       }}
     >
       <td>{item.name}</td>
-      <td>{item.course_id} id курса</td>
       <td>{item.arhcived ? 'Архивирован' : 'Не архивирован'}</td>
 
       <td

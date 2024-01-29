@@ -57,7 +57,6 @@ export default function User() {
     { header: 'ФИО', accessor: 'familyName' },
     { header: 'Должность', accessor: 'position' },
     { header: 'Почта', accessor: 'position' },
-    { header: 'В архиве', accessor: 'archived' },
     { header: 'Статус', accessor: 'status' }, // Assuming you have a 'status' field in your user data
     { header: '', accessor: 'icon' },
   ];
