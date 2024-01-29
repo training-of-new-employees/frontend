@@ -18,7 +18,7 @@ export default function RegisterForm() {
   const [isOpenReg, setOpenReg] = useState(true);
   const [verifyNums, setVerifyNums] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isPassword, setIsPassword] = useState({
@@ -65,6 +65,9 @@ export default function RegisterForm() {
     setVerifyNums((prevState) => {
       const newState = [...prevState];
       [newState[index]] = element.value;
+      if (index === 3) {
+        setIsButtonDisabled(false)
+      }
       return newState;
     });
   }
@@ -234,7 +237,7 @@ export default function RegisterForm() {
             </section>
             <div className={registerFormStyles.buttonsContainer}>
               <button
-                className={registerFormStyles.submit}
+                className={`${registerFormStyles.submit} hover:bg-[#668447] transition ease-in duration-300 focus:bg-[#374629]`}
                 type="submit"
                 disabled={
                   !email.isValid ||
@@ -323,7 +326,7 @@ export default function RegisterForm() {
               <button
                 type="button"
                 className={registerFormStyles.buttonAgain}
-                onClick={verifyEmail}
+                onClick={onSubmit}
               >
                 Отправить код повторно
               </button>
