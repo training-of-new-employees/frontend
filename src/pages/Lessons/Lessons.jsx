@@ -16,7 +16,7 @@ export default function Lessons() {
   console.log(lessons);
 
   React.useEffect(() => {
-    dispatch(getLessonsAction(coursesEdit.id));
+    dispatch(getLessonsAction(id));
   }, [dispatch]);
 
   const columns = [

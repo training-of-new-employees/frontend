@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { checkPropTypes} from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile } from '../../services/profile/profileSlice';
 import style from '../NewCourses/NewCourses.module.scss';
@@ -44,7 +45,8 @@ export default function NewLessons() {
     setContentLesson(event.currentTarget.value);
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // dispatch(
     //   editCoursesAction({
     //     id: currentCours.id,
@@ -70,6 +72,7 @@ export default function NewLessons() {
     // dispatch(getPositions());
     // navigate(-1);
   }
+  
   return (
     <>
       <section className={style.sectionNewCourses}>
@@ -79,6 +82,7 @@ export default function NewLessons() {
             name="newLesson"
             className={style.NewCoursesForm}
             onSubmit={(evt) => submitForm(evt)}
+            noValidate
           >
             <label className={style.NewCoursesForm__label}>
               <span className={style.NewCoursesForm__titleInput}>Название</span>
@@ -88,7 +92,7 @@ export default function NewLessons() {
                 onChange={(event) => handleNameLesson(event)}
                 classNameInput={style.NewCoursesForm__input}
                 classNameDiv={style.NewCoursesForm__divInput}
-                maxLength={20}
+                maxLength={30}
                 minLength={5}
                 value={nameLesson || ''}
               />
@@ -149,8 +153,8 @@ export default function NewLessons() {
             <div role="none" onClick={() => handleClose()}>
               <Button type="emptyBorder" buttonText="Отменить" />
             </div>
-            <div role="none" onClick={() => handleSubmit()}>
-              <Button type="primary" buttonText="В архив" />
+            <div role="none" onClick={(e) => handleSubmit(e)}>
+              <Button type="primary" buttonText="Добавить картинку" />
             </div>
           </div>
         </div>
@@ -158,6 +162,7 @@ export default function NewLessons() {
     </>
   );
 }
+
 
 NewLessons.propTypes = {};
 

@@ -18,3 +18,10 @@ export default function CreateLesson() {
     </section>
   );
 }
+
+
+CreateLesson.propTypes = {
+};
+
+CreateLesson.defaultProps = {
+};

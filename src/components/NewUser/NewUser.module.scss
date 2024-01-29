@@ -5,6 +5,17 @@
   gap: 120px;
 }
 
+.navigation {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  height: calc(100vh - 72px);
+  border: 1px solid #d1d3ce;
+  align-items: center;
+}
+
 .newUserTitle {
   @include exo32;
   color: $colorBlack;

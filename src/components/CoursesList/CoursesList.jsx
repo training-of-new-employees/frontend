@@ -1,7 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useParams  } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import navigationStyles from '../Navigation/Navigation.module.scss';
 
 export default function CoursesList() {
+  const {id} = useParams()
+  const {lessons} = useSelector((state) => state.lessonsState);
   const testData = [
     { id: 1, title: 'Lesson 1' },
     { id: 2, title: 'Lesson 2' },
@@ -10,10 +13,10 @@ export default function CoursesList() {
 
   return (
     <>
-      {testData.map((item) => (
+      {lessons.map((item) => (
         <NavLink
           key={item.id}
-          to={`/lesson/${item.id}`}
+          to={`/courses/${item.course_id}/lessons/${item.id}`}
           className={({ isActive }) =>
             `${navigationStyles.item} ${
               isActive ? navigationStyles.item_active : ''
@@ -21,7 +24,7 @@ export default function CoursesList() {
           }
         >
           <div className={navigationStyles.itemContainer}>
-            <p>{item.title}</p>
+            <p>{item.name}</p>
           </div>
         </NavLink>
       ))}
