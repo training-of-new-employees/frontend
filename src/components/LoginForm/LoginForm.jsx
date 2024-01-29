@@ -28,12 +28,14 @@ export default function LoginForm() {
     e.preventDefault();
     const values = {
       email: email.value,
-      password: password.value
-    }
-    dispatch(fetchToken(values))
-      if (localStorage.getItem('token' !== null)) {
-          navigate('/profile')
-      }
+      password: password.value,
+    };
+    dispatch(fetchToken(values));
+    // const token = localStorage.getItem('token');
+    navigate('/profile');
+    // if (token !== null) {
+    //   navigate('/profile');
+    // }
   };
   return (
     <div className={loginFormStyles.formContainer}>
