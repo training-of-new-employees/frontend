@@ -73,7 +73,7 @@ export default function NewUser() {
           onClick={() => navigate(-1)}
         />
       </nav>
- 
+
       <form
         onSubmit={(evt) => handleSubmit(evt)}
         className={newUserStyle.newUserContant}
@@ -93,7 +93,7 @@ export default function NewUser() {
               onChange={(evt) => handleName(evt)}
               value={newUser.name || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -108,7 +108,7 @@ export default function NewUser() {
               onChange={(evt) => handleSurname(evt)}
               value={newUser.surname || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -123,7 +123,7 @@ export default function NewUser() {
               onChange={(evt) => handlePatronymic(evt)}
               value={newUser.patronymic || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
         </ul>
@@ -157,8 +157,8 @@ export default function NewUser() {
               placeholder="Введите E-mail"
               onChange={(evt) => handleEmail(evt)}
               value={newUser.email || ''}
-              minLength={5}
-              maxLength={30}
+              minLength={7}
+              maxLength={50}
             />
           </li>
           <li className={newUserStyle.newUserInput}>

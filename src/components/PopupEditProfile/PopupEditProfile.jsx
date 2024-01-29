@@ -79,7 +79,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 onChange={(event) => handleSurname(event)}
                 value={editUser.surname}
                 minLength={2}
-                maxLength={15}
+                maxLength={128}
               />
             </li>
             <li className={popupEditstyle.popupEditInput}>
@@ -97,7 +97,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 onChange={(event) => handleName(event)}
                 value={editUser.name || ''}
                 minLength={1}
-                maxLength={15}
+                maxLength={128}
               />
             </li>
             <li className={popupEditstyle.popupEditInput}>
@@ -115,7 +115,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 onChange={(event) => handlePatronymic(event)}
                 value={editUser.patronymic || ''}
                 minLength={1}
-                maxLength={15}
+                maxLength={128}
               />
             </li>
           </ul>
@@ -135,7 +135,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 onChange={(event) => handleCompanyName(event)}
                 value={editUser.company_name || ''}
                 minLength={1}
-                maxLength={15}
+                maxLength={256}
               />
             </li>
             <li className={popupEditstyle.popupEditInput}>
@@ -149,8 +149,8 @@ export default function PopupEditProfile({ isOpen, onClose }) {
                 placeholder="Введите E-mail"
                 onChange={(event) => handleEmail(event)}
                 value={editUser.email || ''}
-                minLength={5}
-                maxLength={30}
+                minLength={7}
+                maxLength={50}
               />
             </li>
           </ul>
