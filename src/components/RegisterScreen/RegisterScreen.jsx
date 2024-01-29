@@ -1,11 +1,15 @@
+import {Link} from "react-router-dom";
 import registerScreenStyles from './RegisterScreen.module.scss';
+import logo from '../../images/Landing/logo.svg';
 import rocket from '../../images/ui/rocket.svg';
 
+
 export default function RegisterScreen() {
+
   return (
     <section className={registerScreenStyles.container}>
       <div className={registerScreenStyles.containerText}>
-        <h2 className={registerScreenStyles.title}>QuickOn</h2>
+          <Link to='/'><img className={registerScreenStyles.logo} src={logo} alt='QuickOn'/></Link>
         <p className={registerScreenStyles.text}>
           Платформа для обучения новых сотрудников
         </p>
