@@ -9,9 +9,8 @@ import help from '../../../images/ui/Bag.svg';
 import { getUserByIdReducer } from '../../../services/users/usersSlice';
 import { getCurrentLessonByIdReducer } from '../../../services/lessons/lessonsSlice';
 
-
 export default function ListLessons({ columns, data }) {
-  const {id} = useParams()
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // eslint-disable-next-line react/no-array-index-key
@@ -20,20 +19,23 @@ export default function ListLessons({ columns, data }) {
     <th key={index}>{col.header}</th>
   ));
   const rows = Array.from(data).map((item) => (
-    <tr key={item.id} onClick={() => {
-      dispatch(getCurrentLessonByIdReducer(item))
-      navigate(`/courses/${item.course_id}/lessons/${item.id}`)}}>
-      <td>
-        {item.name}
-      </td>
-      <td>
-        {item.course_id} id курса
-      </td>
-      <td>
-        {item.arhcived ? 'Архивирован' : 'Не архивирован'} 
-      </td>
+    <tr
+      key={item.id}
+      onClick={() => {
 
-      <td aria-label="Mute volume" className={tableStyles.tableCell}>
+        dispatch(getCurrentLessonByIdReducer(item));
+        navigate(`/courses/${item.course_id}/lessons/${item.id}`);
+      }}
+    >
+      <td>{item.name}</td>
+      <td>{item.course_id} id курса</td>
+      <td>{item.arhcived ? 'Архивирован' : 'Не архивирован'}</td>
+
+      <td
+        aria-label="Mute volume"
+        className={tableStyles.tableCell}
+        onClick={(event) => event.stopPropagation()}
+      >
         <DropdownMenu isChild className={styles.iconMenu} stylesButton>
           <div role="none" onClick={() => navigate(`/users/${item.id}`)}>
             <DropdownMenuButton IconComponent={help} text="Редактировать" />
