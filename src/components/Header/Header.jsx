@@ -18,7 +18,7 @@ export default function Header({ isAdmin }) {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {pathname !== '/login' && pathname !== '/registration' ? (
+      {pathname !== '/login' && pathname !== '/registration' && pathname !== '/' ? (
         <header className={headerStyles.header}>
           <Link to="/">
             <img
