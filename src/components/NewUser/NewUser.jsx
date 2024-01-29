@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
+import styles from '../../pages/Lessons/Lessons.module.scss'
 import useValidations from '../hooks/useValidation';
 import {
   fetchProfile,
@@ -12,10 +13,10 @@ import {
 } from '../../services/profile/profileSlice';
 
 export default function NewUser() {
+  const navigate = useNavigate();
   const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
-  console.log(profile);
   const [newUser, setNewUser] = React.useState({
     company_id: '',
     name: '',
@@ -57,15 +58,25 @@ export default function NewUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUserAction(newUser));
-    console.log(newUser);
   };
 
   return (
     <section className={newUserStyle.newUser}>
-      <Navigation />
+      {/* <Navigation /> */}
+      <nav className={newUserStyle.navigation}>
+      <Button
+          HTMLType="button"
+          type="emptyBorder"
+          buttonText="Назад"
+          icon="back"
+          onClick={() => navigate(-1)}
+        />
+      </nav>
+ 
       <form
         onSubmit={(evt) => handleSubmit(evt)}
         className={newUserStyle.newUserContant}
+        noValidate
       >
         <h1 className={newUserStyle.newUserTitle}>Новый пользователь</h1>
         <ul className={newUserStyle.newUserContainer}>

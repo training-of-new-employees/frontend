@@ -1,5 +1,10 @@
 @use '../../../styles/variables' as *;
 
+@mixin margin($size) {
+  margin: 0;
+  margin-bottom: rem($size);
+}
+
 .navButton {
   width: 300px;
   display: flex;
@@ -80,4 +85,51 @@
   align-items: center;
   flex-direction: row;
   gap: 10px;
+}
+
+.NewCoursesForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(12);
+
+  &__label {
+    display: block;
+  }
+
+  &__titleInput {
+    display: inline-block;
+    @include margin(8);
+  }
+
+  &__divInput {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  &__input {
+    flex-grow: 1;
+  }
+}
+
+.popupContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: center;
+}
+
+.popupEditContainer {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popupInputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  align-items: flex-start;
 }

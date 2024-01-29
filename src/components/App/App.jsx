@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import { Routes, Route } from 'react-router-dom';
 import { paths } from '../../utils/constants';
 import appStyles from './App.module.scss';
@@ -24,6 +25,7 @@ import Lessons from '../../pages/Lessons/Lessons';
 import CreateLesson from '../../pages/Lessons/NewLessons/CreateLesson';
 import EmployeeReg from "../../pages/EmployeeReg/EmployeeReg";
 import {ProtectedRouteForAdmin} from "../../services/protectedRoutes/ProtectedRoutes";
+import CurrentLesson from '../../pages/Lessons/CurrentLesson/CurrentLesson';
 
 export default function App() {
   return (
@@ -89,6 +91,12 @@ export default function App() {
                  element={
                      <ProtectedRouteForAdmin>
                          <CreateLesson />
+                     </ProtectedRouteForAdmin>
+          } />
+                    <Route path={`${paths.courses}/:id/lessons/:id`}
+                 element={
+                     <ProtectedRouteForAdmin>
+                         <CurrentLesson />
                      </ProtectedRouteForAdmin>
           } />
           <Route path={`${paths.positions}/setting-access/:id`}

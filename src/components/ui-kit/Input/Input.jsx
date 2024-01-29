@@ -1,4 +1,4 @@
-import { func, string, bool } from 'prop-types';
+import { func, string, bool, number } from 'prop-types';
 import { useState } from 'react';
 import { EMAIL_REGEX } from '../../../utils/constants';
 import inputStyles from './Input.module.scss';
@@ -13,6 +13,8 @@ export default function Input({
   onChange,
   disabled,
   onBlur,
+  minLength,
+  maxLength
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');
@@ -23,7 +25,9 @@ export default function Input({
     name.toLowerCase() === 'middlename';
   const isProfile =
     name.toLowerCase() === 'companyprofile' ||
-    name.toLowerCase() === 'emailprofile';
+    name.toLowerCase() === 'emailprofile' ||
+    name.toLowerCase() === 'editcours' ||
+    name.toLowerCase() === 'editcoursdescription';
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -45,8 +49,10 @@ export default function Input({
           onBlur={onBlur}
           // eslint-disable-next-line no-nested-ternary
           type={isPassword ? (showPassword ? 'text' : 'password') : ''}
-          pattern={isEmail ? EMAIL_REGEX : ''}
+          pattern={isEmail && EMAIL_REGEX}
           placeholder={placeholder}
+          minLength={minLength}
+          maxLength={maxLength}
           // onChange={handleChangeValues}
         />
         {isPassword && (
@@ -74,8 +80,8 @@ Input.propTypes = {
   classNameDiv: string,
   onBlur: func,
   // type: string,
-  // minLength: number,
-  // maxLength: number,
+  minLength: number,
+  maxLength: number,
   value: string,
   disabled: bool,
 };
@@ -85,8 +91,8 @@ Input.defaultProps = {
   value: '',
   classNameInput: '',
   classNameDiv: '',
-  onBlur: '',
+  onBlur: null,
   // type: '',
-  // minLength: '',
-  // maxLength: '',
+  minLength: number,
+  maxLength: number,
 };
