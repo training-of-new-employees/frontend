@@ -68,7 +68,6 @@ export default function NewLessons() {
     );
     setNameLesson('');
     setContentLesson('');
-    console.log('form', nameLesson, contentLesson, linkImage);
     // dispatch(getPositions());
     // navigate(-1);
   }

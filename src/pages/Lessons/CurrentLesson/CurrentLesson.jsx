@@ -25,7 +25,6 @@ export default function CurrentLesson() {
     dispatch(getLessonsAction(currentLesson.course_id));
   }, [dispatch, currentLesson]);
 
-  console.log('lessons', currentLesson);
   return (
     <section className={styles.section}>
       <nav className={styles.navigation}>

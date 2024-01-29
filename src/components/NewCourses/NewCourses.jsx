@@ -39,7 +39,6 @@ export default function NewCourses() {
       })
     );
     setCourse('');
-    console.log('form', course);
     // dispatch(getPositions());
     // navigate(-1);
   }

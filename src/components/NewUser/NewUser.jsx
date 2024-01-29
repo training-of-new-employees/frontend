@@ -17,7 +17,6 @@ export default function NewUser() {
   const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
-  console.log(profile);
   const [newUser, setNewUser] = React.useState({
     company_id: '',
     name: '',
@@ -59,7 +58,6 @@ export default function NewUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUserAction(newUser));
-    console.log(newUser);
   };
 
   return (

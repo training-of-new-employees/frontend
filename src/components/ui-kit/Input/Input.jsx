@@ -25,7 +25,9 @@ export default function Input({
     name.toLowerCase() === 'middlename';
   const isProfile =
     name.toLowerCase() === 'companyprofile' ||
-    name.toLowerCase() === 'emailprofile';
+    name.toLowerCase() === 'emailprofile' ||
+    name.toLowerCase() === 'editcours' ||
+    name.toLowerCase() === 'editcoursdescription';
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
