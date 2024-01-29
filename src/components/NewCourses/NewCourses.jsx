@@ -50,7 +50,7 @@ export default function NewCourses() {
         <h2 className={style.sectionNewCourses__descriptions}>
           Основная информация
         </h2>
-        <form name="newCourse" className={style.NewCoursesForm} 
+        <form name="newCourse" className={style.NewCoursesForm}
           onSubmit={(evt) => submitForm(evt)}
         >
           <label className={style.NewCoursesForm__label}>
@@ -61,7 +61,7 @@ export default function NewCourses() {
               onChange={(event) => handleCourse(event)}
               classNameInput={style.NewCoursesForm__input}
               classNameDiv={style.NewCoursesForm__divInput}
-              maxLength={20}
+              maxLength={256}
               minLength={5}
               value={course || ''}
             />
@@ -74,8 +74,8 @@ export default function NewCourses() {
               onChange={(event) => handleContent(event)}
               classNameInput={style.NewCoursesForm__input}
               classNameDiv={style.NewCoursesForm__divInput}
-              maxLength={20}
-              minLength={5}
+              maxLength={512}
+              minLength={10}
               value={content || ''}
             />
           </label>

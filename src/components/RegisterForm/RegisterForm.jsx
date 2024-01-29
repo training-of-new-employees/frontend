@@ -28,25 +28,29 @@ export default function RegisterForm() {
   const email = useInput('', {
     isEmpty: true,
     minLength: 5,
+    maxLength: 50,
     type: 'email',
     isPassword,
   });
   const company = useInput('', {
     isEmpty: true,
     minLength: 1,
-    type: 'company',
+      maxLength: 256,
+      type: 'company',
     isPassword,
   });
   const password = useInput('', {
     isEmpty: true,
     minLength: 6,
-    type: 'password',
+      maxLength: 30,
+      type: 'password',
     isPassword,
   });
   const confirmPassword = useInput('', {
     isEmpty: true,
     minLength: 6,
-    type: 'confirmPassword',
+      maxLength: 30,
+      type: 'confirmPassword',
     isPassword,
   });
   function onClickBack() {
@@ -123,6 +127,8 @@ export default function RegisterForm() {
                 : ''
             }`}
               name="company"
+              minLength={1}
+              maxLength={256}
               placeholder="Компания"
               onChange={company.onChange}
               value={company.value}
@@ -130,7 +136,7 @@ export default function RegisterForm() {
             />
             {company.isEmpty && company.isDirty && (
               <span className={registerFormStyles.spanError}>
-                Компания должена содержать не менее 1 символов
+                Компания должена содержать не менее 1 и не более 256 символов
               </span>
             )}
             <Input
@@ -143,6 +149,8 @@ export default function RegisterForm() {
               name="email"
               placeholder="E-mail"
               type="email"
+              minLength={7}
+              maxLength={50}
               onChange={email.onChange}
               value={email.value}
               onBlur={email.onBlur}
@@ -161,6 +169,8 @@ export default function RegisterForm() {
                 }`}
               name="password"
               placeholder="Пароль "
+              minLength={6}
+              maxLength={30}
               type="password"
               onChange={handleChangePassword}
               value={password.value}
@@ -190,8 +200,10 @@ export default function RegisterForm() {
                     : ''
                 }`}
               name="confirmPassword"
-              placeholder="Пароль"
+              placeholder="Повторите пароль"
               type="password"
+              minLength={6}
+              maxLength={30}
               onChange={handleChangeConfirmPassword}
               value={confirmPassword.value}
               onBlur={confirmPassword.onBlur}

@@ -57,6 +57,8 @@ export default function LoginForm() {
             }`}
           name="email"
           type="email"
+          maxLength={50}
+          minLength={7}
           placeholder="E-mail"
           onChange={email.onChange}
           onBlur={email.onBlur}
@@ -81,6 +83,8 @@ export default function LoginForm() {
                : ''
            }`}
             name="password"
+            maxLength={30}
+            minLength={6}
             type={showPassword ? 'text' : 'password'}
             placeholder="Введите пароль"
             onChange={password.onChange}

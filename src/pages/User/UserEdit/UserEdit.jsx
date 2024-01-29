@@ -90,7 +90,7 @@ export default function UserEdit() {
               onChange={(evt) => handleName(evt)}
               value={editUser.name || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -105,7 +105,7 @@ export default function UserEdit() {
               onChange={(evt) => handleSurname(evt)}
               value={editUser.surname || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -120,7 +120,7 @@ export default function UserEdit() {
               onChange={(evt) => handlePatronymic(evt)}
               value={editUser.patronymic || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
         </ul>
@@ -140,7 +140,7 @@ export default function UserEdit() {
               onChange={(evt) => handlePositionName(evt)}
               value={editUser.position_name || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={256}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -154,8 +154,8 @@ export default function UserEdit() {
               placeholder="Введите E-mail"
               onChange={(evt) => handleEmail(evt)}
               value={editUser.email || ''}
-              minLength={5}
-              maxLength={30}
+              minLength={7}
+              maxLength={50}
             />
           </li>
           <li className={newUserStyle.newUserInput}>

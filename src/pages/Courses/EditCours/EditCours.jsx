@@ -106,7 +106,7 @@ export default function EditCours() {
               onChange={(event) => handleName(event)}
               value={nameValue}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
 
             <label className={styles.popupEditLabel} htmlFor="description">
@@ -120,7 +120,7 @@ export default function EditCours() {
               onChange={(event) => handleDescription(event)}
               value={descriptionValue}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </div>
           <div className={coursesStyles.buttonContainer}>
