@@ -72,7 +72,7 @@ export default function NewLessons() {
     // dispatch(getPositions());
     navigate(-1);
   }
-  
+
   return (
     <>
       <section className={style.sectionNewCourses}>
@@ -92,7 +92,7 @@ export default function NewLessons() {
                 onChange={(event) => handleNameLesson(event)}
                 classNameInput={style.NewCoursesForm__input}
                 classNameDiv={style.NewCoursesForm__divInput}
-                maxLength={30}
+                maxLength={256}
                 minLength={5}
                 value={nameLesson || ''}
               />
@@ -105,8 +105,8 @@ export default function NewLessons() {
                 onChange={(event) => handleContentLesson(event)}
                 classNameInput={style.NewCoursesForm__input}
                 classNameDiv={style.NewCoursesForm__divInput}
-                maxLength={500}
-                minLength={5}
+                maxLength={6500}
+                minLength={20}
                 value={contentLesson || ''}
               />
             </label>
@@ -120,7 +120,7 @@ export default function NewLessons() {
                 extraClass={style.addButton}
               />
               {linkImage &&  <img className={styleImage.image} alt="картинка загружаемая" src={linkImage} /> }
-             
+
             </div>
             <Button
               buttonText="Добавить урок"
@@ -145,7 +145,7 @@ export default function NewLessons() {
             onChange={(event) => handleLinkImage(event)}
             classNameInput={style.NewCoursesForm__input}
             classNameDiv={style.NewCoursesForm__divInput}
-            maxLength={500}
+            maxLength={1024}
             minLength={5}
             value={linkImage || ''}
           />

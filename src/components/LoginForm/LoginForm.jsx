@@ -33,14 +33,11 @@ export default function LoginForm() {
     e.preventDefault();
     const values = {
       email: email.value,
-      password: password.value,
-    };
-    dispatch(fetchToken(values));
-    // const token = localStorage.getItem('token');
-    navigate('/profile');
-    // if (token !== null) {
-    //   navigate('/profile');
-    // }
+      password: password.value
+    }
+    dispatch(fetchToken(values))
+          navigate('/profile')
+
   };
   return (
     <div className={loginFormStyles.formContainer}>
@@ -62,6 +59,8 @@ export default function LoginForm() {
             }`}
           name="email"
           type="email"
+          maxLength={50}
+          minLength={7}
           placeholder="E-mail"
           onChange={email.onChange}
           onBlur={email.onBlur}
@@ -86,6 +85,8 @@ export default function LoginForm() {
                : ''
            }`}
             name="password"
+            maxLength={30}
+            minLength={6}
             type={showPassword ? 'text' : 'password'}
             placeholder="Введите пароль"
             onChange={password.onChange}
@@ -121,7 +122,7 @@ export default function LoginForm() {
         </section>
         <button
           disabled={!email.isValid || !password.isValid}
-          className={loginFormStyles.submitUser}
+          className={`${loginFormStyles.submitUser} hover:bg-[#668447] transition ease-in duration-300 focus:bg-[#374629]`}
           type="submit"
         >
           Войти

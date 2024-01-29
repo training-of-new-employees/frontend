@@ -19,6 +19,7 @@ export default function NewUser() {
   const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
+  const [isSubmitDisabled, setIsSubmitDisabled] = React.useState(true);
   const [newUser, setNewUser] = React.useState({
     company_id: '',
     name: '',
@@ -40,6 +41,12 @@ export default function NewUser() {
       position_id: profile.position_id,
     });
   }, [profile]);
+
+  React.useEffect(() => {
+    if (newUser.name !== '' && newUser.surname !== '' && newUser.patronymic !== '' && newUser.email !== '' && newUser.position_name !== '') {
+      setIsSubmitDisabled(false)
+    }
+  }, [newUser])
 
   function handleName(event) {
     console.log(event);
@@ -96,7 +103,7 @@ export default function NewUser() {
               onChange={(evt) => handleName(evt)}
               value={newUser.name || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -111,7 +118,7 @@ export default function NewUser() {
               onChange={(evt) => handleSurname(evt)}
               value={newUser.surname || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -126,7 +133,7 @@ export default function NewUser() {
               onChange={(evt) => handlePatronymic(evt)}
               value={newUser.patronymic || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
         </ul>
@@ -151,8 +158,8 @@ export default function NewUser() {
               placeholder="Введите E-mail"
               onChange={(evt) => handleEmail(evt)}
               value={newUser.email || ''}
-              minLength={5}
-              maxLength={30}
+              minLength={7}
+              maxLength={50}
             />
           </li>
         </ul>
@@ -162,6 +169,7 @@ export default function NewUser() {
             ссылка на платформу
           </p>
           <Button
+            disabled={isSubmitDisabled}
             buttonText="Добавить пользователя"
             type="primary"
             HTMLType="submit"

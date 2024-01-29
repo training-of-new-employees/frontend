@@ -18,7 +18,7 @@ export default function RegisterForm() {
   const [isOpenReg, setOpenReg] = useState(true);
   const [verifyNums, setVerifyNums] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isPassword, setIsPassword] = useState({
@@ -35,18 +35,21 @@ export default function RegisterForm() {
   const company = useInput('', {
     isEmpty: true,
     minLength: 1,
+    maxLength: 256,
     type: 'company',
     isPassword,
   });
   const password = useInput('', {
     isEmpty: true,
     minLength: 6,
+    maxLength: 30,
     type: 'password',
     isPassword,
   });
   const confirmPassword = useInput('', {
     isEmpty: true,
     minLength: 6,
+    maxLength: 30,
     type: 'confirmPassword',
     isPassword,
   });
@@ -62,6 +65,9 @@ export default function RegisterForm() {
     setVerifyNums((prevState) => {
       const newState = [...prevState];
       [newState[index]] = element.value;
+      if (index === 3) {
+        setIsButtonDisabled(false);
+      }
       return newState;
     });
   }
@@ -126,6 +132,8 @@ export default function RegisterForm() {
                 : ''
             }`}
               name="company"
+              minLength={1}
+              maxLength={256}
               placeholder="Компания"
               onChange={company.onChange}
               value={company.value}
@@ -133,12 +141,12 @@ export default function RegisterForm() {
             />
             {(company.isEmpty && company.isDirty && (
               <span className={registerFormStyles.spanError}>
-                Название компаннии должно содержать не менее 1 символа.
+                Компания должена содержать не менее 1 и не более 256 символов
               </span>
             )) ||
               (company.companyError && company.isDirty && (
                 <span className={registerFormStyles.spanError}>
-                  Название компаннии должно содержать не менее 1 символа.
+                  Компания должена содержать не менее 1 и не более 256 символов
                 </span>
               ))}
             {company.companyError && company.isDirty}
@@ -152,6 +160,8 @@ export default function RegisterForm() {
               name="email"
               placeholder="E-mail"
               type="email"
+              minLength={7}
+              maxLength={50}
               onChange={email.onChange}
               value={email.value}
               onBlur={email.onBlur}
@@ -175,6 +185,8 @@ export default function RegisterForm() {
                 }`}
               name="password"
               placeholder="Пароль "
+              minLength={6}
+              maxLength={30}
               type="password"
               onChange={handleChangePassword}
               value={password.value}
@@ -206,6 +218,8 @@ export default function RegisterForm() {
               name="confirmPassword"
               placeholder="Повторите пароль"
               type="password"
+              minLength={6}
+              maxLength={30}
               onChange={handleChangeConfirmPassword}
               value={confirmPassword.value}
               onBlur={confirmPassword.onBlur}
@@ -233,7 +247,7 @@ export default function RegisterForm() {
             </section>
             <div className={registerFormStyles.buttonsContainer}>
               <button
-                className={registerFormStyles.submit}
+                className={`${registerFormStyles.submit} hover:bg-[#668447] transition ease-in duration-300 focus:bg-[#374629]`}
                 type="submit"
                 disabled={
                   !email.isValid ||
@@ -322,7 +336,7 @@ export default function RegisterForm() {
               <button
                 type="button"
                 className={registerFormStyles.buttonAgain}
-                onClick={verifyEmail}
+                onClick={onSubmit}
               >
                 Отправить код повторно
               </button>
