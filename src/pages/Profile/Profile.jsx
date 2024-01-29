@@ -1,12 +1,15 @@
 /* eslint-disable arrow-body-style */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Navigation from '../../components/Navigation/Navigation';
 import PopupEditProfile from '../../components/PopupEditProfile/PopupEditProfile';
 import ProfileInfo from '../../components/Profile/Profile';
 
 import profileStyles from './Profile.module.scss';
+import { fetchProfile } from '../../services/profile/profileSlice';
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -16,6 +19,10 @@ const Profile = () => {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
+useEffect(() => {
+  dispatch(fetchProfile())
+}, [dispatch]);
+  
 
   return (
     <section className={profileStyles.section}>

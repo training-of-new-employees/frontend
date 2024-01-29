@@ -27,7 +27,7 @@ export const setLesson = (data) => {
 
 export const getLessonsById = (id) => {
   const token = localStorage.getItem('token');
-  return request( `${baseUrl}/lessons/${id}`, {
+  return request( `${baseUrl}/admin/lessons/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',

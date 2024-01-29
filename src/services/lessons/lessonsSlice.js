@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchLessons, setLesson } from './LessonsApi';
+import { fetchLessons, setLesson, getLessonsById } from './LessonsApi';
 
 export const getLessonsAction = createAsyncThunk(
   'lessons/getLessonsAction',
@@ -25,6 +25,18 @@ export const createLessonAction = createAsyncThunk(
   }
 );
 
+export const getLessonAction = createAsyncThunk(
+  'lessons/getLessonAction',
+  async (data, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const response = await getLessonsById(data);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const lessonsSlice = createSlice({
   name: 'lessons',
   initialState: {
@@ -38,9 +50,9 @@ const lessonsSlice = createSlice({
     error: undefined,
   },
   reducers: {
-    getCoursesByIdReducer: (state, action) => ({
+    getCurrentLessonByIdReducer: (state, action) => ({
       ...state,
-      coursesEdit: action.payload,
+      currentLesson: action.payload,
     }),
   },
   extraReducers: (builder) => {
@@ -68,8 +80,23 @@ const lessonsSlice = createSlice({
       .addCase(createLessonAction.rejected, (state) => {
         state.status = 'error';
         state.error = 'error';
+      })
+      .addCase(getLessonAction.fulfilled, (state, action) => {
+        state.status = 'success';
+
+        state.currentLesson = action.payload;
+      })
+      .addCase(getLessonAction.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(getLessonAction.rejected, (state) => {
+        state.status = 'error';
+        state.error = 'error';
       });
   },
 });
 
 export default lessonsSlice.reducer;
+
+export const { getCurrentLessonByIdReducer } =
+lessonsSlice.actions;

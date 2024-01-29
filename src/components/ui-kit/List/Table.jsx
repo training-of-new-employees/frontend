@@ -23,13 +23,12 @@ export default function Table({ columns, data, openPopup }) {
       <td>
         {item.name} {item.surname} {item.patronymic}
       </td>
-      <td>{item.company_id === 8 ? 'Сенсей' : ''}</td>
+      <td>{item.company_name}</td>
       <td>{item.email}</td>
       <td>{item.archived ? 'В архиве' : 'Не в архиве'}</td>
       <td>{item.active ? 'Активен' : 'Не активен'}</td>
 
       <td aria-label="Mute volume" className={tableStyles.tableCell}>
-        {' '}
         <DropdownMenu isChild className={styles.iconMenu} stylesButton>
           <div role="none" onClick={() => navigate(`/users/${item.id}`)}>
             <DropdownMenuButton IconComponent={help} text="Редактировать" />

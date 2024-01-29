@@ -20,7 +20,6 @@ export default function CoursesContent() {
   const [currentCours, setCuurentCours] = React.useState();
   const navigate = useNavigate();
   const [isOpen, setOpen] = React.useState(false);
-  console.log('courses', courses);
   function handleOpenPopup() {
     setOpen(true);
   }

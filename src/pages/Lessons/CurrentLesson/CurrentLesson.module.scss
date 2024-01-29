@@ -1,0 +1,95 @@
+@use '../../../styles/variables' as *;
+
+.navButton {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92px;
+  padding: 20px 0;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: $colorWhite;
+  height: calc(100vh - 72px);
+  border: 1px solid $colorGrayLite;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.content {
+  color: $colorBlack;
+  width: 900px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background-color: white;
+  border-radius: 0 0 24px 24px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include exo32;
+  color: $colorBlack;
+}
+
+.subtitle {
+  @include exo24;
+}
+
+.contentLesson {
+  @include exo24;
+  color: var(--Text-Main, #2F302E);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.lessonImage {
+  width: 820px;
+  height: 620px;
+  border-radius: 12px;
+}
+
+.ButtonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.infoEditButton {
+  background-image: url(../../../images/ui/IconEdit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  background-size: 17px;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  background-color: $colorWhite;
+  grid-area: 'edit';
+  cursor: pointer;
+}
+
+.headerLesson {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}

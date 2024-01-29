@@ -1,0 +1,286 @@
+@use '../../styles/variables' as *;
+
+.formContainerOpened {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 600px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 4px;
+  border: 1px solid #e5e8e5;
+  background: #fff;
+  padding: 40px;
+}
+
+.formTitle {
+  @include exo32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formText {
+  @include rubik16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $colorBlack;
+}
+
+.inputInscription {
+  @include rubik16;
+  color: #2c2e2c;
+  margin: 0;
+}
+
+.input {
+  @include rubik14;
+  box-sizing: border-box;
+  background-color: $colorWhite;
+  border: 1px solid #e5e8e5;
+  border-radius: 12px;
+  color: #2c2e2c;
+  margin: 8px 0 12px;
+  padding: 12px;
+  width: 435px;
+}
+
+.input:last-of-type {
+  margin-bottom: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 435px;
+  height: 52px;
+}
+
+.checkboxContainer {
+  display: flex;
+  margin: 20px 0;
+  padding: 10px 0 10px 0;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+.inputLabel {
+  @include rubik16;
+  cursor: pointer;
+  color: $colorBlack;
+  text-align: center;
+}
+
+.forgetButton {
+  @include rubik16;
+  color: $colorButtonDefault;
+  text-align: center;
+  cursor: pointer;
+  background-color: $colorWhite;
+  border: none;
+}
+
+.buttonsContainer {
+  display: flex;
+  width: 435px;
+  height: 152px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.back {
+  color: #6195b2;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.submit {
+  @include rubik16;
+  color: $colorWhite;
+  text-align: center;
+  display: flex;
+  height: 52px;
+  width: 435px;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: $colorButtonDefault;
+  border: none;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  background: $colorGrayLite;
+  color: $colorGray;
+}
+
+.orContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 225px;
+  height: 24px;
+}
+
+.span {
+  width: 86px;
+  height: 0;
+  stroke-width: 2px;
+  stroke: $colorGray;
+  border: 1px solid $colorGray;
+  border-radius: 2px;
+}
+
+.spanText {
+  @include rubik16;
+  color: $colorGray;
+  text-align: center;
+}
+
+.auth {
+  @include rubik16;
+  color: $colorButtonDefault;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.section {
+  display: flex;
+  width: 640px;
+  height: 398px;
+  padding: 40px 40px 60px 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 4px;
+  background: $colorWhite;
+  margin: 40px 60px 318px 60px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  @include exo32;
+  color: $colorBlack;
+}
+
+.text {
+  @include rubik16;
+  color: $colorBlack;
+  text-align: center;
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.containerButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 435px;
+  height: 52px;
+  margin-top: 12px;
+}
+
+.buttonBack {
+  @include rubik16;
+  color: $colorButtonDefault;
+  text-align: center;
+  display: flex;
+  height: 52px;
+  width: 79px;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: $colorWhite;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonAgain {
+  @include rubik16;
+  color: $colorButtonDefault;
+  text-align: center;
+  background-color: $colorWhite;
+  border: none;
+  cursor: pointer;
+}
+
+.submitEmail {
+  @include rubik16;
+  color: $colorWhite;
+  text-align: center;
+  display: flex;
+  height: 52px;
+  width: 435px;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: $colorButtonDefault;
+  border: none;
+  cursor: pointer;
+}
+
+.submitEmail:disabled {
+  background: $colorGrayLite;
+  color: $colorGray;
+}
+
+.spanError {
+  @include rubik12;
+  color: $colorRed;
+  min-height: 14px;
+  margin-top: 4px;
+  display: flex;
+  width: 399px;
+  margin-bottom: 12px;
+  margin-left: 8px;
+}
+.spanErrorVerify {
+  @include rubik16;
+  color: $colorRed;
+  min-height: 14px;
+  margin-top: 4px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  align-self: flex-start;
+}
+
+.inputError {
+  outline: 2px solid $colorRed;
+}

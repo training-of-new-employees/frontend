@@ -1,10 +1,11 @@
+/* eslint-disable arrow-body-style */
 import { checkResponse } from '../../utils/helpers';
 import { baseUrl } from '../../utils/constants';
-import { userActions } from '../slices/user-set-password';
+// import { userActions } from '../slices/user-set-password';
 
-const setPassword = (email, password) => (dispatch) => {
-  dispatch(userActions.postSetPasswordLoading());
-
+export const setPassword = (email, invite, password) => {
+  // function (dispatch) {
+  //   dispatch(userActions.postSetPasswordLoading());
   return fetch(`${baseUrl}/user/set-password`, {
     method: 'POST',
     headers: {
@@ -12,21 +13,27 @@ const setPassword = (email, password) => (dispatch) => {
     },
     body: JSON.stringify({
       email,
+      invite,
       password,
     }),
   })
-    .then((res) => checkResponse(res))
-    .then((res) => {
-      dispatch(userActions.postSetPasswordSuccess());
-    })
-    .catch((error) => {
-      console.log(error);
-      dispatch(
-        userActions.postSetPasswordError({
-          errorCode: error.statusCode,
-          message: error.message,
-        })
-      );
-    });
-};
-export default setPassword;
+    .then(res => checkResponse(res))
+    // .then(() => {
+    //   dispatch(userActions.postSetPasswordSuccess());
+    // })
+    .then((data) => {
+      // if (data.token) {
+        localStorage.setItem('token', data.token);
+        // return data;
+      // }
+    })}
+  // .catch((error) => {
+  //   console.log(error);
+  //   // dispatch(
+  //   //   userActions.postSetPasswordError({
+  //   //     errorCode: error.statusCode,
+  //   //     message: error.message,
+  //   //   })
+  //   // );
+  // });
+  // }

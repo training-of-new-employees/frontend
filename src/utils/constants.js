@@ -8,6 +8,7 @@ const paths = {
   login: '/login',
   registration: '/registration',
   admin: '/admin',
+  employeeReg: '/first-login?'
 };
 
 // pass: Ivan42_Maria

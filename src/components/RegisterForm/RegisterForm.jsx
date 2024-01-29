@@ -131,7 +131,7 @@ export default function RegisterForm() {
             />
             {company.isEmpty && company.isDirty && (
               <span className={registerFormStyles.spanError}>
-                Название компаннии должено содержать не менее 1 символа.
+                Название компаннии должно содержать не менее 1 символа.
               </span>
             )}
             <Input

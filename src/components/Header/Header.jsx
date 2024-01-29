@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import logo from '../../images/ui/Logo.svg';
 import headerStyles from './Header.module.scss';
 
@@ -8,12 +8,17 @@ import headerStyles from './Header.module.scss';
  *@param {boolean} isAdmin - хранит в себе ответ админ это или нет
  */
 export default function Header({ isAdmin }) {
-  const { pathname } = useLocation();
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
+  function handleLogout() {
+      localStorage.removeItem('token');
+      navigate('/');
+  }
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {pathname !== '/login' && pathname !== '/registration' ? (
+      {pathname !== '/login' && pathname !== '/registration' && pathname !== '/' ? (
         <header className={headerStyles.header}>
           <Link to="/">
             <img
@@ -27,12 +32,14 @@ export default function Header({ isAdmin }) {
               className={headerStyles.button}
               type="button"
               aria-label="Выйти из профиля"
+              onClick={handleLogout}
             />
           ) : (
             <button
               type="button"
               aria-label="Выйти из профиля"
               className={headerStyles.button_fioUser}
+              onClick={handleLogout}
             >
               <span>Фамилия Имя</span>
               <span>
