@@ -1,5 +1,4 @@
 @use '../../styles/variables' as *;
-
 .profileContainer {
   width: 900px;
   height: 290px;
@@ -106,9 +105,10 @@
 .profilePicture {
   border-radius: 50%;
   width: 140px;
-  height: 145px;
+  height: 140px;
   object-fit: cover;
-  background-image: url(../../images/ui/ImageAdmin.svg);
+  background: url(../../images/ui/ImageAdmin.svg) lightgray 50% / contain
+    no-repeat;
 }
 
 .uploadPhoto {

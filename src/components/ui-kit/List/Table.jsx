@@ -23,7 +23,7 @@ export default function Table({ columns, data, openPopup }) {
       <td>
         {item.name} {item.surname} {item.patronymic}
       </td>
-      <td>{item.company_name}</td>
+      <td>{item.position_name}</td>
       <td>{item.email}</td>
       <td>{item.active ? 'Активен' : 'Не активен'}</td>
 

@@ -97,12 +97,13 @@ export default function RegisterForm() {
   function verifyEmail() {
     const code = verifyNums.join('');
     dispatch(adminVerifyEmail(code))
-      .then(() => navigate('/login'))
+      .then(() => navigate('/profile'))
       .catch((error) => {
         setVerificationError('Код введен неверно');
         console.error('Email verification error:', error);
       });
   }
+  console.log(email.value);
   return (
     <div>
       {isOpenReg ? (
@@ -119,7 +120,8 @@ export default function RegisterForm() {
             <Input
               classNameInput={`${registerFormStyles.input}
             ${
-              company.isDirty && company.companyError
+              (company.isEmpty && company.isDirty) ||
+              (company.companyError && company.isDirty)
                 ? registerFormStyles.inputError
                 : ''
             }`}
@@ -129,11 +131,17 @@ export default function RegisterForm() {
               value={company.value}
               onBlur={company.onBlur}
             />
-            {company.isEmpty && company.isDirty && (
+            {(company.isEmpty && company.isDirty && (
               <span className={registerFormStyles.spanError}>
                 Название компаннии должно содержать не менее 1 символа.
               </span>
-            )}
+            )) ||
+              (company.companyError && company.isDirty && (
+                <span className={registerFormStyles.spanError}>
+                  Название компаннии должно содержать не менее 1 символа.
+                </span>
+              ))}
+            {company.companyError && company.isDirty}
             <Input
               classNameInput={`${registerFormStyles.input}
                 ${
@@ -152,7 +160,7 @@ export default function RegisterForm() {
               <span className={registerFormStyles.spanError}>
                 Неверно введен e-mail Пример: people@mail.ru
               </span>
-            )}{' '}
+            )}
             {email.isEmpty && email.isDirty && (
               <span className={registerFormStyles.spanError}>
                 E-mail должен содержать от 5 до 50 символов
@@ -212,7 +220,7 @@ export default function RegisterForm() {
                 Пароль должен содержать хотя бы один большой символ, один
                 маленький символ, одну цифру и один специальный символ
               </span>
-            )}{' '}
+            )}
             {confirmPassword.isDirty && confirmPassword.passwordConfirm && (
               <span className={registerFormStyles.spanError}>
                 Пароли не совпадают
