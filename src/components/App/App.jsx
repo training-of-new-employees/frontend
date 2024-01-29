@@ -1,4 +1,3 @@
-/* eslint-disable spaced-comment */
 import { Routes, Route } from 'react-router-dom';
 import { paths } from '../../utils/constants';
 import appStyles from './App.module.scss';

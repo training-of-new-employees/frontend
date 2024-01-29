@@ -32,6 +32,7 @@ export default function LoginForm() {
     }
     dispatch(fetchToken(values))
           navigate('/profile')
+
   };
   return (
     <div className={loginFormStyles.formContainer}>
