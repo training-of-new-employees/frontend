@@ -35,22 +35,22 @@ export default function RegisterForm() {
   const company = useInput('', {
     isEmpty: true,
     minLength: 1,
-      maxLength: 256,
-      type: 'company',
+    maxLength: 256,
+    type: 'company',
     isPassword,
   });
   const password = useInput('', {
     isEmpty: true,
     minLength: 6,
-      maxLength: 30,
-      type: 'password',
+    maxLength: 30,
+    type: 'password',
     isPassword,
   });
   const confirmPassword = useInput('', {
     isEmpty: true,
     minLength: 6,
-      maxLength: 30,
-      type: 'confirmPassword',
+    maxLength: 30,
+    type: 'confirmPassword',
     isPassword,
   });
   function onClickBack() {
@@ -66,7 +66,7 @@ export default function RegisterForm() {
       const newState = [...prevState];
       [newState[index]] = element.value;
       if (index === 3) {
-        setIsButtonDisabled(false)
+        setIsButtonDisabled(false);
       }
       return newState;
     });
@@ -103,19 +103,20 @@ export default function RegisterForm() {
   function verifyEmail() {
     const code = verifyNums.join('');
     dispatch(adminVerifyEmail(code))
-      .then(() => navigate('/login'))
+      .then(() => navigate('/profile'))
       .catch((error) => {
         setVerificationError('Код введен неверно');
         console.error('Email verification error:', error);
       });
   }
+  console.log(email.value);
   return (
     <div>
       {isOpenReg ? (
         <div className={registerFormStyles.formContainerOpened}>
           <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
           <p className={registerFormStyles.formText}>
-            Введите E-mail и пароль, чтобы авторизоваться
+            Введите e-mail и пароль, чтобы зарегистрироваться
           </p>
           <form
             className={registerFormStyles.form}
@@ -125,7 +126,8 @@ export default function RegisterForm() {
             <Input
               classNameInput={`${registerFormStyles.input}
             ${
-              company.isDirty && company.companyError
+              (company.isEmpty && company.isDirty) ||
+              (company.companyError && company.isDirty)
                 ? registerFormStyles.inputError
                 : ''
             }`}
@@ -137,11 +139,17 @@ export default function RegisterForm() {
               value={company.value}
               onBlur={company.onBlur}
             />
-            {company.isEmpty && company.isDirty && (
+            {(company.isEmpty && company.isDirty && (
               <span className={registerFormStyles.spanError}>
                 Компания должена содержать не менее 1 и не более 256 символов
               </span>
-            )}
+            )) ||
+              (company.companyError && company.isDirty && (
+                <span className={registerFormStyles.spanError}>
+                  Компания должена содержать не менее 1 и не более 256 символов
+                </span>
+              ))}
+            {company.companyError && company.isDirty}
             <Input
               classNameInput={`${registerFormStyles.input}
                 ${
@@ -161,6 +169,11 @@ export default function RegisterForm() {
             {email.isDirty && email.emailError && (
               <span className={registerFormStyles.spanError}>
                 Неверно введен e-mail Пример: people@mail.ru
+              </span>
+            )}
+            {email.isEmpty && email.isDirty && (
+              <span className={registerFormStyles.spanError}>
+                E-mail должен содержать от 5 до 50 символов
               </span>
             )}
             <Input
@@ -210,7 +223,7 @@ export default function RegisterForm() {
               onChange={handleChangeConfirmPassword}
               value={confirmPassword.value}
               onBlur={confirmPassword.onBlur}
-            />{' '}
+            />
             {confirmPassword.isEmpty && confirmPassword.isDirty && (
               <span className={registerFormStyles.spanError}>
                 Пароль должен содержать от 6 до 30 символов
@@ -221,7 +234,7 @@ export default function RegisterForm() {
                 Пароль должен содержать хотя бы один большой символ, один
                 маленький символ, одну цифру и один специальный символ
               </span>
-            )}{' '}
+            )}
             {confirmPassword.isDirty && confirmPassword.passwordConfirm && (
               <span className={registerFormStyles.spanError}>
                 Пароли не совпадают
@@ -231,9 +244,6 @@ export default function RegisterForm() {
               <div className={registerFormStyles.checkboxContainer}>
                 <Checkbox text="Запомнить меня" />
               </div>
-              <button className={registerFormStyles.forgetButton} type="button">
-                Забыли пароль?
-              </button>
             </section>
             <div className={registerFormStyles.buttonsContainer}>
               <button

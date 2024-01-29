@@ -1,5 +1,4 @@
 @use '../../../styles/variables' as *;
-
 .input {
 }
 
@@ -34,7 +33,11 @@
 .label {
   @include rubik16;
   cursor: pointer;
-  color: $colorGray;
+  color: var(--Text-Main, #2f302e);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
   text-align: center;
   display: flex;
   margin: 20px 0;
@@ -43,4 +46,9 @@
   align-items: center;
   justify-content: space-between;
   width: 153px;
+}
+
+.label:hover {
+  color: #53772f;
+  opacity: 0.9;
 }

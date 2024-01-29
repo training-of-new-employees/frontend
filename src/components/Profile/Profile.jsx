@@ -101,13 +101,7 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
               </ul>
             </article>
             {!isUser ? (
-              <button type="button" className={profileInfoStyles.uploadPhoto}>
-                <img
-                  className={profileInfoStyles.profilePicture}
-                  alt="Загрузить фото"
-                  src={uploadPhoto}
-                />
-              </button>
+              <div className={profileInfoStyles.profilePicture} />
             ) : (
               ''
             )}

@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
+import Select from './Selector/Selector';
 import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
-import styles from '../../pages/Lessons/Lessons.module.scss'
+import styles from '../../pages/Lessons/Lessons.module.scss';
 import useValidations from '../hooks/useValidation';
 import {
   fetchProfile,
@@ -27,7 +29,7 @@ export default function NewUser() {
     position_name: '',
     position_id: '',
   });
-
+  console.log(profile);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -47,6 +49,7 @@ export default function NewUser() {
   }, [newUser])
 
   function handleName(event) {
+    console.log(event);
     setNewUser({ ...newUser, name: event.currentTarget.value });
   }
   function handleSurname(event) {
@@ -72,7 +75,7 @@ export default function NewUser() {
     <section className={newUserStyle.newUser}>
       {/* <Navigation /> */}
       <nav className={newUserStyle.navigation}>
-      <Button
+        <Button
           HTMLType="button"
           type="emptyBorder"
           buttonText="Назад"
@@ -82,9 +85,9 @@ export default function NewUser() {
       </nav>
 
       <form
+        noValidate
         onSubmit={(evt) => handleSubmit(evt)}
         className={newUserStyle.newUserContant}
-        noValidate
       >
         <h1 className={newUserStyle.newUserTitle}>Новый пользователь</h1>
         <ul className={newUserStyle.newUserContainer}>
@@ -142,16 +145,7 @@ export default function NewUser() {
             >
               Должность
             </label>
-            <Input
-              id="companyprofile"
-              type="text"
-              name="companyprofile"
-              placeholder="Выберите подходящую должность"
-              onChange={(evt) => handlePositionName(evt)}
-              value={newUser.position_name || ''}
-              minLength={2}
-              maxLength={15}
-            />
+            <Select setNewUser={setNewUser} newUser={newUser} />
           </li>
           <li className={newUserStyle.newUserInput}>
             <label className={newUserStyle.newUserLabel} htmlFor="email">
@@ -166,23 +160,6 @@ export default function NewUser() {
               value={newUser.email || ''}
               minLength={7}
               maxLength={50}
-            />
-          </li>
-          <li className={newUserStyle.newUserInput}>
-            <label
-              className={newUserStyle.newUserLabel}
-              htmlFor="companyprofile"
-            >
-              Пригласительная ссылка
-            </label>
-            <Input
-              id="linkInvite"
-              type="text"
-              name="linkInvite"
-              placeholder=""
-              onChange={handleChange}
-              value=""
-              disabled
             />
           </li>
         </ul>

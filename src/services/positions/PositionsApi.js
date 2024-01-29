@@ -5,6 +5,7 @@ const pathPosition = `${baseUrl}/positions`;
 
 export const fetchPositions = () => {
   const token = localStorage.getItem('token');
+
   return request(pathPosition, {
     headers: {
       Accept: 'application/json',
