@@ -31,7 +31,7 @@ export default function App() {
   return (
     <ToastProvider>
     <div className={appStyles.app}>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path={paths.main} element={<Main />} />
         <Route path={paths.login} element={<Login />} />

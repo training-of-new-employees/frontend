@@ -1,2 +1,10 @@
 @use 'styles/variables';
 //@import url('./vendor/fonts/rubik.scss');
+@import url('./vendor/fonts/fonts.scss');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.exo {
+  font-family: 'Exo 2', Arial, Helvetica, sans-serif;
+}
