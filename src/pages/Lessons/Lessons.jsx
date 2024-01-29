@@ -13,10 +13,9 @@ export default function Lessons() {
   const dispatch = useDispatch();
   const { coursesEdit } = useSelector((state) => state.coursesState);
   const { lessons } = useSelector((state) => state.lessonsState);
-  console.log(lessons);
 
   React.useEffect(() => {
-    dispatch(getLessonsAction(coursesEdit.id));
+    dispatch(getLessonsAction(id));
   }, [dispatch]);
 
   const columns = [

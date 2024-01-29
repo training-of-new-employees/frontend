@@ -6,7 +6,7 @@ import CoursesList from '../CoursesList/CoursesList';
 import CoursesMenu from '../CoursesMenu/CoursesMenu';
 import Button from '../ui-kit/Button/Button';
 
-export default function CoursesSidebar({ isAdmin }) {
+export default function CoursesSidebar({ isAdmin, textButton }) {
   const testData = ['Lesson 1', 'Lesson 2', 'Lesson 3'];
   const navigate = useNavigate();
   const handleBackButtonClick = useCallback(() => {
@@ -19,7 +19,7 @@ export default function CoursesSidebar({ isAdmin }) {
         <Button
           HTMLType="button"
           type="emptyBorder"
-          buttonText="К курсам"
+          buttonText={textButton}
           icon="back"
           onClick={handleBackButtonClick}
         />
@@ -31,8 +31,10 @@ export default function CoursesSidebar({ isAdmin }) {
 
 CoursesSidebar.propTypes = {
   isAdmin: PropTypes.bool,
+  textButton: PropTypes.string,
 };
 
 CoursesSidebar.defaultProps = {
   isAdmin: false,
+  textButton: 'К курсам',
 };

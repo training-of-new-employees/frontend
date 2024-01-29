@@ -32,7 +32,7 @@ export default function EditPosition() {
   function submitForm(e) {
     e.preventDefault();
     dispatch(editPositionAction(position));
-    console.log('form', position);
+  
   }
 
   return (

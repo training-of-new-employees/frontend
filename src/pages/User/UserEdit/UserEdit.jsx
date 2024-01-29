@@ -19,7 +19,6 @@ export default function UserEdit() {
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
   const { user, linkInvite } = useSelector((state) => state.usersState);
-  console.log(user);
 
   React.useEffect(() => {
     dispatch(fetchUserById(id));
@@ -68,7 +67,6 @@ export default function UserEdit() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(patchUserAction(editUser));
-    console.log(editUser);
   };
 
   return (

@@ -37,7 +37,7 @@ const navigate = useNavigate();
       })
     );
     setPosition('');
-    console.log('form', position);
+
     dispatch(getPositions());
     navigate(-1);
   }

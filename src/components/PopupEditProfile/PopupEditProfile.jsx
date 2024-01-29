@@ -50,7 +50,6 @@ export default function PopupEditProfile({ isOpen, onClose }) {
     event.preventDefault();
     dispatch(editProfile(editUser));
     onClose();
-    console.log(editUser);
   };
 
   return (

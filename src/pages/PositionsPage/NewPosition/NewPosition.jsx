@@ -52,6 +52,7 @@ export default function NewPosition() {
             name="newPosition"
             className={style.NewPositionForm}
             onSubmit={(evt) => submitForm(evt)}
+         
           >
             <label
               htmlFor="newPosition"
