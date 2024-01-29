@@ -25,7 +25,6 @@ export default function Table({ columns, data, openPopup }) {
       </td>
       <td>{item.company_name}</td>
       <td>{item.email}</td>
-      <td>{item.archived ? 'В архиве' : 'Не в архиве'}</td>
       <td>{item.active ? 'Активен' : 'Не активен'}</td>
 
       <td aria-label="Mute volume" className={tableStyles.tableCell}>

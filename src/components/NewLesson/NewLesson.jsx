@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { checkPropTypes} from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile } from '../../services/profile/profileSlice';
@@ -14,6 +14,7 @@ import { createLessonAction } from '../../services/lessons/lessonsSlice';
 import Popup from '../ui-kit/Popup/Popup';
 
 export default function NewLessons() {
+  const navigate = useNavigate()
   const {id} = useParams();
   const [nameLesson, setNameLesson] = React.useState();
   const [contentLesson, setContentLesson] = React.useState();
@@ -69,7 +70,7 @@ export default function NewLessons() {
     setNameLesson('');
     setContentLesson('');
     // dispatch(getPositions());
-    // navigate(-1);
+    navigate(-1);
   }
   
   return (

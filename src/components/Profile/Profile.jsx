@@ -10,6 +10,7 @@ import { fetchProfile } from '../../services/profile/profileSlice';
 const ProfileInfo = ({ onEditProfileClick, isUser }) => {
   const { values } = useValidations();
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+  const { profile } = useSelector((state) => state.profileState);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
             <div className={profileInfoStyles.roleContainer}>
               <div className={profileInfoStyles.imageHeader} />
               <p className={profileInfoStyles.positionProfile}>
-                {values.position}
+                {values.admin ? 'Администратор' : 'Сотрудник'}
               </p>
             </div>
           </div>
@@ -63,9 +64,19 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
               <ul className={profileInfoStyles.infoLists}>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>ФИО:</h3>
-                  <p
-                    className={profileInfoStyles.infoText}
-                  >{`${values.lastName} ${values.firstName} ${values.middleName}`}</p>
+                  <p className={profileInfoStyles.infoText}>
+                    {`
+                      ${
+                        values.lastName === 'admin'
+                          ? 'Фамилия'
+                          : values.lastName
+                      } 
+                   ${values.firstName === 'admin' ? 'Имя' : values.firstName} ${
+                      values.middleName === 'admin'
+                        ? 'Отчество'
+                        : values.middleName
+                    }`}
+                  </p>
                 </li>
                 <li className={profileInfoStyles.infoList}>
                   <h3 className={profileInfoStyles.infoSubtitle}>Компания:</h3>

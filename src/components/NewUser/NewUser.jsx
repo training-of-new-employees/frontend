@@ -61,6 +61,7 @@ export default function NewUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUserAction(newUser));
+    navigate(-1)
   };
 
   return (

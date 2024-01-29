@@ -37,6 +37,7 @@ export default function useValidations() {
       position: profile.position_name,
       photo: '',
       company: profile.company_name,
+      admin: profile.admin
     });
   }, [status]);
   const [errors, setErrors] = useState({});
