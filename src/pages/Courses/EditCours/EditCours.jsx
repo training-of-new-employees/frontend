@@ -125,7 +125,7 @@ export default function EditCours() {
           </div>
           <div className={coursesStyles.buttonContainer}>
             <div role="none" onClick={() => handleClose()}>
-              <Button type="emptyBorder" buttonText="Отменить" />
+              <Button HTMLType='button' type="emptyBorder" buttonText="Отменить" />
             </div>
             <div role="none" onClick={(event) => handleSubmit(event)}>
               <Button type="primary" buttonText="Редактировать" />

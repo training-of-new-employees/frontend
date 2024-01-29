@@ -160,6 +160,7 @@ export default function PopupEditProfile({ isOpen, onClose }) {
       <div className={popupEditstyle.popupEditButton}>
         <div role="none" onClick={onClose}>
           <Button
+            HTMLType='button'
             buttonText="Отменить"
             type="primary"
             // icon='white'
