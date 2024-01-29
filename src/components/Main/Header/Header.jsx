@@ -4,7 +4,7 @@ import logo from '../../../images/Landing/logo.svg'
 
 export default function Header() {
   return (
-    <header className="flex flex-row justify-between items-center px-[140px] py-3 bg-[#2F302E]">
+    <header id='top' className="flex flex-row justify-between items-center px-[140px] py-3 bg-[#2F302E]">
       <a href={paths.main}>
         <img src={logo} alt="логотип" />
       </a>
