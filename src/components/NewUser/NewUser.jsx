@@ -17,6 +17,7 @@ export default function NewUser() {
   const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
+  const [isSubmitDisabled, setIsSubmitDisabled] = React.useState(true);
   const [newUser, setNewUser] = React.useState({
     company_id: '',
     name: '',
@@ -38,6 +39,12 @@ export default function NewUser() {
       position_id: profile.position_id,
     });
   }, [profile]);
+
+  React.useEffect(() => {
+    if (newUser.name !== '' && newUser.surname !== '' && newUser.patronymic !== '' && newUser.email !== '' && newUser.position_name !== '') {
+      setIsSubmitDisabled(false)
+    }
+  }, [newUser])
 
   function handleName(event) {
     setNewUser({ ...newUser, name: event.currentTarget.value });
@@ -185,6 +192,7 @@ export default function NewUser() {
             ссылка на платформу
           </p>
           <Button
+            disabled={isSubmitDisabled}
             buttonText="Добавить пользователя"
             type="primary"
             HTMLType="submit"
