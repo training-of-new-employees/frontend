@@ -18,7 +18,7 @@ export default function RegisterForm() {
   const [isOpenReg, setOpenReg] = useState(true);
   const [verifyNums, setVerifyNums] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isPassword, setIsPassword] = useState({
@@ -61,6 +61,9 @@ export default function RegisterForm() {
     setVerifyNums((prevState) => {
       const newState = [...prevState];
       [newState[index]] = element.value;
+      if (index === 3) {
+        setIsButtonDisabled(false)
+      }
       return newState;
     });
   }
