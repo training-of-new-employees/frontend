@@ -28,7 +28,7 @@ export default function NewUser() {
     position_name: '',
     position_id: '',
   });
-  console.log(newUser);
+  console.log(profile);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -152,23 +152,6 @@ export default function NewUser() {
               value={newUser.email || ''}
               minLength={5}
               maxLength={30}
-            />
-          </li>
-          <li className={newUserStyle.newUserInput}>
-            <label
-              className={newUserStyle.newUserLabel}
-              htmlFor="companyprofile"
-            >
-              Пригласительная ссылка
-            </label>
-            <Input
-              id="linkInvite"
-              type="text"
-              name="linkInvite"
-              placeholder=""
-              onChange={handleChange}
-              value=""
-              disabled
             />
           </li>
         </ul>

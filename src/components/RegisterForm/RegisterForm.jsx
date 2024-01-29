@@ -109,7 +109,7 @@ export default function RegisterForm() {
         <div className={registerFormStyles.formContainerOpened}>
           <h1 className={registerFormStyles.formTitle}>Регистрация</h1>
           <p className={registerFormStyles.formText}>
-            Введите E-mail и пароль, чтобы авторизоваться
+            Введите e-mail и пароль, чтобы зарегистрироваться
           </p>
           <form
             className={registerFormStyles.form}
@@ -196,7 +196,7 @@ export default function RegisterForm() {
                     : ''
                 }`}
               name="confirmPassword"
-              placeholder="Пароль"
+              placeholder="Повторите пароль"
               type="password"
               onChange={handleChangeConfirmPassword}
               value={confirmPassword.value}
@@ -222,9 +222,6 @@ export default function RegisterForm() {
               <div className={registerFormStyles.checkboxContainer}>
                 <Checkbox text="Запомнить меня" />
               </div>
-              <button className={registerFormStyles.forgetButton} type="button">
-                Забыли пароль?
-              </button>
             </section>
             <div className={registerFormStyles.buttonsContainer}>
               <button
