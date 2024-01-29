@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getToken, getProfileMe, renameProfile, createUser } from './ProfileApi';
+import {
+  getToken,
+  getProfileMe,
+  renameProfile,
+  createUser,
+} from './ProfileApi';
 
 export const fetchToken = createAsyncThunk(
   'profile/fetchToken',
@@ -11,7 +16,7 @@ export const fetchToken = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 export const fetchProfile = createAsyncThunk(
@@ -19,12 +24,19 @@ export const fetchProfile = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await getProfileMe();
-      localStorage.setItem('role', response.admin === 'true' ? 'ADMIN': 'USER');
+   
+      if (response) {
+        localStorage.setItem(
+          'role',
+          response.admin ? 'ADMIN' : 'USER'
+        );
+      }
+
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 export const editProfile = createAsyncThunk(
@@ -36,7 +48,7 @@ export const editProfile = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 export const createUserAction = createAsyncThunk(
@@ -48,7 +60,7 @@ export const createUserAction = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 const profileSlice = createSlice({
