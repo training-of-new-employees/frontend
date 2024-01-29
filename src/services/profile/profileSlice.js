@@ -19,6 +19,7 @@ export const fetchProfile = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await getProfileMe();
+      localStorage.setItem('role', response.admin === 'true' ? 'ADMIN': 'USER');
       return response;
     } catch (error) {
       return rejectWithValue(error.message);

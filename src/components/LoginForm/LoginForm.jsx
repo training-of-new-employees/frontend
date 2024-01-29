@@ -31,7 +31,9 @@ export default function LoginForm() {
       password: password.value
     }
     dispatch(fetchToken(values))
-      navigate('/profile')
+      if (localStorage.getItem('token' !== null)) {
+          navigate('/profile')
+      }
   };
   return (
     <div className={loginFormStyles.formContainer}>

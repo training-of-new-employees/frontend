@@ -14,7 +14,15 @@ export const ProtectedRouteForAdmin = ({ children }) => {
     return role==='ADMIN' ? (
         children
     ) : (
-            <Navigate to="/login" />
+            <Navigate to="/" />
     );
+};
+
+export const ProtectedRouteLoggedIn = ({ children }) => {
+    const loggedIn = localStorage.getItem('token') !== null;
+    return (
+        loggedIn ? (children) :
+            <Navigate to='/' replace/>
+    )
 };
 

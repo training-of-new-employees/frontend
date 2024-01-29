@@ -54,7 +54,7 @@ export default function RegisterEmployeeForm() {
       setPassword(searchParams.get("email"), searchParams.get("invite"), password.value)
           .then((data) => {
               if (data) {
-                  localStorage.setItem("role", "EMPLOYEE");
+                  localStorage.setItem("role", "USER");
                   localStorage.setItem("token", data.token);
                   navigate('/profile')
               }

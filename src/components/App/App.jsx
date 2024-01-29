@@ -24,7 +24,7 @@ import EditCours from '../../pages/Courses/EditCours/EditCours';
 import Lessons from '../../pages/Lessons/Lessons';
 import CreateLesson from '../../pages/Lessons/NewLessons/CreateLesson';
 import EmployeeReg from "../../pages/EmployeeReg/EmployeeReg";
-import {ProtectedRouteForAdmin} from "../../services/protectedRoutes/ProtectedRoutes";
+import {ProtectedRouteForAdmin, ProtectedRouteLoggedIn} from "../../services/protectedRoutes/ProtectedRoutes";
 import CurrentLesson from '../../pages/Lessons/CurrentLesson/CurrentLesson';
 
 export default function App() {
@@ -38,7 +38,7 @@ export default function App() {
         <Route path={paths.registration} element={<Register />} />
         <Route path="*" element={<ForgotPassword />} />
         <Route path="*" element={<ResetPassword />} />
-        <Route path={paths.profile} element={<Profile />} />
+          <Route path={paths.profile} element={<Profile /> } />
           <Route path={paths.positions}
                  element={
               <ProtectedRouteForAdmin>
