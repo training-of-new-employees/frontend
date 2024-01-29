@@ -33,7 +33,7 @@ export default function Contacts() {
               </div>
               <div className="px-[18px] pt-[10px] pb-2 w-[435px] bg-white rounded-xl">
                 <p className="text-[#A4A4A4] leading-[120%] text-base font-normal">Telegram</p>
-                <a href="tel:+79811195024" className="text-[#2F302E] text-xl font-normal leading-normal">@Quick_On</a>
+                <a href="https://t.me/Quick_On" className="text-[#2F302E] text-xl font-normal leading-normal">@Quick_On</a>
               </div>
             </div>
           </div>
