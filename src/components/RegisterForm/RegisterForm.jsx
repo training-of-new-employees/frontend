@@ -222,7 +222,7 @@ export default function RegisterForm() {
             </section>
             <div className={registerFormStyles.buttonsContainer}>
               <button
-                className={registerFormStyles.submit}
+                className={`${registerFormStyles.submit} hover:bg-[#668447] transition ease-in duration-300 focus:bg-[#374629]`}
                 type="submit"
                 disabled={
                   !email.isValid ||

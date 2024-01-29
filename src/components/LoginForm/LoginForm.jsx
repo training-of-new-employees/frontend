@@ -116,7 +116,7 @@ export default function LoginForm() {
         </section>
         <button
           disabled={!email.isValid || !password.isValid}
-          className={loginFormStyles.submitUser}
+          className={`${loginFormStyles.submitUser} hover:bg-[#668447] transition ease-in duration-300 focus:bg-[#374629]`}
           type="submit"
         >
           Войти
