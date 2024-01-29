@@ -314,7 +314,7 @@ export default function RegisterForm() {
               <button
                 type="button"
                 className={registerFormStyles.buttonAgain}
-                onClick={verifyEmail}
+                onClick={onSubmit}
               >
                 Отправить код повторно
               </button>
