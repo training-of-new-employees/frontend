@@ -1,24 +1,29 @@
-import PropTypes from 'prop-types';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
-import logo from '../../images/ui/Logo.svg';
+import {useState} from "react";
+import {Link, useLocation} from 'react-router-dom';
+import logo from '../../images/Landing/logo.svg';
 import headerStyles from './Header.module.scss';
+import imageAdmin from '../../images/ui/ImageAdmin.svg'
+import ExitPopup from "../ExitPopup/ExitPopup";
 
-/**
- * the header component, the display depends on the user's role
- *@param {boolean} isAdmin - хранит в себе ответ админ это или нет
- */
-export default function Header({ isAdmin }) {
-    const navigate = useNavigate();
+
+export default function Header() {
     const { pathname } = useLocation();
-  function handleLogout() {
-      localStorage.removeItem('token');
-      navigate('/');
-  }
-
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    };
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    };
+    // const isAdmin = localStorage.getItem('role') === 'ADMIN'
+    const isAdmin = true
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    }
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {pathname !== '/login' && pathname !== '/registration' && pathname !== '/' ? (
+      {pathname !== '/login' && pathname !== '/registration' && pathname !== '/' && !pathname.includes('first-login') ? (
         <header className={headerStyles.header}>
           <Link to="/">
             <img
@@ -28,18 +33,19 @@ export default function Header({ isAdmin }) {
             />
           </Link>
           {isAdmin ? (
-            <button
-              className={headerStyles.button}
-              type="button"
-              aria-label="Выйти из профиля"
-              onClick={handleLogout}
-            />
+              <button
+                  className={headerStyles.button}
+                  aria-label="Выйти из профиля"
+                  type='button'
+                  onClick={handleOpenPopup}
+              ><img className={headerStyles.imageAdmin} src={imageAdmin} alt='Выйти'/>
+              </button>
           ) : (
-            <button
+              <button
               type="button"
               aria-label="Выйти из профиля"
               className={headerStyles.button_fioUser}
-              onClick={handleLogout}
+              onClick={handleOpenPopup}
             >
               <span>Фамилия Имя</span>
               <span>
@@ -58,19 +64,8 @@ export default function Header({ isAdmin }) {
       ) : (
         ''
       )}
+        <ExitPopup isOpen={isPopupOpen} onClose={closePopup} />
     </>
   );
 }
 
-// props description
-Header.propTypes = {
-  /**
-   * the prop stores the answer whether it is an admin or not
-   */
-  isAdmin: PropTypes.bool,
-};
-
-// default props
-Header.defaultProps = {
-  isAdmin: true,
-};
