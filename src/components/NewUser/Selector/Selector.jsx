@@ -15,6 +15,7 @@ const Select = ({ setNewUser, newUser }) => {
           companyId: position.company_id,
           value: position.name,
           label: position.name,
+          position_id: position.id
         };
         return newObjProffesion;
       });
@@ -30,6 +31,7 @@ const Select = ({ setNewUser, newUser }) => {
         setNewUser({
           ...newUser,
           company_id: value.companyId,
+          position_id: value.position_id
         })
       }
       defaultOptions={professions}
