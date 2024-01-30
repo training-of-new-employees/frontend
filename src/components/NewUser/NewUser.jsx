@@ -43,7 +43,7 @@ export default function NewUser() {
   }, [profile]);
 
   React.useEffect(() => {
-    if (newUser.name !== '' && newUser.surname !== '' && newUser.patronymic !== '' && newUser.email !== '' && newUser.position_name !== '') {
+    if (newUser.name !== '' && newUser.surname !== '' && newUser.patronymic !== '' && newUser.email !== '') {
       setIsSubmitDisabled(false)
     }
   }, [newUser])
