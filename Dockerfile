@@ -16,3 +16,6 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 COPY ./nginx/default.conf.template /etc/nginx/templates/
 COPY --from=builder /app/build /usr/share/nginx/html
+COPY  ./src/images/ui/Logo.png /usr/share/nginx/html/logo.png
+EXPOSE 8080
+
