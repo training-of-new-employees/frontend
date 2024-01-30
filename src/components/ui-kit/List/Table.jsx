@@ -17,7 +17,6 @@ export default function Table({ columns, data, openPopup }) {
     <th key={index}>{col.header}</th>
   ));
 
-  console.log(data);
   const rows = Array.from(data).map((item) => (
     <tr key={item.id}>
       <td>
@@ -68,8 +67,8 @@ Table.propTypes = {
       accessor: PropTypes.string.isRequired,
     })
   ).isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+
+  data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };
 
 Table.defaultProps = {

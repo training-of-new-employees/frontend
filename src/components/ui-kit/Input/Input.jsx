@@ -14,7 +14,7 @@ export default function Input({
   disabled,
   onBlur,
   minLength,
-  maxLength
+  maxLength,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name.toLowerCase().includes('password');

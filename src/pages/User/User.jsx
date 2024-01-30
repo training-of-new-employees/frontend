@@ -31,7 +31,6 @@ export default function User() {
         archived: true,
       })
     );
-    console.log('onSubmit');
     handleClose();
   };
 
@@ -42,7 +41,7 @@ export default function User() {
   useEffect(() => {
     setUsersList(users);
   }, [users]);
-  
+
   const handleAddUser = (newUserData) => {
     // Here you would typically send newUserData to the server
     // For now, we'll just add it to the local state
