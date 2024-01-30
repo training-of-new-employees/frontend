@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import loginFormStyles from './LoginForm.module.scss';
 import login from '../../services/api/login';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
