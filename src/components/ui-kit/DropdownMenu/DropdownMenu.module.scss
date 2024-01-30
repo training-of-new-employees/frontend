@@ -41,7 +41,7 @@
 .active {
   z-index: 999;
   display: flex;
-  position: relative;
+  position: absolute;
   max-width: 236px;
   width: 100%;
   // height: 160px;
@@ -81,12 +81,15 @@
 
 .icon {
   // margin: 12px 20px 12px 20px;
-  margin-top: 12px;
+  // margin-bottom: 15px;
   fill: $colorBlack;
 }
 
 .tableDropdownMenuButton {
-  right: 150px;
-  bottom: -22px;
+  // right: 150px;
+  // bottom: -22px;
+}
+
+.section {
 }
 
