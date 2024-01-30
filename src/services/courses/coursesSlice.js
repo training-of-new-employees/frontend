@@ -63,7 +63,7 @@ export const getUserCoursesAction = createAsyncThunk(
 );
 
 export const getUserLessonsAction = createAsyncThunk(
-  'courses/fetchUserCoursesAction',
+  'courses/fetchUserLessonsAction',
   async (id, { fulfillWithValue, rejectWithValue }) => {
     try {
       const response = await fetchUserLessons(id);
