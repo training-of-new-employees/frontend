@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchCourses, setCourses, editCourses, getCoursById } from './CoursesApi';
+import {fetchUserCourses, fetchUserLessons} from "./UserCoursesApi";
 
 export const getCoursesAction = createAsyncThunk(
   'courses/getCoursesAction',
@@ -42,6 +43,30 @@ export const editCoursesAction = createAsyncThunk(
   async (data, { fulfillWithValue, rejectWithValue }) => {
     try {
       const response = await editCourses(data);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getUserCoursesAction = createAsyncThunk(
+  'courses/fetchUserCoursesAction',
+  async (data, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const response = await fetchUserCourses();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getUserLessonsAction = createAsyncThunk(
+  'courses/fetchUserCoursesAction',
+  async (id, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const response = await fetchUserLessons(id);
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -111,6 +136,30 @@ const coursesSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(getCoursByIdAction.rejected, (state) => {
+        state.status = 'error';
+        state.error = 'error';
+      })
+    .addCase(getUserCoursesAction.fulfilled, (state, action) => {
+      state.status = 'success';
+
+      state.courses = action.payload;
+    })
+      .addCase(getUserCoursesAction.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(getUserCoursesAction.rejected, (state) => {
+        state.status = 'error';
+        state.error = 'error';
+      })
+      .addCase(getUserLessonsAction.fulfilled, (state, action) => {
+        state.status = 'success';
+
+        state.courses = action.payload;
+      })
+      .addCase(getUserLessonsAction.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(getUserLessonsAction.rejected, (state) => {
         state.status = 'error';
         state.error = 'error';
       });
