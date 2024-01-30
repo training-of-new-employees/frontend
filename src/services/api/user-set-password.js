@@ -6,7 +6,7 @@ import { baseUrl } from '../../utils/constants';
 export const setPassword = (email, invite, password) => {
   // function (dispatch) {
   //   dispatch(userActions.postSetPasswordLoading());
-  return fetch(`${baseUrl}/user/set-password`, {
+  return fetch(`${baseUrl}/users/set-password`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
