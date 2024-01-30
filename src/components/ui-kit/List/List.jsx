@@ -22,14 +22,10 @@ export default function ListLessons({ columns, data }) {
     <tr
       key={item.id}
       onClick={() => {
-
         dispatch(getCurrentLessonByIdReducer(item));
         navigate(`/courses/${item.course_id}/lessons/${item.id}`);
       }}
     >
-      <td>{item.name}</td>
-      <td>{item.arhcived ? 'Архивирован' : 'Не архивирован'}</td>
-
       <td
         aria-label="Mute volume"
         className={tableStyles.tableCell}
@@ -49,6 +45,9 @@ export default function ListLessons({ columns, data }) {
           </div>
         </DropdownMenu>
       </td>
+      <td>{item.name}</td>
+      <td>{item.arhcived ? 'Архивирован' : 'Не архивирован'}</td>
+
       {/* {columns.map((col, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <td key={index}>{item[col.accessor]}</td>

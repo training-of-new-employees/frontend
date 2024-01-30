@@ -50,7 +50,8 @@ export default function CoursesContent() {
                 {item.archived === true ? (
                   <div
                     role="none"
-                    onClick={() => {
+                    onClick={(event) => {
+                      event.stopPropagation();
                       dispatch(getCoursesByIdReducer(item));
                       navigate(`/courses/${item.id}`);
                     }}
@@ -66,28 +67,23 @@ export default function CoursesContent() {
                     key={item.id}
                     className={coursesStyles.coursesCard}
                     role="none"
-                    onClick={() => {
+                    onClick={(event) => {
+                      event.stopPropagation();
                       dispatch(getCoursesByIdReducer(item));
-                      navigate(`/courses/${item.id}`);
+                      // navigate(`/courses/${item.id}`);
                     }}
                   >
-                    <div className={coursesStyles.cardText}>
+                    <div
+                      role="none"
+                      className={coursesStyles.cardText}
+                      onClick={(event) => {
+                        navigate(`/courses/${item.id}`);
+                      }}
+                    >
                       <div className={coursesStyles.cardTitle}>{item.name}</div>
                       <div className={coursesStyles.coursesCount}>0 уроков</div>
                     </div>
                     <DropdownMenu isChild className={coursesStyles.iconMenu}>
-                      <div
-                        role="none"
-                        onClick={() => {
-                          console.log('click для логики редактирования');
-                        }}
-                      >
-                        <DropdownMenuButton
-                          IconComponent={help}
-                          text="Редактировать"
-                        />
-                      </div>
-
                       <div
                         role="none"
                         onClick={() => {

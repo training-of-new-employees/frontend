@@ -19,9 +19,10 @@ export default function Lessons() {
   }, [dispatch]);
 
   const columns = [
+    { header: '', accessor: 'icon' },
     { header: 'Название', accessor: 'name' },
     { header: 'Статус', accessor: 'status' }, // Assuming you have a 'status' field in your user data
-    { header: '', accessor: 'icon' },
+
   ];
 
   return (

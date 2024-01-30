@@ -20,14 +20,7 @@ export default function Table({ columns, data, openPopup }) {
   console.log(data);
   const rows = Array.from(data).map((item) => (
     <tr key={item.id}>
-      <td>
-        {item.name} {item.surname} {item.patronymic}
-      </td>
-      <td>{item.position_name}</td>
-      <td>{item.email}</td>
-      <td>{item.active ? 'Активен' : 'Не активен'}</td>
-
-      <td aria-label="Mute volume" className={tableStyles.tableCell}>
+          <td aria-label="Mute volume" className={tableStyles.tableCell}>
         <DropdownMenu isChild className={styles.iconMenu} stylesButton>
           <div role="none" onClick={() => navigate(`/users/${item.id}`)}>
             <DropdownMenuButton IconComponent={help} text="Редактировать" />
@@ -43,6 +36,14 @@ export default function Table({ columns, data, openPopup }) {
           </div>
         </DropdownMenu>
       </td>
+      <td>
+        {item.name} {item.surname} {item.patronymic}
+      </td>
+      <td>{item.position_name}</td>
+      <td>{item.email}</td>
+      <td>{item.active ? 'Активен' : 'Не активен'}</td>
+
+  
       {/* {columns.map((col, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <td key={index}>{item[col.accessor]}</td>

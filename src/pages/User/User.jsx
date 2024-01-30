@@ -53,11 +53,12 @@ export default function User() {
   };
 
   const columns = [
+    { header: '', accessor: 'icon' },
     { header: 'ФИО', accessor: 'familyName' },
     { header: 'Должность', accessor: 'position' },
     { header: 'Почта', accessor: 'position' },
     { header: 'Статус', accessor: 'status' }, // Assuming you have a 'status' field in your user data
-    { header: '', accessor: 'icon' },
+ 
   ];
   return (
     <>
