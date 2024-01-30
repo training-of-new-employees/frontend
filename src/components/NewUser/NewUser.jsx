@@ -34,13 +34,6 @@ export default function NewUser() {
     dispatch(fetchProfile());
   }, [dispatch]);
 
-  React.useEffect(() => {
-    setNewUser({
-      ...newUser,
-      company_id: profile.company_id,
-      position_id: profile.position_id,
-    });
-  }, [profile]);
 
   React.useEffect(() => {
     if (newUser.name !== '' && newUser.surname !== '' && newUser.email !== '') {
