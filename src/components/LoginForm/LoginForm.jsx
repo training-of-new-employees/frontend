@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import loginFormStyles from './LoginForm.module.scss';
 import login from '../../services/api/login';
 import Checkbox from '../ui-kit/Checkbox/Checkbox';
@@ -33,12 +33,12 @@ export default function LoginForm() {
     e.preventDefault();
     const values = {
       email: email.value,
-      password: password.value
-    }
-    dispatch(fetchToken(values))
-          navigate('/profile')
-
+      password: password.value,
+    };
+    dispatch(fetchToken(values));
+    navigate('/profile');
   };
+
   return (
     <div className={loginFormStyles.formContainer}>
       <h1 className={loginFormStyles.formTitle}>Авторизация</h1>
