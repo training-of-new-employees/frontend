@@ -39,8 +39,7 @@ export default function NewCourses() {
       })
     );
     setCourse('');
-    // dispatch(getPositions());
-    // navigate(-1);
+    navigate(-1);
   }
 
   return (
