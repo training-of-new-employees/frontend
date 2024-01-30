@@ -2,6 +2,7 @@ export const checkResponse = (res) => {
   if (res.status >= 400) {
     throw Error(`Ошибка ${res.status}`);
   }
+  console.log(res, "helper")
   return res;
 };
 

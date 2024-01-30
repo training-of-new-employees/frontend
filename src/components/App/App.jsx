@@ -74,9 +74,7 @@ export default function App() {
           <Route
             path={paths.courses}
             element={
-              <ProtectedRouteForAdmin>
                 <CoursesPage />
-              </ProtectedRouteForAdmin>
             }
           />
           <Route

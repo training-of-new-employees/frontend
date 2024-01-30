@@ -3,15 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navigation from '../../components/Navigation/Navigation';
 import CoursesContent from './CoursesContent/CoursesContent';
 import coursesStyles from './Courses.module.scss';
-import { getCoursesAction } from '../../services/courses/coursesSlice';
+import {getCoursesAction, getUserCoursesAction} from '../../services/courses/coursesSlice';
 import NoCourses from '../../components/NoCourses/NoCourses';
 
 export default function CoursesPage() {
+    const isAdmin = localStorage.getItem('role') === 'ADMIN'
   const {courses} = useSelector((state) => state.coursesState);
   const dispatch = useDispatch();
+
   React.useEffect(() => {
     dispatch(getCoursesAction());
   }, [dispatch]);
+
+    React.useEffect(() => {
+      dispatch(getUserCoursesAction());
+    }, [dispatch]);
+
   return (
     <section className={coursesStyles.section}>
       <Navigation isAdmin areCoursesOpened={false} />

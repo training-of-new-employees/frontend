@@ -17,16 +17,12 @@ export const setPassword = (email, invite, password) => {
       password,
     }),
   })
-    .then(res => checkResponse(res))
+    // .then(res => checkResponse(res))
+    // .then((res) => console.log(res))
     // .then(() => {
     //   dispatch(userActions.postSetPasswordSuccess());
     // })
-    .then((data) => {
-      // if (data.token) {
-        localStorage.setItem('token', data.token);
-        // return data;
-      // }
-    })}
+}
   // .catch((error) => {
   //   console.log(error);
   //   // dispatch(

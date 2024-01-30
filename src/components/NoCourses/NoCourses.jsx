@@ -12,6 +12,7 @@ import style from './NoCourses.module.scss';
  */
 export default function NoCourses({ emptyStates }) {
   const navigate = useNavigate()
+    const isAdmin = localStorage.getItem('role') === 'ADMIN'
   return (
     <section className={style.section}>
       <div className={style.container}>
@@ -22,9 +23,9 @@ export default function NoCourses({ emptyStates }) {
         />
         <p className={style.text}>У вас нет курсов</p>
         <div role='none' onClick={() => navigate('/courses/new-courses')}>
-        <Button buttonText="Создать курс" type="primary" icon='white'/>
+            {isAdmin && <Button buttonText="Создать курс" type="primary" icon='white'/>}
         </div>
-       
+
       </div>
     </section>
   );
