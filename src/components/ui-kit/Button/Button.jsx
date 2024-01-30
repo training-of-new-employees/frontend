@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import ButtonStyles from './Button.module.scss';
 
 export default function Button({
+  disabled,
   buttonText,
   type, // 'primary', 'emptyBorder', 'empty'
   icon, // 'white', 'green', 'back'
@@ -15,6 +16,7 @@ export default function Button({
   return (
     /* eslint-disable react/button-has-type */
     <button
+      disabled={disabled}
       className={classNames(
         ButtonStyles.button,
         ButtonStyles[type],

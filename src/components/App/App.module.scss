@@ -1,7 +1,10 @@
 @use '../../styles/variables' as *;
-
 html {
   background-color: $backGroundColor;
+}
+
+.react-select-container {
+  border: none;
 }
 
 .app {

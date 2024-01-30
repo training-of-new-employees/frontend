@@ -37,6 +37,7 @@ export default function useValidations() {
       position: profile.position_name,
       photo: '',
       company: profile.company_name,
+      admin: profile.admin,
     });
   }, [status]);
   const [errors, setErrors] = useState({});
@@ -152,12 +153,15 @@ export function useValidation(value, validations) {
   const [emailError, setEmailError] = useState(false);
   const [companyError, setCompanyError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const [isValid, setIsValid] = useState(false);
   const [passwordConfirm, setPasswordConfirm] = useState(false);
+
+  const [isValid, setIsValid] = useState(false);
+
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
   const emailRegex = /^\S+@\S+\.\S+$/;
+
   useEffect(() => {
-    value.length < validations.minLength || value.length > 50
+    value.length < validations.minLength || value.length > validations.maxLength
       ? setIsEmpty(true)
       : setIsEmpty(false);
 
@@ -165,7 +169,7 @@ export function useValidation(value, validations) {
       !emailRegex.test(value) ? setEmailError(true) : setEmailError(false);
     }
     if (validations.type === 'company') {
-      /[#*]/.test(value) ? setCompanyError(true) : setCompanyError(false);
+      /[^\s]/.test(value) ? setCompanyError(false) : setCompanyError(true);
     }
     if (
       validations.type === 'password' ||
@@ -187,12 +191,19 @@ export function useValidation(value, validations) {
   }, [value, validations]);
 
   useEffect(() => {
-    if (isEmpty || emailError || passwordError || passwordConfirm) {
+    if (
+      isEmpty ||
+      emailError ||
+      passwordError ||
+      passwordConfirm ||
+      companyError
+    ) {
       setIsValid(false);
     } else {
       setIsValid(true);
     }
-  }, [isEmpty, emailError, passwordError, passwordConfirm]);
+  }, [isEmpty, emailError, passwordError, passwordConfirm, companyError]);
+
   return {
     isEmpty,
     emailError,

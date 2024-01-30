@@ -16,6 +16,8 @@ export default function Table({ columns, data, openPopup }) {
     // eslint-disable-next-line react/no-array-index-key
     <th key={index}>{col.header}</th>
   ));
+
+  console.log(data);
   const rows = Array.from(data).map((item) => (
     <tr key={item.id}>
       <td>
@@ -23,11 +25,9 @@ export default function Table({ columns, data, openPopup }) {
       </td>
       <td>{item.position_name}</td>
       <td>{item.email}</td>
-      <td>{item.archived ? 'В архиве' : 'Не в архиве'}</td>
       <td>{item.active ? 'Активен' : 'Не активен'}</td>
 
       <td aria-label="Mute volume" className={tableStyles.tableCell}>
-        {' '}
         <DropdownMenu isChild className={styles.iconMenu} stylesButton>
           <div role="none" onClick={() => navigate(`/users/${item.id}`)}>
             <DropdownMenuButton IconComponent={help} text="Редактировать" />

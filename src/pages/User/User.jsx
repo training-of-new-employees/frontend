@@ -16,7 +16,6 @@ export default function User() {
   const { users, user } = useSelector((state) => state.usersState);
   const [isOpen, setOpen] = useState(false);
 
-
   function handleOpenPopup() {
     setOpen(true);
   }
@@ -43,7 +42,7 @@ export default function User() {
   useEffect(() => {
     setUsersList(users);
   }, [users]);
-
+  
   const handleAddUser = (newUserData) => {
     // Here you would typically send newUserData to the server
     // For now, we'll just add it to the local state
@@ -57,7 +56,6 @@ export default function User() {
     { header: 'ФИО', accessor: 'familyName' },
     { header: 'Должность', accessor: 'position' },
     { header: 'Почта', accessor: 'position' },
-    { header: 'В архиве', accessor: 'archived' },
     { header: 'Статус', accessor: 'status' }, // Assuming you have a 'status' field in your user data
     { header: '', accessor: 'icon' },
   ];

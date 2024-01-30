@@ -1,5 +1,4 @@
 @use '../../../styles/variables' as *;
-
 .inputBox {
   display: flex;
   position: relative;
@@ -20,11 +19,11 @@
   max-height: 60px;
   justify-content: space-between;
   position: relative;
-
+  padding: 18px 12px;
 }
 
 .error {
-  outline: 1px solid var(--service-warning, #C63535);
+  outline: 1px solid var(--service-warning, #c63535);
 }
 
 .inputName {
@@ -81,6 +80,23 @@
   display: inline-block;
   position: absolute;
   top: 5px;
+  right: 20px;
+  border-radius: 12px;
+}
+
+.passwordButtonRegistr {
+  background-image: url(./../../../images/ui/PasswordVisible.svg);
+  width: 40px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border-style: none;
+  background-size: auto;
+  background-color: $colorWhite;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
   right: 20px;
   border-radius: 12px;
 }

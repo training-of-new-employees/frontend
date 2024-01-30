@@ -32,7 +32,7 @@ export default function EditPosition() {
   function submitForm(e) {
     e.preventDefault();
     dispatch(editPositionAction(position));
-  
+
   }
 
   return (
@@ -64,7 +64,7 @@ export default function EditPosition() {
                 classNameInput={style.NewPositionForm__input}
                 classNameDiv={style.NewPositionForm__divInput}
                 minLength={2}
-                maxLength={15}
+                maxLength={256}
               />
             </label>
 

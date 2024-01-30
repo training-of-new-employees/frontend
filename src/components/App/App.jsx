@@ -30,98 +30,124 @@ import ExitPopup from "../ExitPopup/ExitPopup";
 export default function App() {
   return (
     <ToastProvider>
-    <div className={appStyles.app}>
-       <Header />
-      <Routes>
-        <Route path={paths.main} element={<Main />} />
-        <Route path={paths.login} element={<Login />} />
-        <Route path={paths.registration} element={<Register />} />
-        <Route path="*" element={<ForgotPassword />} />
-        <Route path="*" element={<ResetPassword />} />
-          <Route path={paths.profile} element={<Profile /> } />
-          <Route path={paths.positions}
-                 element={
+      <div className={appStyles.app}>
+        <Header />
+        <Routes>
+          <Route path={paths.main} element={<Main />} />
+          <Route path={paths.login} element={<Login />} />
+          <Route path={paths.registration} element={<Register />} />
+          <Route path="*" element={<ForgotPassword />} />
+          <Route path="*" element={<ResetPassword />} />
+          <Route path={paths.profile} element={<Profile />} />
+          <Route
+            path={paths.positions}
+            element={
               <ProtectedRouteForAdmin>
-                  <PositionPage />
+                <PositionPage />
               </ProtectedRouteForAdmin>
-          }  />
-          <Route path={paths.users}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <User />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={paths.newuser}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <NewUser />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.users}/:id`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <UserEdit />
-                     </ProtectedRouteForAdmin>
-          }/>
-          <Route path={paths.courses}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <CoursesPage />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.courses}/new-courses`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <NewCours />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.courses}/:id`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <EditCours />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.courses}/:id/lessons`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <Lessons />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.courses}/:id/new-lesson`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <CreateLesson />
-                     </ProtectedRouteForAdmin>
-          } />
-                    <Route path={`${paths.courses}/:id/lessons/:id`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <CurrentLesson />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.positions}/setting-access/:id`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <SettingAccess />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.positions}/new-positions`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <NewPosition />
-                     </ProtectedRouteForAdmin>
-          } />
-          <Route path={`${paths.positions}/:id`}
-                 element={
-                     <ProtectedRouteForAdmin>
-                         <EditPosition />
-                     </ProtectedRouteForAdmin>
-          } />
+            }
+          />
+          <Route
+            path={paths.users}
+            element={
+              <ProtectedRouteForAdmin>
+                <User />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={paths.newuser}
+            element={
+              <ProtectedRouteForAdmin>
+                <NewUser />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.users}/:id`}
+            element={
+              <ProtectedRouteForAdmin>
+                <UserEdit />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={paths.courses}
+            element={
+              <ProtectedRouteForAdmin>
+                <CoursesPage />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.courses}/new-courses`}
+            element={
+              <ProtectedRouteForAdmin>
+                <NewCours />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.courses}/:id`}
+            element={
+              <ProtectedRouteForAdmin>
+                <EditCours />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.courses}/:id/lessons`}
+            element={
+              <ProtectedRouteForAdmin>
+                <Lessons />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.courses}/:id/new-lesson`}
+            element={
+              <ProtectedRouteForAdmin>
+                <CreateLesson />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.courses}/:id/lessons/:id`}
+            element={
+              <ProtectedRouteForAdmin>
+                <CurrentLesson />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.positions}/setting-access/:id`}
+            element={
+              <ProtectedRouteForAdmin>
+                <SettingAccess />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.positions}/new-positions`}
+            element={
+              <ProtectedRouteForAdmin>
+                <NewPosition />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path={`${paths.positions}/:id`}
+            element={
+              <ProtectedRouteForAdmin>
+                <EditPosition />
+              </ProtectedRouteForAdmin>
+            }
+          />
           <Route path={paths.employeeReg} element={<EmployeeReg />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      {/* <Footer /> */}
-    </div>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {/* <Footer /> */}
+      </div>
     </ToastProvider>
   );
 }

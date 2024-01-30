@@ -83,6 +83,8 @@ export default function RegisterEmployeeForm() {
               classNameInput={`${registerFormStyles.input}`}
               name="email"
               type="email"
+              maxLength={50}
+              minLength={7}
               placeholder=""
               onChange={() => ''}
               onBlur={() => ''}
@@ -97,7 +99,9 @@ export default function RegisterEmployeeForm() {
                     : ''
                 }`}
               name="password"
-              placeholder="Пароль "
+              maxLength={30}
+              minLength={6}
+              placeholder="Придумайте пароль"
               type="password"
               onChange={handleChangePassword}
               value={password.value}
@@ -127,7 +131,9 @@ export default function RegisterEmployeeForm() {
                     : ''
                 }`}
               name="confirmPassword"
-              placeholder="Пароль"
+              maxLength={30}
+              minLength={6}
+              placeholder="Повторите пароль"
               type="password"
               onChange={handleChangeConfirmPassword}
               value={confirmPassword.value}

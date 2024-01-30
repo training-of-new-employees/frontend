@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
+import Select from './Selector/Selector';
 import Button from '../ui-kit/Button/Button';
 import Input from '../ui-kit/Input/Input';
 import newUserStyle from './NewUser.module.scss';
 import Navigation from '../Navigation/Navigation';
-import styles from '../../pages/Lessons/Lessons.module.scss'
+import styles from '../../pages/Lessons/Lessons.module.scss';
 import useValidations from '../hooks/useValidation';
 import {
   fetchProfile,
@@ -17,6 +19,7 @@ export default function NewUser() {
   const { handleChange } = useValidations();
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profileState);
+  const [isSubmitDisabled, setIsSubmitDisabled] = React.useState(true);
   const [newUser, setNewUser] = React.useState({
     company_id: '',
     name: '',
@@ -26,7 +29,7 @@ export default function NewUser() {
     position_name: '',
     position_id: '',
   });
-
+  console.log(profile);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -39,7 +42,14 @@ export default function NewUser() {
     });
   }, [profile]);
 
+  React.useEffect(() => {
+    if (newUser.name !== '' && newUser.surname !== '' && newUser.patronymic !== '' && newUser.email !== '' && newUser.position_name !== '') {
+      setIsSubmitDisabled(false)
+    }
+  }, [newUser])
+
   function handleName(event) {
+    console.log(event);
     setNewUser({ ...newUser, name: event.currentTarget.value });
   }
   function handleSurname(event) {
@@ -58,13 +68,14 @@ export default function NewUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUserAction(newUser));
+    navigate(-1)
   };
 
   return (
     <section className={newUserStyle.newUser}>
       {/* <Navigation /> */}
       <nav className={newUserStyle.navigation}>
-      <Button
+        <Button
           HTMLType="button"
           type="emptyBorder"
           buttonText="Назад"
@@ -72,11 +83,11 @@ export default function NewUser() {
           onClick={() => navigate(-1)}
         />
       </nav>
- 
+
       <form
+        noValidate
         onSubmit={(evt) => handleSubmit(evt)}
         className={newUserStyle.newUserContant}
-        noValidate
       >
         <h1 className={newUserStyle.newUserTitle}>Новый пользователь</h1>
         <ul className={newUserStyle.newUserContainer}>
@@ -92,7 +103,7 @@ export default function NewUser() {
               onChange={(evt) => handleName(evt)}
               value={newUser.name || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -107,7 +118,7 @@ export default function NewUser() {
               onChange={(evt) => handleSurname(evt)}
               value={newUser.surname || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
           <li className={newUserStyle.newUserInput}>
@@ -122,7 +133,7 @@ export default function NewUser() {
               onChange={(evt) => handlePatronymic(evt)}
               value={newUser.patronymic || ''}
               minLength={2}
-              maxLength={15}
+              maxLength={128}
             />
           </li>
         </ul>
@@ -134,16 +145,7 @@ export default function NewUser() {
             >
               Должность
             </label>
-            <Input
-              id="companyprofile"
-              type="text"
-              name="companyprofile"
-              placeholder="Выберите подходящую должность"
-              onChange={(evt) => handlePositionName(evt)}
-              value={newUser.position_name || ''}
-              minLength={2}
-              maxLength={15}
-            />
+            <Select setNewUser={setNewUser} newUser={newUser} />
           </li>
           <li className={newUserStyle.newUserInput}>
             <label className={newUserStyle.newUserLabel} htmlFor="email">
@@ -156,25 +158,8 @@ export default function NewUser() {
               placeholder="Введите E-mail"
               onChange={(evt) => handleEmail(evt)}
               value={newUser.email || ''}
-              minLength={5}
-              maxLength={30}
-            />
-          </li>
-          <li className={newUserStyle.newUserInput}>
-            <label
-              className={newUserStyle.newUserLabel}
-              htmlFor="companyprofile"
-            >
-              Пригласительная ссылка
-            </label>
-            <Input
-              id="linkInvite"
-              type="text"
-              name="linkInvite"
-              placeholder=""
-              onChange={handleChange}
-              value=""
-              disabled
+              minLength={7}
+              maxLength={50}
             />
           </li>
         </ul>
@@ -184,6 +169,7 @@ export default function NewUser() {
             ссылка на платформу
           </p>
           <Button
+            disabled={isSubmitDisabled}
             buttonText="Добавить пользователя"
             type="primary"
             HTMLType="submit"
