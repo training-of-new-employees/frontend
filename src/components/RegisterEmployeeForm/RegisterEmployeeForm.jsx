@@ -52,15 +52,16 @@ export default function RegisterEmployeeForm() {
       event.preventDefault();
       setPassword(searchParams.get("email"), searchParams.get("invite"), password.value)
           .then((data) => {
-              if (data) {
+              if(data) {
+                  console.log("data", data)
                   localStorage.setItem("role", "USER");
                   localStorage.setItem("token", data.token);
                   navigate('/profile')
               }
           })
           .catch((error) => {
-              if (error.status === 401) {
-                  console.log('Вы ввели неправильный логин или пароль.');
+              if (error.status === 405) {
+                  console.log('Эта ссылка уже была использована.');
 
               }
                   console.log('При авторизации произошла ошибка.');

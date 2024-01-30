@@ -11,7 +11,6 @@ import { fetchProfile } from '../../services/profile/profileSlice';
 const Profile = () => {
   const dispatch = useDispatch();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
   const openPopup = () => {
     setIsPopupOpen(true);
   };
@@ -22,7 +21,7 @@ const Profile = () => {
 useEffect(() => {
   dispatch(fetchProfile())
 }, [dispatch]);
-  
+
 
   return (
     <section className={profileStyles.section}>

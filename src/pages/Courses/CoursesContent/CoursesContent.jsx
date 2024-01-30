@@ -24,6 +24,8 @@ export default function CoursesContent() {
     setOpen(true);
   }
 
+  console.log(courses)
+
   function handleClose() {
     setOpen(false);
   }

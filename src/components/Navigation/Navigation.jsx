@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import ProfileSidebar from '../ProfileSidebar/ProfileSidebar';
 import CoursesSidebar from '../CoursesSidebar/CoursesSidebar';
 
-export default function Navigation({ isAdmin, areCoursesOpened }) {
+export default function Navigation({ areCoursesOpened }) {
+    const isAdmin = localStorage.getItem('role') === 'ADMIN'
   return areCoursesOpened ? (
     <CoursesSidebar isAdmin={isAdmin} />
   ) : (
@@ -11,10 +12,10 @@ export default function Navigation({ isAdmin, areCoursesOpened }) {
 }
 
 Navigation.propTypes = {
-  isAdmin: PropTypes.bool,
+  // isAdmin: PropTypes.bool,
   areCoursesOpened: PropTypes.bool.isRequired,
 };
 
-Navigation.defaultProps = {
-  isAdmin: false,
-};
+// Navigation.defaultProps = {
+//   isAdmin: false,
+// };

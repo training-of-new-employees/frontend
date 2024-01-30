@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable no-nested-ternary */
+
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uploadPhoto from '../../images/ui/Photo.svg';
@@ -69,12 +71,12 @@ const ProfileInfo = ({ onEditProfileClick, isUser }) => {
                       ${
                         values.lastName === 'admin'
                           ? 'Фамилия'
-                          : values.lastName
+                          : values.lastName === undefined ? '' : values.lastName
                       } 
-                   ${values.firstName === 'admin' ? 'Имя' : values.firstName} ${
+                   ${values.firstName === 'admin' ? 'Имя' : values.lastName === undefined ? '' : values.firstName} ${
                       values.middleName === 'admin'
                         ? 'Отчество'
-                        : values.middleName
+                        : values.lastName === undefined ? '' : values.middleName
                     }`}
                   </p>
                 </li>
