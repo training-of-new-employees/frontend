@@ -27,7 +27,8 @@ export default function CoursesContent() {
   function handleClose() {
     setOpen(false);
   }
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     dispatch(
       editCoursesAction({
         id: currentCours.id,
@@ -117,9 +118,9 @@ export default function CoursesContent() {
           </div>
           <div className={coursesStyles.buttonContainer}>
             <div role="none" onClick={() => handleClose()}>
-              <Button type="emptyBorder" buttonText="Отменить" />
+              <Button HTMLType='button' type="emptyBorder" buttonText="Отменить" />
             </div>
-            <div role="none" onClick={() => handleSubmit()}>
+            <div role="none" onClick={(event) => handleSubmit(event)}>
               <Button type="primary" buttonText="В архив" />
             </div>
           </div>
