@@ -15,7 +15,7 @@ const paths = {
 // login: sir.jul@yandex.ru
 
 const urlByEnvVar = {
-  development: 'https://quickon.acceleratorpracticum.ru',
+  development: 'https://quick-on.ru',
   // development: 'http://localhost:8081', // generates by using command npm run start
   production: process.env.REACT_APP_BASE_URL, // generates by using command npm run build
 };
