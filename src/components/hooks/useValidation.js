@@ -158,7 +158,7 @@ export function useValidation(value, validations) {
   const [isValid, setIsValid] = useState(false);
 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
-  const emailRegex = /^\S+@\S+\.\S+$/;
+  const emailRegex = /^[A-Z0-9.]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
   useEffect(() => {
     value.length < validations.minLength || value.length > validations.maxLength
@@ -166,7 +166,7 @@ export function useValidation(value, validations) {
       : setIsEmpty(false);
 
     if (validations.type === 'email') {
-      !emailRegex.test(value) ? setEmailError(true) : setEmailError(false);
+      setEmailError(!emailRegex.test(value));
     }
     if (validations.type === 'company') {
       /[^\s]/.test(value) ? setCompanyError(false) : setCompanyError(true);

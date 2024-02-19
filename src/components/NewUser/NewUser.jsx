@@ -29,7 +29,7 @@ export default function NewUser() {
     position_name: '',
     position_id: '',
   });
-  console.log(profile);
+
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -39,7 +39,7 @@ export default function NewUser() {
     if (newUser.name !== '' && newUser.surname !== '' && newUser.email !== '') {
       setIsSubmitDisabled(false)
     }
-  }, [newUser])
+  }, [newUser]);
 
   function handleName(event) {
     console.log(event);
@@ -61,7 +61,7 @@ export default function NewUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUserAction(newUser));
-    navigate(-1)
+    navigate(-1);
   };
 
   return (

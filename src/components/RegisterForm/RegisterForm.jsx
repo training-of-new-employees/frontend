@@ -109,7 +109,6 @@ export default function RegisterForm() {
         console.error('Email verification error:', error);
       });
   }
-  console.log(email.value);
   return (
     <div>
       {isOpenReg ? (

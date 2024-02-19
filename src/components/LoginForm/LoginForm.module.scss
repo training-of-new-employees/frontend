@@ -59,7 +59,7 @@
   border-radius: 12px;
   color: #2c2e2c;
   margin: 8px 0 12px;
-  padding: 12px;
+  padding: 18px 12px;
   width: 100%;
 }
 
@@ -101,7 +101,6 @@
   color: $colorButtonDefault;
   text-align: center;
   cursor: pointer;
-
   background-color: $colorWhite;
   border: none;
 }
@@ -331,7 +330,7 @@
   background-color: $colorWhite;
   display: inline-block;
   position: absolute;
-  top: 13px;
+  top: 17px;
   right: 10px;
   border-radius: 12px;
 }

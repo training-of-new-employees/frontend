@@ -33,12 +33,12 @@ export default function LoginForm() {
     e.preventDefault();
     const values = {
       email: email.value,
-      password: password.value
-    }
-    dispatch(fetchToken(values))
-          navigate('/profile')
-
+      password: password.value,
+    };
+    dispatch(fetchToken(values));
+    navigate('/profile');
   };
+
   return (
     <div className={loginFormStyles.formContainer}>
       <h1 className={loginFormStyles.formTitle}>Авторизация</h1>
